@@ -1,0 +1,53 @@
+##
+## Puertos mas comunes de correo 25 465 587 2525
+##
+
+##
+## Formato para Hotmail 2022
+## Omar Velez Personal
+##
+13a.usuario=omargo33@hotmail.com 
+13a.clave=admin2483700 
+13a.instancia.servidor=true 
+13a.acceso.ssl=true 
+mail.smtp.host=smtp.office365.com 
+mail.smtp.post=587 
+mail.smtp.port=587 
+mail.smtp.auth=true 
+mail.smtp.starttls.enable=true 
+mail.smtp.ssl.protocols=TLSv1.2 
+mail.debug=false 
+
+##
+## Formato para Zimbra 2022
+## Jardin Azuayo Test
+##
+13a.usuario=test.portal@jardinazuayo.fin.ec 
+13a.clave=Testportal.2022 
+13a.instancia.servidor=false 
+13a.acceso.ssl=true 
+mail.smtp.host=smt 
+mail.smtp.host=172.18.34.9 
+mail.smtp.socketFactory.port=465 
+mail.smtp.ssl.enable=true 
+mail.smtp.socketFactory.class=javax.net.ssl.SSLSocketFactory 
+mail.smtp.auth=true 
+mail.smtp.port=465 
+mail.debug=false 
+mail.smtp.starttls.enable=true
+
+##
+## Formato para Gmail 2022
+## Proceso Electronico Test
+##
+13a.usuario=facturacion@procesoelectronico.com
+13a.clave=Fac%%001
+13a.instancia.servidor=false 
+13a.acceso.ssl=true 
+mail.smtp.host=smtp.gmail.com
+mail.smtp.port=465
+mail.smtp.auth=true
+mail.smtp.starttls.enable=true
+mail.smtp.ssl.protocols=TLSv1.2
+mail.smtp.socketFactory.port=465
+mail.smtp.socketFactory.class=javax.net.ssl.SSLSocketFactory

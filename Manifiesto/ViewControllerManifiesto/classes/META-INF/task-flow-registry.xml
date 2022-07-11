@@ -1,0 +1,70 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<task-flow-registry xmlns="http://xmlns.oracle.com/adf/controller/rc">
+   <task-flow-descriptor path="META-INF/adfc-config.xml" id="" type="" uses-page-fragments="false" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="jsp"/>
+   <task-flow-descriptor path="WEB-INF/info-usuario-aeroliena-task-flow.xml" id="info-usuario-aeropuerto-task-flow" type="task-flow-definition" uses-page-fragments="true" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="jsp"/>
+   <task-flow-descriptor path="WEB-INF/informacion-task-flow.xml" id="informacion-task-flow" type="task-flow-definition" uses-page-fragments="true" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="jsp">
+      <input-parameter name="pPermisoActualizar"/>
+      <input-parameter name="pAccion"/>
+      <input-parameter name="pAccionValueId"/>
+      <input-parameter name="pPermisoCrear"/>
+      <input-parameter name="pPermisoBorrar"/>
+      <input-parameter name="pPermisoVerAuditoria"/>
+   </task-flow-descriptor>
+   <task-flow-descriptor path="WEB-INF/libro-direccion-task-flow.xml" id="libro-direccion-task-flow" type="task-flow-definition" uses-page-fragments="true" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="jsp">
+      <input-parameter name="pPermisoActualizar"/>
+      <input-parameter name="pAccion"/>
+      <input-parameter name="pAccionValueId"/>
+      <input-parameter name="pPermisoCrear"/>
+      <input-parameter name="pPermisoBorrar"/>
+      <input-parameter name="pPermisoVerAuditoria"/>
+   </task-flow-descriptor>
+   <task-flow-descriptor path="WEB-INF/libro-direccion-usuario-task-flow.xml" id="libro-direccion-usuario-task-flow" type="task-flow-definition" uses-page-fragments="true" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="jsp">
+      <input-parameter name="hPermisoVerAuditoria"/>
+      <input-parameter name="hPermisoBorrar"/>
+      <input-parameter name="hAccion"/>
+      <input-parameter name="hAccionValueId"/>
+      <input-parameter name="hPermisoActualizar"/>
+      <input-parameter name="hPermisoCrear"/>
+   </task-flow-descriptor>
+   <task-flow-descriptor path="WEB-INF/manifiesto-usuario-task-flow.xml" id="manifiesto-usuario-task-flow" type="task-flow-definition" uses-page-fragments="true" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="jsp">
+      <input-parameter name="pPermisoActualizar"/>
+      <input-parameter name="pAccion"/>
+      <input-parameter name="pAccionValueId"/>
+      <input-parameter name="pPermisoCrear"/>
+      <input-parameter name="pPermisoBorrar"/>
+      <input-parameter name="pPermisoVerAuditoria"/>
+   </task-flow-descriptor>
+   <task-flow-descriptor path="WEB-INF/mensajes-task-flow.xml" id="mensajes-task-flow" type="task-flow-definition" uses-page-fragments="true" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="jsp"/>
+   <task-flow-descriptor path="WEB-INF/menu-main-task-flow.xml" id="menu-main-task-flow" type="task-flow-definition" uses-page-fragments="true" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="unspecified">
+      <input-parameter name="pModulo"/>
+      <input-parameter name="pUsuario"/>
+   </task-flow-descriptor>
+   <task-flow-descriptor path="WEB-INF/plantilla/LOV-test-template.xml" id="LOV-test-template" type="task-flow-template" uses-page-fragments="true" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="unspecified">
+      <input-parameter name="buscar"/>
+      <input-parameter name="idValueInt"/>
+   </task-flow-descriptor>
+   <task-flow-descriptor path="WEB-INF/plantilla/detalle-template.xml" id="detalle-template" type="task-flow-template" uses-page-fragments="true" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="unspecified">
+      <input-parameter name="hPermisoVerAuditoria"/>
+      <input-parameter name="hPermisoBorrar"/>
+      <input-parameter name="hAccion"/>
+      <input-parameter name="hAccionValueId"/>
+      <input-parameter name="hPermisoActualizar"/>
+      <input-parameter name="hPermisoCrear"/>
+   </task-flow-descriptor>
+   <task-flow-descriptor path="WEB-INF/plantilla/maestro-template.xml" id="maestro-template" type="task-flow-template" uses-page-fragments="true" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="unspecified">
+      <input-parameter name="pPermisoActualizar"/>
+      <input-parameter name="pAccion"/>
+      <input-parameter name="pAccionValueId"/>
+      <input-parameter name="pPermisoCrear"/>
+      <input-parameter name="pPermisoBorrar"/>
+      <input-parameter name="pPermisoVerAuditoria"/>
+   </task-flow-descriptor>
+   <task-flow-descriptor path="WEB-INF/tasa-task-flow.xml" id="tasa-task-flow" type="task-flow-definition" uses-page-fragments="true" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="jsp">
+      <input-parameter name="pPermisoActualizar"/>
+      <input-parameter name="pAccion"/>
+      <input-parameter name="pAccionValueId"/>
+      <input-parameter name="pPermisoCrear"/>
+      <input-parameter name="pPermisoBorrar"/>
+      <input-parameter name="pPermisoVerAuditoria"/>
+   </task-flow-descriptor>
+</task-flow-registry>

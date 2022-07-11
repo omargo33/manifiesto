@@ -1,0 +1,657 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core" xmlns:bl01="/baseLib01">
+    <af:panelGroupLayout id="pgl9">
+        <af:pageTemplate viewId="/plantilla/listaFrg.jspx" id="pt1">
+            <f:attribute name="titulo" value="#{bnd.manifiesto_usuario_listaFrg_titulo}"/>
+            <f:attribute name="tituloDescripcion"
+                         value="#{bnd.manifiesto_usuario_listaFrg_descripcion} #{sessionScope.isCLI02}"/>
+            <f:facet name="elementoBusqueda">
+                <af:panelGroupLayout id="pgl1" layout="vertical">
+                    <af:region value="#{bindings.infousuarioaeropuertotaskflow1.regionModel}" id="r1"/>
+                    <af:showDetailHeader text="#{bnd.btn_buscar}" disclosed="true" id="sdh1">
+                        <f:facet name="context"/>
+                        <f:facet name="toolbar"/>
+                        <f:facet name="menuBar"/>
+                        <f:facet name="legend"/>
+                        <f:facet name="info"/>
+                        <af:panelStretchLayout id="psl1">
+                            <f:facet name="start"/>
+                            <f:facet name="end"/>
+                            <f:facet name="top"/>
+                            <f:facet name="bottom">
+                                <af:panelGroupLayout id="pgl2" layout="horizontal" halign="right"
+                                                     inlineStyle="margin-right:10px; width:98%;">
+                                    <af:button actionListener="#{backingBeanScope.PPRBackingManifiestoUsuarioListaFrg.actionBuscar}"
+                                               text="#{bnd.btn_buscar}" id="b10" immediate="true"/>
+                                    <af:button text="#{bnd.btn_limpiar}" id="b20"
+                                               actionListener="#{backingBeanScope.PPRBackingManifiestoUsuarioListaFrg.accionLimpiar}"/>
+                                    <f:facet name="separator">
+                                        <af:spacer id="s2" height="2" width="2"/>
+                                    </f:facet>
+                                </af:panelGroupLayout>
+                            </f:facet>
+                            <f:facet name="center">
+                                <af:panelFormLayout id="pfl1" labelWidth="200">
+                                    <af:panelLabelAndMessage label="Aerolinea" id="plam1"
+                                                             inlineStyle="padding-left:20px;"
+                                                             visible="#{!sessionScope.isCLI02}">
+                                        <af:panelGroupLayout id="pgl10" layout="horizontal">
+                                            <af:inputText id="it1"
+                                                          binding="#{backingBeanScope.PPRBackingManifiestoUsuarioListaFrg.it1}"
+                                                          visible="false"/>
+                                            <af:button id="b1"
+                                                       icon="../../Imagen-001/icons/7548857_search_glass_interface_user_magnifier_zoom_find.svg">
+                                                <af:showPopupBehavior popupId="::p1"/>
+                                            </af:button>
+                                            <af:inputText id="it10"
+                                                          binding="#{backingBeanScope.PPRBackingManifiestoUsuarioListaFrg.it10}"
+                                                          columns="50" immediate="true" disabled="true"/>
+                                            <f:facet name="separator">
+                                                <af:spacer id="s1" height="2" width="2"/>
+                                            </f:facet>
+                                        </af:panelGroupLayout>
+                                    </af:panelLabelAndMessage>
+                                    <af:panelLabelAndMessage label="Aeropuerto Origen" id="plam2"
+                                                             inlineStyle="padding-left:20px;">
+                                        <af:panelGroupLayout id="pgl3" layout="horizontal">
+                                            <af:inputText id="it2"
+                                                          binding="#{backingBeanScope.PPRBackingManifiestoUsuarioListaFrg.it2}"
+                                                          visible="false"/>
+                                            <af:button id="b2"
+                                                       icon="../../Imagen-001/icons/7548857_search_glass_interface_user_magnifier_zoom_find.svg">
+                                                <af:showPopupBehavior popupId="::p2"/>
+                                            </af:button>
+                                            <af:inputText id="it20"
+                                                          binding="#{backingBeanScope.PPRBackingManifiestoUsuarioListaFrg.it20}"
+                                                          columns="50" immediate="true" disabled="true"/>
+                                            <f:facet name="separator">
+                                                <af:spacer id="s7" height="2" width="2"/>
+                                            </f:facet>
+                                        </af:panelGroupLayout>
+                                    </af:panelLabelAndMessage>
+                                    <af:panelLabelAndMessage label="Aeropuerto Destino" id="plam3"
+                                                             inlineStyle="padding-left:20px;">
+                                        <af:panelGroupLayout id="pgl6" layout="horizontal">
+                                            <af:inputText id="it3"
+                                                          binding="#{backingBeanScope.PPRBackingManifiestoUsuarioListaFrg.it3}"
+                                                          autoSubmit="true" immediate="true" columns="5"
+                                                          visible="false"/>
+                                            <af:button id="b3"
+                                                       icon="../../Imagen-001/icons/7548857_search_glass_interface_user_magnifier_zoom_find.svg">
+                                                <af:showPopupBehavior popupId="::p3"/>
+                                            </af:button>
+                                            <af:inputText id="it30"
+                                                          binding="#{backingBeanScope.PPRBackingManifiestoUsuarioListaFrg.it30}"
+                                                          columns="50" immediate="true" disabled="true"/>
+                                            <f:facet name="separator">
+                                                <af:spacer id="s3" height="2" width="2"/>
+                                            </f:facet>
+                                        </af:panelGroupLayout>
+                                    </af:panelLabelAndMessage>
+                                    <af:panelLabelAndMessage label="Aeronave" id="plam4">
+                                        <af:panelGroupLayout id="pgl4" layout="horizontal">
+                                            <af:inputText id="it4"
+                                                          binding="#{backingBeanScope.PPRBackingManifiestoUsuarioListaFrg.it4}"
+                                                          columns="5" autoSubmit="true" immediate="true"
+                                                          visible="false"/>
+                                            <af:button id="b4"
+                                                       icon="../../Imagen-001/icons/7548857_search_glass_interface_user_magnifier_zoom_find.svg">
+                                                <af:showPopupBehavior popupId="::p4"/>
+                                            </af:button>
+                                            <af:inputText id="it40" columns="50" immediate="true" disabled="true"
+                                                          binding="#{backingBeanScope.PPRBackingManifiestoUsuarioListaFrg.it40}"/>
+                                            <f:facet name="separator">
+                                                <af:spacer id="s4" height="2" width="2"/>
+                                            </f:facet>
+                                        </af:panelGroupLayout>
+                                    </af:panelLabelAndMessage>
+                                    <af:inputText label="No. de Vuelo" id="it5" autoSubmit="true"
+                                                  binding="#{backingBeanScope.PPRBackingManifiestoUsuarioListaFrg.it5}"
+                                                  valueChangeListener="#{backingBeanScope.PPRBackingManifiestoUsuarioListaFrg.valueChangeListenerIt5}"
+                                                  immediate="true"/>
+                                    <af:inputDate id="id1" required="true" label="Fecha Inicio" autoSubmit="true"
+                                                  binding="#{backingBeanScope.PPRBackingManifiestoUsuarioListaFrg.id1}"
+                                                  valueChangeListener="#{backingBeanScope.PPRBackingManifiestoUsuarioListaFrg.valueChangeListenerId1}"
+                                                  immediate="true">
+                                        <af:convertDateTime pattern="yyyy-MM-dd"/>
+                                    </af:inputDate>
+                                    <af:inputDate id="id2" required="true" label="Fecha Fin" autoSubmit="true"
+                                                  binding="#{backingBeanScope.PPRBackingManifiestoUsuarioListaFrg.id2}"
+                                                  valueChangeListener="#{backingBeanScope.PPRBackingManifiestoUsuarioListaFrg.valueChangeListenerId2}"
+                                                  immediate="true">
+                                        <af:convertDateTime pattern="yyyy-MM-dd"/>
+                                    </af:inputDate>
+                                    <f:facet name="footer"/>
+                                </af:panelFormLayout>
+                            </f:facet>
+                        </af:panelStretchLayout>
+                    </af:showDetailHeader>
+                    <f:facet name="separator">
+                        <af:spacer id="s9" height="3" width="3"/>
+                    </f:facet>
+                </af:panelGroupLayout>
+            </f:facet>
+            <f:facet name="elementoCentro">
+                <af:panelCollection id="pc1">
+                    <f:facet name="menus"/>
+                    <f:facet name="toolbar">
+                        <af:toolbar id="t2">
+                            <af:button text="Descargar" id="b7"
+                                       action="#{backingBeanScope.PPRBackingManifiestoUsuarioListaFrg.actionDescargar}"></af:button>
+                        </af:toolbar>
+                    </f:facet>
+                    <f:facet name="statusbar"/>
+                    <af:table value="#{bindings.ManifiestoViewNoDML1.collectionModel}" var="row"
+                              rows="#{bindings.ManifiestoViewNoDML1.rangeSize}"
+                              emptyText="#{bindings.ManifiestoViewNoDML1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                              selectedRowKeys="#{bindings.ManifiestoViewNoDML1.collectionModel.selectedRow}"
+                              selectionListener="#{bindings.ManifiestoViewNoDML1.collectionModel.makeCurrent}"
+                              rowSelection="single" fetchSize="#{bindings.ManifiestoViewNoDML1.rangeSize}"
+                              scrollPolicy="page" rowBandingInterval="1" inlineStyle="width:85vw;" id="resId5"
+                              binding="#{backingBeanScope.PPRBackingManifiestoUsuarioListaFrg.resId5}">
+                        <af:column headerText="#{bindings.ManifiestoViewNoDML1.hints.IdManifiesto.label}" id="resId1c1"
+                                   width="60">
+                            <af:link text="#{row.IdManifiesto}" id="l1" action="Editar">
+                                <af:setActionListener to="#{sessionScope.idManifiesto}" from="#{row.IdManifiesto}"/>
+                                <af:setActionListener to="#{sessionScope.aerolineaDescripcion}"
+                                                      from="#{row.IndiceAerolinea} #{row.NombreAerolinea}"/>
+                                <af:setActionListener to="#{sessionScope.aeropuertoDescripcion}"
+                                                      from="#{row.IndiceAeropuerto} #{row.NombreAeropuerto}"/>
+                                <af:setActionListener to="#{sessionScope.aeropuertoDestinoDescripcion}"
+                                                      from="#{row.IndiceDestino} #{row.NombreDestino}"/>
+                                <af:setActionListener to="#{sessionScope.aeronaveDescripcion}"
+                                                      from="#{row.IndiceAeronave} #{row.NombreAeronave}"/>
+                            </af:link>
+                        </af:column>
+                        <af:column headerText="#{bindings.ManifiestoViewNoDML1.hints.Nick.label}" id="resId1c3"
+                                   rendered="false">
+                            <af:outputText value="#{row.Nick}"
+                                           shortDesc="#{bindings.ManifiestoViewNoDML1.hints.Nick.tooltip}" id="ot3"/>
+                        </af:column>
+                        <af:column headerText="#{bindings.ManifiestoViewNoDML1.hints.NombreUsuario.label}" id="resId1c4"
+                                   width="120" rendered="false">
+                            <af:outputText value="#{row.NombreUsuario}"
+                                           shortDesc="#{bindings.ManifiestoViewNoDML1.hints.NombreUsuario.tooltip}"
+                                           id="ot4"/>
+                        </af:column>
+                        <af:column headerText="#{bindings.ManifiestoViewNoDML1.hints.IndiceAerolinea.label}"
+                                   id="resId1c6" rendered="false">
+                            <af:outputText value="#{row.IndiceAerolinea}"
+                                           shortDesc="#{bindings.ManifiestoViewNoDML1.hints.IndiceAerolinea.tooltip}"
+                                           id="ot6"/>
+                        </af:column>
+                        <af:column headerText="#{bindings.ManifiestoViewNoDML1.hints.NombreAerolinea.label}"
+                                   id="resId1c7" width="120" rendered="false">
+                            <af:outputText value="#{row.NombreAerolinea}"
+                                           shortDesc="#{bindings.ManifiestoViewNoDML1.hints.NombreAerolinea.tooltip}"
+                                           id="ot7"/>
+                        </af:column>
+                        <af:column headerText="#{bindings.ManifiestoViewNoDML1.hints.IndiceAeropuerto.label}"
+                                   id="resId1c9">
+                            <af:outputText value="#{row.IndiceAeropuerto}"
+                                           shortDesc="#{bindings.ManifiestoViewNoDML1.hints.IndiceAeropuerto.tooltip}"
+                                           id="ot9"/>
+                        </af:column>
+                        <af:column headerText="#{bindings.ManifiestoViewNoDML1.hints.NombreAeropuerto.label}"
+                                   id="resId1c10" frozen="true" width="120">
+                            <af:outputText value="#{row.NombreAeropuerto}"
+                                           shortDesc="#{bindings.ManifiestoViewNoDML1.hints.NombreAeropuerto.tooltip}"
+                                           id="ot10"/>
+                        </af:column>
+                        <af:column headerText="#{bindings.ManifiestoViewNoDML1.hints.IndiceDestino.label}"
+                                   id="resId1c12">
+                            <af:outputText value="#{row.IndiceDestino}"
+                                           shortDesc="#{bindings.ManifiestoViewNoDML1.hints.IndiceDestino.tooltip}"
+                                           id="ot12"/>
+                        </af:column>
+                        <af:column headerText="#{bindings.ManifiestoViewNoDML1.hints.NombreDestino.label}"
+                                   id="resId1c13" width="120">
+                            <af:outputText value="#{row.NombreDestino}"
+                                           shortDesc="#{bindings.ManifiestoViewNoDML1.hints.NombreDestino.tooltip}"
+                                           id="ot13"/>
+                        </af:column>
+                        <af:column headerText="#{bindings.ManifiestoViewNoDML1.hints.IndiceAeronave.label}"
+                                   id="resId1c15">
+                            <af:outputText value="#{row.IndiceAeronave}"
+                                           shortDesc="#{bindings.ManifiestoViewNoDML1.hints.IndiceAeronave.tooltip}"
+                                           id="ot15"/>
+                        </af:column>
+                        <af:column headerText="#{bindings.ManifiestoViewNoDML1.hints.NombreAeronave.label}"
+                                   id="resId1c16" width="120">
+                            <af:outputText value="#{row.NombreAeronave}"
+                                           shortDesc="#{bindings.ManifiestoViewNoDML1.hints.NombreAeronave.tooltip}"
+                                           id="ot16"/>
+                        </af:column>
+                        <af:column headerText="#{bindings.ManifiestoViewNoDML1.hints.FechaLocalOperacion.label}"
+                                   id="resId1c17" width="120">
+                            <af:outputText value="#{row.FechaLocalOperacion}"
+                                           shortDesc="#{bindings.ManifiestoViewNoDML1.hints.FechaLocalOperacion.tooltip}"
+                                           id="ot17"/>
+                        </af:column>
+                        <af:column headerText="#{bindings.ManifiestoViewNoDML1.hints.NoVuelo.label}" id="resId1c21">
+                            <af:outputText value="#{row.NoVuelo}"
+                                           shortDesc="#{bindings.ManifiestoViewNoDML1.hints.NoVuelo.tooltip}"
+                                           id="ot21"/>
+                        </af:column>
+                        <af:column headerText="#{bindings.ManifiestoViewNoDML1.hints.Pasajeros.label}" id="resId1c22"
+                                   width="80" align="right">
+                            <af:outputText value="#{row.Pasajeros}"
+                                           shortDesc="#{bindings.ManifiestoViewNoDML1.hints.Pasajeros.tooltip}"
+                                           id="ot22">
+                                <af:convertNumber groupingUsed="false"
+                                                  pattern="#{bindings.ManifiestoViewNoDML1.hints.Pasajeros.format}"/>
+                            </af:outputText>
+                        </af:column>
+                        <af:column headerText="#{bindings.ManifiestoViewNoDML1.hints.PasajerosTransito.label}"
+                                   id="resId1c23" width="80" align="right">
+                            <af:outputText value="#{row.PasajerosTransito}"
+                                           shortDesc="#{bindings.ManifiestoViewNoDML1.hints.PasajerosTransito.tooltip}"
+                                           id="ot23">
+                                <af:convertNumber groupingUsed="false"
+                                                  pattern="#{bindings.ManifiestoViewNoDML1.hints.PasajerosTransito.format}"/>
+                            </af:outputText>
+                        </af:column>
+                        <af:column headerText="#{bindings.ManifiestoViewNoDML1.hints.PasajerosLocales.label}"
+                                   id="resId1c24" width="80" align="right">
+                            <af:outputText value="#{row.PasajerosLocales}"
+                                           shortDesc="#{bindings.ManifiestoViewNoDML1.hints.PasajerosLocales.tooltip}"
+                                           id="ot24">
+                                <af:convertNumber groupingUsed="false"
+                                                  pattern="#{bindings.ManifiestoViewNoDML1.hints.PasajerosLocales.format}"/>
+                            </af:outputText>
+                        </af:column>
+                        <af:column headerText="#{bindings.ManifiestoViewNoDML1.hints.PasajerosExentosTasas.label}"
+                                   id="resId1c25" width="80" align="right">
+                            <af:outputText value="#{row.PasajerosExentosTasas}"
+                                           shortDesc="#{bindings.ManifiestoViewNoDML1.hints.PasajerosExentosTasas.tooltip}"
+                                           id="ot25">
+                                <af:convertNumber groupingUsed="false"
+                                                  pattern="#{bindings.ManifiestoViewNoDML1.hints.PasajerosExentosTasas.format}"/>
+                            </af:outputText>
+                        </af:column>
+                        <af:column headerText="#{bindings.ManifiestoViewNoDML1.hints.PasajerosPaganTasas.label}"
+                                   id="resId1c26" width="80" align="right">
+                            <af:outputText value="#{row.PasajerosPaganTasas}"
+                                           shortDesc="#{bindings.ManifiestoViewNoDML1.hints.PasajerosPaganTasas.tooltip}"
+                                           id="ot26">
+                                <af:convertNumber groupingUsed="false"
+                                                  pattern="#{bindings.ManifiestoViewNoDML1.hints.PasajerosPaganTasas.format}"/>
+                            </af:outputText>
+                        </af:column>
+                        <af:column headerText="#{bindings.ManifiestoViewNoDML1.hints.PasajerosPaganDolares.label}"
+                                   id="resId1c27" width="80" align="right" rendered="false">
+                            <af:outputText value="#{row.PasajerosPaganDolares}"
+                                           shortDesc="#{bindings.ManifiestoViewNoDML1.hints.PasajerosPaganDolares.tooltip}"
+                                           id="ot27">
+                                <af:convertNumber groupingUsed="false"
+                                                  pattern="#{bindings.ManifiestoViewNoDML1.hints.PasajerosPaganDolares.format}"/>
+                            </af:outputText>
+                        </af:column>
+                        <af:column headerText="#{bindings.ManifiestoViewNoDML1.hints.PasajerosPaganPesos.label}"
+                                   id="resId1c28" width="80" align="right" rendered="false">
+                            <af:outputText value="#{row.PasajerosPaganPesos}"
+                                           shortDesc="#{bindings.ManifiestoViewNoDML1.hints.PasajerosPaganPesos.tooltip}"
+                                           id="ot28">
+                                <af:convertNumber groupingUsed="false"
+                                                  pattern="#{bindings.ManifiestoViewNoDML1.hints.PasajerosPaganPesos.format}"/>
+                            </af:outputText>
+                        </af:column>
+                        <af:column headerText="#{bindings.ManifiestoViewNoDML1.hints.PasajerosExentosTimbres.label}"
+                                   id="resId1c29" width="80" align="right">
+                            <af:outputText value="#{row.PasajerosExentosTimbres}"
+                                           shortDesc="#{bindings.ManifiestoViewNoDML1.hints.PasajerosExentosTimbres.tooltip}"
+                                           id="ot29">
+                                <af:convertNumber groupingUsed="false"
+                                                  pattern="#{bindings.ManifiestoViewNoDML1.hints.PasajerosExentosTimbres.format}"/>
+                            </af:outputText>
+                        </af:column>
+                        <af:column headerText="#{bindings.ManifiestoViewNoDML1.hints.PasajerosPaganTimbres.label}"
+                                   id="resId1c30" width="80" align="right">
+                            <af:outputText value="#{row.PasajerosPaganTimbres}"
+                                           shortDesc="#{bindings.ManifiestoViewNoDML1.hints.PasajerosPaganTimbres.tooltip}"
+                                           id="ot30">
+                                <af:convertNumber groupingUsed="false"
+                                                  pattern="#{bindings.ManifiestoViewNoDML1.hints.PasajerosPaganTimbres.format}"/>
+                            </af:outputText>
+                        </af:column>
+                        <af:column headerText="#{bindings.ManifiestoViewNoDML1.hints.PasajerosPaganTimbresDolares.label}"
+                                   id="resId1c31" width="80" align="right" visible="false">
+                            <af:outputText value="#{row.PasajerosPaganTimbresDolares}"
+                                           shortDesc="#{bindings.ManifiestoViewNoDML1.hints.PasajerosPaganTimbresDolares.tooltip}"
+                                           id="ot31">
+                                <af:convertNumber groupingUsed="false"
+                                                  pattern="#{bindings.ManifiestoViewNoDML1.hints.PasajerosPaganTimbresDolares.format}"/>
+                            </af:outputText>
+                        </af:column>
+                        <af:column headerText="#{bindings.ManifiestoViewNoDML1.hints.PasajerosPaganTimbresPesos.label}"
+                                   id="resId1c32" width="80" align="right" visible="false">
+                            <af:outputText value="#{row.PasajerosPaganTimbresPesos}"
+                                           shortDesc="#{bindings.ManifiestoViewNoDML1.hints.PasajerosPaganTimbresPesos.tooltip}"
+                                           id="ot32">
+                                <af:convertNumber groupingUsed="false"
+                                                  pattern="#{bindings.ManifiestoViewNoDML1.hints.PasajerosPaganTimbresPesos.format}"/>
+                            </af:outputText>
+                        </af:column>
+                        <af:column headerText="#{bindings.ManifiestoViewNoDML1.hints.Tasa.label}" id="resId1c33"
+                                   width="80" align="right" rendered="false" visible="false">
+                            <af:outputText value="#{row.Tasa}"
+                                           shortDesc="#{bindings.ManifiestoViewNoDML1.hints.Tasa.tooltip}" id="ot33">
+                                <af:convertNumber groupingUsed="false"
+                                                  pattern="#{bindings.ManifiestoViewNoDML1.hints.Tasa.format}"/>
+                            </af:outputText>
+                        </af:column>
+                        <af:column headerText="#{bindings.ManifiestoViewNoDML1.hints.Timbre.label}" id="resId1c34"
+                                   width="80" align="right">
+                            <af:outputText value="#{row.Timbre}"
+                                           shortDesc="#{bindings.ManifiestoViewNoDML1.hints.Timbre.tooltip}" id="ot34">
+                                <af:convertNumber groupingUsed="false"
+                                                  pattern="#{bindings.ManifiestoViewNoDML1.hints.Timbre.format}"/>
+                            </af:outputText>
+                        </af:column>
+                        <af:column headerText="#{bindings.ManifiestoViewNoDML1.hints.TimbreTotal.label}" id="c4"
+                                   width="80" align="right">
+                            <af:outputText value="#{row.TimbreTotal}"
+                                           shortDesc="#{bindings.ManifiestoViewNoDML1.hints.TimbreTotal.tooltip}"
+                                           id="ot42">
+                                <af:convertNumber groupingUsed="false"
+                                                  pattern="#{bindings.ManifiestoViewNoDML1.hints.TimbreTotal.format}"/>
+                            </af:outputText>
+                        </af:column>
+                        <af:column headerText="#{bindings.ManifiestoViewNoDML1.hints.Tipo.label}" id="resId1c36">
+                            <af:selectOneChoice value="#{row.bindings.Tipo.inputValue}"
+                                                label="#{row.bindings.Tipo.label}"
+                                                required="#{bindings.ManifiestoViewNoDML1.hints.Tipo.mandatory}"
+                                                shortDesc="#{bindings.ManifiestoViewNoDML1.hints.Tipo.tooltip}"
+                                                readOnly="true" id="soc1">
+                                <f:selectItems value="#{row.bindings.Tipo.items}" id="si1"/>
+                                <f:validator binding="#{row.bindings.Tipo.validator}"/>
+                            </af:selectOneChoice>
+                        </af:column>
+                        <af:column headerText="#{bindings.ManifiestoViewNoDML1.hints.Estado.label}" id="resId1c37">
+                            <af:selectOneChoice value="#{row.bindings.Estado.inputValue}"
+                                                label="#{row.bindings.Estado.label}"
+                                                required="#{bindings.ManifiestoViewNoDML1.hints.Estado.mandatory}"
+                                                shortDesc="#{bindings.ManifiestoViewNoDML1.hints.Estado.tooltip}"
+                                                readOnly="true" id="soc2">
+                                <f:selectItems value="#{row.bindings.Estado.items}" id="si2"/>
+                                <f:validator binding="#{row.bindings.Estado.validator}"/>
+                            </af:selectOneChoice>
+                        </af:column>
+                    </af:table>
+                </af:panelCollection>
+            </f:facet>
+            <f:facet name="elementoAcciones">
+                <bl01:botonesAtrasCrear id="bac1" atrasAccion="Inicio" crearAccion="Create"
+                                        crearTexto="#{bnd.manifiesto_usuario_listaFrg_boton_crear}"
+                                        crearPermiso="#{pageFlowScope.pPermisoCrear}"/>
+            </f:facet>
+        </af:pageTemplate>
+        <af:popup childCreation="deferred" autoCancel="disabled" id="p1"
+                  binding="#{backingBeanScope.PPRBackingManifiestoUsuarioListaFrg.p1}">
+            <af:dialog id="d1" type="cancel" title="Buscar Aerolinea">
+                <af:panelGroupLayout layout="vertical" id="pgl7">
+                    <f:facet name="separator">
+                        <af:spacer id="s5" height="3" width="3"/>
+                    </f:facet>
+                    <af:query id="qryId3"
+                              value="#{bindings.LibroDireccionesViewNoDMLCriteriaAerolineaQuery.queryDescriptor}"
+                              model="#{bindings.LibroDireccionesViewNoDMLCriteriaAerolineaQuery.queryModel}"
+                              queryListener="#{bindings.LibroDireccionesViewNoDMLCriteriaAerolineaQuery.processQuery}"
+                              queryOperationListener="#{bindings.LibroDireccionesViewNoDMLCriteriaAerolineaQuery.processQueryOperation}"
+                              resultComponentId="::resId1" headerText="#{bnd.msg_busquea_titulo}"
+                              conjunctionReadOnly="true" searchButtonText="#{bnd.btn_buscar}"
+                              resetButtonText="#{bnd.btn_limpiar}" labelWidth="240" saveQueryMode="hidden"
+                              modeChangeVisible="false" disclosed="true"/>
+                    <af:table value="#{bindings.LibroDireccionesAerolineaViewNoDML1.collectionModel}" var="row"
+                              rows="#{bindings.LibroDireccionesAerolineaViewNoDML1.rangeSize}"
+                              emptyText="#{bindings.LibroDireccionesAerolineaViewNoDML1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                              rowBandingInterval="1"
+                              selectedRowKeys="#{bindings.LibroDireccionesAerolineaViewNoDML1.collectionModel.selectedRow}"
+                              selectionListener="#{bindings.LibroDireccionesAerolineaViewNoDML1.collectionModel.makeCurrent}"
+                              rowSelection="single"
+                              fetchSize="#{bindings.LibroDireccionesAerolineaViewNoDML1.rangeSize}" id="resId1"
+                              scrollPolicy="page" columnStretching="column:resId1c5"
+                              binding="#{backingBeanScope.PPRBackingManifiestoUsuarioListaFrg.resId1}"
+                              inlineStyle="width:60vw;">
+                        <af:column headerText="#{bindings.LibroDireccionesAerolineaViewNoDML1.hints.IdLibroDireccion.label}"
+                                   id="c1" rendered="false">
+                            <af:outputText value="#{row.IdLibroDireccion}"
+                                           shortDesc="#{bindings.LibroDireccionesAerolineaViewNoDML1.hints.IdLibroDireccion.tooltip}"
+                                           id="ot8">
+                                <af:convertNumber groupingUsed="false"
+                                                  pattern="#{bindings.LibroDireccionesAerolineaViewNoDML1.hints.IdLibroDireccion.format}"/>
+                            </af:outputText>
+                        </af:column>
+                        <af:column headerText="#{bindings.LibroDireccionesAerolineaViewNoDML1.hints.Indice.label}"
+                                   id="resId1c2" rendered="false">
+                            <af:outputText value="#{row.Indice}"
+                                           shortDesc="#{bindings.LibroDireccionesAerolineaViewNoDML1.hints.Indice.tooltip}"
+                                           id="ot14">
+                                <af:convertNumber groupingUsed="false"
+                                                  pattern="#{bindings.LibroDireccionesAerolineaViewNoDML1.hints.Indice.format}"/>
+                            </af:outputText>
+                        </af:column>
+                        <af:column headerText="#{bindings.LibroDireccionesAerolineaViewNoDML1.hints.IndiceSecundario.label}"
+                                   id="c2">
+                            <af:outputText value="#{row.IndiceSecundario}"
+                                           shortDesc="#{bindings.LibroDireccionesAerolineaViewNoDML1.hints.IndiceSecundario.tooltip}"
+                                           id="ot18"/>
+                        </af:column>
+                        <af:column headerText="#{bindings.LibroDireccionesAerolineaViewNoDML1.hints.IdentificacionFiscal.label}"
+                                   id="c3" rendered="false">
+                            <af:outputText value="#{row.IdentificacionFiscal}"
+                                           shortDesc="#{bindings.LibroDireccionesAerolineaViewNoDML1.hints.IdentificacionFiscal.tooltip}"
+                                           id="ot19"/>
+                        </af:column>
+                        <af:column headerText="#{bindings.LibroDireccionesAerolineaViewNoDML1.hints.Nombre.label}"
+                                   id="resId1c5">
+                            <af:link text="#{row.Nombre}" id="ot20" styleClass="linkSelected"
+                                     actionListener="#{backingBeanScope.PPRBackingManifiestoUsuarioListaFrg.accionSeleccionar1}"/>
+                        </af:column>
+                    </af:table>
+                </af:panelGroupLayout>
+            </af:dialog>
+        </af:popup>
+        <af:popup childCreation="deferred" autoCancel="disabled" id="p2"
+                  binding="#{backingBeanScope.PPRBackingManifiestoUsuarioListaFrg.p2}">
+            <af:dialog id="d2" type="cancel" title="Buscar Aeropuerto Origen">
+                <af:panelGroupLayout layout="vertical" id="pgl70">
+                    <f:facet name="separator">
+                        <af:spacer id="s50" height="3" width="3"/>
+                    </f:facet>
+                    <af:query id="qryId4"
+                              value="#{bindings.LibroDireccionesViewNoDMLCriteriaAeropuertoQuery1.queryDescriptor}"
+                              model="#{bindings.LibroDireccionesViewNoDMLCriteriaAeropuertoQuery1.queryModel}"
+                              queryListener="#{bindings.LibroDireccionesViewNoDMLCriteriaAeropuertoQuery1.processQuery}"
+                              queryOperationListener="#{bindings.LibroDireccionesViewNoDMLCriteriaAeropuertoQuery1.processQueryOperation}"
+                              resultComponentId="::resId4" headerText="#{bnd.msg_busquea_titulo}"
+                              conjunctionReadOnly="true" searchButtonText="#{bnd.btn_buscar}"
+                              resetButtonText="#{bnd.btn_limpiar}" labelWidth="240" saveQueryMode="hidden"
+                              modeChangeVisible="false" disclosed="true"/>
+                    <af:table value="#{bindings.LibroDireccionesAeropuertoViewNoDML1.collectionModel}" var="row"
+                              rows="#{bindings.LibroDireccionesAeropuertoViewNoDML1.rangeSize}"
+                              emptyText="#{bindings.LibroDireccionesAeropuertoViewNoDML1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                              rowBandingInterval="1"
+                              selectedRowKeys="#{bindings.LibroDireccionesAeropuertoViewNoDML1.collectionModel.selectedRow}"
+                              selectionListener="#{bindings.LibroDireccionesAeropuertoViewNoDML1.collectionModel.makeCurrent}"
+                              rowSelection="single"
+                              fetchSize="#{bindings.LibroDireccionesAeropuertoViewNoDML1.rangeSize}" id="resId4"
+                              scrollPolicy="page" columnStretching="column:resId4c5"
+                              binding="#{backingBeanScope.PPRBackingManifiestoUsuarioListaFrg.resId4}"
+                              inlineStyle="width:60vw;">
+                        <af:column headerText="#{bindings.LibroDireccionesAeropuertoViewNoDML1.hints.IdLibroDireccion.label}"
+                                   id="resId4c1" rendered="false">
+                            <af:outputText value="#{row.IdLibroDireccion}"
+                                           shortDesc="#{bindings.LibroDireccionesAeropuertoViewNoDML1.hints.IdLibroDireccion.tooltip}"
+                                           id="ot35">
+                                <af:convertNumber groupingUsed="false"
+                                                  pattern="#{bindings.LibroDireccionesAeropuertoViewNoDML1.hints.IdLibroDireccion.format}"/>
+                            </af:outputText>
+                        </af:column>
+                        <af:column headerText="#{bindings.LibroDireccionesAeropuertoViewNoDML1.hints.Indice.label}"
+                                   id="resId4c2" rendered="false">
+                            <af:outputText value="#{row.Indice}"
+                                           shortDesc="#{bindings.LibroDireccionesAeropuertoViewNoDML1.hints.Indice.tooltip}"
+                                           id="ot36">
+                                <af:convertNumber groupingUsed="false"
+                                                  pattern="#{bindings.LibroDireccionesAeropuertoViewNoDML1.hints.Indice.format}"/>
+                            </af:outputText>
+                        </af:column>
+                        <af:column headerText="#{bindings.LibroDireccionesAeropuertoViewNoDML1.hints.IndiceSecundario.label}"
+                                   id="resId4c3">
+                            <af:outputText value="#{row.IndiceSecundario}"
+                                           shortDesc="#{bindings.LibroDireccionesAeropuertoViewNoDML1.hints.IndiceSecundario.tooltip}"
+                                           id="ot39"/>
+                        </af:column>
+                        <af:column headerText="#{bindings.LibroDireccionesAeropuertoViewNoDML1.hints.IdentificacionFiscal.label}"
+                                   id="resId4c4" rendered="false">
+                            <af:outputText value="#{row.IdentificacionFiscal}"
+                                           shortDesc="#{bindings.LibroDireccionesAeropuertoViewNoDML1.hints.IdentificacionFiscal.tooltip}"
+                                           id="ot40"/>
+                        </af:column>
+                        <af:column headerText="#{bindings.LibroDireccionesAeropuertoViewNoDML1.hints.Nombre.label}"
+                                   id="resId4c5">
+                            <af:link text="#{row.Nombre}" id="ot41" styleClass="linkSelected"
+                                     actionListener="#{backingBeanScope.PPRBackingManifiestoUsuarioListaFrg.accionSeleccionar2}"/>
+                        </af:column>
+                    </af:table>
+                </af:panelGroupLayout>
+            </af:dialog>
+        </af:popup>
+        <af:popup childCreation="deferred" autoCancel="disabled" id="p3"
+                  binding="#{backingBeanScope.PPRBackingManifiestoUsuarioListaFrg.p3}">
+            <af:dialog id="d3" type="cancel" title="Buscar Aerolinea">
+                <af:panelGroupLayout layout="vertical" id="pgl8">
+                    <af:query id="qryId1"
+                              value="#{bindings.LibroDireccionesViewNoDMLCriteriaAeropuertoQuery.queryDescriptor}"
+                              model="#{bindings.LibroDireccionesViewNoDMLCriteriaAeropuertoQuery.queryModel}"
+                              queryListener="#{bindings.LibroDireccionesViewNoDMLCriteriaAeropuertoQuery.processQuery}"
+                              queryOperationListener="#{bindings.LibroDireccionesViewNoDMLCriteriaAeropuertoQuery.processQueryOperation}"
+                              resultComponentId="::resId2" headerText="#{bnd.msg_busquea_titulo}"
+                              conjunctionReadOnly="true" searchButtonText="#{bnd.btn_buscar}"
+                              resetButtonText="#{bnd.btn_limpiar}" labelWidth="240" saveQueryMode="hidden"
+                              modeChangeVisible="false" disclosed="true"/>
+                    <af:table value="#{bindings.LibroDireccionesAeropuertoDestinoViewNoDML1.collectionModel}" var="row"
+                              rows="#{bindings.LibroDireccionesAeropuertoDestinoViewNoDML1.rangeSize}"
+                              emptyText="#{bindings.LibroDireccionesAeropuertoDestinoViewNoDML1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                              selectedRowKeys="#{bindings.LibroDireccionesAeropuertoDestinoViewNoDML1.collectionModel.selectedRow}"
+                              selectionListener="#{bindings.LibroDireccionesAeropuertoDestinoViewNoDML1.collectionModel.makeCurrent}"
+                              rowSelection="single"
+                              fetchSize="#{bindings.LibroDireccionesAeropuertoDestinoViewNoDML1.rangeSize}"
+                              scrollPolicy="page" rowBandingInterval="1" columnStretching="column:resId2c5"
+                              inlineStyle="width:60vw;" id="resId2"
+                              binding="#{backingBeanScope.PPRBackingManifiestoUsuarioListaFrg.resId2}">
+                        <af:column headerText="#{bindings.LibroDireccionesAeropuertoDestinoViewNoDML1.hints.IdLibroDireccion.label}"
+                                   id="resId2c1" rendered="false">
+                            <af:outputText value="#{row.IdLibroDireccion}"
+                                           shortDesc="#{bindings.LibroDireccionesAeropuertoDestinoViewNoDML1.hints.IdLibroDireccion.tooltip}"
+                                           id="ot1">
+                                <af:convertNumber groupingUsed="false"
+                                                  pattern="#{bindings.LibroDireccionesAeropuertoDestinoViewNoDML1.hints.IdLibroDireccion.format}"/>
+                            </af:outputText>
+                        </af:column>
+                        <af:column headerText="#{bindings.LibroDireccionesAeropuertoDestinoViewNoDML1.hints.Indice.label}"
+                                   id="resId2c2" rendered="false">
+                            <af:outputText value="#{row.Indice}"
+                                           shortDesc="#{bindings.LibroDireccionesAeropuertoDestinoViewNoDML1.hints.Indice.tooltip}"
+                                           id="ot2">
+                                <af:convertNumber groupingUsed="false"
+                                                  pattern="#{bindings.LibroDireccionesAeropuertoDestinoViewNoDML1.hints.Indice.format}"/>
+                            </af:outputText>
+                        </af:column>
+                        <af:column headerText="#{bindings.LibroDireccionesAeropuertoDestinoViewNoDML1.hints.IndiceSecundario.label}"
+                                   id="resId2c3">
+                            <af:outputText value="#{row.IndiceSecundario}"
+                                           shortDesc="#{bindings.LibroDireccionesAeropuertoDestinoViewNoDML1.hints.IndiceSecundario.tooltip}"
+                                           id="ot5"/>
+                        </af:column>
+                        <af:column headerText="#{bindings.LibroDireccionesAeropuertoDestinoViewNoDML1.hints.Nombre.label}"
+                                   id="resId2c5">
+                            <af:link text="#{row.Nombre}" id="l20" styleClass="linkSelected"
+                                     actionListener="#{backingBeanScope.PPRBackingManifiestoUsuarioListaFrg.accionSeleccionar3}"/>
+                        </af:column>
+                    </af:table>
+                    <f:facet name="separator">
+                        <af:spacer id="s6" height="3" width="3"/>
+                    </f:facet>
+                </af:panelGroupLayout>
+            </af:dialog>
+        </af:popup>
+        <af:popup childCreation="deferred" autoCancel="disabled" id="p4"
+                  binding="#{backingBeanScope.PPRBackingManifiestoUsuarioListaFrg.p4}">
+            <af:dialog id="d40" title="Buscar Aeronave">
+                <af:panelGroupLayout id="pgl5">
+                    <af:query id="qryId2"
+                              value="#{bindings.LibroDireccionesViewNoDMLCriteriaAeronaveQuery.queryDescriptor}"
+                              model="#{bindings.LibroDireccionesViewNoDMLCriteriaAeronaveQuery.queryModel}"
+                              queryListener="#{bindings.LibroDireccionesViewNoDMLCriteriaAeronaveQuery.processQuery}"
+                              queryOperationListener="#{bindings.LibroDireccionesViewNoDMLCriteriaAeronaveQuery.processQueryOperation}"
+                              resultComponentId="::resId3" headerText="#{bnd.msg_busquea_titulo}"
+                              conjunctionReadOnly="true" searchButtonText="#{bnd.btn_buscar}"
+                              resetButtonText="#{bnd.btn_limpiar}" labelWidth="240" saveQueryMode="hidden"
+                              modeChangeVisible="false" disclosed="true"/>
+                    <af:table value="#{bindings.LibroDireccionesAeronaveViewNoDML1.collectionModel}" var="row"
+                              rows="#{bindings.LibroDireccionesAeronaveViewNoDML1.rangeSize}"
+                              emptyText="#{bindings.LibroDireccionesAeronaveViewNoDML1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                              rowBandingInterval="1"
+                              selectedRowKeys="#{bindings.LibroDireccionesAeronaveViewNoDML1.collectionModel.selectedRow}"
+                              selectionListener="#{bindings.LibroDireccionesAeronaveViewNoDML1.collectionModel.makeCurrent}"
+                              rowSelection="single" fetchSize="#{bindings.LibroDireccionesAeronaveViewNoDML1.rangeSize}"
+                              inlineStyle="width:60vw;" id="resId3" scrollPolicy="page"
+                              binding="#{backingBeanScope.PPRBackingManifiestoUsuarioListaFrg.resId3}"
+                              columnStretching="column:resId3c4">
+                        <?audit suppress oracle.adf.faces.tableneedsrowheader?>
+                        <af:column headerText="#{bindings.LibroDireccionesAeronaveViewNoDML1.hints.IdLibroDireccion.label}"
+                                   id="resId3c1" rendered="false">
+                            <af:outputText value="#{row.IdLibroDireccion}"
+                                           shortDesc="#{bindings.LibroDireccionesAeronaveViewNoDML1.hints.IdLibroDireccion.tooltip}"
+                                           id="ot11">
+                                <af:convertNumber groupingUsed="false"
+                                                  pattern="#{bindings.LibroDireccionesAeronaveViewNoDML1.hints.IdLibroDireccion.format}"/>
+                            </af:outputText>
+                        </af:column>
+                        <af:column headerText="#{bindings.LibroDireccionesAeronaveViewNoDML1.hints.Indice.label}"
+                                   id="resId3c2" rendered="false">
+                            <af:outputText value="#{row.Indice}"
+                                           shortDesc="#{bindings.LibroDireccionesAeronaveViewNoDML1.hints.Indice.tooltip}"
+                                           id="ot37">
+                                <af:convertNumber groupingUsed="false"
+                                                  pattern="#{bindings.LibroDireccionesAeronaveViewNoDML1.hints.Indice.format}"/>
+                            </af:outputText>
+                        </af:column>
+                        <af:column headerText="#{bindings.LibroDireccionesAeronaveViewNoDML1.hints.IndiceSecundario.label}"
+                                   id="resId3c3">
+                            <af:outputText value="#{row.IndiceSecundario}"
+                                           shortDesc="#{bindings.LibroDireccionesAeronaveViewNoDML1.hints.IndiceSecundario.tooltip}"
+                                           id="ot38"/>
+                        </af:column>
+                        <af:column headerText="#{bindings.LibroDireccionesAeronaveViewNoDML1.hints.Nombre.label}"
+                                   id="resId3c4">
+                            <af:link text="#{row.Nombre}" id="l30" styleClass="linkSelected"
+                                     actionListener="#{backingBeanScope.PPRBackingManifiestoUsuarioListaFrg.accionSeleccionar4}"/>
+                        </af:column>
+                    </af:table>
+                </af:panelGroupLayout>
+            </af:dialog>
+        </af:popup>
+        <af:popup childCreation="deferred" autoCancel="disabled" id="p5"
+                  binding="#{backingBeanScope.PPRBackingManifiestoUsuarioListaFrg.p5}">
+            <af:dialog id="d5" type="cancel" title="Descargar">
+                <f:facet name="buttonBar">
+                    <af:button id="cb5" text="Descargar"
+                               destination="Download?idArchivo=#{sessionScope.idArchivo}&amp;nameUser=#{sessionScope.BaseBean.nameUser}"
+                               targetFrame="_blank"></af:button>
+                </f:facet>
+                <af:panelBorderLayout id="pbl5">
+                    <af:panelHeader id="ph1" text="Descargar reporte " messageType="confirmation">
+                        <af:outputText value="Usted puede descargar el reporte en formato XLS/XLSX" id="ot43"/>
+                    </af:panelHeader>
+                </af:panelBorderLayout>
+            </af:dialog>
+        </af:popup>
+        <f:facet name="separator">
+            <af:spacer id="s8" height="3" width="3"/>
+        </f:facet>
+    </af:panelGroupLayout>
+</jsp:root>
