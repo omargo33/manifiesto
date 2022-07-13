@@ -1,6 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
           xmlns:f="http://java.sun.com/jsf/core" xmlns:bl01="/baseLib01">
+
     <af:panelGroupLayout id="pgl8">
         <af:pageTemplate viewId="/plantilla/itemFrg.jspx" id="pt1">
             <f:facet name="elementoCentro">
@@ -16,9 +17,9 @@
                                            immediate="true" disabled="#{sessionScope.isCLI02}">
                                     <af:showPopupBehavior popupId="::p4"/>
                                 </af:button>
-                                <af:inputText id="it180" columns="50" immediate="true" disabled="true"
+                                <af:inputText id="it180" columns="50"
                                               value="#{sessionScope.aerolineaDescripcion}"
-                                              binding="#{backingBeanScope.PPRBackingManifiestoUsuarioItemFrg.it180}"/>
+                                              binding="#{PPRBackingManifiestoUsuarioItemFrg.it180}"/>
                                 <f:facet name="separator">
                                     <af:spacer id="s7" height="2" width="2"/>
                                 </f:facet>
@@ -33,9 +34,9 @@
                                            immediate="true">
                                     <af:showPopupBehavior popupId="::p3"/>
                                 </af:button>
-                                <af:inputText id="it190" columns="50" immediate="true" disabled="true"
+                                <af:inputText id="it190" columns="50"
                                               value="#{sessionScope.aeropuertoDescripcion}"
-                                              binding="#{backingBeanScope.PPRBackingManifiestoUsuarioItemFrg.it190}"/>
+                                              binding="#{PPRBackingManifiestoUsuarioItemFrg.it190}"/>
                                 <f:facet name="separator">
                                     <af:spacer id="s1" height="2" width="2"/>
                                 </f:facet>
@@ -50,8 +51,8 @@
                                            immediate="true">
                                     <af:showPopupBehavior popupId="::p1"/>
                                 </af:button>
-                                <af:inputText id="it200" columns="50" immediate="true" disabled="true"
-                                              binding="#{backingBeanScope.PPRBackingManifiestoUsuarioItemFrg.it200}"
+                                <af:inputText id="it200" columns="50" disabled="true"
+                                              binding="#{PPRBackingManifiestoUsuarioItemFrg.it200}"
                                               value="#{sessionScope.aeropuertoDestinoDescripcion}"/>
                                 <f:facet name="separator">
                                     <af:spacer id="s3" height="2" width="2"/>
@@ -66,8 +67,8 @@
                                            immediate="true">
                                     <af:showPopupBehavior popupId="::p2"/>
                                 </af:button>
-                                <af:inputText id="it210" columns="50" immediate="true" disabled="true"
-                                              binding="#{backingBeanScope.PPRBackingManifiestoUsuarioItemFrg.it210}"
+                                <af:inputText id="it210" columns="50" disabled="true"
+                                              binding="#{PPRBackingManifiestoUsuarioItemFrg.it210}"
                                               value="#{sessionScope.aeronaveDescripcion}"/>
                                 <f:facet name="separator">
                                     <af:spacer id="s2" height="2" width="2"/>
@@ -96,9 +97,8 @@
                         <af:selectOneChoice value="#{bindings.Tipo.inputValue}" label="#{bindings.Tipo.label}"
                                             required="#{bindings.Tipo.hints.mandatory}"
                                             shortDesc="#{bindings.Tipo.hints.tooltip}" id="soc6" autoSubmit="true"
-                                            immediate="true"
-                                            valueChangeListener="#{backingBeanScope.PPRBackingManifiestoUsuarioItemFrg.nacionalInternacional}"
-                                            binding="#{backingBeanScope.PPRBackingManifiestoUsuarioItemFrg.soc6}">
+                                            valueChangeListener="#{PPRBackingManifiestoUsuarioItemFrg.valueChangeSoc6}"
+                                            binding="#{PPRBackingManifiestoUsuarioItemFrg.soc6}">
                             <f:selectItems value="#{bindings.Tipo.items}" id="si6"/>
                             <f:validator binding="#{bindings.Tipo.validator}"/>
                         </af:selectOneChoice>
@@ -109,8 +109,8 @@
                                       maximumLength="#{bindings.Pasajeros.hints.precision}"
                                       shortDesc="#{bindings.Pasajeros.hints.tooltip}" id="it3" autoSubmit="true"
                                       contentStyle="text-align:right;"
-                                      binding="#{backingBeanScope.PPRBackingManifiestoUsuarioItemFrg.it3}"
-                                      valueChangeListener="#{backingBeanScope.PPRBackingManifiestoUsuarioItemFrg.valueChangeIt3}">
+                                      binding="#{PPRBackingManifiestoUsuarioItemFrg.it3}"
+                                      valueChangeListener="#{PPRBackingManifiestoUsuarioItemFrg.valueChangeIt3}">
                             <f:validator binding="#{bindings.Pasajeros.validator}"/>
                             <af:convertNumber groupingUsed="false" pattern="#{bindings.Pasajeros.format}"/>
                         </af:inputText>
@@ -121,8 +121,9 @@
                                       maximumLength="#{bindings.PasajerosTransito.hints.precision}"
                                       shortDesc="#{bindings.PasajerosTransito.hints.tooltip}" id="it4" autoSubmit="true"
                                       contentStyle="text-align:right;"
-                                      binding="#{backingBeanScope.PPRBackingManifiestoUsuarioItemFrg.it4}"
-                                      valueChangeListener="#{backingBeanScope.PPRBackingManifiestoUsuarioItemFrg.valueChangeIt4}">
+                                      binding="#{PPRBackingManifiestoUsuarioItemFrg.it4}"
+
+                                      valueChangeListener="#{PPRBackingManifiestoUsuarioItemFrg.valueChangeIt4}">
                             <f:validator binding="#{bindings.PasajerosTransito.validator}"/>
                             <af:convertNumber groupingUsed="false" pattern="#{bindings.PasajerosTransito.format}"/>
                         </af:inputText>
@@ -130,10 +131,9 @@
                                       required="#{bindings.PasajerosLocales.hints.mandatory}"
                                       columns="#{bindings.PasajerosLocales.hints.displayWidth}"
                                       maximumLength="#{bindings.PasajerosLocales.hints.precision}"
-                                      shortDesc="#{bindings.PasajerosLocales.hints.tooltip}" id="it5" autoSubmit="true"
+                                      shortDesc="#{bindings.PasajerosLocales.hints.tooltip}" id="it5"
                                       contentStyle="text-align:right;" disabled="true"
-                                      binding="#{backingBeanScope.PPRBackingManifiestoUsuarioItemFrg.it5}"
-                                      valueChangeListener="#{backingBeanScope.PPRBackingManifiestoUsuarioItemFrg.valueChangeIt5}">
+                                      binding="#{PPRBackingManifiestoUsuarioItemFrg.it5}" value="#{bindings.PasajerosLocales.inputValue}">
                             <f:validator binding="#{bindings.PasajerosLocales.validator}"/>
                             <af:convertNumber groupingUsed="false" pattern="#{bindings.PasajerosLocales.format}"/>
                         </af:inputText>
@@ -142,15 +142,19 @@
                     <af:panelGroupLayout id="pgl9" valign="top" halign="left" layout="horizontal">
                         <af:panelFormLayout id="pfl3" labelWidth="200">
                             <f:facet name="footer"/>
+                            
+                            
                             <af:inputText value="#{bindings.PasajerosExentosTasas.inputValue}"
                                           label="#{bindings.PasajerosExentosTasas.hints.label}"
                                           required="#{bindings.PasajerosExentosTasas.hints.mandatory}"
                                           columns="#{bindings.PasajerosExentosTasas.hints.displayWidth}"
                                           maximumLength="#{bindings.PasajerosExentosTasas.hints.precision}"
                                           shortDesc="#{bindings.PasajerosExentosTasas.hints.tooltip}" id="it6"
-                                          autoSubmit="true" contentStyle="text-align:right;"
-                                          binding="#{backingBeanScope.PPRBackingManifiestoUsuarioItemFrg.it6}"
-                                          valueChangeListener="#{backingBeanScope.PPRBackingManifiestoUsuarioItemFrg.valueChangeIt6}">
+                                           contentStyle="text-align:right;"
+                                          binding="#{PPRBackingManifiestoUsuarioItemFrg.it6}"
+                                          
+                                          valueChangeListener="#{PPRBackingManifiestoUsuarioItemFrg.valueChangeIt6}"
+                                          autoSubmit="true">
                                 <f:validator binding="#{bindings.PasajerosExentosTasas.validator}"/>
                                 <af:convertNumber groupingUsed="false"
                                                   pattern="#{bindings.PasajerosExentosTasas.format}"/>
@@ -159,10 +163,8 @@
                                           required="#{bindings.PasajerosPaganTasas.hints.mandatory}"
                                           columns="#{bindings.PasajerosPaganTasas.hints.displayWidth}"
                                           maximumLength="#{bindings.PasajerosPaganTasas.hints.precision}"
-                                          shortDesc="#{bindings.PasajerosPaganTasas.hints.tooltip}" id="it7"
-                                          autoSubmit="true" contentStyle="text-align:right;" disabled="true"
-                                          binding="#{backingBeanScope.PPRBackingManifiestoUsuarioItemFrg.it7}"
-                                          valueChangeListener="#{backingBeanScope.PPRBackingManifiestoUsuarioItemFrg.valueChangeIt7}">
+                                          shortDesc="#{bindings.PasajerosPaganTasas.hints.tooltip}" id="it7" contentStyle="text-align:right;" disabled="true"
+                                          binding="#{PPRBackingManifiestoUsuarioItemFrg.it7}" value="#{bindings.PasajerosPaganTasas.inputValue}">
                                 <f:validator binding="#{bindings.PasajerosPaganTasas.validator}"/>
                                 <af:convertNumber groupingUsed="false"
                                                   pattern="#{bindings.PasajerosPaganTasas.format}"/>
@@ -172,10 +174,11 @@
                                           required="#{bindings.PasajerosPaganDolares.hints.mandatory}"
                                           columns="#{bindings.PasajerosPaganDolares.hints.displayWidth}"
                                           maximumLength="#{bindings.PasajerosPaganDolares.hints.precision}"
-                                          shortDesc="#{bindings.PasajerosPaganDolares.hints.tooltip}" id="it8"
-                                          autoSubmit="true" contentStyle="text-align:right;"
-                                          binding="#{backingBeanScope.PPRBackingManifiestoUsuarioItemFrg.it8}"
-                                          valueChangeListener="#{backingBeanScope.PPRBackingManifiestoUsuarioItemFrg.valueChangeIt8}">
+                                          shortDesc="#{bindings.PasajerosPaganDolares.hints.tooltip}" id="it8" contentStyle="text-align:right;"
+                                          binding="#{PPRBackingManifiestoUsuarioItemFrg.it8}"
+                                          
+                                          valueChangeListener="#{PPRBackingManifiestoUsuarioItemFrg.valueChangeIt8}"
+                                          autoSubmit="true">
                                 <f:validator binding="#{bindings.PasajerosPaganDolares.validator}"/>
                                 <af:convertNumber groupingUsed="false"
                                                   pattern="#{bindings.PasajerosPaganDolares.format}"/>
@@ -184,17 +187,15 @@
                                           required="#{bindings.PasajerosPaganPesos.hints.mandatory}"
                                           columns="#{bindings.PasajerosPaganPesos.hints.displayWidth}"
                                           maximumLength="#{bindings.PasajerosPaganPesos.hints.precision}"
-                                          shortDesc="#{bindings.PasajerosPaganPesos.hints.tooltip}" id="it9"
-                                          autoSubmit="true" contentStyle="text-align:right;" disabled="true"
-                                          binding="#{backingBeanScope.PPRBackingManifiestoUsuarioItemFrg.it9}"
-                                          valueChangeListener="#{backingBeanScope.PPRBackingManifiestoUsuarioItemFrg.valueChangeIt9}">
+                                          shortDesc="#{bindings.PasajerosPaganPesos.hints.tooltip}" id="it9" contentStyle="text-align:right;" disabled="true"
+                                          binding="#{PPRBackingManifiestoUsuarioItemFrg.it9}" value="#{bindings.PasajerosPaganPesos.inputValue}">
                                 <f:validator binding="#{bindings.PasajerosPaganPesos.validator}"/>
                                 <af:convertNumber groupingUsed="false"
                                                   pattern="#{bindings.PasajerosPaganPesos.format}"/>
                             </af:inputText>
                         </af:panelFormLayout>
                         <af:panelFormLayout id="pfl5" labelWidth="200"
-                                            binding="#{backingBeanScope.PPRBackingManifiestoUsuarioItemFrg.pfl5}">
+                                            binding="#{PPRBackingManifiestoUsuarioItemFrg.pfl5}">
                             <f:facet name="footer"/>
                             <af:inputText value="#{bindings.PasajerosExentosTimbres.inputValue}"
                                           label="#{bindings.PasajerosExentosTimbres.hints.label}"
@@ -202,9 +203,10 @@
                                           columns="#{bindings.PasajerosExentosTimbres.hints.displayWidth}"
                                           maximumLength="#{bindings.PasajerosExentosTimbres.hints.precision}"
                                           shortDesc="#{bindings.PasajerosExentosTimbres.hints.tooltip}" id="it10"
-                                          autoSubmit="true" contentStyle="text-align:right;"
-                                          binding="#{backingBeanScope.PPRBackingManifiestoUsuarioItemFrg.it10}"
-                                          valueChangeListener="#{backingBeanScope.PPRBackingManifiestoUsuarioItemFrg.valueChangeIt10}">
+                                           contentStyle="text-align:right;"
+                                          binding="#{PPRBackingManifiestoUsuarioItemFrg.it10}"                                          
+                                          valueChangeListener="#{PPRBackingManifiestoUsuarioItemFrg.valueChangeIt10}"
+                                          autoSubmit="true">
                                 <f:validator binding="#{bindings.PasajerosExentosTimbres.validator}"/>
                                 <af:convertNumber groupingUsed="false"
                                                   pattern="#{bindings.PasajerosExentosTimbres.format}"/>
@@ -213,10 +215,8 @@
                                           required="#{bindings.PasajerosPaganTimbres.hints.mandatory}"
                                           columns="#{bindings.PasajerosPaganTimbres.hints.displayWidth}"
                                           maximumLength="#{bindings.PasajerosPaganTimbres.hints.precision}"
-                                          shortDesc="#{bindings.PasajerosPaganTimbres.hints.tooltip}" id="it11"
-                                          autoSubmit="true" contentStyle="text-align:right;" disabled="true"
-                                          binding="#{backingBeanScope.PPRBackingManifiestoUsuarioItemFrg.it11}"
-                                          valueChangeListener="#{backingBeanScope.PPRBackingManifiestoUsuarioItemFrg.valueChangeIt11}">
+                                          shortDesc="#{bindings.PasajerosPaganTimbres.hints.tooltip}" id="it11" contentStyle="text-align:right;" disabled="true"
+                                          binding="#{PPRBackingManifiestoUsuarioItemFrg.it11}" value="#{bindings.PasajerosPaganTimbres.inputValue}">
                                 <f:validator binding="#{bindings.PasajerosPaganTimbres.validator}"/>
                                 <af:convertNumber groupingUsed="false"
                                                   pattern="#{bindings.PasajerosPaganTimbres.format}"/>
@@ -226,10 +226,8 @@
                                           required="#{bindings.PasajerosPaganTimbresDolares.hints.mandatory}"
                                           columns="#{bindings.PasajerosPaganTimbresDolares.hints.displayWidth}"
                                           maximumLength="#{bindings.PasajerosPaganTimbresDolares.hints.precision}"
-                                          shortDesc="#{bindings.PasajerosPaganTimbresDolares.hints.tooltip}" id="it12"
-                                          autoSubmit="true" contentStyle="text-align:right;" disabled="true"
-                                          binding="#{backingBeanScope.PPRBackingManifiestoUsuarioItemFrg.it12}"
-                                          valueChangeListener="#{backingBeanScope.PPRBackingManifiestoUsuarioItemFrg.valueChangeIt12}">
+                                          shortDesc="#{bindings.PasajerosPaganTimbresDolares.hints.tooltip}" id="it12" contentStyle="text-align:right;" disabled="true"
+                                          binding="#{PPRBackingManifiestoUsuarioItemFrg.it12}">
                                 <f:validator binding="#{bindings.PasajerosPaganTimbresDolares.validator}"/>
                                 <af:convertNumber groupingUsed="false"
                                                   pattern="#{bindings.PasajerosPaganTimbresDolares.format}"/>
@@ -238,9 +236,8 @@
                                           required="#{bindings.PasajerosPaganTimbresPesos.hints.mandatory}"
                                           columns="#{bindings.PasajerosPaganTimbresPesos.hints.displayWidth}"
                                           maximumLength="#{bindings.PasajerosPaganTimbresPesos.hints.precision}"
-                                          shortDesc="#{bindings.PasajerosPaganTimbresPesos.hints.tooltip}" id="it13"
-                                          autoSubmit="true" contentStyle="text-align:right;" disabled="true"
-                                          binding="#{backingBeanScope.PPRBackingManifiestoUsuarioItemFrg.it13}">
+                                          shortDesc="#{bindings.PasajerosPaganTimbresPesos.hints.tooltip}" id="it13" contentStyle="text-align:right;" disabled="true"
+                                          binding="#{PPRBackingManifiestoUsuarioItemFrg.it13}" value="#{bindings.PasajerosPaganTimbresPesos.inputValue}">
                                 <f:validator binding="#{bindings.PasajerosPaganTimbresPesos.validator}"/>
                                 <af:convertNumber groupingUsed="false"
                                                   pattern="#{bindings.PasajerosPaganTimbresPesos.format}"/>
@@ -250,7 +247,7 @@
                     <af:panelFormLayout id="pfl4" labelWidth="200">
                         <f:facet name="footer">
                             <bl01:botonesGuardarBorrar id="bgb1"
-                                                       actualizarAccion="#{backingBeanScope.PPRBackingManifiestoUsuarioItemFrg.actionGuardar}"
+                                                       actualizarAccion="#{PPRBackingManifiestoUsuarioItemFrg.actionGuardar}"
                                                        actualizarPermiso="#{(bindings.Estado.inputValue eq 'C') ? pageFlowScope.pPermisoActualizar : false}"
                                                        borrarAccion="#{BackingItemFrg.actionDelete}"
                                                        borrarDisabled="#{bindings.IdManifiesto.inputValue eq 0}"
@@ -329,7 +326,7 @@
                                   maximumLength="#{bindings.IdLibroDireccionAerolinea.hints.precision}"
                                   shortDesc="#{bindings.IdLibroDireccionAerolinea.hints.tooltip}" id="it18"
                                   showRequired="false"
-                                  binding="#{backingBeanScope.PPRBackingManifiestoUsuarioItemFrg.it18}">
+                                  binding="#{PPRBackingManifiestoUsuarioItemFrg.it18}">
                         <f:validator binding="#{bindings.IdLibroDireccionAerolinea.validator}"/>
                         <af:convertNumber groupingUsed="false" pattern="#{bindings.IdLibroDireccionAerolinea.format}"/>
                     </af:inputText>
@@ -340,7 +337,7 @@
                                   maximumLength="#{bindings.IdLibroDireccionAeropuerto.hints.precision}"
                                   shortDesc="#{bindings.IdLibroDireccionAeropuerto.hints.tooltip}" id="it19"
                                   showRequired="false"
-                                  binding="#{backingBeanScope.PPRBackingManifiestoUsuarioItemFrg.it19}">
+                                  binding="#{PPRBackingManifiestoUsuarioItemFrg.it19}">
                         <f:validator binding="#{bindings.IdLibroDireccionAeropuerto.validator}"/>
                         <af:convertNumber groupingUsed="false" pattern="#{bindings.IdLibroDireccionAeropuerto.format}"/>
                     </af:inputText>
@@ -351,9 +348,8 @@
                                   maximumLength="#{bindings.IdLibroDireccionAeropuertoDes.hints.precision}"
                                   shortDesc="#{bindings.IdLibroDireccionAeropuertoDes.hints.tooltip}" id="it20"
                                   showRequired="false"
-                                  valueChangeListener="#{backingBeanScope.PPRBackingManifiestoUsuarioItemFrg.valueChangeIt20}"
-                                  binding="#{backingBeanScope.PPRBackingManifiestoUsuarioItemFrg.it20}"
-                                  autoSubmit="true">
+                                  
+                                  binding="#{PPRBackingManifiestoUsuarioItemFrg.it20}">
                         <f:validator binding="#{bindings.IdLibroDireccionAeropuertoDes.validator}"/>
                         <af:convertNumber groupingUsed="false"
                                           pattern="#{bindings.IdLibroDireccionAeropuertoDes.format}"/>
@@ -365,9 +361,7 @@
                                   maximumLength="#{bindings.IdLibroDireccionAeronave.hints.precision}"
                                   shortDesc="#{bindings.IdLibroDireccionAeronave.hints.tooltip}" id="it21"
                                   showRequired="false"
-                                  binding="#{backingBeanScope.PPRBackingManifiestoUsuarioItemFrg.it21}"
-                                  valueChangeListener="#{backingBeanScope.PPRBackingManifiestoUsuarioItemFrg.valueChangeIt21}"
-                                  autoSubmit="true">
+                                  binding="#{PPRBackingManifiestoUsuarioItemFrg.it21}">
                         <f:validator binding="#{bindings.IdLibroDireccionAeronave.validator}"/>
                         <af:convertNumber groupingUsed="false" pattern="#{bindings.IdLibroDireccionAeronave.format}"/>
                     </af:inputText>
@@ -379,13 +373,13 @@
         </af:pageTemplate>
         <af:region value="#{bindings.mensajestaskflow1.regionModel}" id="r2"
                    rendered="#{bindings.IdManifiesto.inputValue > 0}"
-                   binding="#{backingBeanScope.PPRBackingManifiestoUsuarioItemFrg.r2}"/>
+                   binding="#{PPRBackingManifiestoUsuarioItemFrg.r2}"/>
         <af:region value="#{bindings.archivotaskflow1.regionModel}" id="r1"
                    rendered="#{bindings.IdManifiesto.inputValue > 0}"
-                   binding="#{backingBeanScope.PPRBackingManifiestoUsuarioItemFrg.r1}"/>
+                   binding="#{PPRBackingManifiestoUsuarioItemFrg.r1}"/>
     </af:panelGroupLayout>
     <af:popup childCreation="deferred" autoCancel="disabled" id="p1"
-              binding="#{backingBeanScope.PPRBackingManifiestoUsuarioItemFrg.p1}">
+              binding="#{PPRBackingManifiestoUsuarioItemFrg.p1}">
         <af:dialog id="d1" type="cancel" title="Buscar Aeropuerto Destino">
             <af:panelGroupLayout layout="vertical" id="pgl1">
                 <af:query id="qryId1"
@@ -405,7 +399,7 @@
                           rowSelection="single"
                           fetchSize="#{bindings.LibroDireccionesAeropuertoDestinoViewNoDML1.rangeSize}" id="resId1"
                           inlineStyle="width:60vw;" scrollPolicy="page" columnStretching="column:resId1c5"
-                          binding="#{backingBeanScope.PPRBackingManifiestoUsuarioItemFrg.resId1}">
+                          binding="#{PPRBackingManifiestoUsuarioItemFrg.resId1}">
                     <af:column headerText="#{bindings.LibroDireccionesAeropuertoDestinoViewNoDML1.hints.IdLibroDireccion.label}"
                                id="resId1c1" rendered="false">
                         <af:outputText value="#{row.IdLibroDireccion}"
@@ -433,7 +427,7 @@
                     <af:column headerText="#{bindings.LibroDireccionesAeropuertoDestinoViewNoDML1.hints.Nombre.label}"
                                id="resId1c5">
                         <af:link text="#{row.Nombre}" id="l20" styleClass="linkSelected"
-                                 actionListener="#{backingBeanScope.PPRBackingManifiestoUsuarioItemFrg.accionSeleccionar1}"
+                                 actionListener="#{PPRBackingManifiestoUsuarioItemFrg.accionSeleccionar1}"
                                  immediate="true"/>
                     </af:column>
                 </af:table>
@@ -441,7 +435,7 @@
         </af:dialog>
     </af:popup>
     <af:popup childCreation="deferred" autoCancel="disabled" id="p2"
-              binding="#{backingBeanScope.PPRBackingManifiestoUsuarioItemFrg.p2}">
+              binding="#{PPRBackingManifiestoUsuarioItemFrg.p2}">
         <af:dialog id="d2" type="cancel" title="Buscar Aeronave">
             <af:panelGroupLayout layout="vertical" id="pgl12">
                 <af:query id="qryId2" value="#{bindings.LibroDireccionesViewNoDMLCriteriaAeronaveQuery.queryDescriptor}"
@@ -459,7 +453,7 @@
                           selectionListener="#{bindings.LibroDireccionesAeronaveViewNoDML1.collectionModel.makeCurrent}"
                           rowSelection="single" fetchSize="#{bindings.LibroDireccionesAeronaveViewNoDML1.rangeSize}"
                           id="resId2" inlineStyle="width:60vw;" scrollPolicy="page" columnStretching="column:resId2c5"
-                          binding="#{backingBeanScope.PPRBackingManifiestoUsuarioItemFrg.resId2}">
+                          binding="#{PPRBackingManifiestoUsuarioItemFrg.resId2}">
                     <af:column headerText="#{bindings.LibroDireccionesAeronaveViewNoDML1.hints.IdLibroDireccion.label}"
                                id="resId2c1" rendered="false">
                         <af:outputText value="#{row.IdLibroDireccion}"
@@ -487,7 +481,7 @@
                     <af:column headerText="#{bindings.LibroDireccionesAeronaveViewNoDML1.hints.Nombre.label}"
                                id="resId2c5">
                         <af:link text="#{row.Nombre}" id="l210" styleClass="linkSelected"
-                                 actionListener="#{backingBeanScope.PPRBackingManifiestoUsuarioItemFrg.accionSeleccionar2}"
+                                 actionListener="#{PPRBackingManifiestoUsuarioItemFrg.accionSeleccionar2}"
                                  immediate="true"/>
                     </af:column>
                 </af:table>
@@ -495,7 +489,7 @@
         </af:dialog>
     </af:popup>
     <af:popup childCreation="deferred" autoCancel="disabled" id="p3"
-              binding="#{backingBeanScope.PPRBackingManifiestoUsuarioItemFrg.p3}">
+              binding="#{PPRBackingManifiestoUsuarioItemFrg.p3}">
         <af:dialog id="d4" type="cancel" title="Buscar Aeropuerto Origen">
             <af:panelGroupLayout layout="vertical" id="pgl10">
                 <af:panelGroupLayout layout="vertical" id="pgl3">
@@ -516,7 +510,7 @@
                               selectionListener="#{bindings.LibroDireccionesAeropuertoViewNoDML1.collectionModel.makeCurrent}"
                               rowSelection="single"
                               fetchSize="#{bindings.LibroDireccionesAeropuertoViewNoDML1.rangeSize}" id="resId3"
-                              binding="#{backingBeanScope.PPRBackingManifiestoUsuarioItemFrg.resId3}"
+                              binding="#{PPRBackingManifiestoUsuarioItemFrg.resId3}"
                               inlineStyle="width:60vw;" scrollPolicy="page" columnStretching="column:resId3c5">
                         <af:column headerText="#{bindings.LibroDireccionesAeropuertoViewNoDML1.hints.IdLibroDireccion.label}"
                                    id="resId3c1" rendered="false">
@@ -551,7 +545,7 @@
                         <af:column headerText="#{bindings.LibroDireccionesAeropuertoViewNoDML1.hints.Nombre.label}"
                                    id="resId3c5">
                             <af:link text="#{row.Nombre}" id="l1" styleClass="linkSelected"
-                                     actionListener="#{backingBeanScope.PPRBackingManifiestoUsuarioItemFrg.accionSeleccionar3}"
+                                     actionListener="#{PPRBackingManifiestoUsuarioItemFrg.accionSeleccionar3}"
                                      immediate="true"/>
                         </af:column>
                     </af:table>
@@ -560,7 +554,7 @@
         </af:dialog>
     </af:popup>
     <af:popup childCreation="deferred" autoCancel="disabled" id="p4"
-    binding="#{backingBeanScope.PPRBackingManifiestoUsuarioItemFrg.p4}"
+    binding="#{PPRBackingManifiestoUsuarioItemFrg.p4}"
     >
         <af:dialog id="d3" title="Buscar Aerolinea">
             <f:facet name="buttonBar"/>
@@ -583,7 +577,7 @@
                               selectionListener="#{bindings.LibroDireccionesAerolineaViewNoDML1.collectionModel.makeCurrent}"
                               rowSelection="single"
                               fetchSize="#{bindings.LibroDireccionesAerolineaViewNoDML1.rangeSize}" id="resId4"
-                              binding="#{backingBeanScope.PPRBackingManifiestoUsuarioItemFrg.resId4}"
+                              binding="#{PPRBackingManifiestoUsuarioItemFrg.resId4}"
                               inlineStyle="width:60vw;" scrollPolicy="page" columnStretching="column:resId4c5">
                         <af:column headerText="#{bindings.LibroDireccionesAerolineaViewNoDML1.hints.IdLibroDireccion.label}"
                                    id="resId4c1" rendered="false">
@@ -618,7 +612,7 @@
                         <af:column headerText="#{bindings.LibroDireccionesAerolineaViewNoDML1.hints.Nombre.label}"
                                    id="resId4c5">
                             <af:link text="#{row.Nombre}" id="l50" styleClass="linkSelected"
-                                     actionListener="#{backingBeanScope.PPRBackingManifiestoUsuarioItemFrg.accionSeleccionar4}"
+                                     actionListener="#{PPRBackingManifiestoUsuarioItemFrg.accionSeleccionar4}"
                                      immediate="true"/>
                         </af:column>
                     </af:table>
@@ -626,4 +620,5 @@
             </af:panelGroupLayout>
         </af:dialog>
     </af:popup>
+
 </jsp:root>
