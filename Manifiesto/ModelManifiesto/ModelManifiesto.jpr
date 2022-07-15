@@ -73,14 +73,20 @@
    <value n="jbo.NoAttrEnumClasses" v="true"/>
    <value n="JboProject" v="true"/>
    <hash n="oracle.adfdtinternal.model.ide.settings.ADFMSettings">
+      <hash n="adfmContentSet">
+         <list n="pattern-filters">
+            <string v="+**"/>
+         </list>
+         <list n="url-path">
+            <url path="adfmsrc/"/>
+         </list>
+      </hash>
       <value n="hasDataControls" v="true"/>
    </hash>
    <hash n="oracle.ide.model.TechnologyScopeConfiguration">
       <list n="technologyScope">
          <string v="ADFbc"/>
-         <string v="ADFbc-Modeling"/>
          <string v="Java"/>
-         <string v="Java-Modeling"/>
          <string v="XML"/>
       </list>
    </hash>
@@ -281,6 +287,8 @@
                <list n="classPath">
                   <url path="../../Lib/BaseModelADFLib-01.jar" jar-entry=""/>
                   <url path="../../Lib/AuditoriaModelADFLib-01.jar" jar-entry=""/>
+                  <url path="../../../gestor/Lib/BaseModelADFLib-01.jar" jar-entry=""/>
+                  <url path="../../../gestor/Lib/AuditoriaModelADFLib-01.jar" jar-entry=""/>
                </list>
                <value n="deployedByDefault" v="true"/>
                <value n="description" v="ADF Library"/>
