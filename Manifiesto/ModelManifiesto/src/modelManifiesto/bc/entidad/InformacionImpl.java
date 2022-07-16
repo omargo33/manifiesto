@@ -11,6 +11,7 @@ import oracle.jbo.server.TransactionEvent;
 // ---    Custom code may be added to this class.
 // ---    Warning: Do not modify method signatures of generated methods.
 // ---------------------------------------------------------------------
+@SuppressWarnings("oracle.jdeveloper.java.semantic-warning")
 public class InformacionImpl extends Entidad {
     /**
      * AttributesEnum: generated enum for identifying attributes and accessors. DO NOT MODIFY.

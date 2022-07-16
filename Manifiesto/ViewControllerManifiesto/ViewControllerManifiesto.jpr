@@ -301,10 +301,6 @@
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
-            <value n="id" v="ADF Library"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
             <value n="id" v="ADF Faces Databinding Runtime"/>
             <value n="isJDK" v="false"/>
          </hash>
@@ -337,27 +333,11 @@
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
-            <value n="id" v="Adf-share-glassfish.jar"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="BaseViewLib-01.jar"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="LibModel-1.0-SNAPSHOT.jar"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
             <value n="id" v="Trinidad Runtime 11"/>
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
             <value n="id" v="Domain Deployment - ADF View Controller"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <url n="id" path="ADF_Library_Dependencies.library"/>
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
@@ -396,12 +376,27 @@
             <value n="id" v="BC4J Oracle Domains"/>
             <value n="isJDK" v="false"/>
          </hash>
+         <hash>
+            <value n="id" v="ADF Library"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Adf-share-glassfish.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="BaseViewLib-01.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="LibModel-1.0-SNAPSHOT.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
       </list>
       <hash n="internalDefinitions">
          <list n="libraryDefinitions">
             <hash>
                <list n="classPath">
-                  <url path="../../Lib/BaseViewADFLib-01.jar" jar-entry=""/>
                   <url path="../../../gestor/Lib/BaseViewADFLib-01.jar" jar-entry=""/>
                </list>
                <value n="deployedByDefault" v="true"/>
@@ -511,10 +506,6 @@
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
-            <value n="id" v="ADF Library"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
             <value n="id" v="ADF Faces Databinding Runtime"/>
             <value n="isJDK" v="false"/>
          </hash>
@@ -544,18 +535,6 @@
          </hash>
          <hash>
             <value n="id" v="Trinidad Databinding Runtime"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="Adf-share-glassfish.jar"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="BaseViewLib-01.jar"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="LibModel-1.0-SNAPSHOT.jar"/>
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
@@ -604,6 +583,22 @@
          </hash>
          <hash>
             <value n="id" v="BC4J Oracle Domains"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="ADF Library"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Adf-share-glassfish.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="BaseViewLib-01.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="LibModel-1.0-SNAPSHOT.jar"/>
             <value n="isJDK" v="false"/>
          </hash>
       </list>
@@ -736,6 +731,7 @@
          <string v="oracle.adf.share.glassfish.listener.ADFGlassFishAppLifeCycleListener"/>
          <string v="oracle.adf.mbean.share.connection.ADFConnectionLifeCycleCallBack"/>
          <string v="oracle.adf.mbean.share.config.ADFConfigLifeCycleCallBack"/>
+         <string v="oracle.bc4j.mbean.BC4JConfigLifeCycleCallBack"/>
       </list>
       <list n="servlets">
          <string v="Faces Servlet"/>
@@ -744,17 +740,6 @@
    </hash>
    <hash n="oracle.jdevimpl.webapp.jsp.libraries.model.ProjectTagLibraries">
       <list n="tag-libraries">
-         <hash>
-            <hash n="baseLibrary">
-               <value n="name" v="baseLib01"/>
-               <value n="version" v="1.0"/>
-            </hash>
-            <value n="jspVersion" v="2.1"/>
-            <value n="name" v="baseLib01"/>
-            <value n="tldURL" v="jar:file:/home/omarv/Documentos/java/gestor/Lib/BaseViewADFLib-01.jar!/META-INF/baseLib01.tld"/>
-            <value n="URI" v="/baseLib01"/>
-            <value n="version" v="1.0"/>
-         </hash>
          <hash>
             <hash n="baseLibrary">
                <value n="name" v="JSF Core"/>
