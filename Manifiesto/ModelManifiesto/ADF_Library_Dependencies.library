@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<library name="ADF Library Dependencies" id="" deployed="true" locked="true" xmlns="http://xmlns.oracle.com/jdeveloper/1013/manifest-libraries">
+  <description/>
+  <classpath>../../../gestor/Lib/BaseModelADFLib-01.jar</classpath>
+  <classpath>../../../gestor/Lib/LibModel-1.0-SNAPSHOT.jar</classpath>
+</library>
