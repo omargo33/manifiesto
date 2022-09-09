@@ -112,10 +112,13 @@ public class ManifiestoTarea {
             tasasTimbresCliente.getCuerpo().setNumerodevuelo(Integer.parseInt(vmanifiesto.getNoVuelo()));
             tasasTimbresCliente.getCuerpo().setOriginatorNumber(vmanifiesto.getUsuario());
             tasasTimbresCliente.getCuerpo().setPasajerosEmbarcados(vmanifiesto.getPasajeros().intValue());
+            
             tasasTimbresCliente.getCuerpo().setPasajerosTasasEnDolares(vmanifiesto.getPasajerosPaganDolares().intValue());
             tasasTimbresCliente.getCuerpo().setPasajerosTasasEnPesos(vmanifiesto.getPasajerosPaganPesos().intValue());
-            tasasTimbresCliente.getCuerpo().setPasajerosTimbreEnPesos(vmanifiesto.getPasajerosPaganTimbresPesos().intValue());
+            
+            tasasTimbresCliente.getCuerpo().setPasajerosTimbreEnPesos(vmanifiesto.getPasajerosPaganTimbres().intValue());
             tasasTimbresCliente.getCuerpo().setPasajerosTimbresEnDolares(vmanifiesto.getPasajerosPaganTimbresDolares().intValue());
+            
             tasasTimbresCliente.getCuerpo().setPasajerosEnTransito(vmanifiesto.getPasajerosTransito().intValue());
             tasasTimbresCliente.getCuerpo().setPasajerosExentosDeTasas(vmanifiesto.getPasajerosExentosTasas().intValue());
             tasasTimbresCliente.getCuerpo().setPasajerosExentosDeTimbre(vmanifiesto.getPasajerosExentosTimbres().intValue());
