@@ -65,10 +65,15 @@ public class ManifiestoTarea {
         List<VManifiesto> listaVManifiesto = manifiestoServicio.findVManifiestoEstado("B");
         for (VManifiesto vm : listaVManifiesto) {
             Manifiesto manifiesto = manifiestoServicio.findManifiestoByIndice(vm.getIdManifiesto());
-            if (ejecutarWebServices(vm)) {
+            int estado = ejecutarWebServices(vm);
+            if (estado == 0) {
                 manifiestoServicio.updateEstado(manifiesto, nompreAplicacion, "JDE");
-            } else {
-                manifiestoServicio.updateEstado(manifiesto, nompreAplicacion, "BAD");
+            } 
+            if (estado < 0) {
+                manifiestoServicio.updateEstado(manifiesto, nompreAplicacion, "BADCON");
+            }
+            if (estado > 0) {
+                manifiestoServicio.updateEstado(manifiesto, nompreAplicacion, "BAD" + estado);
             }
         }
     }
@@ -80,9 +85,8 @@ public class ManifiestoTarea {
      * @param vmanifiesto
      * @return
      */
-    private boolean ejecutarWebServices(VManifiesto vmanifiesto) {
-        boolean estado = false;
-
+    private int ejecutarWebServices(VManifiesto vmanifiesto) {
+        int estado = 0;
         TasasTimbresCliente tasasTimbresCliente = new TasasTimbresCliente();
         try {
             //Datos de configuracion
@@ -131,12 +135,12 @@ public class ManifiestoTarea {
             tasasTimbresCliente.getCuerpo().setFechaHasta(formatoFechaString(finSemana(vmanifiesto.getFechaLocalOperacion())));
 
             if (!tasasTimbresCliente.ejecutarConsulta()) {
-                estado = (tasasTimbresCliente.getRespuesta().getErrorCode().compareTo("0") == 0);
+                estado = Integer.parseInt(tasasTimbresCliente.getRespuesta().getErrorCode());
             }
         } catch (Exception e) {
             LOG.error(e.toString());
             tasasTimbresCliente.getRespuesta().setErrorDescripcion(e.toString());
-            estado = false;
+            estado = -1;
         }
         return estado;
     }

@@ -6,10 +6,10 @@ import oracle.jbo.JboException;
 
 
 public class Manifiesto {
-    private static String SQL_UPDATE = "update manifiesto set estado = 'C' where estado = 'BAD'";
+    private static String SQL_UPDATE = "update manifiesto set estado = 'C' where estado like 'BAD%'";
 
     private static String SQL_UPDATE_ID_MANIFIESTO =
-        "update manifiesto set estado = 'C' where estado = 'BAD' and id_manifiesto = ?";
+        "update manifiesto set estado = 'C' where estado like 'BAD%' and id_manifiesto = ?";
 
 
     public static boolean cambiarEstado(ManifiestoModuloImpl manifiestoModulo, String idManifiesto) {
