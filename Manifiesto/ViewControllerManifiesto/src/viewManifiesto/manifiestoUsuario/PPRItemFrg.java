@@ -5,6 +5,7 @@ import java.util.logging.Logger;
 
 import javax.faces.component.UIComponent;
 import javax.faces.event.ActionEvent;
+import javax.faces.event.PhaseEvent;
 import javax.faces.event.ValueChangeEvent;
 
 import oracle.adf.view.rich.component.rich.RichPopup;
@@ -14,6 +15,8 @@ import oracle.adf.view.rich.component.rich.input.RichInputText;
 import oracle.adf.view.rich.component.rich.input.RichSelectOneChoice;
 import oracle.adf.view.rich.component.rich.layout.RichPanelFormLayout;
 
+import oracle.adf.view.rich.render.ClientEvent;
+
 import oracle.jbo.uicli.binding.JUCtrlHierNodeBinding;
 
 import view.plantilla.BasePPR;
@@ -22,7 +25,10 @@ import view.utilidades.ADFUtils;
 import view.utilidades.Flow;
 
 public class PPRItemFrg extends BasePPR {
+
+    private RichPanelFormLayout pfl3;
     private RichPanelFormLayout pfl5;
+    private RichPanelFormLayout pfl6;
     private RichInputText it3;
     private RichInputText it4;
     private RichInputText it5;
@@ -39,6 +45,7 @@ public class PPRItemFrg extends BasePPR {
     private RichInputText it19;
     private RichInputText it20;
     private RichInputText it21;
+    private RichSelectOneChoice soc1;
     private RichSelectOneChoice soc6;
     private int it6Int = 0;
     private int it8Int = 0;
@@ -67,9 +74,19 @@ public class PPRItemFrg extends BasePPR {
     private RichInputText it200;
     private RichInputText it210;
 
+    /**
+     * Clase para dar soporte para la item de muletos.
+     * 
+     */
     public PPRItemFrg() {
+        System.out.println("Se crea el objeto");
+        
         setNombreBundle("view.ViewControllerBundle");
+
+        setPfl3(new RichPanelFormLayout());
         setPfl5(new RichPanelFormLayout());
+        setPfl6(new RichPanelFormLayout());
+
         setIt3(new RichInputText());
         setIt4(new RichInputText());
         setIt5(new RichInputText());
@@ -85,6 +102,7 @@ public class PPRItemFrg extends BasePPR {
 
         setIt13(new RichInputText());
 
+        setSoc1(new RichSelectOneChoice());
         setSoc6(new RichSelectOneChoice());
         setIt15(new RichInputText());
         setIt18(new RichInputText());
@@ -105,12 +123,16 @@ public class PPRItemFrg extends BasePPR {
         setR1(new RichRegion());
         setR2(new RichRegion());
 
+        limpiarEjecute();
+    }
 
-        setIt6Int(ADFUtils.evaluateEL("#{bindings.PasajerosExentosTasas.inputValue}"));
-        setIt8Int(ADFUtils.evaluateEL("#{bindings.PasajerosPaganDolares.inputValue}"));
-        setIt10Int(ADFUtils.evaluateEL("#{bindings.PasajerosExentosTimbres.inputValue}"));
-
+    public void limpiarEjecute() {
+        System.out.println("Voy de salida");
         try {
+            setIt6Int(ADFUtils.evaluateEL("#{bindings.PasajerosExentosTasas.inputValue}"));
+            setIt8Int(ADFUtils.evaluateEL("#{bindings.PasajerosPaganDolares.inputValue}"));
+            setIt10Int(ADFUtils.evaluateEL("#{bindings.PasajerosExentosTimbres.inputValue}"));
+
             Object tipoVuelo = ADFUtils.evaluateEL("#{bindings.Tipo.inputValue}");
             if (tipoVuelo == null) {
                 getPfl5().setVisible(false);
@@ -119,10 +141,94 @@ public class PPRItemFrg extends BasePPR {
             } else {
                 getPfl5().setVisible(true);
             }
-
         } catch (Exception e) {
             getPfl5().setVisible(false);
+            System.out.println("Voy de salida - Error de Tipo");
         }
+
+        try {
+            Object vueloCancelado = ADFUtils.evaluateEL("#{bindings.Cancelado.inputValue}");
+            if (vueloCancelado == null) {
+                anularCamposVueloCancelado(false);
+            } else {
+                if (((String) vueloCancelado).compareToIgnoreCase("C") == 0) {
+                    //Deshabilitar
+                    acerarValores();
+                    anularCamposVueloCancelado(true);
+                } else {
+                    //Habilitar
+                    anularCamposVueloCancelado(false);
+                }
+                //Refrescar
+                doPartialRefresh((UIComponent) getPfl3());
+                doPartialRefresh((UIComponent) getPfl5());
+                doPartialRefresh((UIComponent) getPfl6());
+            }            
+        } catch (Exception e) {
+            System.out.println("Voy de salida - Error de Cancelado");
+        }
+        System.out.println("Voy de salida terminado!!!");
+    }
+
+    public void valueChangeSoc1(ValueChangeEvent valueChangeEvent) {
+        Object oldValue = valueChangeEvent.getOldValue();
+        Object newValue = valueChangeEvent.getNewValue();
+
+        try {
+            String old = String.valueOf(oldValue);
+            String nuevo = String.valueOf(newValue);
+
+            if (old.compareTo(nuevo) == 0) {
+                return;
+            }
+        } catch (Exception exception) {
+        }
+
+        if (newValue != null) {
+            if (String.valueOf(newValue).compareToIgnoreCase("C") == 0) {
+                //Deshabilitar
+                acerarValores();
+                anularCamposVueloCancelado(true);
+            } else {
+                //Habilitar
+                anularCamposVueloCancelado(false);
+            }
+            //Refrescar
+            doPartialRefresh((UIComponent) getPfl3());
+            doPartialRefresh((UIComponent) getPfl5());
+            doPartialRefresh((UIComponent) getPfl6());
+        }
+    }
+
+    private void acerarValores() {
+        // Input activos
+        getIt3().setValue("0");
+        getIt4().setValue("0");
+        getIt6().setValue("0");
+        getIt8().setValue("0");
+        getIt10().setValue("0");
+        getIt12().setValue("0");
+
+        // Input inactivos
+        getIt5().setValue("0");
+        getIt7().setValue("0");
+        getIt9().setValue("0");
+        getIt11().setValue("0");
+        getIt13().setValue("0");
+    }
+
+    /**
+     * Metodo para anular los campos de vuelo cancelado.
+     * 
+     * @param estatus
+     */
+    private void anularCamposVueloCancelado(boolean estatus) {
+        getIt3().setDisabled(estatus);
+        getIt4().setDisabled(estatus);
+        getIt6().setDisabled(estatus);
+        getIt8().setDisabled(estatus);
+        getIt10().setDisabled(estatus);
+        //getIt12().setDisabled(estatus);
     }
 
 
@@ -139,7 +245,6 @@ public class PPRItemFrg extends BasePPR {
             }
         } catch (Exception exception) {
         }
-
 
         if (newValue != null) {
             if (String.valueOf(newValue).compareToIgnoreCase("N") == 0) {
@@ -408,6 +513,15 @@ public class PPRItemFrg extends BasePPR {
         }
     }
 
+    public void setSoc1(RichSelectOneChoice soc1) {
+        this.soc1 = soc1;
+    }
+
+
+    public RichSelectOneChoice getSoc1() {
+        return this.soc1;
+    }
+
 
     public void setSoc6(RichSelectOneChoice soc6) {
         this.soc6 = soc6;
@@ -523,13 +637,28 @@ public class PPRItemFrg extends BasePPR {
     }
 
 
+    public void setPfl3(RichPanelFormLayout panelFormInternacional) {
+        this.pfl3 = panelFormInternacional;
+    }
+
+    public RichPanelFormLayout getPfl3() {
+        return this.pfl3;
+    }
+
     public void setPfl5(RichPanelFormLayout panelFormInternacional) {
         this.pfl5 = panelFormInternacional;
     }
 
-
     public RichPanelFormLayout getPfl5() {
         return this.pfl5;
+    }
+
+    public void setPfl6(RichPanelFormLayout panelFormInternacional) {
+        this.pfl6 = panelFormInternacional;
+    }
+
+    public RichPanelFormLayout getPfl6() {
+        return this.pfl6;
     }
 
 
@@ -878,4 +1007,13 @@ public class PPRItemFrg extends BasePPR {
     public void setIt10Int(Object it10Obj) {
         this.it10Int = evaluarValue(it10Obj);
     }
+
+    public String getCorregir() {        
+        limpiarEjecute();        
+        return "_";
+    }
+    
+    public void setCorregir(String corregir){
+        System.out.println("corregir "+ corregir);
+        }
 }

@@ -98,6 +98,20 @@
                             <f:selectItems value="#{bindings.Tipo.items}" id="si6"/>
                             <f:validator binding="#{bindings.Tipo.validator}"/>
                         </af:selectOneChoice>
+                        
+                        
+                        
+                        <af:selectOneChoice value="#{bindings.Cancelado.inputValue}" label="#{bindings.Cancelado.label}"
+                                            required="#{bindings.Cancelado.hints.mandatory}"
+                                            shortDesc="#{bindings.Cancelado.hints.tooltip}" id="soc1" valueChangeListener="#{PPRBackingManifiestoUsuarioItemFrg.valueChangeSoc1}"
+                                            binding="#{PPRBackingManifiestoUsuarioItemFrg.soc1}" autoSubmit="true">
+                            <f:selectItems value="#{bindings.Cancelado.items}" id="si1"/>
+                            <f:validator binding="#{bindings.Cancelado.validator}"/>
+                        </af:selectOneChoice>
+                        
+                        </af:panelFormLayout>
+    <af:panelFormLayout id="pfl6" labelWidth="200" binding="#{PPRBackingManifiestoUsuarioItemFrg.pfl6}">
+                        
                         <af:separator id="s5"/>
                         <af:inputText value="#{bindings.Pasajeros.inputValue}" label="#{bindings.Pasajeros.hints.label}"
                                       required="#{bindings.Pasajeros.hints.mandatory}"
@@ -136,7 +150,8 @@
                         <af:separator id="s6"/>
                     </af:panelFormLayout>
                     <af:panelGroupLayout id="pgl9" valign="top" halign="left" layout="horizontal">
-                        <af:panelFormLayout id="pfl3" labelWidth="200">
+                        <af:panelFormLayout id="pfl3" labelWidth="200"
+                                            binding="#{PPRBackingManifiestoUsuarioItemFrg.pfl3}">
                             <f:facet name="footer"/>
                             <af:inputText value="#{bindings.PasajerosExentosTasas.inputValue}"
                                           label="#{bindings.PasajerosExentosTasas.hints.label}"
@@ -256,6 +271,7 @@
                                                        borrarPermiso="#{(bindings.Estado.inputValue eq 'C') ? pageFlowScope.pPermisoBorrar : false}"></bl01:botonesGuardarBorrar>
                         </f:facet>
                     </af:panelFormLayout>
+                    <af:outputText value="#{PPRBackingManifiestoUsuarioItemFrg.corregir}" id="ot15"/>
                 </af:panelGroupLayout>
             </f:facet>
             <f:facet name="elementoCancelar">
@@ -610,4 +626,5 @@
             </af:panelGroupLayout>
         </af:dialog>
     </af:popup>
+    
 </jsp:root>

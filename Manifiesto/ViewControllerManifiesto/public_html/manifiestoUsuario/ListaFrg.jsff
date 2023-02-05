@@ -164,11 +164,7 @@
                                                       from="#{row.IndiceAeronave} #{row.NombreAeronave}"/>
                             </af:link>
                         </af:column>
-                        <af:column headerText="#{bindings.ManifiestoViewNoDML1.hints.Nick.label}" id="resId1c3"
-                                   rendered="false">
-                            <af:outputText value="#{row.Nick}"
-                                           shortDesc="#{bindings.ManifiestoViewNoDML1.hints.Nick.tooltip}" id="ot3"/>
-                        </af:column>
+                        
                         <af:column headerText="#{bindings.ManifiestoViewNoDML1.hints.NombreUsuario.label}" id="resId1c4"
                                    width="120" rendered="false">
                             <af:outputText value="#{row.NombreUsuario}"
@@ -228,6 +224,10 @@
                             <af:outputText value="#{row.FechaLocalOperacion}"
                                            shortDesc="#{bindings.ManifiestoViewNoDML1.hints.FechaLocalOperacion.tooltip}"
                                            id="ot17"/>
+                        </af:column>
+                        <af:column headerText="#{bindings.ManifiestoViewNoDML1.hints.Usuario.label}" id="resId1c3">
+                            <af:outputText value="#{row.Usuario}"
+                                           shortDesc="#{bindings.ManifiestoViewNoDML1.hints.Usuario.tooltip}" id="ot3"/>
                         </af:column>
                         <af:column headerText="#{bindings.ManifiestoViewNoDML1.hints.NoVuelo.label}" id="resId1c21">
                             <af:outputText value="#{row.NoVuelo}"
@@ -641,7 +641,7 @@
                 <f:facet name="buttonBar">
                     <af:button id="cb5" text="Descargar"
                                destination="Download?idArchivo=#{sessionScope.idArchivo}&amp;nameUser=#{sessionScope.BaseBean.nameUser}"
-                               targetFrame="_blank"></af:button>
+                               targetFrame="_blank" useWindow="true"></af:button>
                 </f:facet>
                 <af:panelBorderLayout id="pbl5">
                     <af:panelHeader id="ph1" text="Descargar reporte " messageType="confirmation">

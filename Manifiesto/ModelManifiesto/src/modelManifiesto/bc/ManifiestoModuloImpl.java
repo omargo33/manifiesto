@@ -40,7 +40,7 @@ public class ManifiestoModuloImpl extends AuditoriaModuloImpl implements Manifie
     AerolineaUsuarioIndices aerolineaUsuarioIndices = new AerolineaUsuarioIndices();
 
     final String SQL_MANIFIESTO =
-        "SELECT id_manifiesto, id_usuario, nick, nombre_usuario, id_libro_direccion_aerolinea, indice_aerolinea, nombre_aerolinea, id_libro_direccion_aeropuerto, indice_aeropuerto, nombre_aeropuerto, id_libro_direccion_aeropuerto_des, indice_destino, nombre_destino, id_libro_direccion_aeronave, indice_aeronave, nombre_aeronave, fecha_local_operacion, fecha_corta_local_operacion, anio_fecha_operacion, mes_fecha_operacion, no_vuelo, pasajeros, pasajeros_transito, pasajeros_locales, pasajeros_exentos_tasas, pasajeros_pagan_tasas, pasajeros_pagan_dolares, pasajeros_pagan_pesos, pasajeros_exentos_timbres, pasajeros_pagan_timbres, pasajeros_pagan_timbres_dolares, pasajeros_pagan_timbres_pesos, tasa, timbre, timbre_total, indicador_comprobable, tipo, estado, usuario, usuario_fecha, usuario_programa FROM MV_001_00.v_manifiesto where";
+        "SELECT id_manifiesto, id_usuario, nick, nombre_usuario, id_libro_direccion_aerolinea, indice_aerolinea, nombre_aerolinea, id_libro_direccion_aeropuerto, indice_aeropuerto, nombre_aeropuerto, id_libro_direccion_aeropuerto_des, indice_destino, nombre_destino, id_libro_direccion_aeronave, indice_aeronave, nombre_aeronave, fecha_local_operacion, fecha_corta_local_operacion, anio_fecha_operacion as 'año_fecha_operacion', mes_fecha_operacion, no_vuelo, pasajeros, pasajeros_transito, pasajeros_locales, pasajeros_exentos_tasas, pasajeros_pagan_tasas, pasajeros_pagan_dolares, pasajeros_pagan_pesos, pasajeros_exentos_timbres, pasajeros_pagan_timbres, pasajeros_pagan_timbres_dolares, pasajeros_pagan_timbres_pesos, tasa, timbre, timbre_total, indicador_comprobable, tipo, estado, usuario, usuario_fecha, usuario_programa FROM MV_001_00.v_manifiesto where";
 
 
     /**
@@ -49,29 +49,43 @@ public class ManifiestoModuloImpl extends AuditoriaModuloImpl implements Manifie
     public ManifiestoModuloImpl() {
         super();
         setNombreBundle("modelManifiesto.ModelManifiestoBundle");
-        
+    }
+
+    /**
+     * Metodo para cambiar el estado del Manifiesto y evitar su edision.
+     *
+     * @param idManifiesto
+     */
+    public void cambiarEstadoManifiesto(String idManifiesto) {
+        Manifiesto.cambiarEstado(this, idManifiesto);
     }
     
-
+    /**
+     * Metodo para cambiar el estado a todos los elementos.
+     */
+    public void cambiarEstadoManifiestos() {
+        Manifiesto.cambiarEstadoCompleto(this);
+    }
     
-    public void cambiarEstadoManifiesto(String idManifiesto) { 
-        Manifiesto.cambiarEstado(this, idManifiesto); 
-        }
-
-
-
-
-
-
-    
-    public void cambiarEstadoManifiestos() { 
-        Manifiesto.cambiarEstadoCompleto(this); 
-        }
-
-
-    public int excelManifiesto(int idUsuario, int indiceAerolinea, int indiceAeropuertoOrigen, int indiceAeropuertoDestino,
-                               int indiceAeronave, String noVuelo, String fechaInicio, String fechaFin, String tabla,
-                               String usuario, String usuarioPrograma) {
+    /**
+     * Metodo para generar el archivo de excel de manifiesto.
+     *
+     * @param idUsuario
+     * @param indiceAerolinea
+     * @param indiceAeropuertoOrigen
+     * @param indiceAeropuertoDestino
+     * @param indiceAeronave
+     * @param noVuelo
+     * @param fechaInicio
+     * @param fechaFin
+     * @param tabla
+     * @param usuario
+     * @param usuarioPrograma
+     * @return
+     */
+    public int excelManifiesto(int idUsuario, int indiceAerolinea, int indiceAeropuertoOrigen,
+                               int indiceAeropuertoDestino, int indiceAeronave, String noVuelo, String fechaInicio,
+                               String fechaFin, String tabla, String usuario, String usuarioPrograma) {
         int idArchivo = 0;
         String pattern = "yyyy-MM-dd-HH-mm-ss";
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
@@ -98,22 +112,21 @@ public class ManifiestoModuloImpl extends AuditoriaModuloImpl implements Manifie
             sql = sql + " (UPPER(no_vuelo) LIKE UPPER('%" + noVuelo + "%') ) AND";
         }
 
-        sql = sql + " (fecha_corta_local_operacion BETWEEN  '" + convertirDate(fechaInicio) + "'  AND  '" + convertirDate(fechaFin) + "')";
-
-        Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).log(Level.SEVERE, "SQL " + sql);
-
+        sql =
+            sql + " (fecha_corta_local_operacion BETWEEN  '" + convertirDate(fechaInicio) + "'  AND  '" +
+            convertirDate(fechaFin) + "')";
+        
         ResultSet resultSet = this.getBaseDML().ejecutaConsulta(sql);
         if (this.getBaseDML().getMensaje() != null) {
             throw new JboException("no consulta SQL");
         }
 
         idArchivo =
-            Reporte.crearReporteExcel(this, resultSet, nombrePagina, "manifiesto", tabla, usuario,
-                                      usuarioPrograma);
+            Reporte.crearReporteExcel(this, resultSet, nombrePagina, "manifiesto", tabla, usuario, usuarioPrograma);
         return idArchivo;
     }
-    
-    
+
+
     /**
      * Metodo para convertir una fecha.
      *
@@ -123,12 +136,11 @@ public class ManifiestoModuloImpl extends AuditoriaModuloImpl implements Manifie
     private String convertirDate(String fechaStr) {
         DateFormat dateFormat = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy", Locale.US);
         DateFormat dateFormatSimple = new SimpleDateFormat("yyyy-MM-dd");
-        String respuesta=fechaStr;
+        String respuesta = fechaStr;
         try {
             java.util.Date fechaTemp = dateFormat.parse(fechaStr);
-            
             respuesta = dateFormatSimple.format(fechaTemp);
-            
+
         } catch (Exception e) {
             Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).log(Level.SEVERE, e.toString());
         }
@@ -283,4 +295,3 @@ public class ManifiestoModuloImpl extends AuditoriaModuloImpl implements Manifie
         return (LibroDireccionesViewNoDMLImpl) findViewObject("LibroDireccionesAerolineaViewNoDML1");
     }
 }
-
