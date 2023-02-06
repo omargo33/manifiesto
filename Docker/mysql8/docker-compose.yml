@@ -4,7 +4,7 @@
 ## author: omargo33@hotmail.com
 ## date: 2023-01-26
 ##
-## mysqldump -u root -p123456s --databases SI_001_00 > /var/lib/mysql/SI_001_00.sql
+## mysqldump -u root -p123456s --databases SI_001_00 > /home/backup/SI_001_00.sql
 ##
 ## https://hub.docker.com/_/mysql/
 ##
@@ -48,17 +48,27 @@ services:
 ##
 ## 3. Respaldar base de datos
 ## database AR_001_00
-## mysqldump -u root -p123456s --default-character-set=utf8 --opt --single-transaction --routines --triggers --events --add-drop-database --add-drop-table --complete-insert --tz-utc --databases AR_001_00 > /var/lib/mysql/AR_001_00.sql
+## mysqldump -u root -p123456s --default-character-set=utf8 --opt --single-transaction --routines --triggers --events --add-drop-database --add-drop-table --complete-insert --tz-utc --databases AR_001_00 > /home/backup/AR_001_00.sql
+## restore database AR_001_00
+## mysql -u root -p123456s < /home/backup/AR_001_00.sql
 ##
 ## database GA_001_00
-## mysqldump -u root -p123456s --default-character-set=utf8 --opt --single-transaction --routines --triggers --events --add-drop-database --add-drop-table --complete-insert --tz-utc --databases GA_001_00 > /var/lib/mysql/GA_001_00.sql
+## mysqldump -u root -p123456s --default-character-set=utf8 --opt --single-transaction --routines --triggers --events --add-drop-database --add-drop-table --complete-insert --tz-utc --databases GA_001_00 > /home/backup/GA_001_00.sql
+## restore database GA_001_00
+## mysql -u root -p123456s < /home/backup/GA_001_00.sql
 ##
 ## database GS_001_00
-## mysqldump -u root -p123456s --default-character-set=utf8 --opt --single-transaction --routines --triggers --events --add-drop-database --add-drop-table --complete-insert --tz-utc --databases GS_001_00 > /var/lib/mysql/GS_001_00.sql
+## mysqldump -u root -p123456s --default-character-set=utf8 --opt --single-transaction --routines --triggers --events --add-drop-database --add-drop-table --complete-insert --tz-utc --databases GS_001_00 > /home/backup/GS_001_00.sql
+## restore database GS_001_00
+## mysql -u root -p123456s < /home/backup/GS_001_00.sql
 ##
 ## database MV_001_00
-## mysqldump -u root -p123456s --default-character-set=utf8 --opt --single-transaction --routines --triggers --events --add-drop-database --add-drop-table --complete-insert --tz-utc --databases MV_001_00 > /var/lib/mysql/MV_001_00.sql
+## mysqldump -u root -p123456s --default-character-set=utf8 --opt --single-transaction --routines --triggers --events --add-drop-database --add-drop-table --complete-insert --tz-utc --databases MV_001_00 > /home/backup/MV_001_00.sql
+## restore database MV_001_00
+## mysql -u root -p123456s < /home/backup/MV_001_00.sql
 ##
 ## database SI_001_00
-## mysqldump -u root -p123456s --default-character-set=utf8 --opt --single-transaction --routines --triggers --events --add-drop-database --add-drop-table --complete-insert --tz-utc --databases SI_001_00 > /var/lib/mysql/SI_001_00.sql
+## mysqldump -u root -p123456s --default-character-set=utf8 --opt --single-transaction --routines --triggers --events --add-drop-database --add-drop-table --complete-insert --tz-utc --databases SI_001_00 > /home/backup/SI_001_00.sql
+## restore database SI_001_00
+## mysql -u root -p123456s < /home/backup/SI_001_00.sql
 
