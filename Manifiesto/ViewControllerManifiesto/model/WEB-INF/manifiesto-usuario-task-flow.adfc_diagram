@@ -14,9 +14,9 @@
       <property
          name="activityId">Error</property>
       <property
-         name="inherited">true</property>
-      <property
          name="pageFragment">true</property>
+      <property
+         name="inherited">true</property>
       <property
          name="x">90.85205</property>
       <property
@@ -46,9 +46,9 @@
       <property
          name="activityId">ItemFrg</property>
       <property
-         name="inherited">false</property>
-      <property
          name="pageFragment">true</property>
+      <property
+         name="inherited">false</property>
       <property
          name="x">3071.357</property>
       <property
@@ -65,9 +65,9 @@
       <property
          name="activityId">ListaFrg</property>
       <property
-         name="inherited">false</property>
-      <property
          name="pageFragment">true</property>
+      <property
+         name="inherited">false</property>
       <property
          name="x">1112.3453</property>
       <property
@@ -265,7 +265,7 @@
       <property
          name="fromsrcid">__11</property>
       <property
-         name="sdm:polyPoints">R50,1153.8005,156.68748,1822.4446,82.33249,L50</property>
+         name="sdm:polyPoints">R50,1154.4911,156.68748,1822.4446,85.83249,L54</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -390,7 +390,7 @@
       <property
          name="fromOutcome">Editar</property>
       <property
-         name="sdm:polyPoints">R42,1153.3453,149.68748,1375.9375,18.65863,L50</property>
+         name="sdm:polyPoints">R42,1153.3453,149.68748,1375.9375,17.49112,L50</property>
    </ControlFlowCase>
    <MethodCall
       id="MethodCall33">
@@ -605,7 +605,7 @@
       <property
          name="fromOutcome">noIsCLI02</property>
       <property
-         name="sdm:polyPoints">R46,1295.8977,271.75125,2548.9927,351.95517,L54</property>
+         name="sdm:polyPoints">R46,1295.8977,271.75125,2548.997,351.95517,L54</property>
    </ControlFlowCase>
    <MethodCall
       id="MethodCall65">

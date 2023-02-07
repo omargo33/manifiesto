@@ -174,6 +174,9 @@ public class PPRListaFrg extends BasePPR {
         getIt5().setValue("%");
         getId1().setValue(getFecha15DiasCorto());
         getId2().setValue(getFechaHoyCorto());
+        
+        //TODO validar cliente nivel cli02
+        //para anular las busqueda y dejar con el valor del aeropuerto de forma quemada
     }
 
 

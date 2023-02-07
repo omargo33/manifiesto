@@ -36,4 +36,3 @@ public class ManifiestoViewImpl extends VistaObjeto implements ManifiestoView {
         this.setApplyViewCriteriaName(null);
     }
 }
-
