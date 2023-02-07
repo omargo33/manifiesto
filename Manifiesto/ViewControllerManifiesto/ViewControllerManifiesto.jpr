@@ -100,6 +100,7 @@
          <string v="ADFc"/>
          <string v="ADFm"/>
          <string v="Database"/>
+         <string v="JAVASCRIPT"/>
          <string v="JSF"/>
          <string v="JSP"/>
          <string v="Java"/>
@@ -349,10 +350,6 @@
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
-            <value n="id" v="ADF Library"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
             <value n="id" v="Adf-share-glassfish.jar"/>
             <value n="isJDK" v="false"/>
          </hash>
@@ -392,12 +389,16 @@
             <value n="id" v="BC4J Oracle Domains"/>
             <value n="isJDK" v="false"/>
          </hash>
+         <hash>
+            <value n="id" v="ADF Library"/>
+            <value n="isJDK" v="false"/>
+         </hash>
       </list>
       <hash n="internalDefinitions">
          <list n="libraryDefinitions">
             <hash>
                <list n="classPath">
-                  <url path="../../../gestor/Lib/BaseViewADFLib-01.jar" jar-entry=""/>
+                  <url path="../../../../13Aplicaciones/gestor/Lib/BaseViewADFLib-01.jar" jar-entry=""/>
                </list>
                <value n="deployedByDefault" v="true"/>
                <value n="description" v="ADF Library"/>
@@ -405,7 +406,7 @@
             </hash>
             <hash>
                <list n="classPath">
-                  <url path="../../../gestor/Lib/adf-share-glassfish.jar" jar-entry=""/>
+                  <url path="../../../../13Aplicaciones/gestor/Lib/adf-share-glassfish.jar" jar-entry=""/>
                </list>
                <value n="deployedByDefault" v="true"/>
                <value n="description" v="Adf-share-glassfish.jar"/>
@@ -414,7 +415,7 @@
             </hash>
             <hash>
                <list n="classPath">
-                  <url path="../../../gestor/Lib/BaseViewLib-01.jar" jar-entry=""/>
+                  <url path="../../../../13Aplicaciones/gestor/Lib/BaseViewLib-01.jar" jar-entry=""/>
                </list>
                <value n="deployedByDefault" v="true"/>
                <value n="description" v="BaseViewLib-01.jar"/>
@@ -423,7 +424,7 @@
             </hash>
             <hash>
                <list n="classPath">
-                  <url path="../../../gestor/Lib/LibModel-1.0-SNAPSHOT.jar" jar-entry=""/>
+                  <url path="../../../../13Aplicaciones/gestor/Lib/LibModel-1.0-SNAPSHOT.jar" jar-entry=""/>
                </list>
                <value n="deployedByDefault" v="true"/>
                <value n="description" v="LibModel-1.0-SNAPSHOT.jar"/>
@@ -558,10 +559,6 @@
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
-            <value n="id" v="ADF Library"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
             <value n="id" v="Adf-share-glassfish.jar"/>
             <value n="isJDK" v="false"/>
          </hash>
@@ -599,6 +596,10 @@
          </hash>
          <hash>
             <value n="id" v="BC4J Oracle Domains"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="ADF Library"/>
             <value n="isJDK" v="false"/>
          </hash>
       </list>
@@ -718,6 +719,16 @@
             <value n="URI" v="/baseLib01"/>
             <value n="version" v="2.0"/>
          </hash>
+         <hash>
+            <value n="libraries" v="ADF Faces Components"/>
+            <value n="name" v="baseLib01"/>
+            <value n="prefix" v="bl01"/>
+            <value n="runInEditor" v="true"/>
+            <value n="showInPalette" v="true"/>
+            <value n="taglibURL" v="@project@../../../../13Aplicaciones/gestor/Lib/BaseViewADFLib-01.jar!/META-INF/baselib01.taglib.xml"/>
+            <value n="URI" v="/baseLib01"/>
+            <value n="version" v="2.0"/>
+         </hash>
       </list>
    </hash>
    <hash n="oracle.jdevimpl.webapp.jsp.JspVeProjectSettings">
@@ -781,6 +792,17 @@
             <value n="runInEditor" v="true"/>
             <value n="showInPalette" v="true"/>
             <value n="tldURL" v="@project@../../../gestor/Lib/BaseViewADFLib-01.jar!/META-INF/baseLib01.tld"/>
+            <value n="URI" v="/baseLib01"/>
+            <value n="version" v="1.0"/>
+         </hash>
+         <hash>
+            <value n="jspVersion" v="2.1"/>
+            <value n="libraries" v="ADF Library"/>
+            <value n="name" v="baseLib01"/>
+            <value n="prefix" v="bl01"/>
+            <value n="runInEditor" v="true"/>
+            <value n="showInPalette" v="true"/>
+            <value n="tldURL" v="@project@../../../../13Aplicaciones/gestor/Lib/BaseViewADFLib-01.jar!/META-INF/baseLib01.tld"/>
             <value n="URI" v="/baseLib01"/>
             <value n="version" v="1.0"/>
          </hash>

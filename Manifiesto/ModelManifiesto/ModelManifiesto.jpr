@@ -285,8 +285,8 @@
          <list n="libraryDefinitions">
             <hash>
                <list n="classPath">
-                  <url path="../../../gestor/Lib/AuditoriaModelADFLib-01.jar" jar-entry=""/>
-                  <url path="../../../gestor/Lib/BaseModelADFLib-01.jar" jar-entry=""/>
+                  <url path="../../../../13Aplicaciones/gestor/Lib/AuditoriaModelADFLib-01.jar" jar-entry=""/>
+                  <url path="../../../../13Aplicaciones/gestor/Lib/BaseModelADFLib-01.jar" jar-entry=""/>
                </list>
                <value n="deployedByDefault" v="true"/>
                <value n="description" v="ADF Library"/>
