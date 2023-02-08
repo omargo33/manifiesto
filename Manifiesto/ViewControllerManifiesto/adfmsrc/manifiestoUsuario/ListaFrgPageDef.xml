@@ -129,6 +129,8 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
+    <action id="Rollback" DataControl="ManifiestoModuloDataControl" RequiresUpdateModel="false"
+            Action="rollbackTransaction"/>
     <methodAction id="ejecutarConsulta" RequiresUpdateModel="true" Action="invokeMethod" MethodName="ejecutarConsulta"
                   IsViewObjectMethod="true" DataControl="ManifiestoModuloDataControl"
                   InstanceName="ManifiestoModuloDataControl.ManifiestoViewNoDML1">
@@ -157,7 +159,13 @@
       <NamedData NDName="usuario" NDType="java.lang.String"/>
       <NamedData NDName="usuarioPrograma" NDType="java.lang.String"/>
     </methodAction>
-    <action id="Rollback" DataControl="ManifiestoModuloDataControl" RequiresUpdateModel="false"
-            Action="rollbackTransaction"/>
+    <methodAction id="base_isOnlyUsuarioRol" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="base_isOnlyUsuarioRol" IsViewObjectMethod="false"
+                  DataControl="ManifiestoModuloDataControl" InstanceName="ManifiestoModuloDataControl.dataProvider"
+                  ReturnName="data.ManifiestoModuloDataControl.methodResults.base_isOnlyUsuarioRol_base_isOnlyUsuarioRol_dataControl_dataProvider_base_isOnlyUsuarioRol_result">
+      <NamedData NDName="nick" NDValue="omar" NDType="java.lang.String"/>
+      <NamedData NDName="rol" NDValue="omar" NDType="java.lang.String"/>
+      <NamedData NDName="indiceModulo" NDValue="omar" NDType="java.lang.String"/>
+    </methodAction>
   </bindings>
 </pageDefinition>

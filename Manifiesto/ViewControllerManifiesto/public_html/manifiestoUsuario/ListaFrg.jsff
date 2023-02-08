@@ -122,7 +122,10 @@
                                                   immediate="true">
                                         <af:convertDateTime pattern="yyyy-MM-dd"/>
                                     </af:inputDate>
-                                    <f:facet name="footer"/>
+                                    <f:facet name="footer">
+                                        <af:button text="button 1" id="b5"
+                                                   action="#{backingBeanScope.PPRBackingManifiestoUsuarioListaFrg.ejecutarControlRol}"/>
+                                    </f:facet>
                                 </af:panelFormLayout>
                             </f:facet>
                         </af:panelStretchLayout>

@@ -90,8 +90,9 @@ public class PPRListaFrg extends BasePPR {
     /**
      * actionListener="#{bindings.ejecutarConsulta.execute}"
      */
-    public void actionBuscar(ActionEvent actionEvent) {
+    public String actionBuscar(ActionEvent actionEvent) {
         ejecutarBusqueda();
+        return null;
     }
 
     public String actionLimpiar() {
@@ -174,11 +175,29 @@ public class PPRListaFrg extends BasePPR {
         getIt5().setValue("%");
         getId1().setValue(getFecha15DiasCorto());
         getId2().setValue(getFechaHoyCorto());
-        
+
         //TODO validar cliente nivel cli02
         //para anular las busqueda y dejar con el valor del aeropuerto de forma quemada
     }
 
+    public String ejecutarControlRol() {
+        System.err.println("Nuevos datos");
+
+        Map<String, String> map = new HashMap();
+        map.put("nick", convertirString(ADFUtils.evaluateEL("#{BaseBean.nameUser}")));
+        map.put("rol", "CLI-01");
+        map.put("indiceModulo", convertirString(ADFUtils.evaluateEL("#{session.servletContext.contextPath}")));
+        
+        Object objeto = ADFUtils.ejecutaActionConReturn(getBindings(), "base_isOnlyUsuarioRol", map);
+
+        if (objeto != null) {
+            
+            System.err.println("no dio null " + objeto.toString());
+        }else {
+                System.err.println("dio null");
+            }
+        return null;
+    }
 
     public void valueChangeListenerIt5(ValueChangeEvent valueChangeEvent) {
         // Add event code here...
