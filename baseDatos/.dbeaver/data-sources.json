@@ -1,0 +1,77 @@
+{
+	"folders": {},
+	"connections": {
+		"mysql8-1862e5df698-1f637e1c976e64a7": {
+			"provider": "mysql",
+			"driver": "mysql8",
+			"name": "Local",
+			"save-password": true,
+			"configuration": {
+				"host": "localhost",
+				"port": "3306",
+				"database": "mysql",
+				"url": "jdbc:mysql://localhost:3306/mysql",
+				"configurationType": "MANUAL",
+				"type": "dev",
+				"properties": {
+					"connectTimeout": "20000",
+					"rewriteBatchedStatements": "true",
+					"enabledTLSProtocols": "TLSv1,TLSv1.1,TLSv1.2",
+					"allowPublicKeyRetrieval": "true",
+					"useSSL": "false"
+				},
+				"auth-model": "native"
+			}
+		},
+		"mysql8-1862f02a602-5a27b17a6e7ec4fb": {
+			"provider": "mysql",
+			"driver": "mysql8",
+			"name": "Server",
+			"save-password": true,
+			"configuration": {
+				"host": "3.139.25.45",
+				"port": "3306",
+				"database": "MV_001_00",
+				"url": "jdbc:mysql://3.139.25.45:3306/MV_001_00",
+				"configurationType": "MANUAL",
+				"type": "dev",
+				"properties": {
+					"connectTimeout": "20000",
+					"rewriteBatchedStatements": "true",
+					"enabledTLSProtocols": "TLSv1,TLSv1.1,TLSv1.2",
+					"allowPublicKeyRetrieval": "true",
+					"useSSL": "false"
+				},
+				"auth-model": "native",
+				"handlers": {
+					"mysql_ssl": {
+						"type": "CONFIG",
+						"enabled": true,
+						"save-password": true,
+						"properties": {
+							"ssl.ca.cert": "",
+							"ssl.client.cert": "",
+							"ssl.client.key": "/home/ovelez/Documentos/clientes/Aerocivil/Centos8.ppk",
+							"ssl.method": "CERTIFICATES",
+							"ssl.require": "false",
+							"ssl.verify.server": "true",
+							"ssl.public.key.retrieve": "false",
+							"ssl.cipher.suites": ""
+						}
+					}
+				}
+			}
+		}
+	},
+	"connection-types": {
+		"dev": {
+			"name": "Development",
+			"color": "255,255,255",
+			"description": "Regular development database",
+			"auto-commit": true,
+			"confirm-execute": false,
+			"confirm-data-change": false,
+			"auto-close-transactions": false
+		}
+	}
+}
