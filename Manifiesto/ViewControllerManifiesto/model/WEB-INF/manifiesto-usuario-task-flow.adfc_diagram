@@ -24,7 +24,7 @@
       <property
          name="page">/error/Error.jsff</property>
       <property
-         name="exceptionHandler">true</property>
+         name="exceptionHandler">false</property>
    </View>
    <WildcardControlFlowRule
       id="WildcardControlFlowRule3">
@@ -380,7 +380,7 @@
       <property
          name="fromOutcome">ok</property>
       <property
-         name="sdm:polyPoints">R50,2963.8018,181.67303,3056.6738,177.23798,L50</property>
+         name="sdm:polyPoints">R50,2963.8018,181.67303,3056.6738,177.23796,L50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -426,7 +426,7 @@
       <property
          name="fromOutcome">getIdAerolineaNick</property>
       <property
-         name="sdm:polyPoints">R50,3138.6738,177.23798,3242.629,177.23798,L50</property>
+         name="sdm:polyPoints">R50,3138.6738,177.23796,3242.629,177.23796,L50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -505,7 +505,7 @@
       <property
          name="fromOutcome">ejecutarByIndiceReturn</property>
       <property
-         name="sdm:polyPoints">R50,3813.3809,177.23798,3937.2344,96.05562,L54</property>
+         name="sdm:polyPoints">R50,3813.3809,177.23796,3937.2344,96.05562,L54</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
