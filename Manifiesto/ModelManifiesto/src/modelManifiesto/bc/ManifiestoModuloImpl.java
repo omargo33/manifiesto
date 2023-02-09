@@ -15,6 +15,8 @@ import model.bc.ModuloImpl;
 import model.bc.VistaObjeto;
 import model.bc.modulo.Reporte;
 
+import model.bc.modulo.Rol;
+
 import modelAuditoria.bc.AuditoriaModuloImpl;
 
 import modelManifiesto.bc.common.ManifiestoModulo;
@@ -37,7 +39,7 @@ import oracle.jbo.server.ViewObjectImpl;
 // ---    Custom code may be added to this class.
 // ---    Warning: Do not modify method signatures of generated methods.
 // ---------------------------------------------------------------------
-public class ManifiestoModuloImpl extends ModuloImpl implements ManifiestoModulo {
+public class ManifiestoModuloImpl extends AuditoriaModuloImpl implements ManifiestoModulo {
 
     AerolineaUsuarioIndices aerolineaUsuarioIndices = new AerolineaUsuarioIndices();
 
@@ -67,6 +69,18 @@ public class ManifiestoModuloImpl extends ModuloImpl implements ManifiestoModulo
      */
     public void cambiarEstadoManifiestos() {
         Manifiesto.cambiarEstadoCompleto(this);
+    }
+    
+    /**
+     * Metodo para validar si un rol es usuario de un formato en particular
+     *
+     * @param nick
+     * @param rol
+     * @param indiceModulo
+     * @return
+     */
+    public boolean isOnlyUsuarioRol(String nick, String rol, String indiceModulo) {
+        return Rol.validarRolPorModulo(this, indiceModulo,rol, nick);        
     }
     
     /**

@@ -18,5 +18,7 @@ public interface ManifiestoModulo extends Modulo {
   void cambiarEstadoManifiestos();
   
   void cambiarEstadoManifiesto(String paramString);
+
+    boolean isOnlyUsuarioRol(String nick, String rol, String indiceModulo);
 }
 

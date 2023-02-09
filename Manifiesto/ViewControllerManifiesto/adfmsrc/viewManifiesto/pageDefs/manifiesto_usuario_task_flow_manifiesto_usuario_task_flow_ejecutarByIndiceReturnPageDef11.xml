@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48"
+                id="manifiesto_usuario_task_flow_manifiesto_usuario_task_flow_ejecutarByIndiceReturnPageDef11"
+                Package="viewManifiesto.pageDefs" SkipValidation="true">
+  <parameters/>
+  <executables/>
+  <bindings>
+    <methodAction id="ejecutarByIndiceReturn" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="ejecutarByIndiceReturn" IsViewObjectMethod="true"
+                  DataControl="ManifiestoModuloDataControl"
+                  InstanceName="ManifiestoModuloDataControl.LibroDireccionesAerolineaViewNoDML1"
+                  ReturnName="data.ManifiestoModuloDataControl.methodResults.ejecutarByIndiceReturn_ejecutarByIndiceReturn_dataControl_LibroDireccionesAerolineaViewNoDML1_ejecutarByIndiceReturn_result">
+      <NamedData NDName="indice" NDValue="#{sessionScope.idAerolinea}" NDType="int"/>
+    </methodAction>
+  </bindings>
+</pageDefinition>

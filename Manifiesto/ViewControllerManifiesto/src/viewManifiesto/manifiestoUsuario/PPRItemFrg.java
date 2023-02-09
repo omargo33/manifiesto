@@ -79,8 +79,6 @@ public class PPRItemFrg extends BasePPR {
      * 
      */
     public PPRItemFrg() {
-        System.out.println("Se crea el objeto");
-        
         setNombreBundle("view.ViewControllerBundle");
 
         setPfl3(new RichPanelFormLayout());
@@ -126,8 +124,7 @@ public class PPRItemFrg extends BasePPR {
         limpiarEjecute();
     }
 
-    public void limpiarEjecute() {
-        System.out.println("Voy de salida");
+    public void limpiarEjecute() {        
         try {
             setIt6Int(ADFUtils.evaluateEL("#{bindings.PasajerosExentosTasas.inputValue}"));
             setIt8Int(ADFUtils.evaluateEL("#{bindings.PasajerosPaganDolares.inputValue}"));
@@ -166,8 +163,7 @@ public class PPRItemFrg extends BasePPR {
             }            
         } catch (Exception e) {
             System.out.println("Voy de salida - Error de Cancelado");
-        }
-        System.out.println("Voy de salida terminado!!!");
+        }        
     }
 
     public void valueChangeSoc1(ValueChangeEvent valueChangeEvent) {

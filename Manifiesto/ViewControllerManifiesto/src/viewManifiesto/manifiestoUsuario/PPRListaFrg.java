@@ -3,6 +3,7 @@ package viewManifiesto.manifiestoUsuario;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.faces.component.UIComponent;
 import javax.faces.event.ActionEvent;
 import javax.faces.event.ValueChangeEvent;
 
@@ -10,6 +11,9 @@ import oracle.adf.view.rich.component.rich.RichPopup;
 import oracle.adf.view.rich.component.rich.data.RichTable;
 import oracle.adf.view.rich.component.rich.input.RichInputDate;
 import oracle.adf.view.rich.component.rich.input.RichInputText;
+import oracle.adf.view.rich.component.rich.layout.RichPanelGroupLayout;
+
+import oracle.adf.view.rich.component.rich.nav.RichButton;
 
 import oracle.jbo.uicli.binding.JUCtrlHierNodeBinding;
 
@@ -45,6 +49,10 @@ public class PPRListaFrg extends BasePPR {
     private RichPopup p3; //indiceAeropuertoDestino
     private RichPopup p4; //indiceAeronave
     private RichPopup p5; //impresion reporte
+
+    private RichButton b1;
+    private RichButton b2;
+
 
     /**
      * Metodo para crear el objeto de soporte a la presentacion.
@@ -85,6 +93,8 @@ public class PPRListaFrg extends BasePPR {
         setP4(new RichPopup());
         setP5(new RichPopup());
 
+        setB1(new RichButton());
+        setB2(new RichButton());
     }
 
     /**
@@ -136,8 +146,8 @@ public class PPRListaFrg extends BasePPR {
         Map map = new HashMap<String, Object>();
 
         Object rolUsuario = ADFUtils.evaluateEL("#{sessionScope.isCLI02}");
-        boolean isUsuario = (Boolean) rolUsuario;
-        if (isUsuario) {
+
+        if (rolUsuario != null && String.valueOf(rolUsuario).compareToIgnoreCase("TRUE") == 0) {
             map.put("idUsuario", convertirInt(ADFUtils.evaluateEL("#{sessionScope.idUsuario}")));
         } else {
             map.put("idUsuario", 0);
@@ -176,28 +186,46 @@ public class PPRListaFrg extends BasePPR {
         getId1().setValue(getFecha15DiasCorto());
         getId2().setValue(getFechaHoyCorto());
 
-        //TODO validar cliente nivel cli02
-        //para anular las busqueda y dejar con el valor del aeropuerto de forma quemada
-    }
+        Object cli03 = ADFUtils.evaluateEL("#{sessionScope.isCLI03}");
+        if (cli03 != null && String.valueOf(cli03).compareToIgnoreCase("TRUE") == 0) {
+            try {
+                String idAerolinea = String.valueOf(ADFUtils.evaluateEL("#{sessionScope.idAerolinea}")).trim();
+                String aerolineaDescripcion =
+                    String.valueOf(ADFUtils.evaluateEL("#{sessionScope.aerolineaDescripcion}")).trim();
 
-    public String ejecutarControlRol() {
-        System.err.println("Nuevos datos");
+                String idAeropuerto = String.valueOf(ADFUtils.evaluateEL("#{sessionScope.idAeropuerto}")).trim();
+                String aeropuertoDescripcion =
+                    String.valueOf(ADFUtils.evaluateEL("#{sessionScope.aeropuertoDescripcion}")).trim();
 
-        Map<String, String> map = new HashMap();
-        map.put("nick", convertirString(ADFUtils.evaluateEL("#{BaseBean.nameUser}")));
-        map.put("rol", "CLI-01");
-        map.put("indiceModulo", convertirString(ADFUtils.evaluateEL("#{session.servletContext.contextPath}")));
-        
-        Object objeto = ADFUtils.ejecutaActionConReturn(getBindings(), "base_isOnlyUsuarioRol", map);
+                getIt1().setValue(idAerolinea);
+                getIt10().setValue(aerolineaDescripcion);
+                getB1().setDisabled(true);
 
-        if (objeto != null) {
-            
-            System.err.println("no dio null " + objeto.toString());
-        }else {
-                System.err.println("dio null");
+                getIt2().setValue(idAeropuerto);
+                getIt20().setValue(aeropuertoDescripcion);
+                getB2().setDisabled(true);
+            } catch (Exception e) {
+                System.out.println("error reportado " + e);
             }
-        return null;
+        }
     }
+
+    /*    public String getEjecutarControlRol() {
+
+        Object idUsuario = ADFUtils.evaluateEL("#{sessionScope.idUsuario}");
+
+        Object cli02 = ADFUtils.evaluateEL("#{sessionScope.isCLI02}");
+        Object cli03 = ADFUtils.evaluateEL("#{sessionScope.isCLI03}");
+
+        Object idAerolinea = String.valueOf(ADFUtils.evaluateEL("#{sessionScope.idAerolinea}"));
+        Object aerolineaDescripcion = String.valueOf(ADFUtils.evaluateEL("#{sessionScope.aerolineaDescripcion}"));
+
+        Object idAeropuerto = String.valueOf(ADFUtils.evaluateEL("#{sessionScope.idAeropuerto}"));
+        Object aeropuertoDescripcion = String.valueOf(ADFUtils.evaluateEL("#{sessionScope.aeropuertoDescripcion}"));
+
+        return String.format("idUsuario=%s 02=%s 03=%s A=%s AD=%s p=%s pD=%s", idUsuario, cli02, cli03, idAerolinea,
+                             aerolineaDescripcion, idAeropuerto, aeropuertoDescripcion);
+    }*/
 
     public void valueChangeListenerIt5(ValueChangeEvent valueChangeEvent) {
         // Add event code here...
@@ -497,5 +525,21 @@ public class PPRListaFrg extends BasePPR {
 
     public RichPopup getP5() {
         return p5;
+    }
+
+    public RichButton getB1() {
+        return this.b1;
+    }
+
+    public void setB1(RichButton b1) {
+        this.b1 = b1;
+    }
+
+    public RichButton getB2() {
+        return this.b2;
+    }
+
+    public void setB2(RichButton b2) {
+        this.b2 = b2;
     }
 }
