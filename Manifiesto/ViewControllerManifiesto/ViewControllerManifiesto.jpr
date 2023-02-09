@@ -715,16 +715,6 @@
             <value n="prefix" v="bl01"/>
             <value n="runInEditor" v="true"/>
             <value n="showInPalette" v="true"/>
-            <value n="taglibURL" v="@project@../../../gestor/Lib/BaseViewADFLib-01.jar!/META-INF/baselib01.taglib.xml"/>
-            <value n="URI" v="/baseLib01"/>
-            <value n="version" v="2.0"/>
-         </hash>
-         <hash>
-            <value n="libraries" v="ADF Faces Components"/>
-            <value n="name" v="baseLib01"/>
-            <value n="prefix" v="bl01"/>
-            <value n="runInEditor" v="true"/>
-            <value n="showInPalette" v="true"/>
             <value n="taglibURL" v="@project@../../../../13Aplicaciones/gestor/Lib/BaseViewADFLib-01.jar!/META-INF/baselib01.taglib.xml"/>
             <value n="URI" v="/baseLib01"/>
             <value n="version" v="2.0"/>
@@ -783,17 +773,6 @@
             <value n="tldURL" v="@oracle.home@../oracle_common/modules/oracle.adf.view/adf-richclient-impl-11.jar!/META-INF/afu.tld"/>
             <value n="URI" v="http://xmlns.oracle.com/adf/faces/rich"/>
             <value n="version" v="11"/>
-         </hash>
-         <hash>
-            <value n="jspVersion" v="2.1"/>
-            <value n="libraries" v="ADF Library"/>
-            <value n="name" v="baseLib01"/>
-            <value n="prefix" v="bl01"/>
-            <value n="runInEditor" v="true"/>
-            <value n="showInPalette" v="true"/>
-            <value n="tldURL" v="@project@../../../gestor/Lib/BaseViewADFLib-01.jar!/META-INF/baseLib01.tld"/>
-            <value n="URI" v="/baseLib01"/>
-            <value n="version" v="1.0"/>
          </hash>
          <hash>
             <value n="jspVersion" v="2.1"/>

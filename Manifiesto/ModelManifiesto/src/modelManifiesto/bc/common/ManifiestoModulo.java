@@ -20,5 +20,7 @@ public interface ManifiestoModulo extends Modulo {
   void cambiarEstadoManifiesto(String paramString);
 
     boolean isOnlyUsuarioRol(String nick, String rol, String indiceModulo);
+
+    void errorMysql(int param, String param2);
 }
 
