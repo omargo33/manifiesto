@@ -14,9 +14,9 @@
       <property
          name="activityId">Error</property>
       <property
-         name="pageFragment">true</property>
-      <property
          name="inherited">true</property>
+      <property
+         name="pageFragment">true</property>
       <property
          name="x">87.44336</property>
       <property
@@ -46,9 +46,9 @@
       <property
          name="activityId">ItemFrg</property>
       <property
-         name="pageFragment">true</property>
-      <property
          name="inherited">false</property>
+      <property
+         name="pageFragment">true</property>
       <property
          name="x">4453.2715</property>
       <property
@@ -65,9 +65,9 @@
       <property
          name="activityId">ListaFrg</property>
       <property
-         name="pageFragment">true</property>
-      <property
          name="inherited">false</property>
+      <property
+         name="pageFragment">true</property>
       <property
          name="x">2627.1074</property>
       <property
@@ -169,7 +169,7 @@
       <property
          name="fromsrcid">__21</property>
       <property
-         name="sdm:polyPoints">R50,286.38672,113.81415,366.38672,121.895874,L50</property>
+         name="sdm:polyPoints">R50,286.38672,114.95041,366.38672,123.032135,L50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -380,7 +380,7 @@
       <property
          name="fromOutcome">ok</property>
       <property
-         name="sdm:polyPoints">R50,2963.8018,180.53677,3056.6738,176.1017,L50</property>
+         name="sdm:polyPoints">R50,2963.8018,181.67303,3056.6738,177.23796,L50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -426,7 +426,7 @@
       <property
          name="fromOutcome">getIdAerolineaNick</property>
       <property
-         name="sdm:polyPoints">R50,3138.6738,176.1017,3242.629,176.1017,L50</property>
+         name="sdm:polyPoints">R50,3138.6738,177.23796,3242.629,177.23796,L50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -505,7 +505,7 @@
       <property
          name="fromOutcome">ejecutarByIndiceReturn</property>
       <property
-         name="sdm:polyPoints">R50,3813.3809,176.1017,3937.2344,94.91936,L54</property>
+         name="sdm:polyPoints">R50,3813.3809,177.23796,3937.2344,96.05562,L54</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -515,7 +515,7 @@
       <property
          name="fromOutcome">limpiar</property>
       <property
-         name="sdm:polyPoints">R50,4327.8174,116.598114,4412.2715,162.2764,L42</property>
+         name="sdm:polyPoints">R50,4327.8174,117.734375,4412.2715,163.41266,L42</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -539,7 +539,7 @@
       <property
          name="fromsrcid">__4</property>
       <property
-         name="sdm:polyPoints">R50,2668.1074,154.17105,2727.1074,135.72485,L50</property>
+         name="sdm:polyPoints">R50,2668.1074,155.30731,2727.1074,136.86111,L50</property>
    </ControlFlowCase>
    <Router
       id="Router59">
@@ -766,7 +766,7 @@
       <property
          name="fromOutcome">getIdAerolineaNick</property>
       <property
-         name="sdm:polyPoints">R50,1569.4834,128.04344,1703.8896,128.04344,L50</property>
+         name="sdm:polyPoints">R50,1569.4834,129.1797,1703.8896,129.1797,L50</property>
    </ControlFlowCase>
    <MethodCall
       id="MethodCall80">
@@ -789,7 +789,7 @@
       <property
          name="fromOutcome">ejecutarByIndiceReturn</property>
       <property
-         name="sdm:polyPoints">R50,2041.2432,128.04344,2205.7842,127.98094,L50</property>
+         name="sdm:polyPoints">R50,2041.2432,129.1797,2205.7842,129.1172,L50</property>
    </ControlFlowCase>
    <MethodCall
       id="MethodCall82">
@@ -812,7 +812,7 @@
       <property
          name="fromOutcome">getIdAeropuertoNick</property>
       <property
-         name="sdm:polyPoints">R50,1785.8896,128.04344,1959.2432,128.04344,L50</property>
+         name="sdm:polyPoints">R50,1785.8896,129.1797,1959.2432,129.1797,L50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"

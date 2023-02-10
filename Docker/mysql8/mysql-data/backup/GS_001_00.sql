@@ -48,7 +48,7 @@ CREATE TABLE `codigo_definido_usuario` (
   PRIMARY KEY (`id_codigo_definido_usuario`),
   KEY `codigo_definido_usuario_id_modulo_IDX` (`id_modulo`,`grupo`) USING BTREE,
   CONSTRAINT `codigo_definido_usuario_FK` FOREIGN KEY (`id_modulo`) REFERENCES `modulo` (`id_modulo`)
-) ENGINE=InnoDB AUTO_INCREMENT=81 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_german2_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=82 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_german2_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -57,7 +57,7 @@ CREATE TABLE `codigo_definido_usuario` (
 
 LOCK TABLES `codigo_definido_usuario` WRITE;
 /*!40000 ALTER TABLE `codigo_definido_usuario` DISABLE KEYS */;
-INSERT INTO `codigo_definido_usuario` (`id_codigo_definido_usuario`, `id_modulo`, `grupo`, `codigo_texto`, `codigo_numero`, `nombre`, `descripcion`, `orden`, `estado`, `usuario`, `usuario_fecha`, `usuario_programa`) VALUES (1,1,'AD_US_01','A',1,'Activo','Usuario Activo',1,'A','ovelez','2021-05-19 01:41:42','manual'),(2,1,'AD_US_01','X',2,'Borrado','Usuario Borrado',3,'A','ovelez','2021-05-19 01:42:36','manual'),(3,1,'AD_US_01','P',3,'Pausado','Usuario Suspendido',2,'A','ovelez','2021-05-19 01:43:01','manual'),(4,1,'001','AD_US_01',1,'Usuario-Estado','Usuario-Estado',11,'A','ovelez','2021-05-19 01:43:01','manual'),(5,1,'AD_RL_01','A',1,'Activo','Rol Activo',1,'A','ovelez','2021-06-18 17:15:10','manual'),(6,1,'AD_RL_01','I',2,'Inactivo','Rol Inactivo',2,'A','ovelez','2021-06-18 17:15:10','manual'),(7,1,'AD_RL_02','ADM',1,'Administrador','Rol-Administrador',2,'A','ovelez','2021-06-18 17:15:10','manual'),(8,1,'AD_RL_02','LOG',2,'Auditor','Rol-Auditor',3,'A','ovelez','2021-06-18 17:15:10','manual'),(9,1,'AD_RL_02','CLI-01',3,'Cliente 01','Rol-Cliente',4,'A','ovelez','2021-06-18 17:15:10','manual'),(10,1,'AD_RL_02','CLI-02',4,'Cliente 02','Rol-Cliente',5,'A','ovelez','2021-06-18 17:15:10','manual'),(11,1,'AD_RL_02','ROOT',5,'Principal','Rol-Principal',1,'A','ovelez','2021-06-18 17:15:10','manual'),(12,1,'001','AD_RL_01',2,'Rol-Estado','Rol-Estado',12,'A','ovelez','2021-05-19 01:43:01','manual'),(13,1,'001','AD_RL_02',3,'Rol-Tipo-Acceso','Rol-Tipo-Acceso',13,'A','ovelez','2021-05-19 01:43:01','manual'),(14,1,'001','AD_MD_01',4,'Modulo-Estado','Modulo-Estado',17,'A','ovelez','2021-06-22 22:11:12','manual'),(15,1,'AD_MD_01','A',1,'Activo','Modulo Activo',1,'A','ovelez','2021-06-22 22:11:52','manual'),(16,1,'AD_MD_01','I',1,'Inactivo','Modulo Inactivo',2,'A','ovelez','2021-06-22 22:12:39','manual'),(17,1,'001','AD_CD_01',5,'CDU-Estado','CDU-Estado',6,'A','ovelez','2021-06-22 22:11:12','manual'),(18,1,'AD_CD_01','A',1,'Activo','Codigo Definido Usuario Activo',1,'A','ovelez','2021-06-22 23:37:06','manual'),(19,1,'AD_CD_01','I',2,'Inactivo','Codigo Definido Usuario Inactivo',2,'A','ovelez','2021-06-22 23:37:06','manual'),(23,1,'sdfsadf','11',11,'11','11',-1,'A','Pendiente','2021-06-25 22:18:28','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(24,1,'001','AD_PM_01',1,'Parametro-Clave','Administracion de parametros, en el que se tiene como clave o no',14,'A','Pendiente','2021-07-01 16:24:40','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(25,1,'AD_PM_01','C',0,'Clave','El parametro contiene claves',1,'A','Pendiente','2021-07-01 16:26:59','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(26,1,'AD_PM_01','N',1,'Sin Clave','El parametro no tiene claves',2,'A','Pendiente','2021-07-01 16:27:26','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(27,1,'001','AD_TK_01',1,'Token-Tipo','Tipo de toke, Correo, Facebook o cualquier otra red social',15,'A','Pendiente','2021-07-02 15:22:02','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(28,1,'AD_TK_01','C',1,'Correo','Es el inicial que usa directamente el correo',1,'A','Pendiente','2021-07-02 15:24:18','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(29,1,'AD_TK_01','F',2,'Facebook','Ingreso por Facebook',2,'A','Pendiente','2021-07-02 15:25:51','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(30,1,'AD_TK_01','G',3,'Google','Google Autenticador',3,'A','Pendiente','2021-07-02 16:01:19','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(35,1,'001','AD_TK_02',2,'Token-Estado','Estado del token',16,'A','Pendiente','2021-07-02 16:35:17','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(36,1,'AD_TK_02','A',1,'Activo','Token Activo',2,'A','Pendiente','2021-07-02 16:35:59','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(37,1,'AD_TK_02','I',2,'Inactivo','Token inactivo',3,'A','Pendiente','2021-07-02 16:36:19','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(38,1,'AD_TK_02','C',0,'Creado','Creado pero aun no activado',1,'A','Pendiente','2021-07-02 17:32:39','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(39,1,'001','AD_MN_01',1,'Menu-Tipo','Tipo de menus',9,'A','Pendiente','2021-07-07 22:44:29','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(42,1,'001','AD_MN_02',1,'Menu-Estado','Menu Estado',10,'A','Pendiente','2021-07-07 22:47:25','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(43,1,'AD_MN_01','P',1,'Principal','Es menu principal',1,'A','Pendiente','2021-07-07 22:50:25','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(44,1,'AD_MN_01','S',2,'Secundario','Menu Secundario',2,'A','Pendiente','2021-07-07 22:51:02','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(45,1,'AD_MN_01','U',2,'Usuario','Menu de Usuario',3,'A','Pendiente','2021-07-07 22:51:27','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(46,1,'AD_MN_01','X',4,'Salir','Menu de salida ',4,'A','Pendiente','2021-07-07 22:52:03','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(47,1,'AD_MN_02','A',1,'Activo','Menu activo',2,'A','Pendiente','2021-07-07 22:52:29','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(48,1,'AD_MN_02','I',2,'Inactivo','Menu inactivo',1,'A','Pendiente','2021-07-07 22:52:47','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(49,1,'001','AD_PR_01',1,'Permiso-Crear','Permisos de creación, actualizar, borrar y auditar',8,'A','Pendiente','2021-07-08 16:36:32','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(50,1,'AD_PR_01','S',1,'Si','Esta habilitado',1,'A','Pendiente','2021-07-08 16:37:51','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(51,1,'AD_PR_01','N',0,'No','No Habilitado',2,'A','Pendiente','2021-07-08 16:38:13','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(52,4,'001','CL_PR_01',1,'Estado proyecto','Estado proyecto',7,'A','omar','2022-01-20 14:41:54','/ViewControllerAdministrativo'),(53,4,'CL_PR_01','A',1,'Activo','Proyecto Activo/Ejecución ',1,'A','omar','2022-01-20 14:42:40','/ViewControllerAdministrativo'),(54,4,'001','CL_UB_01',2,'Ubicación','CDU para la ubicación de clientes',3,'A','omar','2022-01-28 00:37:24','/Administrativo-001'),(55,4,'CL_UB_01','E',1,'Email','Correo de contacto',2,'A','omar','2022-01-28 00:40:08','/Administrativo-001'),(56,4,'CL_UB_01','C',2,'Celular','Teléfono Celular',1,'A','omar','2022-01-28 00:42:06','/Administrativo-001'),(57,4,'CL_UB_01','T',3,'Teléfono','Teléfono Fijo',3,'A','omar','2022-01-28 00:42:35','/Administrativo-001'),(58,6,'001','MV_LD_01',1,'Tipo de Direcciones','Tipo de direcciones para el manifiesto',1,'A','omar','2022-02-18 23:05:46','/Administrativo-001'),(59,6,'MV_LD_01','C',1,'Aerolinea','Aerolinea',0,'A','omar','2022-02-18 23:06:27','/Administrativo-001'),(60,6,'MV_LD_01','AR',2,'Aeropuerto','Aeropuerto Origen/Desino ',1,'A','omar','2022-02-18 23:08:23','/Administrativo-001'),(61,6,'MV_LD_01','CA',2,'Aeronave','Idenfivicacion de Avion',2,'A','omar','2022-02-18 23:09:00','/Administrativo-001'),(62,6,'001','MV_LD_02',2,'Estado libro de direcciones','Estado libro de direcciones si esta borrado acitivo, etc',2,'A','omar','2022-02-20 16:09:55','/Administrativo-001'),(63,6,'MV_LD_02','A',1,'Activo','Activo',0,'A','omar','2022-02-20 16:11:02','/Administrativo-001'),(64,6,'MV_LD_02','I',1,'Inactivo','Inactivo',2,'A','omar','2022-02-20 16:11:29','/Administrativo-001'),(65,6,'MV_LD_02','X',2,'Borrado','Borrado Logico',2,'A','omar','2022-02-20 16:11:51','/Administrativo-001'),(66,6,'001','MV_LD_03',3,'Estado Sin borrar','Estado Sin borrar',4,'A','omar','2022-02-20 16:50:01','/Administrativo-001'),(67,6,'MV_LD_03','A',1,'Activo','Activo',0,'A','omar','2022-02-20 16:11:02','/Administrativo-001'),(68,6,'MV_LD_03','I',1,'Inactivo','Inactivo',2,'A','omar','2022-02-20 16:11:29','/Administrativo-001'),(69,6,'001','MV_MN_02',4,'Tipo de Manifiesto','Tipo de Manifiesto',18,'A','omar','2022-02-21 23:37:02','/Administrativo-001'),(70,6,'MV_MN_02','N',0,'Nacional','Vuelo Local',0,'A','omar','2022-02-21 23:37:34','/Administrativo-001'),(71,6,'MV_MN_02','I',1,'Internacional','Vuelo Internacional',2,'A','omar','2022-02-21 23:38:51','/Administrativo-001'),(72,6,'001','MV_MN_01',2,'Estado','Estado de manifiesto',5,'A','omar','2022-02-22 00:02:12','/Administrativo-001'),(73,6,'MV_MN_01','C',1,'Creado','Creado',1,'A','omar','2022-02-22 00:02:42','/Administrativo-001'),(74,6,'MV_MN_01','B',2,'Bloqueado','Bloqueado para Ediciones',2,'A','omar','2022-02-22 00:03:29','/Administrativo-001'),(75,6,'MV_MN_01','JDE',3,'JDE','Pasado a JDE',3,'A','omar','2022-02-22 00:04:04','/Administrativo-001'),(76,6,'MV_MN_01','BAD',4,'Error JDE','Error al pasar a JDE',4,'A','omar','2022-02-22 00:04:48','/Administrativo-001'),(77,1,'AD_MN_01','R',5,'REST','Rest',5,'A','omar78','2022-12-17 21:57:36','/Administrativo-001'),(78,6,'001','MV_MN_03',2,'Cancelado','Vuelo Cancelado',5,'A','omar','2022-02-22 00:02:12','/Administrativo-001'),(79,6,'MV_MN_03','N',1,'Ninguna','Ninguna',0,'A','omar','2022-02-21 23:38:51','/Administrativo-001'),(80,6,'MV_MN_03','C',2,'Vuelo Cancelado','Vuelo Cancelado',1,'A','omar','2022-02-21 23:38:51','/Administrativo-001');
+INSERT INTO `codigo_definido_usuario` (`id_codigo_definido_usuario`, `id_modulo`, `grupo`, `codigo_texto`, `codigo_numero`, `nombre`, `descripcion`, `orden`, `estado`, `usuario`, `usuario_fecha`, `usuario_programa`) VALUES (1,1,'AD_US_01','A',1,'Activo','Usuario Activo',1,'A','ovelez','2021-05-19 01:41:42','manual'),(2,1,'AD_US_01','X',2,'Borrado','Usuario Borrado',3,'A','ovelez','2021-05-19 01:42:36','manual'),(3,1,'AD_US_01','P',3,'Pausado','Usuario Suspendido',2,'A','ovelez','2021-05-19 01:43:01','manual'),(4,1,'001','AD_US_01',1,'Usuario-Estado','Usuario-Estado',11,'A','ovelez','2021-05-19 01:43:01','manual'),(5,1,'AD_RL_01','A',1,'Activo','Rol Activo',1,'A','ovelez','2021-06-18 17:15:10','manual'),(6,1,'AD_RL_01','I',2,'Inactivo','Rol Inactivo',2,'A','ovelez','2021-06-18 17:15:10','manual'),(7,1,'AD_RL_02','ADM',1,'Administrador','Rol-Administrador',2,'A','ovelez','2021-06-18 17:15:10','manual'),(8,1,'AD_RL_02','LOG',2,'Auditor','Rol-Auditor',3,'A','ovelez','2021-06-18 17:15:10','manual'),(9,1,'AD_RL_02','CLI-01',3,'Cliente 01','Rol-Cliente 01',4,'A','ovelez','2021-06-18 17:15:10','manual'),(10,1,'AD_RL_02','CLI-02',4,'Cliente 02','Rol-Cliente 02',5,'A','ovelez','2021-06-18 17:15:10','manual'),(11,1,'AD_RL_02','ROOT',5,'Principal','Rol-Principal',1,'A','ovelez','2021-06-18 17:15:10','manual'),(12,1,'001','AD_RL_01',2,'Rol-Estado','Rol-Estado',12,'A','ovelez','2021-05-19 01:43:01','manual'),(13,1,'001','AD_RL_02',3,'Rol-Tipo-Acceso','Rol-Tipo-Acceso',13,'A','ovelez','2021-05-19 01:43:01','manual'),(14,1,'001','AD_MD_01',4,'Modulo-Estado','Modulo-Estado',17,'A','ovelez','2021-06-22 22:11:12','manual'),(15,1,'AD_MD_01','A',1,'Activo','Modulo Activo',1,'A','ovelez','2021-06-22 22:11:52','manual'),(16,1,'AD_MD_01','I',1,'Inactivo','Modulo Inactivo',2,'A','ovelez','2021-06-22 22:12:39','manual'),(17,1,'001','AD_CD_01',5,'CDU-Estado','CDU-Estado',6,'A','ovelez','2021-06-22 22:11:12','manual'),(18,1,'AD_CD_01','A',1,'Activo','Codigo Definido Usuario Activo',1,'A','ovelez','2021-06-22 23:37:06','manual'),(19,1,'AD_CD_01','I',2,'Inactivo','Codigo Definido Usuario Inactivo',2,'A','ovelez','2021-06-22 23:37:06','manual'),(23,1,'sdfsadf','11',11,'11','11',-1,'A','Pendiente','2021-06-25 22:18:28','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(24,1,'001','AD_PM_01',1,'Parametro-Clave','Administracion de parametros, en el que se tiene como clave o no',14,'A','Pendiente','2021-07-01 16:24:40','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(25,1,'AD_PM_01','C',0,'Clave','El parametro contiene claves',1,'A','Pendiente','2021-07-01 16:26:59','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(26,1,'AD_PM_01','N',1,'Sin Clave','El parametro no tiene claves',2,'A','Pendiente','2021-07-01 16:27:26','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(27,1,'001','AD_TK_01',1,'Token-Tipo','Tipo de toke, Correo, Facebook o cualquier otra red social',15,'A','Pendiente','2021-07-02 15:22:02','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(28,1,'AD_TK_01','C',1,'Correo','Es el inicial que usa directamente el correo',1,'A','Pendiente','2021-07-02 15:24:18','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(29,1,'AD_TK_01','F',2,'Facebook','Ingreso por Facebook',2,'A','Pendiente','2021-07-02 15:25:51','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(30,1,'AD_TK_01','G',3,'Google','Google Autenticador',3,'A','Pendiente','2021-07-02 16:01:19','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(35,1,'001','AD_TK_02',2,'Token-Estado','Estado del token',16,'A','Pendiente','2021-07-02 16:35:17','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(36,1,'AD_TK_02','A',1,'Activo','Token Activo',2,'A','Pendiente','2021-07-02 16:35:59','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(37,1,'AD_TK_02','I',2,'Inactivo','Token inactivo',3,'A','Pendiente','2021-07-02 16:36:19','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(38,1,'AD_TK_02','C',0,'Creado','Creado pero aun no activado',1,'A','Pendiente','2021-07-02 17:32:39','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(39,1,'001','AD_MN_01',1,'Menu-Tipo','Tipo de menus',9,'A','Pendiente','2021-07-07 22:44:29','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(42,1,'001','AD_MN_02',1,'Menu-Estado','Menu Estado',10,'A','Pendiente','2021-07-07 22:47:25','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(43,1,'AD_MN_01','P',1,'Principal','Es menu principal',1,'A','Pendiente','2021-07-07 22:50:25','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(44,1,'AD_MN_01','S',2,'Secundario','Menu Secundario',2,'A','Pendiente','2021-07-07 22:51:02','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(45,1,'AD_MN_01','U',2,'Usuario','Menu de Usuario',3,'A','Pendiente','2021-07-07 22:51:27','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(46,1,'AD_MN_01','X',4,'Salir','Menu de salida ',4,'A','Pendiente','2021-07-07 22:52:03','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(47,1,'AD_MN_02','A',1,'Activo','Menu activo',2,'A','Pendiente','2021-07-07 22:52:29','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(48,1,'AD_MN_02','I',2,'Inactivo','Menu inactivo',1,'A','Pendiente','2021-07-07 22:52:47','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(49,1,'001','AD_PR_01',1,'Permiso-Crear','Permisos de creación, actualizar, borrar y auditar',8,'A','Pendiente','2021-07-08 16:36:32','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(50,1,'AD_PR_01','S',1,'Si','Esta habilitado',1,'A','Pendiente','2021-07-08 16:37:51','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(51,1,'AD_PR_01','N',0,'No','No Habilitado',2,'A','Pendiente','2021-07-08 16:38:13','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(52,4,'001','CL_PR_01',1,'Estado proyecto','Estado proyecto',7,'A','omar','2022-01-20 14:41:54','/ViewControllerAdministrativo'),(53,4,'CL_PR_01','A',1,'Activo','Proyecto Activo/Ejecución ',1,'A','omar','2022-01-20 14:42:40','/ViewControllerAdministrativo'),(54,4,'001','CL_UB_01',2,'Ubicación','CDU para la ubicación de clientes',3,'A','omar','2022-01-28 00:37:24','/Administrativo-001'),(55,4,'CL_UB_01','E',1,'Email','Correo de contacto',2,'A','omar','2022-01-28 00:40:08','/Administrativo-001'),(56,4,'CL_UB_01','C',2,'Celular','Teléfono Celular',1,'A','omar','2022-01-28 00:42:06','/Administrativo-001'),(57,4,'CL_UB_01','T',3,'Teléfono','Teléfono Fijo',3,'A','omar','2022-01-28 00:42:35','/Administrativo-001'),(58,6,'001','MV_LD_01',1,'Tipo de Direcciones','Tipo de direcciones para el manifiesto',1,'A','omar','2022-02-18 23:05:46','/Administrativo-001'),(59,6,'MV_LD_01','C',1,'Aerolinea','Aerolinea',0,'A','omar','2022-02-18 23:06:27','/Administrativo-001'),(60,6,'MV_LD_01','AR',2,'Aeropuerto','Aeropuerto Origen/Desino ',1,'A','omar','2022-02-18 23:08:23','/Administrativo-001'),(61,6,'MV_LD_01','CA',2,'Aeronave','Idenfivicacion de Avion',2,'A','omar','2022-02-18 23:09:00','/Administrativo-001'),(62,6,'001','MV_LD_02',2,'Estado libro de direcciones','Estado libro de direcciones si esta borrado acitivo, etc',2,'A','omar','2022-02-20 16:09:55','/Administrativo-001'),(63,6,'MV_LD_02','A',1,'Activo','Activo',0,'A','omar','2022-02-20 16:11:02','/Administrativo-001'),(64,6,'MV_LD_02','I',1,'Inactivo','Inactivo',2,'A','omar','2022-02-20 16:11:29','/Administrativo-001'),(65,6,'MV_LD_02','X',2,'Borrado','Borrado Logico',2,'A','omar','2022-02-20 16:11:51','/Administrativo-001'),(66,6,'001','MV_LD_03',3,'Estado Sin borrar','Estado Sin borrar',4,'A','omar','2022-02-20 16:50:01','/Administrativo-001'),(67,6,'MV_LD_03','A',1,'Activo','Activo',0,'A','omar','2022-02-20 16:11:02','/Administrativo-001'),(68,6,'MV_LD_03','I',1,'Inactivo','Inactivo',2,'A','omar','2022-02-20 16:11:29','/Administrativo-001'),(69,6,'001','MV_MN_02',4,'Tipo de Manifiesto','Tipo de Manifiesto',18,'A','omar','2022-02-21 23:37:02','/Administrativo-001'),(70,6,'MV_MN_02','N',0,'Nacional','Vuelo Local',0,'A','omar','2022-02-21 23:37:34','/Administrativo-001'),(71,6,'MV_MN_02','I',1,'Internacional','Vuelo Internacional',2,'A','omar','2022-02-21 23:38:51','/Administrativo-001'),(72,6,'001','MV_MN_01',2,'Estado','Estado de manifiesto',5,'A','omar','2022-02-22 00:02:12','/Administrativo-001'),(73,6,'MV_MN_01','C',1,'Creado','Creado',1,'A','omar','2022-02-22 00:02:42','/Administrativo-001'),(74,6,'MV_MN_01','B',2,'Bloqueado','Bloqueado para Ediciones',2,'A','omar','2022-02-22 00:03:29','/Administrativo-001'),(75,6,'MV_MN_01','JDE',3,'JDE','Pasado a JDE',3,'A','omar','2022-02-22 00:04:04','/Administrativo-001'),(76,6,'MV_MN_01','BAD',4,'Error JDE','Error al pasar a JDE',4,'A','omar','2022-02-22 00:04:48','/Administrativo-001'),(77,1,'AD_MN_01','R',5,'REST','Rest',5,'A','omar78','2022-12-17 21:57:36','/Administrativo-001'),(78,6,'001','MV_MN_03',2,'Cancelado','Vuelo Cancelado',5,'A','omar','2022-02-22 00:02:12','/Administrativo-001'),(79,6,'MV_MN_03','N',1,'Ninguna','Ninguna',0,'A','omar','2022-02-21 23:38:51','/Administrativo-001'),(80,6,'MV_MN_03','C',2,'Vuelo Cancelado','Vuelo Cancelado',1,'A','omar','2022-02-21 23:38:51','/Administrativo-001'),(81,1,'AD_RL_02','CLI-03',5,'Cliente 03','Rol-Cliente 03',6,'A','ovelez','2021-06-18 17:15:10','manual');
 /*!40000 ALTER TABLE `codigo_definido_usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -143,7 +143,7 @@ CREATE TABLE `menu` (
   KEY `menu_indice_IDX` (`indice`),
   KEY `menu_FK` (`id_modulo`),
   CONSTRAINT `menu_FK` FOREIGN KEY (`id_modulo`) REFERENCES `modulo` (`id_modulo`)
-) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -152,7 +152,7 @@ CREATE TABLE `menu` (
 
 LOCK TABLES `menu` WRITE;
 /*!40000 ALTER TABLE `menu` DISABLE KEYS */;
-INSERT INTO `menu` (`id_menu`, `id_modulo`, `tipo`, `indice`, `nombre`, `task_flow`, `estado`, `orden`, `usuario`, `usuario_fecha`, `usuario_programa`) VALUES (3,1,'P','LG-US-001','Usuario','/WEB-INF/usuario-task-flow.xml#usuario-task-flow','I',1,'Pendiente','2021-07-09 00:39:01','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(6,2,'P','GS-RL-001','Roles','/WEB-INF/rol-task-flow.xml#rol-task-flow','A',3,'Pendiente','2021-07-09 05:02:06','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(9,2,'P','GS-MN-001','Menus','/WEB-INF/menu-task-flow.xml#menu-task-flow','A',2,'Pendiente','2021-07-09 05:19:24','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(10,2,'P','GS-CD-001','Códigos Definidos','/WEB-INF/cdu-task-flow.xml#cdu-task-flow','A',4,'Pendiente','2021-07-11 17:40:39','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(11,2,'P','GS-ER-001','Errores','/WEB-INF/error-task-flow.xml#error-task-flow','A',6,'Pendiente','2022-01-04 15:53:49','manual'),(12,2,'P','GS-IN-001','Informacion','/WEB-INF/informacion-task-flow.xml#informacion-task-flow','A',7,'Pendiente','2022-01-04 16:28:04','manual'),(13,3,'P','IW-EN-001','Reportes','/WEB-INF/reporte-task-flow.xml#reporte-task-flow','A',1,'Pendiente','2022-01-05 04:54:14','manual'),(14,4,'P','CS_001','Cliente','/WEB-INF/cliente-task-flow#cliente-task-flow','A',2,'omar','2022-01-06 13:43:16','/ViewControllerAdministrativo'),(15,2,'P','GS-US-001','Usuarios','/WEB-INF/usuario-task-flow.xml#usuario-task-flow','A',5,'omar','2022-01-08 05:40:54','/ViewControllerAdministrativo'),(16,2,'P','GS-MD-001','Modulos','/WEB-INF/modulo-task-flow.xml#modulo-task-flow','A',1,'omar','2022-01-20 13:53:00','/ViewControllerAdministrativo'),(17,2,'P','GS_CC_001','Cambio Clave','/WEB-INF/clave-task-flow.xml#clave-task-flow','A',8,'omar','2022-01-25 04:46:58','/Administrativo-001'),(18,4,'P','CS_PR_001','Proyecto','/WEB-INF/proyecto-task-flow#proyecto-task-flow','A',1,'omar','2022-01-25 14:42:01','/Administrativo-001'),(19,4,'P','CS_CT_001','Contacto','/WEB-INF/contacto-task-flow#contacto-task-flow','A',3,'omar','2022-02-08 14:53:37','/Administrativo-001'),(20,6,'P','MV_RG_001','Manifiesto ADM','/WEB-INF/manifiesto-usuario-task-flow.xml#manifiesto-usuario-task-flow','A',2,'omar','2022-02-18 18:18:04','/Administrativo-001'),(21,6,'P','MV_AL_001','Manifiesto Vuelo USU','/WEB-INF/manifiesto-usuario-task-flow.xml#manifiesto-usuario-task-flow','A',2,'omar','2022-02-18 20:10:46','/Administrativo-001'),(22,6,'P','MV_LD_001','Libro Direcciones','/WEB-INF/libro-direccion-task-flow.xml#libro-direccion-task-flow','A',1,'omar','2022-02-20 16:37:18','/Administrativo-001'),(23,6,'P','MV_TT_001','Tasas Timbres','/WEB-INF/tasa-task-flow.xml#tasa-task-flow','A',2,'admin','2022-03-15 18:03:26','/Administrativo-001'),(24,6,'P','MV_ER_001','Errores Envio JDE','/WEB-INF/error-rest-task-flow.xml#error-rest-task-flow','A',2,'admin','2022-03-15 18:03:26','/Administrativo-001'),(25,9,'R','GS-MD-011','Modulos','/modulos/**','A',1,'nodata','2022-12-14 05:45:19','none'),(26,2,'P','GS_US_011','Usuarios','/usuarios/**','A',2,'omar78','2022-12-17 20:44:33','/Administrativo-001'),(27,9,'R','GS_US_011','Usuarios','/usuarios/**','A',2,'omar78','2022-12-17 21:10:39','/Administrativo-001'),(28,9,'R','GS_TK_011','Tokens','/tokens/**','A',3,'omar78','2022-12-17 21:24:30','/Administrativo-001'),(29,9,'R','GS_PR_011','Parametros','/parametros/**','A',4,'omar78','2022-12-17 21:32:16','/Administrativo-001'),(30,9,'R','GS_LG_011','Login','/login/**','A',0,'omar78','2022-12-17 21:41:38','/Administrativo-001'),(31,9,'R','GS_MN_011','Menu','/menu/**','A',6,'omar78','2022-12-17 22:01:52','/Administrativo-001');
+INSERT INTO `menu` (`id_menu`, `id_modulo`, `tipo`, `indice`, `nombre`, `task_flow`, `estado`, `orden`, `usuario`, `usuario_fecha`, `usuario_programa`) VALUES (3,1,'P','LG-US-001','Usuario','/WEB-INF/usuario-task-flow.xml#usuario-task-flow','I',1,'Pendiente','2021-07-09 00:39:01','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(6,2,'P','GS-RL-001','Roles','/WEB-INF/rol-task-flow.xml#rol-task-flow','A',3,'Pendiente','2021-07-09 05:02:06','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(9,2,'P','GS-MN-001','Menus','/WEB-INF/menu-task-flow.xml#menu-task-flow','A',2,'Pendiente','2021-07-09 05:19:24','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(10,2,'P','GS-CD-001','Códigos Definidos','/WEB-INF/cdu-task-flow.xml#cdu-task-flow','A',4,'Pendiente','2021-07-11 17:40:39','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(11,2,'P','GS-ER-001','Errores','/WEB-INF/error-task-flow.xml#error-task-flow','A',6,'Pendiente','2022-01-04 15:53:49','manual'),(12,2,'P','GS-IN-001','Informacion','/WEB-INF/informacion-task-flow.xml#informacion-task-flow','A',7,'Pendiente','2022-01-04 16:28:04','manual'),(13,3,'P','IW-EN-001','Reportes','/WEB-INF/reporte-task-flow.xml#reporte-task-flow','A',1,'Pendiente','2022-01-05 04:54:14','manual'),(14,4,'P','CS_001','Cliente','/WEB-INF/cliente-task-flow#cliente-task-flow','A',2,'omar','2022-01-06 13:43:16','/ViewControllerAdministrativo'),(15,2,'P','GS-US-001','Usuarios','/WEB-INF/usuario-task-flow.xml#usuario-task-flow','A',5,'omar','2022-01-08 05:40:54','/ViewControllerAdministrativo'),(16,2,'P','GS-MD-001','Modulos','/WEB-INF/modulo-task-flow.xml#modulo-task-flow','A',1,'omar','2022-01-20 13:53:00','/ViewControllerAdministrativo'),(17,2,'P','GS_CC_001','Cambio Clave','/WEB-INF/clave-task-flow.xml#clave-task-flow','A',8,'omar','2022-01-25 04:46:58','/Administrativo-001'),(18,4,'P','CS_PR_001','Proyecto','/WEB-INF/proyecto-task-flow#proyecto-task-flow','A',1,'omar','2022-01-25 14:42:01','/Administrativo-001'),(19,4,'P','CS_CT_001','Contacto','/WEB-INF/contacto-task-flow#contacto-task-flow','A',3,'omar','2022-02-08 14:53:37','/Administrativo-001'),(20,6,'P','MV_RG_001','Manifiesto ADM','/WEB-INF/manifiesto-usuario-task-flow.xml#manifiesto-usuario-task-flow','A',2,'omar','2022-02-18 18:18:04','/Administrativo-001'),(21,6,'P','MV_AL_001','Manifiesto Vuelo USU','/WEB-INF/manifiesto-usuario-task-flow.xml#manifiesto-usuario-task-flow','A',2,'omar','2022-02-18 20:10:46','/Administrativo-001'),(22,6,'P','MV_LD_001','Libro Direcciones','/WEB-INF/libro-direccion-task-flow.xml#libro-direccion-task-flow','A',1,'omar','2022-02-20 16:37:18','/Administrativo-001'),(23,6,'P','MV_TT_001','Tasas Timbres','/WEB-INF/tasa-task-flow.xml#tasa-task-flow','A',2,'admin','2022-03-15 18:03:26','/Administrativo-001'),(24,6,'P','MV_ER_001','Errores Envio JDE','/WEB-INF/error-rest-task-flow.xml#error-rest-task-flow','A',2,'admin','2022-03-15 18:03:26','/Administrativo-001'),(25,9,'R','GS-MD-011','Modulos','/modulos/**','A',1,'nodata','2022-12-14 05:45:19','none'),(26,2,'P','GS_US_011','Usuarios','/usuarios/**','A',2,'omar78','2022-12-17 20:44:33','/Administrativo-001'),(27,9,'R','GS_US_011','Usuarios','/usuarios/**','A',2,'omar78','2022-12-17 21:10:39','/Administrativo-001'),(28,9,'R','GS_TK_011','Tokens','/tokens/**','A',3,'omar78','2022-12-17 21:24:30','/Administrativo-001'),(29,9,'R','GS_PR_011','Parametros','/parametros/**','A',4,'omar78','2022-12-17 21:32:16','/Administrativo-001'),(30,9,'R','GS_LG_011','Login','/login/**','A',0,'omar78','2022-12-17 21:41:38','/Administrativo-001'),(31,9,'R','GS_MN_011','Menu','/menu/**','A',6,'omar78','2022-12-17 22:01:52','/Administrativo-001'),(32,6,'P','MV_PL_001','Preliquidación','/WEB-INF/preliquidacion-task-flow.xml#preliquidacion-task-flow','A',2,'omar','2022-02-18 20:10:46','/Administrativo-001'),(33,6,'P','MV_CL_001','Carga por Lotes','/WEB-INF/manifiesto-up-task-flow.xml#manifiesto-up-task-flow','A',2,'omar','2022-02-18 20:10:46','/Administrativo-001');
 /*!40000 ALTER TABLE `menu` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -224,7 +224,7 @@ CREATE TABLE `parametro` (
 
 LOCK TABLES `parametro` WRITE;
 /*!40000 ALTER TABLE `parametro` DISABLE KEYS */;
-INSERT INTO `parametro` (`id_parametro`, `id_modulo`, `indice`, `clave`, `nombre`, `descripcion`, `valor_texto_01`, `valor_texto_02`, `valor_numero_01`, `valor_numero_02`, `default_texto_01`, `default_texto_02`, `default_numero_01`, `default_numero_02`, `usuario`, `usuario_fecha`, `usuario_programa`) VALUES (2,1,'002','N','Tiempo de espera ante intentos fallidos','Tiempo en horas, antes que la clave vuelva a estar activo','','',2,NULL,'<No Definido>','<No Definido>',NULL,2,'ovelez','2021-05-16 23:00:24','manual'),(8,1,'001','N','Numero de Intentos','Numero de Intentos que el login tendra antes de bloquear',NULL,NULL,3,0,'<No Definido>','<No Definido>',3,0,'Pendiente','2021-07-05 21:54:10','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(9,1,'003','N',' reCAPTCHA','reCAPTCHA al sitio web  \"loginADF\"','6LfRpt8bAAAAAFUbbzttVV5FrAhSiIN5vZUsekSL','6LfRpt8bAAAAANCPK5xqiHX2GTp3xC7MmTSL-p4o',NULL,NULL,'Clave del sitio Web','Clave secreta Servidor',0,0,'weblogic','2021-08-05 15:05:49','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(10,1,'004','N','Contexto Usuario','Contexto Usuario nuevo y/o cambio clave + id_menu del menu que tiene esta inforamcion','http://192.168.1.7:28082/Administrativo-001/faces/LOG000?server=GF5&?token=','',17,NULL,'Contexto de Usuario','Contexto de Usuario',0,0,'weblogic','2021-08-05 15:05:49','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(11,1,'005','N','Plantilla notificación enviar token','id Plantilla notificación enviar token',NULL,NULL,1,NULL,'Expresión Regular de validación','Mensaje de validación',0,0,'omar','2022-01-22 05:43:02','/Administrativo-001'),(14,8,'200','N','Path Relativo','Path Relativo para guardado de archivos','/home/omarv/',NULL,NULL,NULL,'/homo/user','<No Definido>',0,0,'omar','2022-02-25 04:31:17','/Administrativo-001'),(15,1,'100','N','Servidor por default de seguridades','Servidor por default de seguridades o proveedor o tecnologia de servidor, puede ser WLS12 GF5','WLS12','',2,NULL,'<No Definido>','<No Definido>',NULL,2,'ovelez','2021-05-16 23:00:24','manual'),(16,2,'100','N','Servidor por default de seguridades','Servidor por default de seguridades o proveedor o tecnologia de servidor, puede ser WLS12 GF5','WLS12','',2,NULL,'<No Definido>','<No Definido>',NULL,2,'ovelez','2021-05-16 23:00:24','manual'),(18,8,'50','N','Logout del modulo','Logout del modulo','http://192.168.1.7:28080/Login-001/faces/Home.jspx',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'pendiente','2022-04-19 04:10:11','manual'),(19,2,'50','N','Logout del modulo','Logout del modulo','http://192.168.1.7:28080/Login-001/faces/Home.jspx',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'pendiente','2022-04-19 04:10:11','manual'),(20,1,'50','N','Logout del modulo','Logout del modulo','http://192.168.1.7:28080/Login-001/faces/Home.jspx',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'pendiente','2022-04-19 04:10:11','manual'),(21,6,'200','N','Path Relativo','Path Relativo para guardado de archivos','/home/colaborador/',NULL,NULL,NULL,'/homo/user','<No Definido>',0,0,'omar','2022-02-25 04:31:17','/Administrativo-001'),(23,2,'001','N','Expresion Regular para el cambio de claves','Expresion regular para claves ^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#&()–[{}]:;\',?/*~$^+=<>]).{8,20}$','^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#&()–[{}]:;\',?/*~$^+=<>]).{8,20}$','Debe contener: del 0-9, A-Z, a-z y los caracteres ! @ # & ( ) ; en un largo de 8-20 caracteres ',2,NULL,'<No Definido>','<No Definido>',NULL,2,'ovelez','2021-05-16 23:00:24','manual'),(26,6,'001','N','URL Servicio manifiesto JDE','URL Servicio manifiesto JDE','https://186.31.107.90:8089/PY920/IntegracionPortalTasasTimbres',NULL,NULL,NULL,'https://186.31.107.90:8089/PY920/IntegracionPortalTasasTimbres','<No Definido>',0,0,'omar','2022-02-25 04:31:17','/Administrativo-001'),(27,6,'002','N','Usuario/Clave URL Servicio manifiesto JDE','Usuario/Clave URL Servicio manifiesto JDE','CONSULTOR','C0nsult0r2021#*',NULL,NULL,'Usuario/Clave asignado desde  JDE ','<No Definido>',0,0,'omar','2022-02-25 04:31:17','/Administrativo-001'),(28,6,'003','N','Path de archivo de llave SSL','Path de archivo de llave SSL que debe ser obtenida desde el sitio https','/home/omarv/ssl_jde_aerocivil','1937480',NULL,NULL,'Clave asignada de JDE','<No Definido>',0,0,'omar','2022-02-25 04:31:17','/Administrativo-001'),(29,1,'006','N','URL empresarial','Url empresarial','https://www.aerocivil.gov.co/',NULL,1,NULL,'Url del sitio web de la empresa','',0,0,'omar','2022-01-22 05:43:02','/Administrativo-001'),(30,1,'007','N','URL Declaimer','URL de declaimer del sitio web, se usa para dar informacion legal o de contenido variado','https://www.elcarrocolombiano.com/noticias/mitsubishi-asx-2023-basado-en-captur-nuevos-datos/',NULL,1,NULL,'Url del Declamer','',0,0,'omar','2022-01-22 05:43:02','/Administrativo-001'),(31,6,'004','N','Dias de seguridad para ingreso de Cierres','Dias de seguridad para ingreso de Cierres','','',30,NULL,'','',30,0,'omar','2022-02-25 04:31:17','/Administrativo-001'),(32,6,'005','N','Maximo de ocupantes de los aviones','Maximo de ocupantes de los aviones validaciones','','',501,NULL,'','',501,0,'omar','2022-02-25 04:31:17','/Administrativo-001'),(33,2,'300','N','Notificacion Crear Clave ','Notificacion Crear Clave (Formato y Servicio)',NULL,NULL,2,1,'','',1,1,'ovelez','2022-06-11 17:48:25','manul'),(34,1,'300','N','Notificacion Solicitud Nueva Clave','Notificacion Solicitud Nueva Clave (Formato y Servicio)',NULL,NULL,1,1,NULL,NULL,1,1,'ovelez','2022-06-11 18:43:12','manual'),(35,2,'301','N','Notificacion Cambio Clave ','Notificacion Cambio Clave (Formato y Servicio)',NULL,NULL,1,1,'','',1,1,'ovelez','2022-06-11 17:48:25','manul'),(36,6,'50','N','Logout del modulo','Logout del modulo','http://192.168.1.7:28080/Login-001/faces/Home.jspx',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'pendiente','2022-04-19 04:10:11','manual'),(37,9,'002','N','Tiempo de espera ante intentos fallidos','Tiempo en horas, antes que la clave vuelva a estar activo','','',2,NULL,'<No Definido>','<No Definido>',NULL,2,'ovelez','2021-05-16 23:00:24','manual'),(38,9,'001','N','Numero de Intentos','Numero de Intentos que el login tendra antes de bloquear',NULL,NULL,3,0,'<No Definido>','<No Definido>',3,0,'Pendiente','2021-07-05 21:54:10','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(39,9,'003','N',' reCAPTCHA','reCAPTCHA al sitio web  \"loginADF\"','6LfRpt8bAAAAAFUbbzttVV5FrAhSiIN5vZUsekSL','6LfRpt8bAAAAANCPK5xqiHX2GTp3xC7MmTSL-p4o',NULL,NULL,'Clave del sitio Web','Clave secreta Servidor',0,0,'weblogic','2021-08-05 15:05:49','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(41,9,'005','N','Plantilla notificación enviar token','id Plantilla notificación enviar token',NULL,NULL,1,NULL,'Expresión Regular de validación','Mensaje de validación',0,0,'omar','2022-01-22 05:43:02','/Administrativo-001'),(42,9,'100','N','Servidor por default de seguridades','Servidor por default de seguridades o proveedor o tecnologia de servidor, puede ser WLS12 GF5','SPRING','',2,NULL,'<No Definido>','<No Definido>',NULL,2,'ovelez','2021-05-16 23:00:24','manual'),(46,9,'300','N','Notificacion Solicitud Nueva Clave','Notificacion Solicitud Nueva Clave (Formato y Servicio)',NULL,NULL,1,1,NULL,NULL,1,1,'ovelez','2022-06-11 18:43:12','manual'),(49,9,'004','N','Expresion Regular para el cambio de claves','Expresion regular para claves ^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#&()–[{}]:;\',?/*~$^+=<>]).{8,20}$','^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#&()–[{}]:;\',?/*~$^+=<>]).{8,20}$','Debe contener: del 0-9, A-Z, a-z y los caracteres ! @ # & ( ) ; en un largo de 8-20 caracteres ',2,NULL,'<No Definido>','<No Definido>',NULL,2,'ovelez','2021-05-16 23:00:24','manual'),(50,9,'301','N','Notificacion Crear Clave ','Notificacion Crear Clave (Formato y Servicio)',NULL,NULL,2,1,'','',1,1,'ovelez','2022-06-11 17:48:25','manual'),(51,9,'302','N','Notificacion Cambio Clave ','Notificacion Cambio Clave (Formato y Servicio)',NULL,NULL,1,1,'','',1,1,'ovelez','2022-06-11 17:48:25','manual');
+INSERT INTO `parametro` (`id_parametro`, `id_modulo`, `indice`, `clave`, `nombre`, `descripcion`, `valor_texto_01`, `valor_texto_02`, `valor_numero_01`, `valor_numero_02`, `default_texto_01`, `default_texto_02`, `default_numero_01`, `default_numero_02`, `usuario`, `usuario_fecha`, `usuario_programa`) VALUES (2,1,'002','N','Tiempo de espera ante intentos fallidos','Tiempo en horas, antes que la clave vuelva a estar activo','','',2,NULL,'<No Definido>','<No Definido>',NULL,2,'ovelez','2021-05-16 23:00:24','manual'),(8,1,'001','N','Numero de Intentos','Numero de Intentos que el login tendra antes de bloquear',NULL,NULL,3,0,'<No Definido>','<No Definido>',3,0,'Pendiente','2021-07-05 21:54:10','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(9,1,'003','N',' reCAPTCHA','reCAPTCHA al sitio web  \"loginADF\"','6LfRpt8bAAAAAFUbbzttVV5FrAhSiIN5vZUsekSL','6LfRpt8bAAAAANCPK5xqiHX2GTp3xC7MmTSL-p4o',NULL,NULL,'Clave del sitio Web','Clave secreta Servidor',0,0,'weblogic','2021-08-05 15:05:49','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(10,1,'004','N','Contexto Usuario','Contexto Usuario nuevo y/o cambio clave + id_menu del menu que tiene esta inforamcion','http://192.168.1.7:28082/Administrativo-001/faces/LOG000?server=GF5&?token=','',17,NULL,'Contexto de Usuario','Contexto de Usuario',0,0,'weblogic','2021-08-05 15:05:49','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(11,1,'005','N','Plantilla notificación enviar token','id Plantilla notificación enviar token',NULL,NULL,1,NULL,'Expresión Regular de validación','Mensaje de validación',0,0,'omar','2022-01-22 05:43:02','/Administrativo-001'),(14,8,'200','N','Path Relativo','Path Relativo para guardado de archivos','/home/omarv/',NULL,NULL,NULL,'/homo/user','<No Definido>',0,0,'omar','2022-02-25 04:31:17','/Administrativo-001'),(15,1,'100','N','Servidor por default de seguridades','Servidor por default de seguridades o proveedor o tecnologia de servidor, puede ser WLS12 GF5','WLS12','',2,NULL,'<No Definido>','<No Definido>',NULL,2,'ovelez','2021-05-16 23:00:24','manual'),(16,2,'100','N','Servidor por default de seguridades','Servidor por default de seguridades o proveedor o tecnologia de servidor, puede ser WLS12 GF5','WLS12','',2,NULL,'<No Definido>','<No Definido>',NULL,2,'ovelez','2021-05-16 23:00:24','manual'),(18,8,'50','N','Logout del modulo','Logout del modulo','http://192.168.1.7:28080/Login-001/faces/Home.jspx',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'pendiente','2022-04-19 04:10:11','manual'),(19,2,'50','N','Logout del modulo','Logout del modulo','http://192.168.1.7:28080/Login-001/faces/Home.jspx',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'pendiente','2022-04-19 04:10:11','manual'),(20,1,'50','N','Logout del modulo','Logout del modulo','http://192.168.1.7:28080/Login-001/faces/Home.jspx',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'pendiente','2022-04-19 04:10:11','manual'),(21,6,'200','N','Path Relativo','Path Relativo para guardado de archivos','/home/ovelez/',NULL,NULL,NULL,'/homo/user','<No Definido>',0,0,'omar','2022-02-25 04:31:17','/Administrativo-001'),(23,2,'001','N','Expresion Regular para el cambio de claves','Expresion regular para claves ^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#&()–[{}]:;\',?/*~$^+=<>]).{8,20}$','^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#&()–[{}]:;\',?/*~$^+=<>]).{8,20}$','Debe contener: del 0-9, A-Z, a-z y los caracteres ! @ # & ( ) ; en un largo de 8-20 caracteres ',2,NULL,'<No Definido>','<No Definido>',NULL,2,'ovelez','2021-05-16 23:00:24','manual'),(26,6,'001','N','URL Servicio manifiesto JDE','URL Servicio manifiesto JDE','https://186.31.107.90:8089/PY920/IntegracionPortalTasasTimbres',NULL,NULL,NULL,'https://186.31.107.90:8089/PY920/IntegracionPortalTasasTimbres','<No Definido>',0,0,'omar','2022-02-25 04:31:17','/Administrativo-001'),(27,6,'002','N','Usuario/Clave URL Servicio manifiesto JDE','Usuario/Clave URL Servicio manifiesto JDE','CONSULTOR','C0nsult0r2021#*',NULL,NULL,'Usuario/Clave asignado desde  JDE ','<No Definido>',0,0,'omar','2022-02-25 04:31:17','/Administrativo-001'),(28,6,'003','N','Path de archivo de llave SSL','Path de archivo de llave SSL que debe ser obtenida desde el sitio https','/home/omarv/ssl_jde_aerocivil','1937480',NULL,NULL,'Clave asignada de JDE','<No Definido>',0,0,'omar','2022-02-25 04:31:17','/Administrativo-001'),(29,1,'006','N','URL empresarial','Url empresarial','https://www.aerocivil.gov.co/',NULL,1,NULL,'Url del sitio web de la empresa','',0,0,'omar','2022-01-22 05:43:02','/Administrativo-001'),(30,1,'007','N','URL Declaimer','URL de declaimer del sitio web, se usa para dar informacion legal o de contenido variado','https://www.elcarrocolombiano.com/noticias/mitsubishi-asx-2023-basado-en-captur-nuevos-datos/',NULL,1,NULL,'Url del Declamer','',0,0,'omar','2022-01-22 05:43:02','/Administrativo-001'),(31,6,'004','N','Dias de seguridad para ingreso de Cierres','Dias de seguridad para ingreso de Cierres','','',30,NULL,'','',30,0,'omar','2022-02-25 04:31:17','/Administrativo-001'),(32,6,'005','N','Maximo de ocupantes de los aviones','Maximo de ocupantes de los aviones validaciones','','',501,NULL,'','',501,0,'omar','2022-02-25 04:31:17','/Administrativo-001'),(33,2,'300','N','Notificacion Crear Clave ','Notificacion Crear Clave (Formato y Servicio)',NULL,NULL,2,1,'','',1,1,'ovelez','2022-06-11 17:48:25','manul'),(34,1,'300','N','Notificacion Solicitud Nueva Clave','Notificacion Solicitud Nueva Clave (Formato y Servicio)',NULL,NULL,1,1,NULL,NULL,1,1,'ovelez','2022-06-11 18:43:12','manual'),(35,2,'301','N','Notificacion Cambio Clave ','Notificacion Cambio Clave (Formato y Servicio)',NULL,NULL,1,1,'','',1,1,'ovelez','2022-06-11 17:48:25','manul'),(36,6,'50','N','Logout del modulo','Logout del modulo','http://192.168.1.7:28080/Login-001/faces/Home.jspx',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'pendiente','2022-04-19 04:10:11','manual'),(37,9,'002','N','Tiempo de espera ante intentos fallidos','Tiempo en horas, antes que la clave vuelva a estar activo','','',2,NULL,'<No Definido>','<No Definido>',NULL,2,'ovelez','2021-05-16 23:00:24','manual'),(38,9,'001','N','Numero de Intentos','Numero de Intentos que el login tendra antes de bloquear',NULL,NULL,3,0,'<No Definido>','<No Definido>',3,0,'Pendiente','2021-07-05 21:54:10','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(39,9,'003','N',' reCAPTCHA','reCAPTCHA al sitio web  \"loginADF\"','6LfRpt8bAAAAAFUbbzttVV5FrAhSiIN5vZUsekSL','6LfRpt8bAAAAANCPK5xqiHX2GTp3xC7MmTSL-p4o',NULL,NULL,'Clave del sitio Web','Clave secreta Servidor',0,0,'weblogic','2021-08-05 15:05:49','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(41,9,'005','N','Plantilla notificación enviar token','id Plantilla notificación enviar token',NULL,NULL,1,NULL,'Expresión Regular de validación','Mensaje de validación',0,0,'omar','2022-01-22 05:43:02','/Administrativo-001'),(42,9,'100','N','Servidor por default de seguridades','Servidor por default de seguridades o proveedor o tecnologia de servidor, puede ser WLS12 GF5','SPRING','',2,NULL,'<No Definido>','<No Definido>',NULL,2,'ovelez','2021-05-16 23:00:24','manual'),(46,9,'300','N','Notificacion Solicitud Nueva Clave','Notificacion Solicitud Nueva Clave (Formato y Servicio)',NULL,NULL,1,1,NULL,NULL,1,1,'ovelez','2022-06-11 18:43:12','manual'),(49,9,'004','N','Expresion Regular para el cambio de claves','Expresion regular para claves ^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#&()–[{}]:;\',?/*~$^+=<>]).{8,20}$','^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#&()–[{}]:;\',?/*~$^+=<>]).{8,20}$','Debe contener: del 0-9, A-Z, a-z y los caracteres ! @ # & ( ) ; en un largo de 8-20 caracteres ',2,NULL,'<No Definido>','<No Definido>',NULL,2,'ovelez','2021-05-16 23:00:24','manual'),(50,9,'301','N','Notificacion Crear Clave ','Notificacion Crear Clave (Formato y Servicio)',NULL,NULL,2,1,'','',1,1,'ovelez','2022-06-11 17:48:25','manual'),(51,9,'302','N','Notificacion Cambio Clave ','Notificacion Cambio Clave (Formato y Servicio)',NULL,NULL,1,1,'','',1,1,'ovelez','2022-06-11 17:48:25','manual');
 /*!40000 ALTER TABLE `parametro` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -251,7 +251,7 @@ CREATE TABLE `permiso` (
   KEY `permiso_FK_1` (`id_menu`),
   CONSTRAINT `permiso_FK` FOREIGN KEY (`id_rol`) REFERENCES `rol` (`id_rol`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `permiso_FK_1` FOREIGN KEY (`id_menu`) REFERENCES `menu` (`id_menu`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=102 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=106 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -260,7 +260,7 @@ CREATE TABLE `permiso` (
 
 LOCK TABLES `permiso` WRITE;
 /*!40000 ALTER TABLE `permiso` DISABLE KEYS */;
-INSERT INTO `permiso` (`id_permiso`, `id_menu`, `id_rol`, `crear`, `actualizar`, `borrar`, `ver_auditoria`, `usuario`, `usuario_fecha`, `usuario_programa`) VALUES (4,6,1,'S','S','S','S','Pendiente','2021-07-09 05:02:38','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(8,6,4,'S','S','S','S','Pendiente','2021-07-09 05:10:35','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(9,6,2,'S','S','S','S','Pendiente','2021-07-09 05:11:59','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(11,9,1,'S','S','S','S','Pendiente','2021-07-09 05:20:01','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(12,10,1,'S','S','S','S','Pendiente','2021-07-11 17:45:20','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(13,10,2,'S','S','S','S','Pendiente','2021-07-11 17:45:29','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(14,10,4,'S','S','S','S','Pendiente','2021-07-11 17:45:45','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(15,11,4,'S','S','S','S','Pendiente','2022-01-04 15:54:50','manual'),(17,12,4,'S','S','S','S','Pendiente','2022-01-04 16:28:32','manual'),(18,3,4,'S','S','S','S','Pendiente','2022-01-05 04:41:15','manual'),(19,13,1,'S','S','S','N','Pendiente','2022-01-05 04:54:43','manual'),(20,14,7,'S','S','S','S','omar','2022-01-06 13:44:28','/ViewControllerAdministrativo'),(21,14,7,'S','S','S','S','omar','2022-01-06 13:46:02','/ViewControllerAdministrativo'),(22,14,7,'S','S','S','S','omar','2022-01-06 13:46:13','/ViewControllerAdministrativo'),(23,15,1,'S','S','S','S','omar','2022-01-08 05:55:12','/ViewControllerAdministrativo'),(24,15,2,'S','S','S','S','omar','2022-01-08 05:55:38','/ViewControllerAdministrativo'),(25,3,1,'S','S','S','S','omar','2022-01-19 04:56:31','/ViewControllerAdministrativo'),(28,3,3,'S','S','S','S','omar','2022-01-19 05:26:01','/ViewControllerAdministrativo'),(29,3,5,'S','S','S','S','omar','2022-01-19 05:26:09','/ViewControllerAdministrativo'),(31,16,1,'S','S','S','S','omar','2022-01-20 16:02:05','/ViewControllerAdministrativo'),(32,16,4,'S','S','S','S','omar','2022-01-20 16:02:10','/ViewControllerAdministrativo'),(48,9,4,'S','S','S','S','omar','2022-01-20 18:30:18','/ViewControllerAdministrativo'),(49,17,1,'S','S','S','N','omar','2022-01-25 04:47:25','/Administrativo-001'),(50,17,2,'S','S','S','N','omar','2022-01-25 04:47:38','/Administrativo-001'),(51,17,3,'S','S','S','N','omar','2022-01-25 04:47:45','/Administrativo-001'),(52,17,5,'S','S','S','N','omar','2022-01-25 04:47:50','/Administrativo-001'),(53,17,4,'S','S','S','N','omar','2022-01-25 04:47:56','/Administrativo-001'),(54,18,7,'S','S','S','S','omar','2022-01-25 14:42:53','/Administrativo-001'),(55,18,7,'S','S','S','S','omar','2022-01-25 14:42:58','/Administrativo-001'),(56,19,7,'S','S','S','S','omar','2022-02-08 14:54:00','/Administrativo-001'),(57,20,8,'S','S','S','S','omar','2022-02-18 18:20:43','/Administrativo-001'),(59,22,8,'S','S','S','S','omar','2022-02-20 16:38:43','/Administrativo-001'),(64,9,8,'S','S','S','S','admin','2022-03-08 21:01:15','/Administrativo-001'),(65,6,8,'S','S','S','S','admin','2022-03-08 21:01:30','/Administrativo-001'),(67,10,8,'S','S','S','S','admin','2022-03-08 21:02:35','/Administrativo-001'),(69,20,3,'S','S','S','S','admin','2022-03-08 21:04:58','/Administrativo-001'),(72,21,5,'S','S','S','S','admin','2022-03-09 14:32:55','/Administrativo-001'),(73,12,3,'S','S','S','S','admin','2022-03-09 14:40:38','/Administrativo-001'),(74,12,5,'S','S','S','S','admin','2022-03-09 14:40:43','/Administrativo-001'),(75,22,5,'S','S','S','S','admin','2022-03-09 14:54:51','/Administrativo-001'),(76,22,3,'S','S','S','S','admin','2022-03-09 15:05:07','/Administrativo-001'),(77,23,3,'S','S','S','S','admin','2022-03-15 18:03:52','/Administrativo-001'),(78,23,5,'S','S','S','S','admin','2022-03-15 18:03:59','/Administrativo-001'),(79,21,3,'S','S','S','S','admin','2022-03-15 20:53:25','/Administrativo-001'),(80,15,3,'S','S','S','S','omar','2022-01-08 05:55:38','/ViewControllerAdministrativo'),(81,15,4,'S','S','S','S','omar','2022-01-08 05:55:38','/ViewControllerAdministrativo'),(82,15,5,'S','S','S','S','omar','2022-01-08 05:55:38','/ViewControllerAdministrativo'),(83,15,7,'S','S','S','S','omar','2022-01-08 05:55:38','/ViewControllerAdministrativo'),(84,15,8,'S','S','S','S','omar','2022-01-08 05:55:38','/ViewControllerAdministrativo'),(85,24,5,'S','S','S','S','admin','2022-03-15 18:03:59','/Administrativo-001'),(86,24,3,'S','S','S','S','admin','2022-03-15 18:03:59','/Administrativo-001'),(87,25,13,'S','N','S','S','omar','2022-01-08 05:55:38','/ViewControllerAdministrativo'),(89,26,13,'S','S','S','S','omar78','2022-12-17 20:47:01','/Administrativo-001'),(90,26,9,'S','S','S','S','omar78','2022-12-17 20:47:09','/Administrativo-001'),(91,27,13,'S','S','S','S','omar78','2022-12-17 21:11:16','/Administrativo-001'),(92,27,9,'S','S','S','S','omar78','2022-12-17 21:11:24','/Administrativo-001'),(93,25,9,'S','S','S','S','omar78','2022-12-17 21:21:29','/Administrativo-001'),(94,28,13,'S','S','S','S','omar78','2022-12-17 21:25:01','/Administrativo-001'),(95,28,9,'S','S','S','S','omar78','2022-12-17 21:25:08','/Administrativo-001'),(96,29,9,'S','S','S','S','omar78','2022-12-17 21:32:48','/Administrativo-001'),(97,29,13,'S','S','S','S','omar78','2022-12-17 21:32:55','/Administrativo-001'),(98,30,13,'S','S','S','S','omar78','2022-12-17 21:42:13','/Administrativo-001'),(99,30,9,'S','S','S','S','omar78','2022-12-17 21:42:18','/Administrativo-001'),(100,31,9,'S','S','S','S','omar78','2022-12-17 22:02:25','/Administrativo-001'),(101,31,13,'S','S','S','S','omar78','2022-12-17 22:02:34','/Administrativo-001');
+INSERT INTO `permiso` (`id_permiso`, `id_menu`, `id_rol`, `crear`, `actualizar`, `borrar`, `ver_auditoria`, `usuario`, `usuario_fecha`, `usuario_programa`) VALUES (4,6,1,'S','S','S','S','Pendiente','2021-07-09 05:02:38','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(8,6,4,'S','S','S','S','Pendiente','2021-07-09 05:10:35','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(9,6,2,'S','S','S','S','Pendiente','2021-07-09 05:11:59','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(11,9,1,'S','S','S','S','Pendiente','2021-07-09 05:20:01','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(12,10,1,'S','S','S','S','Pendiente','2021-07-11 17:45:20','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(13,10,2,'S','S','S','S','Pendiente','2021-07-11 17:45:29','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(14,10,4,'S','S','S','S','Pendiente','2021-07-11 17:45:45','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(15,11,4,'S','S','S','S','Pendiente','2022-01-04 15:54:50','manual'),(17,12,4,'S','S','S','S','Pendiente','2022-01-04 16:28:32','manual'),(18,3,4,'S','S','S','S','Pendiente','2022-01-05 04:41:15','manual'),(19,13,1,'S','S','S','N','Pendiente','2022-01-05 04:54:43','manual'),(20,14,7,'S','S','S','S','omar','2022-01-06 13:44:28','/ViewControllerAdministrativo'),(21,14,7,'S','S','S','S','omar','2022-01-06 13:46:02','/ViewControllerAdministrativo'),(22,14,7,'S','S','S','S','omar','2022-01-06 13:46:13','/ViewControllerAdministrativo'),(23,15,1,'S','S','S','S','omar','2022-01-08 05:55:12','/ViewControllerAdministrativo'),(24,15,2,'S','S','S','S','omar','2022-01-08 05:55:38','/ViewControllerAdministrativo'),(25,3,1,'S','S','S','S','omar','2022-01-19 04:56:31','/ViewControllerAdministrativo'),(28,3,3,'S','S','S','S','omar','2022-01-19 05:26:01','/ViewControllerAdministrativo'),(29,3,5,'S','S','S','S','omar','2022-01-19 05:26:09','/ViewControllerAdministrativo'),(31,16,1,'S','S','S','S','omar','2022-01-20 16:02:05','/ViewControllerAdministrativo'),(32,16,4,'S','S','S','S','omar','2022-01-20 16:02:10','/ViewControllerAdministrativo'),(48,9,4,'S','S','S','S','omar','2022-01-20 18:30:18','/ViewControllerAdministrativo'),(49,17,1,'S','S','S','N','omar','2022-01-25 04:47:25','/Administrativo-001'),(50,17,2,'S','S','S','N','omar','2022-01-25 04:47:38','/Administrativo-001'),(51,17,3,'S','S','S','N','omar','2022-01-25 04:47:45','/Administrativo-001'),(52,17,5,'S','S','S','N','omar','2022-01-25 04:47:50','/Administrativo-001'),(53,17,4,'S','S','S','N','omar','2022-01-25 04:47:56','/Administrativo-001'),(54,18,7,'S','S','S','S','omar','2022-01-25 14:42:53','/Administrativo-001'),(55,18,7,'S','S','S','S','omar','2022-01-25 14:42:58','/Administrativo-001'),(56,19,7,'S','S','S','S','omar','2022-02-08 14:54:00','/Administrativo-001'),(57,20,8,'S','S','S','S','omar','2022-02-18 18:20:43','/Administrativo-001'),(59,22,8,'S','S','S','S','omar','2022-02-20 16:38:43','/Administrativo-001'),(64,9,8,'S','S','S','S','admin','2022-03-08 21:01:15','/Administrativo-001'),(65,6,8,'S','S','S','S','admin','2022-03-08 21:01:30','/Administrativo-001'),(67,10,8,'S','S','S','S','admin','2022-03-08 21:02:35','/Administrativo-001'),(69,20,3,'S','S','S','S','admin','2022-03-08 21:04:58','/Administrativo-001'),(73,12,3,'S','S','S','S','admin','2022-03-09 14:40:38','/Administrativo-001'),(74,12,5,'S','S','S','S','admin','2022-03-09 14:40:43','/Administrativo-001'),(75,22,5,'S','S','S','S','admin','2022-03-09 14:54:51','/Administrativo-001'),(76,22,3,'S','S','S','S','admin','2022-03-09 15:05:07','/Administrativo-001'),(77,23,3,'S','S','S','S','admin','2022-03-15 18:03:52','/Administrativo-001'),(78,23,5,'S','S','S','S','admin','2022-03-15 18:03:59','/Administrativo-001'),(79,21,3,'S','S','S','S','admin','2022-03-15 20:53:25','/Administrativo-001'),(80,15,3,'S','S','S','S','omar','2022-01-08 05:55:38','/ViewControllerAdministrativo'),(81,15,4,'S','S','S','S','omar','2022-01-08 05:55:38','/ViewControllerAdministrativo'),(82,15,5,'S','S','S','S','omar','2022-01-08 05:55:38','/ViewControllerAdministrativo'),(83,15,7,'S','S','S','S','omar','2022-01-08 05:55:38','/ViewControllerAdministrativo'),(84,15,8,'S','S','S','S','omar','2022-01-08 05:55:38','/ViewControllerAdministrativo'),(85,24,5,'S','S','S','S','admin','2022-03-15 18:03:59','/Administrativo-001'),(86,24,3,'S','S','S','S','admin','2022-03-15 18:03:59','/Administrativo-001'),(87,25,13,'S','N','S','S','omar','2022-01-08 05:55:38','/ViewControllerAdministrativo'),(89,26,13,'S','S','S','S','omar78','2022-12-17 20:47:01','/Administrativo-001'),(90,26,9,'S','S','S','S','omar78','2022-12-17 20:47:09','/Administrativo-001'),(91,27,13,'S','S','S','S','omar78','2022-12-17 21:11:16','/Administrativo-001'),(92,27,9,'S','S','S','S','omar78','2022-12-17 21:11:24','/Administrativo-001'),(93,25,9,'S','S','S','S','omar78','2022-12-17 21:21:29','/Administrativo-001'),(94,28,13,'S','S','S','S','omar78','2022-12-17 21:25:01','/Administrativo-001'),(95,28,9,'S','S','S','S','omar78','2022-12-17 21:25:08','/Administrativo-001'),(96,29,9,'S','S','S','S','omar78','2022-12-17 21:32:48','/Administrativo-001'),(97,29,13,'S','S','S','S','omar78','2022-12-17 21:32:55','/Administrativo-001'),(98,30,13,'S','S','S','S','omar78','2022-12-17 21:42:13','/Administrativo-001'),(99,30,9,'S','S','S','S','omar78','2022-12-17 21:42:18','/Administrativo-001'),(100,31,9,'S','S','S','S','omar78','2022-12-17 22:02:25','/Administrativo-001'),(101,31,13,'S','S','S','S','omar78','2022-12-17 22:02:34','/Administrativo-001'),(102,21,5,'S','S','S','S','aerocivil','2023-02-09 03:00:10','/Administrativo-001'),(103,21,15,'S','S','S','S','admin','2023-02-09 05:39:14','/Administrativo-001'),(104,32,3,'S','S','S','S','admin','2023-02-10 02:53:11','/Administrativo-001'),(105,33,3,'S','S','S','S','admin','2023-02-10 02:53:57','/Administrativo-001');
 /*!40000 ALTER TABLE `permiso` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -283,7 +283,7 @@ CREATE TABLE `rol` (
   PRIMARY KEY (`id_rol`),
   KEY `rol_FK` (`id_modulo`),
   CONSTRAINT `rol_FK` FOREIGN KEY (`id_modulo`) REFERENCES `modulo` (`id_modulo`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -292,7 +292,7 @@ CREATE TABLE `rol` (
 
 LOCK TABLES `rol` WRITE;
 /*!40000 ALTER TABLE `rol` DISABLE KEYS */;
-INSERT INTO `rol` (`id_rol`, `id_modulo`, `nombre`, `tipo`, `estado`, `usuario`, `usuario_fecha`, `usuario_programa`) VALUES (1,2,'Administrador','ADM','A','sdfsadf','2021-06-21 22:01:53','fsdfs'),(2,2,'Auditoria','LOG','A','Pendiente','2021-06-25 15:04:11','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(3,2,'Operador 01 Manifeisto','CLI-01','A','Pendiente','2021-06-25 15:04:45','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(4,2,'Root','ROOT','A','Pendiente','2021-07-09 04:53:42','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(5,2,'Operador 02 Manifeisto','CLI-02','A','Pendiente','2021-07-09 04:55:16','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(7,4,'Root Cliente SAF','ROOT','A','omar','2022-02-18 17:59:26','/Administrativo-001'),(8,6,'Root Manifeisto','ROOT','A','omar','2022-02-18 18:20:08','/Administrativo-001'),(9,9,'REST Administrador ','ADM','A','sdfsadf','2021-06-21 22:01:53','fsdfs'),(13,9,'REST Root','ROOT','A','Pendiente','2021-07-09 04:53:42','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT');
+INSERT INTO `rol` (`id_rol`, `id_modulo`, `nombre`, `tipo`, `estado`, `usuario`, `usuario_fecha`, `usuario_programa`) VALUES (1,2,'Administrador','ADM','A','sdfsadf','2021-06-21 22:01:53','fsdfs'),(2,2,'Auditoria','LOG','A','Pendiente','2021-06-25 15:04:11','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(3,2,'Operador 01 Manifeisto','CLI-01','A','Pendiente','2021-06-25 15:04:45','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(4,2,'Root','ROOT','A','Pendiente','2021-07-09 04:53:42','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(5,2,'Operador 02 Manifeisto','CLI-02','A','Pendiente','2021-07-09 04:55:16','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(7,4,'Root Cliente SAF','ROOT','A','omar','2022-02-18 17:59:26','/Administrativo-001'),(8,6,'Root Manifeisto','ROOT','A','omar','2022-02-18 18:20:08','/Administrativo-001'),(9,9,'REST Administrador ','ADM','A','sdfsadf','2021-06-21 22:01:53','fsdfs'),(13,9,'REST Root','ROOT','A','Pendiente','2021-07-09 04:53:42','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(15,NULL,'Cliente 03 Manifiesto','CLI-03','A','admin','2023-02-09 05:38:37','/Administrativo-001');
 /*!40000 ALTER TABLE `rol` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -315,7 +315,7 @@ CREATE TABLE `rol_usuario` (
   KEY `rol_usuario_FK_1` (`id_usuario`),
   CONSTRAINT `rol_usuario_FK` FOREIGN KEY (`id_rol`) REFERENCES `rol` (`id_rol`),
   CONSTRAINT `rol_usuario_FK_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=55 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=62 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -324,7 +324,7 @@ CREATE TABLE `rol_usuario` (
 
 LOCK TABLES `rol_usuario` WRITE;
 /*!40000 ALTER TABLE `rol_usuario` DISABLE KEYS */;
-INSERT INTO `rol_usuario` (`id_rol_usuario`, `id_rol`, `id_usuario`, `usuario`, `usuario_fecha`, `usuario_programa`) VALUES (6,1,13,'Pendiente','2021-07-01 16:57:02','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(8,4,13,'Pendiente','2021-07-02 22:10:48','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(9,1,15,'Pendiente','2021-07-04 22:30:02','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(10,4,15,'Pendiente','2021-07-09 14:04:34','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(11,3,13,'omar','2022-01-06 13:46:34','/ViewControllerAdministrativo'),(14,5,17,'omar','2022-02-15 17:41:58','/Administrativo-001'),(15,8,13,'omar','2022-02-18 20:12:29','/Administrativo-001'),(18,3,17,'omar','2022-03-08 20:43:51','/Administrativo-001'),(19,5,18,'omar','2022-03-08 20:47:23','/Administrativo-001'),(23,8,19,'admin','2022-03-09 14:35:00','/Administrativo-001'),(24,3,19,'admin','2022-03-09 14:35:08','/Administrativo-001'),(26,3,9,'admin','2022-03-09 15:06:24','/Administrativo-001'),(27,5,9,'admin','2022-03-09 15:11:48','/Administrativo-001'),(28,3,18,'admin','2022-03-09 15:12:11','/Administrativo-001'),(29,3,20,'admin','2022-03-11 14:49:56','/Administrativo-001'),(30,5,20,'admin','2022-03-11 14:50:02','/Administrativo-001'),(44,1,37,'admin','2022-04-19 07:09:00','/Administrativo-001'),(45,1,38,'admin','2022-04-19 07:34:38','/Administrativo-001'),(46,1,39,'admin','2022-04-19 07:51:20','/Administrativo-001'),(47,1,40,'admin','2022-04-19 08:00:45','/Administrativo-001'),(48,2,41,'admin','2022-04-19 08:30:04','/Administrativo-001'),(49,1,42,'admin','2022-04-19 08:55:15','/Administrativo-001'),(51,1,44,'admin','2022-04-19 09:33:58','/Administrativo-001'),(52,1,45,'u023','2022-04-19 09:42:25','/Administrativo-001'),(53,13,13,'omar78','2022-12-15 04:02:12','/Administrativo-001'),(54,9,13,'omar78','2022-12-15 04:15:16','/Administrativo-001');
+INSERT INTO `rol_usuario` (`id_rol_usuario`, `id_rol`, `id_usuario`, `usuario`, `usuario_fecha`, `usuario_programa`) VALUES (6,1,13,'Pendiente','2021-07-01 16:57:02','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(8,4,13,'Pendiente','2021-07-02 22:10:48','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(9,1,15,'Pendiente','2021-07-04 22:30:02','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(10,4,15,'Pendiente','2021-07-09 14:04:34','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(11,3,13,'omar','2022-01-06 13:46:34','/ViewControllerAdministrativo'),(14,5,17,'omar','2022-02-15 17:41:58','/Administrativo-001'),(15,8,13,'omar','2022-02-18 20:12:29','/Administrativo-001'),(18,3,17,'omar','2022-03-08 20:43:51','/Administrativo-001'),(19,5,18,'omar','2022-03-08 20:47:23','/Administrativo-001'),(26,3,9,'admin','2022-03-09 15:06:24','/Administrativo-001'),(27,5,9,'admin','2022-03-09 15:11:48','/Administrativo-001'),(28,3,18,'admin','2022-03-09 15:12:11','/Administrativo-001'),(29,3,20,'admin','2022-03-11 14:49:56','/Administrativo-001'),(30,5,20,'admin','2022-03-11 14:50:02','/Administrativo-001'),(44,1,37,'admin','2022-04-19 07:09:00','/Administrativo-001'),(45,1,38,'admin','2022-04-19 07:34:38','/Administrativo-001'),(46,1,39,'admin','2022-04-19 07:51:20','/Administrativo-001'),(47,1,40,'admin','2022-04-19 08:00:45','/Administrativo-001'),(48,2,41,'admin','2022-04-19 08:30:04','/Administrativo-001'),(49,1,42,'admin','2022-04-19 08:55:15','/Administrativo-001'),(51,1,44,'admin','2022-04-19 09:33:58','/Administrativo-001'),(52,1,45,'u023','2022-04-19 09:42:25','/Administrativo-001'),(53,13,13,'omar78','2022-12-15 04:02:12','/Administrativo-001'),(54,9,13,'omar78','2022-12-15 04:15:16','/Administrativo-001'),(59,15,19,'admin','2023-02-09 05:39:38','/Administrativo-001'),(61,3,19,'admin','2023-02-10 02:54:18','/Administrativo-001');
 /*!40000 ALTER TABLE `rol_usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -394,7 +394,7 @@ CREATE TABLE `token` (
 
 LOCK TABLES `token` WRITE;
 /*!40000 ALTER TABLE `token` DISABLE KEYS */;
-INSERT INTO `token` (`id_token`, `id_usuario`, `tipo`, `social_nick`, `correo`, `token`, `validador`, `estado`, `usuario`, `usuario_fecha`, `usuario_programa`) VALUES (2,9,'F','omargo22','omargo22@hotmail.com','{SHA-1}5KwhAbbpcWybIfBzdkOj9991P6U=','123456','A','omar','2022-01-25 23:24:10','weblogic 12c'),(3,9,'C','sdfkjasli','ksjdfalk','{SHA-1}5KwhAbbpcWybIfBzdkOj9991P6U=','111','A','omar','2022-01-25 23:24:10','weblogic 12c'),(4,15,'C','omar78','omargo33@hotmail.com','{SHA-1}5KwhAbbpcWybIfBzdkOj9991P6U=','-1013466704','A','omar78','2022-06-15 01:36:05','/Administrativo-001'),(5,13,'C','admin','omargo@hotmail.com','$2a$10$NVlOF.3HeOk4I2CZwSdg8uby5SreRwgCm8yhmdjuF8Rtfzw4Os592','92668751','A','admin','2022-06-13 18:03:02','/Administrativo-001'),(6,17,'C','joy','omarfgo@gmail.com','8DF79DEB606C9A5955D4D7FBD93037C29F736659B06AEF73A377626DCD404B41','777','A','joy','2022-01-25 23:25:37','weblogic 12c'),(7,18,'C','manifiesto','omarfgo@gmail.com','{SHA-1}5KwhAbbpcWybIfBzdkOj9991P6U=','979921403','A','manifiesto','2022-05-02 16:15:03','/Usuario-001'),(8,19,'C','aerocivil','omargo33@gmail.com','{SHA-1}5KwhAbbpcWybIfBzdkOj9991P6U=','2069474610','A','aerocivil','2022-06-14 22:41:17','/Administrativo-001'),(9,20,'C','truiz','tania.ruiz@sicsas.com','8DF79DEB606C9A5955D4D7FBD93037C29F736659B06AEF73A377626DCD404B41','110640424','A','admin','2022-03-11 14:48:03','/Administrativo-001'),(10,21,'C','ovelez','oamrgo@hotmail.com','{SHA-1}zCcnoUrDxkOppCip0kdiAGah/9I=','-1005040125','A','admin','2022-04-19 04:06:06','/Administrativo-001'),(25,36,'C','u001','u001@dom.com','{SHA-1}dy7jGVvJ8l2WzIBTSRLrQlL5RpA=','3533212','A','admin','2022-04-19 07:04:09','/Administrativo-001'),(26,37,'C','u002','u002@dom.com','F1FE2B6E33E2D6F424FF103C4616843D2F5BE523A2C8173055A6D4B040834DB3','3533213','A','admin','2022-04-19 07:08:43','/Administrativo-001'),(27,38,'C','u003','u003@doc.com','8DF79DEB606C9A5955D4D7FBD93037C29F736659B06AEF73A377626DCD404B41','3533214','A','admin','2022-04-19 07:34:25','/Administrativo-001'),(28,39,'C','u015','u015@doc.com','8DF79DEB606C9A5955D4D7FBD93037C29F736659B06AEF73A377626DCD404B41','3533247','A','admin','2022-04-19 07:51:10','/Administrativo-001'),(29,40,'C','u004','u004@doc.com','8DF79DEB606C9A5955D4D7FBD93037C29F736659B06AEF73A377626DCD404B41','3533215','A','admin','2022-04-19 08:00:37','/Administrativo-001'),(30,41,'C','u010','u010@doc.com','8DF79DEB606C9A5955D4D7FBD93037C29F736659B06AEF73A377626DCD404B41','3533242','A','admin','2022-04-19 08:29:51','/Administrativo-001'),(31,42,'C','u05','u05@doic.com','8DF79DEB606C9A5955D4D7FBD93037C29F736659B06AEF73A377626DCD404B41','113978','A','admin','2022-04-19 08:55:04','/Administrativo-001'),(32,43,'C','u089','u089@gom.com','8DF79DEB606C9A5955D4D7FBD93037C29F736659B06AEF73A377626DCD404B41','3533468','A','admin','2022-04-19 09:16:08','/Administrativo-001'),(33,44,'C','u023','u023@dog.com','8DF79DEB606C9A5955D4D7FBD93037C29F736659B06AEF73A377626DCD404B41','3533276','A','admin','2022-04-19 09:33:44','/Administrativo-001'),(34,45,'C','u016','u016@doc.com','8DF79DEB606C9A5955D4D7FBD93037C29F736659B06AEF73A377626DCD404B41','3533248','A','u023','2022-04-19 09:42:16','/Administrativo-001'),(35,20,'C','truiz','tania.ruiz@sicsas.com','8DF79DEB606C9A5955D4D7FBD93037C29F736659B06AEF73A377626DCD404B41','001','A','none','2022-10-31 02:50:26','/Administrativo-001@GS_001_00-1.0.0'),(36,20,'C','truiz','tania.ruiz@sicsas.com','8DF79DEB606C9A5955D4D7FBD93037C29F736659B06AEF73A377626DCD404B41','001','A','none','2022-10-31 02:50:29','/Administrativo-001@GS_001_00-1.0.0'),(37,20,'C','truiz','tania.ruiz@sicsas.com','8DF79DEB606C9A5955D4D7FBD93037C29F736659B06AEF73A377626DCD404B41','001','A','none','2022-10-31 02:50:30','/Administrativo-001@GS_001_00-1.0.0'),(58,20,'C','truiz','tania.ruiz@sicsas.com','8DF79DEB606C9A5955D4D7FBD93037C29F736659B06AEF73A377626DCD404B41','001','A','none','2022-10-31 03:26:59','/Administrativo-001@GS_001_00-1.0.0'),(59,20,'C','truiz','tania.ruiz@sicsas.com','8DF79DEB606C9A5955D4D7FBD93037C29F736659B06AEF73A377626DCD404B41','001','A','none','2022-10-31 03:27:01','/Administrativo-001@GS_001_00-1.0.0'),(60,20,'C','truiz','tania.ruiz@sicsas.com','8DF79DEB606C9A5955D4D7FBD93037C29F736659B06AEF73A377626DCD404B41','001','A','none','2022-10-31 03:27:01','/Administrativo-001@GS_001_00-1.0.0');
+INSERT INTO `token` (`id_token`, `id_usuario`, `tipo`, `social_nick`, `correo`, `token`, `validador`, `estado`, `usuario`, `usuario_fecha`, `usuario_programa`) VALUES (2,9,'F','omargo22','omargo22@hotmail.com','{SHA-1}5KwhAbbpcWybIfBzdkOj9991P6U=','123456','A','omar','2022-01-25 23:24:10','weblogic 12c'),(3,9,'C','sdfkjasli','ksjdfalk','{SHA-1}5KwhAbbpcWybIfBzdkOj9991P6U=','111','A','omar','2022-01-25 23:24:10','weblogic 12c'),(4,15,'C','omar78','omargo33@hotmail.com','{SHA-1}5KwhAbbpcWybIfBzdkOj9991P6U=','-1013466704','A','omar78','2022-06-15 01:36:05','/Administrativo-001'),(5,13,'C','admin','omargo@hotmail.com','{SHA-1}5KwhAbbpcWybIfBzdkOj9991P6U=','92668751','A','admin','2022-06-13 18:03:02','/Administrativo-001'),(6,17,'C','joy','omarfgo@gmail.com','8DF79DEB606C9A5955D4D7FBD93037C29F736659B06AEF73A377626DCD404B41','777','A','joy','2022-01-25 23:25:37','weblogic 12c'),(7,18,'C','manifiesto','omarfgo@gmail.com','{SHA-1}5KwhAbbpcWybIfBzdkOj9991P6U=','979921403','A','manifiesto','2022-05-02 16:15:03','/Usuario-001'),(8,19,'C','aerocivil','omargo33@gmail.com','{SHA-1}5KwhAbbpcWybIfBzdkOj9991P6U=','2069474610','A','aerocivil','2022-06-14 22:41:17','/Administrativo-001'),(9,20,'C','truiz','tania.ruiz@sicsas.com','8DF79DEB606C9A5955D4D7FBD93037C29F736659B06AEF73A377626DCD404B41','110640424','A','admin','2022-03-11 14:48:03','/Administrativo-001'),(10,21,'C','ovelez','oamrgo@hotmail.com','{SHA-1}zCcnoUrDxkOppCip0kdiAGah/9I=','-1005040125','A','admin','2022-04-19 04:06:06','/Administrativo-001'),(25,36,'C','u001','u001@dom.com','{SHA-1}dy7jGVvJ8l2WzIBTSRLrQlL5RpA=','3533212','A','admin','2022-04-19 07:04:09','/Administrativo-001'),(26,37,'C','u002','u002@dom.com','F1FE2B6E33E2D6F424FF103C4616843D2F5BE523A2C8173055A6D4B040834DB3','3533213','A','admin','2022-04-19 07:08:43','/Administrativo-001'),(27,38,'C','u003','u003@doc.com','8DF79DEB606C9A5955D4D7FBD93037C29F736659B06AEF73A377626DCD404B41','3533214','A','admin','2022-04-19 07:34:25','/Administrativo-001'),(28,39,'C','u015','u015@doc.com','8DF79DEB606C9A5955D4D7FBD93037C29F736659B06AEF73A377626DCD404B41','3533247','A','admin','2022-04-19 07:51:10','/Administrativo-001'),(29,40,'C','u004','u004@doc.com','8DF79DEB606C9A5955D4D7FBD93037C29F736659B06AEF73A377626DCD404B41','3533215','A','admin','2022-04-19 08:00:37','/Administrativo-001'),(30,41,'C','u010','u010@doc.com','8DF79DEB606C9A5955D4D7FBD93037C29F736659B06AEF73A377626DCD404B41','3533242','A','admin','2022-04-19 08:29:51','/Administrativo-001'),(31,42,'C','u05','u05@doic.com','8DF79DEB606C9A5955D4D7FBD93037C29F736659B06AEF73A377626DCD404B41','113978','A','admin','2022-04-19 08:55:04','/Administrativo-001'),(32,43,'C','u089','u089@gom.com','8DF79DEB606C9A5955D4D7FBD93037C29F736659B06AEF73A377626DCD404B41','3533468','A','admin','2022-04-19 09:16:08','/Administrativo-001'),(33,44,'C','u023','u023@dog.com','8DF79DEB606C9A5955D4D7FBD93037C29F736659B06AEF73A377626DCD404B41','3533276','A','admin','2022-04-19 09:33:44','/Administrativo-001'),(34,45,'C','u016','u016@doc.com','8DF79DEB606C9A5955D4D7FBD93037C29F736659B06AEF73A377626DCD404B41','3533248','A','u023','2022-04-19 09:42:16','/Administrativo-001'),(35,20,'C','truiz','tania.ruiz@sicsas.com','8DF79DEB606C9A5955D4D7FBD93037C29F736659B06AEF73A377626DCD404B41','001','A','none','2022-10-31 02:50:26','/Administrativo-001@GS_001_00-1.0.0'),(36,20,'C','truiz','tania.ruiz@sicsas.com','8DF79DEB606C9A5955D4D7FBD93037C29F736659B06AEF73A377626DCD404B41','001','A','none','2022-10-31 02:50:29','/Administrativo-001@GS_001_00-1.0.0'),(37,20,'C','truiz','tania.ruiz@sicsas.com','8DF79DEB606C9A5955D4D7FBD93037C29F736659B06AEF73A377626DCD404B41','001','A','none','2022-10-31 02:50:30','/Administrativo-001@GS_001_00-1.0.0'),(58,20,'C','truiz','tania.ruiz@sicsas.com','8DF79DEB606C9A5955D4D7FBD93037C29F736659B06AEF73A377626DCD404B41','001','A','none','2022-10-31 03:26:59','/Administrativo-001@GS_001_00-1.0.0'),(59,20,'C','truiz','tania.ruiz@sicsas.com','8DF79DEB606C9A5955D4D7FBD93037C29F736659B06AEF73A377626DCD404B41','001','A','none','2022-10-31 03:27:01','/Administrativo-001@GS_001_00-1.0.0'),(60,20,'C','truiz','tania.ruiz@sicsas.com','8DF79DEB606C9A5955D4D7FBD93037C29F736659B06AEF73A377626DCD404B41','001','A','none','2022-10-31 03:27:01','/Administrativo-001@GS_001_00-1.0.0');
 /*!40000 ALTER TABLE `token` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -559,16 +559,16 @@ SET character_set_client = @saved_cs_client;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`%` FUNCTION `permiso_menu_actualizar`(
- 	pii_id_menu int, -- Id de menu
- 	piv_nick varchar(128) -- Nick
+ 	pii_id_menu int, 
+ 	piv_nick varchar(128) 
 ) RETURNS int
     DETERMINISTIC
 BEGIN
-	--
-	-- Variables
+	
+	
 	DECLARE permiso INT;
-	--
-	-- Consulta del permiso
+	
+	
 	SELECT		
 		COUNT(p.actualizar  = 'S' OR NULL) INTO permiso	
 	FROM
@@ -587,8 +587,8 @@ BEGIN
 			)
 		group by p.id_menu;
 	
-	--
-	-- Valida si el permiso esta activo
+	
+	
 	if permiso > 0 then
 		return(1);
 	else
@@ -611,16 +611,16 @@ DELIMITER ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`%` FUNCTION `permiso_menu_borrar`(
- 	pii_id_menu int, -- Id de menu
- 	piv_nick varchar(128) -- Nick
+ 	pii_id_menu int, 
+ 	piv_nick varchar(128) 
 ) RETURNS int
     DETERMINISTIC
 BEGIN
-	--
-	-- Variables
+	
+	
 	DECLARE permiso INT;
-	--
-	-- Consulta del permiso
+	
+	
 	SELECT		
 		COUNT(p.borrar = 'S' OR NULL) INTO permiso	
 	FROM
@@ -639,8 +639,8 @@ BEGIN
 			)
 		group by p.id_menu;
 	
-	--
-	-- Valida si el permiso esta activo
+	
+	
 	if permiso > 0 then
 		return(1);
 	else
@@ -663,16 +663,16 @@ DELIMITER ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`%` FUNCTION `permiso_menu_crear`(
- 	pii_id_menu int, -- Id de menu
- 	piv_nick varchar(128) -- Nick
+ 	pii_id_menu int, 
+ 	piv_nick varchar(128) 
 ) RETURNS int
     DETERMINISTIC
 BEGIN
-	--
-	-- Variables
+	
+	
 	DECLARE permiso INT;
-	--
-	-- Consulta del permiso
+	
+	
 	SELECT		
 		COUNT(p.crear = 'S' OR NULL) INTO permiso	
 	FROM
@@ -691,8 +691,8 @@ BEGIN
 			)
 		group by p.id_menu;
 	
-	--
-	-- Valida si el permiso esta activo
+	
+	
 	if permiso > 0 then
 		return(1);
 	else
@@ -715,16 +715,16 @@ DELIMITER ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`%` FUNCTION `permiso_menu_ver_auditoria`(
- 	pii_id_menu int, -- Id de menu
- 	piv_nick varchar(128) -- Nick
+ 	pii_id_menu int, 
+ 	piv_nick varchar(128) 
 ) RETURNS int
     DETERMINISTIC
 BEGIN
-	--
-	-- Variables
+	
+	
 	DECLARE permiso INT;
-	--
-	-- Consulta del permiso
+	
+	
 	SELECT		
 		COUNT(p.ver_auditoria = 'S' OR NULL) INTO permiso	
 	FROM
@@ -743,8 +743,8 @@ BEGIN
 			)
 		group by p.id_menu;
 	
-	--
-	-- Valida si el permiso esta activo
+	
+	
 	if permiso > 0 then
 		return(1);
 	else
@@ -771,36 +771,36 @@ CREATE DEFINER=`root`@`%` PROCEDURE `codigo_definido_usuario_bajar`(
 	OUT poi_codigo_error int	
 )
 MainDeclare:BEGIN
-	--
-	-- Variables
+	
+	
 	DECLARE pi_orden_original int;
 	DECLARE pi_orden_destino int;
 	DECLARE pi_id_codigo_definido_usuario_destino int default 0;
 	DECLARE pi_codigo_error int;
 	DECLARE pv_grupo varchar(128);
-	--
-	-- Declaracion de exception de salida
+	
+	
 	DECLARE EXIT HANDLER FOR SQLEXCEPTION 
     BEGIN
           GET CURRENT DIAGNOSTICS CONDITION 1 poi_codigo_error = MYSQL_ERRNO;
-    	  --
-          -- Presentar Error    	  
+    	  
+          
           SELECT poi_codigo_error AS MYSQL_ERROR;
     	  ROLLBACK;
     END;
    
-   	--
-    -- Inicio de transaccion
+   	
+    
    	START TRANSACTION;
    
-   	--
-	-- CDU a subir
+   	
+	
 	SELECT orden, grupo into pi_orden_original, pv_grupo 
 	FROM codigo_definido_usuario 
 	WHERE id_codigo_definido_usuario = pii_id_codigo_definido_usuario;
 	
-	--
-	-- CDU a destino
+	
+	
 	select id_codigo_definido_usuario , orden into pi_id_codigo_definido_usuario_destino,  pi_orden_destino
 	from codigo_definido_usuario
 	where grupo = pv_grupo
@@ -811,36 +811,36 @@ MainDeclare:BEGIN
 		and orden > pi_orden_original
 		);
 
-	--
-	-- Si no hay datos sale del flujo.
+	
+	
 	if pi_id_codigo_definido_usuario_destino = 0 then 
 		ROLLBACK;
    		set poi_codigo_error = 0;
    		LEAVE MainDeclare;	
 	end if;
 
-	--
-	-- Cambia el origen
+	
+	
 	UPDATE codigo_definido_usuario
    	SET orden = pi_orden_destino
    	where id_codigo_definido_usuario = pii_id_codigo_definido_usuario;
 
-   	--
-	-- Cambia el destino	
+   	
+	
    	UPDATE codigo_definido_usuario
    	SET orden = pi_orden_original
    	where id_codigo_definido_usuario = pi_id_codigo_definido_usuario_destino;
    
-   	--
-	-- Cambia los codigos reorganizados
+   	
+	
    	CALL GS_001_00.codigo_definido_usuario_ordenar(pv_grupo,pi_codigo_error);  
    	if poi_codigo_error > 0 then
    		ROLLBACK;
    		set poi_codigo_error = pi_codigo_error;
    		LEAVE MainDeclare;   
    	end if;
-	--
-    -- Commit transaccion y fin de transaccion
+	
+    
 	COMMIT WORK;
 END ;;
 DELIMITER ;
@@ -860,43 +860,43 @@ DELIMITER ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`%` PROCEDURE `codigo_definido_usuario_extremos`(
 	IN pii_id_codigo_definido_usuario int,		 
-	IN pii_extremo int, -- Se puede poner -1 o 1000 para los valores extremos.
+	IN pii_extremo int, 
 	OUT poi_codigo_error int	
 )
 MainDeclare:BEGIN
-	--
-	-- Variables
+	
+	
 	DECLARE pv_grupo varchar(128);
 	DECLARE pi_codigo_error int;
 
-	--
-	-- Declaracion de exception de salida
+	
+	
 	DECLARE EXIT HANDLER FOR SQLEXCEPTION 
     BEGIN
           GET CURRENT DIAGNOSTICS CONDITION 1 poi_codigo_error = MYSQL_ERRNO;
-    	  --
-          -- Presentar Error    	  
+    	  
+          
           SELECT poi_codigo_error AS MYSQL_ERROR;          
     	  ROLLBACK;
     END;
    
-   	--
-    -- Inicio de transaccion
+   	
+    
    	START TRANSACTION;
    
-   	--
-	-- Carga de datos para el proceso.
+   	
+	
 	SELECT grupo into pv_grupo 
 	FROM codigo_definido_usuario 
 	WHERE id_codigo_definido_usuario = pii_id_codigo_definido_usuario;
 	
-    -- Ubica para
+    
    	UPDATE codigo_definido_usuario
    	SET orden = pii_extremo
    	where id_codigo_definido_usuario = pii_id_codigo_definido_usuario;   	
    
-   	--
-	-- Cambia los codigos reorganizados
+   	
+	
    	CALL codigo_definido_usuario_ordenar(pv_grupo,pi_codigo_error);
    	if poi_codigo_error > 0 then   		
    		ROLLBACK;
@@ -904,8 +904,8 @@ MainDeclare:BEGIN
    		LEAVE MainDeclare;   
    	end if;
    
-	--
-    -- Commit transaccion y fin de transaccion
+	
+    
 	COMMIT WORK;
 END ;;
 DELIMITER ;
@@ -928,8 +928,8 @@ CREATE DEFINER=`root`@`%` PROCEDURE `codigo_definido_usuario_ordenar`(
 	OUT poi_codigo_error int	
 )
 BEGIN
-	--
-	-- Declaracion de cursor
+	
+	
 	DECLARE cr_orden_destino int; 
 	DECLARE cr_id_codigo_definido_usuario int; 
 	DECLARE cr_orden_origen int;
@@ -940,29 +940,29 @@ BEGIN
 		where grupo = piv_grupo
 		ORDER BY orden;
 	DECLARE CONTINUE HANDLER FOR NOT FOUND SET cr_done = TRUE;
-	--
-	-- Declaracion de exception de salida
+	
+	
 	DECLARE EXIT HANDLER FOR SQLEXCEPTION 
     BEGIN
           GET CURRENT DIAGNOSTICS CONDITION 1 poi_codigo_error = MYSQL_ERRNO;
-    	  --
-          -- Presentar Error    	  
+    	  
+          
           SELECT poi_codigo_error AS MYSQL_ERROR;
     	  ROLLBACK;
     END;
    
-   	--
-   	-- Recorre cursor
+   	
+   	
    	open cr_orden;
    	rows_loop:loop
    		fetch cr_orden into cr_orden_destino, cr_id_codigo_definido_usuario, cr_orden_origen;
-   		--
-   		-- Salida de emergencia
+   		
+   		
    		if cr_done then
    			leave rows_loop;
    		end if;
-   		--
-		-- Actualizacion de ordemaniento	
+   		
+		
 		UPDATE codigo_definido_usuario as cdu
 		SET cdu.orden = cr_orden_destino 
 		WHERE cdu.id_codigo_definido_usuario = cr_id_codigo_definido_usuario;   	
@@ -989,36 +989,36 @@ CREATE DEFINER=`root`@`%` PROCEDURE `codigo_definido_usuario_subir`(
 	OUT poi_codigo_error int	
 )
 MainDeclare:BEGIN
-	--
-	-- Variables
+	
+	
 	DECLARE pi_orden_original int;
 	DECLARE pi_orden_destino int;
 	DECLARE pi_id_codigo_definido_usuario_destino int default 0;
 	DECLARE pi_codigo_error int;
 	DECLARE pv_grupo varchar(128);
-	--
-	-- Declaracion de exception de salida
+	
+	
 	DECLARE EXIT HANDLER FOR SQLEXCEPTION 
     BEGIN
           GET CURRENT DIAGNOSTICS CONDITION 1 poi_codigo_error = MYSQL_ERRNO;
-    	  --
-          -- Presentar Error    	  
+    	  
+          
           SELECT poi_codigo_error AS MYSQL_ERROR;
     	  ROLLBACK;
     END;
    
-   	--
-    -- Inicio de transaccion
+   	
+    
    	START TRANSACTION;
    
-   	--
-	-- CDU a subir
+   	
+	
 	SELECT orden, grupo into pi_orden_original, pv_grupo 
 	FROM codigo_definido_usuario 
 	WHERE id_codigo_definido_usuario = pii_id_codigo_definido_usuario;
 	
-	--
-	-- CDU a destino
+	
+	
 	select id_codigo_definido_usuario , orden into pi_id_codigo_definido_usuario_destino,  pi_orden_destino
 	from codigo_definido_usuario
 	where grupo = pv_grupo
@@ -1029,36 +1029,36 @@ MainDeclare:BEGIN
 		and orden < pi_orden_original
 		);
 
-	--
-	-- Si no hay datos sale del flujo.
+	
+	
 	if pi_id_codigo_definido_usuario_destino = 0 then 
 		ROLLBACK;
    		set poi_codigo_error = 0;
    		LEAVE MainDeclare;	
 	end if;
 
-	--
-	-- Cambia el origen
+	
+	
 	UPDATE codigo_definido_usuario
    	SET orden = pi_orden_destino
    	where id_codigo_definido_usuario = pii_id_codigo_definido_usuario;
 
-   	--
-	-- Cambia el destino	
+   	
+	
    	UPDATE codigo_definido_usuario
    	SET orden = pi_orden_original
    	where id_codigo_definido_usuario = pi_id_codigo_definido_usuario_destino;
    
-   	--
-	-- Cambia los codigos reorganizados
+   	
+	
    	CALL GS_001_00.codigo_definido_usuario_ordenar(pv_grupo,pi_codigo_error);  
    	if poi_codigo_error > 0 then
    		ROLLBACK;
    		set poi_codigo_error = pi_codigo_error;
    		LEAVE MainDeclare;   
    	end if;
-	--
-    -- Commit transaccion y fin de transaccion
+	
+    
 	COMMIT WORK;
 END ;;
 DELIMITER ;
@@ -1081,36 +1081,36 @@ CREATE DEFINER=`root`@`%` PROCEDURE `menu_bajar`(
 	OUT poi_codigo_error int	
 )
 MainDeclare:BEGIN
-	--
-	-- Variables
+	
+	
 	DECLARE pi_orden_original int;
 	DECLARE pi_orden_destino int;
 	DECLARE pi_id_menu_destino int default 0;
 	DECLARE pi_codigo_error int;
 	DECLARE pi_id_modulo varchar(128);
-	--
-	-- Declaracion de exception de salida
+	
+	
 	DECLARE EXIT HANDLER FOR SQLEXCEPTION 
     BEGIN
           GET CURRENT DIAGNOSTICS CONDITION 1 poi_codigo_error = MYSQL_ERRNO;
-    	  --
-          -- Presentar Error    	  
+    	  
+          
           SELECT poi_codigo_error AS MYSQL_ERROR;
     	  ROLLBACK;
     END;
    
-   	--
-    -- Inicio de transaccion
+   	
+    
    	START TRANSACTION;
    
-   	--
-	-- CDU a subir
+   	
+	
 	SELECT orden, id_modulo into pi_orden_original, pi_id_modulo 
 	FROM menu 
 	WHERE id_menu = pii_id_menu;
 	
-	--
-	-- CDU a destino
+	
+	
 	select id_menu , orden into pi_id_menu_destino,  pi_orden_destino
 	from menu
 	where id_modulo = pi_id_modulo
@@ -1121,36 +1121,36 @@ MainDeclare:BEGIN
 		and orden > pi_orden_original
 		);
 
-	--
-	-- Si no hay datos sale del flujo.
+	
+	
 	if pi_id_menu_destino = 0 then 
 		ROLLBACK;
    		set poi_codigo_error = 0;
    		LEAVE MainDeclare;	
 	end if;
 
-	--
-	-- Cambia el origen
+	
+	
 	UPDATE menu
    	SET orden = pi_orden_destino
    	where id_menu = pii_id_menu;
 
-   	--
-	-- Cambia el destino	
+   	
+	
    	UPDATE menu
    	SET orden = pi_orden_original
    	where id_menu = pi_id_menu_destino;
    
-   	--
-	-- Cambia los codigos reorganizados
+   	
+	
    	CALL GS_001_00.menu_ordenar(pi_id_modulo,pi_codigo_error);  
    	if poi_codigo_error > 0 then
    		ROLLBACK;
    		set poi_codigo_error = pi_codigo_error;
    		LEAVE MainDeclare;   
    	end if;
-	--
-    -- Commit transaccion y fin de transaccion
+	
+    
 	COMMIT WORK;
 END ;;
 DELIMITER ;
@@ -1170,43 +1170,43 @@ DELIMITER ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`%` PROCEDURE `menu_extremos`(
 	IN pii_id_menu int,		 
-	IN pii_extremo int, -- Se puede poner -1 o 1000 para los valores extremos.
+	IN pii_extremo int, 
 	OUT poi_codigo_error int	
 )
 MainDeclare:BEGIN
-	--
-	-- Variables
+	
+	
 	DECLARE pi_modulo varchar(128);
 	DECLARE pi_codigo_error int;
 
-	--
-	-- Declaracion de exception de salida
+	
+	
 	DECLARE EXIT HANDLER FOR SQLEXCEPTION 
     BEGIN
           GET CURRENT DIAGNOSTICS CONDITION 1 poi_codigo_error = MYSQL_ERRNO;
-    	  --
-          -- Presentar Error    	  
+    	  
+          
           SELECT poi_codigo_error AS MYSQL_ERROR;          
     	  ROLLBACK;
     END;
    
-   	--
-    -- Inicio de transaccion
+   	
+    
    	START TRANSACTION;
    
-   	--
-	-- Carga de datos para el proceso.
+   	
+	
 	SELECT id_modulo into pi_modulo 
 	FROM menu 
 	WHERE id_menu = pii_id_menu;
 	
-    -- Ubica para
+    
    	UPDATE menu
    	SET orden = pii_extremo
    	where id_menu = pii_id_menu;   	
    
-   	--
-	-- Cambia los codigos reorganizados
+   	
+	
    	CALL menu_ordenar(pi_modulo,pi_codigo_error);
    	if poi_codigo_error > 0 then   		
    		ROLLBACK;
@@ -1214,8 +1214,8 @@ MainDeclare:BEGIN
    		LEAVE MainDeclare;   
    	end if;
    
-	--
-    -- Commit transaccion y fin de transaccion
+	
+    
 	COMMIT WORK;
 END ;;
 DELIMITER ;
@@ -1238,8 +1238,8 @@ CREATE DEFINER=`root`@`%` PROCEDURE `menu_ordenar`(
 	OUT poi_codigo_error int	
 )
 BEGIN
-	--
-	-- Declaracion de cursor
+	
+	
 	DECLARE cr_orden_destino int; 
 	DECLARE cr_id_menu int; 
 	DECLARE cr_orden_origen int;
@@ -1250,29 +1250,29 @@ BEGIN
 		where id_modulo = pii_id_modulo
 		ORDER BY orden;
 	DECLARE CONTINUE HANDLER FOR NOT FOUND SET cr_done = TRUE;
-	--
-	-- Declaracion de exception de salida
+	
+	
 	DECLARE EXIT HANDLER FOR SQLEXCEPTION 
     BEGIN
           GET CURRENT DIAGNOSTICS CONDITION 1 poi_codigo_error = MYSQL_ERRNO;
-    	  --
-          -- Presentar Error    	  
+    	  
+          
           SELECT poi_codigo_error AS MYSQL_ERROR;
     	  ROLLBACK;
     END;
    
-   	--
-   	-- Recorre cursor
+   	
+   	
    	open cr_orden;
    	rows_loop:loop
    		fetch cr_orden into cr_orden_destino, cr_id_menu, cr_orden_origen;
-   		--
-   		-- Salida de emergencia
+   		
+   		
    		if cr_done then
    			leave rows_loop;
    		end if;
-   		--
-		-- Actualizacion de ordemaniento	
+   		
+		
 		UPDATE menu as mn
 		SET mn.orden = cr_orden_destino 
 		WHERE mn.id_menu = cr_id_menu;   	
@@ -1299,36 +1299,36 @@ CREATE DEFINER=`root`@`%` PROCEDURE `menu_subir`(
 	OUT poi_codigo_error int	
 )
 MainDeclare:BEGIN
-	--
-	-- Variables
+	
+	
 	DECLARE pi_orden_original int;
 	DECLARE pi_orden_destino int;
 	DECLARE pi_id_menu_destino int default 0;
 	DECLARE pi_codigo_error int;
 	DECLARE pi_modulo int;
-	--
-	-- Declaracion de exception de salida
+	
+	
 	DECLARE EXIT HANDLER FOR SQLEXCEPTION 
     BEGIN
           GET CURRENT DIAGNOSTICS CONDITION 1 poi_codigo_error = MYSQL_ERRNO;
-    	  --
-          -- Presentar Error    	  
+    	  
+          
           SELECT poi_codigo_error AS MYSQL_ERROR;
     	  ROLLBACK;
     END;
    
-   	--
-    -- Inicio de transaccion
+   	
+    
    	START TRANSACTION;
    
-   	--
-	-- CDU a subir
+   	
+	
 	SELECT orden, id_modulo into pi_orden_original, pi_modulo 
 	FROM menu 
 	WHERE id_menu = pii_id_menu;
 	
-	--
-	-- CDU a destino
+	
+	
 	select id_menu, orden into pi_id_menu_destino, pi_orden_destino
 	from menu
 	where id_modulo = pi_modulo
@@ -1339,36 +1339,36 @@ MainDeclare:BEGIN
 		and orden < pi_orden_original
 		);
 
-	--
-	-- Si no hay datos sale del flujo.
+	
+	
 	if pi_id_menu_destino = 0 then 
 		ROLLBACK;
    		set poi_codigo_error = 0;
    		LEAVE MainDeclare;	
 	end if;
 
-	--
-	-- Cambia el origen
+	
+	
 	UPDATE menu
    	SET orden = pi_orden_destino
    	where id_menu = pii_id_menu;
 
-   	--
-	-- Cambia el destino	
+   	
+	
    	UPDATE menu
    	SET orden = pi_orden_original
    	where id_menu = pi_id_menu_destino;
    
-   	--
-	-- Cambia los codigos reorganizados
+   	
+	
    	CALL GS_001_00.menu_ordenar(pi_modulo,pi_codigo_error);  
    	if poi_codigo_error > 0 then
    		ROLLBACK;
    		set poi_codigo_error = pi_codigo_error;
    		LEAVE MainDeclare;   
    	end if;
-	--
-    -- Commit transaccion y fin de transaccion
+	
+    
 	COMMIT WORK;
 END ;;
 DELIMITER ;
@@ -1482,4 +1482,4 @@ USE `GS_001_00`;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-02-05  4:14:33
+-- Dump completed on 2023-02-10  2:58:41
