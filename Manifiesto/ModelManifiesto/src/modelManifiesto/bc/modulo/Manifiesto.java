@@ -4,7 +4,9 @@ import modelManifiesto.bc.ManifiestoModuloImpl;
 
 import oracle.jbo.JboException;
 
-
+/**
+ * Objeto para acciones de procesos sobre el manifiesto.
+ */
 public class Manifiesto {
     private static String SQL_UPDATE = "update manifiesto set estado = 'C' where estado like 'BAD%'";
 
@@ -12,6 +14,13 @@ public class Manifiesto {
         "update manifiesto set estado = 'C' where estado like 'BAD%' and id_manifiesto = ?";
 
 
+    /**
+     * Metodo para cambiar el estado del manifiesto.
+     *
+     * @param manifiestoModulo
+     * @param idManifiesto
+     * @return
+     */
     public static boolean cambiarEstado(ManifiestoModuloImpl manifiestoModulo, String idManifiesto) {
         boolean estado = true;
         manifiestoModulo.getBaseDML().ejecutaDML(SQL_UPDATE_ID_MANIFIESTO, new Object[] { idManifiesto });
@@ -24,7 +33,12 @@ public class Manifiesto {
         return estado;
     }
 
-
+    /**
+     * Metodo para cambiar el estado de forma completa.
+     *
+     * @param manifiestoModulo
+     * @return
+     */
     public static boolean cambiarEstadoCompleto(ManifiestoModuloImpl manifiestoModulo) {
         boolean estado = true;
         manifiestoModulo.getBaseDML().ejecutaDML(SQL_UPDATE, new Object[0]);
