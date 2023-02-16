@@ -1,0 +1,145 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core" xmlns:bl01="/baseLib01">
+    <af:pageTemplate viewId="/plantilla/itemFrg.jspx" id="pt1">
+        <f:facet name="elementoCentro">
+            <af:panelGroupLayout id="pgl1" layout="vertical">
+                <af:panelFormLayout id="pfl1" labelWidth="200">
+                    <af:inputText label="Raz&#243;n Social" id="it1" columns="50" disabled="true"/>
+                    <af:separator id="s3"/>
+                </af:panelFormLayout>
+                <af:panelFormLayout id="pfl20" labelWidth="200" rows="1" maxColumns="2">
+                    <af:inputText label="Direcci&#243;n" id="it2" columns="30" showRequired="true" required="true"/>
+                    <af:inputText label="Tel&#233;fono de contacto" id="it3" columns="30" showRequired="true"
+                                  required="true"/>
+                </af:panelFormLayout>
+                <af:panelFormLayout id="pfl21" labelWidth="200" rows="1" maxColumns="2">
+                    <af:inputText label="Nombre Aerolinea cual recuada" id="it4" columns="30" showRequired="true"
+                                  required="true"/>
+                    <af:inputText label="Ciudad y Departamento" id="it5" columns="30" showRequired="true"
+                                  required="true"/>
+                </af:panelFormLayout>
+                <af:panelFormLayout id="pfl22" labelWidth="200" rows="1" maxColumns="2">
+                    <af:inputText label="Nombre Contacto" id="it6" columns="30" showRequired="true" required="true"/>
+                    <af:inputText label="Correo de contacto" id="it7" columns="30" showRequired="true" required="true"/>
+                </af:panelFormLayout>
+                <af:panelFormLayout id="pfl3" labelWidth="200">
+                    <af:separator id="s4"/>
+                    <af:inputText label="Total Pasajeros Embarcados" id="it8" columns="10" disabled="true" value="444"
+                                  contentStyle="text-align:right;"/>
+                    <af:inputText label="Total Pasajeros Transito" id="it9" columns="10" disabled="true"
+                                  contentStyle="text-align:right;"/>
+                    <af:inputText label="Pasajeros Excentos de timbres" id="it10" columns="10" disabled="true"
+                                  contentStyle="text-align:right;"/>
+                    <af:inputText label="Pasajeros Sujetos de cobro" id="it11" columns="10" disabled="true"
+                                  contentStyle="text-align:right;"/>
+                    <f:facet name="footer"/>
+                </af:panelFormLayout>
+                <af:panelHeader text="Liquidaci&#243;n privada del monto a pagar" id="ph2">
+                    <f:facet name="context"/>
+                    <f:facet name="toolbar"/>
+                    <f:facet name="menuBar"/>
+                    <f:facet name="legend"/>
+                    <f:facet name="info"/>
+                    <af:panelFormLayout id="pfl4" labelWidth="200">
+                        <af:inputText label="Pasajeros Sujeto a cobro" id="it22" columns="10" contentStyle="text-align:right;"
+                                      required="true" showRequired="true"/>
+                        <af:inputText label="Tarifa de impuesto de timbre" id="it23" columns="10" contentStyle="text-align:right;"
+                                      required="true" showRequired="true"/>
+                        <af:inputText label="Subtotal" id="it24" columns="10" contentStyle="text-align:right;" disabled="true"/>
+                        
+                        
+                        <af:inputText label="Devoluciones y aclaraciones" id="it25" columns="10" contentStyle="text-align:right;"/>
+                        <af:inputText label="Valor liquidacion privada" id="it26" columns="10" contentStyle="text-align:right;" disabled="true"/>
+                        <af:inputText label="Valor Pagar (Aproximaciòn)" id="it27" columns="10" contentStyle="text-align:right;" disabled="true"/>
+                    </af:panelFormLayout>
+                </af:panelHeader>
+                
+                <af:panelHeader text="Concepto devoluciones/aclaraciones" id="ph3">
+                    <f:facet name="context"/>
+                    <f:facet name="toolbar"/>
+                    <f:facet name="menuBar"/>
+                    <f:facet name="legend"/>
+                    <f:facet name="info"/>
+                    <af:panelFormLayout id="pfl5" labelWidth="187">
+                        <af:panelLabelAndMessage label="Aclaraci&#243;n" id="plam1" inlineStyle="padding-left:20px;">
+                            <af:panelGroupLayout id="pgl4" layout="horizontal">
+                                <af:inputText id="it12" columns="40"/>
+                                <af:inputText id="it13" columns="10" contentStyle="text-align:right;"/>
+                                <f:facet name="separator">
+                                    <af:spacer id="s5" height="1" width="1"/>
+                                </f:facet>
+                            </af:panelGroupLayout>
+                        </af:panelLabelAndMessage>
+                        <af:panelLabelAndMessage label="Aclaraci&#243;n" id="plam2" inlineStyle="padding-left:20px;">
+                            <af:panelGroupLayout id="pgl2" layout="horizontal">
+                                <af:inputText id="it14" columns="40"/>
+                                <af:inputText id="it15" columns="10" contentStyle="text-align:right;"/>
+                                <f:facet name="separator">
+                                    <af:spacer id="s6" height="1" width="1"/>
+                                </f:facet>
+                            </af:panelGroupLayout>
+                        </af:panelLabelAndMessage>
+                        <af:panelLabelAndMessage label="Aclaraci&#243;n" id="plam3" inlineStyle="padding-left:20px;">
+                            <af:panelGroupLayout id="pgl5" layout="horizontal">
+                                <af:inputText id="it16" columns="40"/>
+                                <af:inputText id="it17" columns="10"  contentStyle="text-align:right;"/>
+                                <f:facet name="separator">
+                                    <af:spacer id="s7" height="1" width="1"/>
+                                </f:facet>
+                            </af:panelGroupLayout>
+                        </af:panelLabelAndMessage>
+                        <af:panelLabelAndMessage label="Aclaraci&#243;n" id="plam4" inlineStyle="padding-left:20px;">
+                            <af:panelGroupLayout id="pgl6" layout="horizontal">
+                                <af:inputText id="it18" columns="40"/>
+                                <af:inputText id="it19" columns="10"  contentStyle="text-align:right;"/>
+                                <f:facet name="separator">
+                                    <af:spacer id="s8" height="1" width="1"/>
+                                </f:facet>
+                            </af:panelGroupLayout>
+                        </af:panelLabelAndMessage>
+                        <af:panelLabelAndMessage label="Aclaraci&#243;n" id="plam5" inlineStyle="padding-left:20px;">
+                            <af:panelGroupLayout id="pgl7" layout="horizontal">
+                                <af:inputText id="it20" columns="40"/>
+                                <af:inputText id="it21" columns="10"  contentStyle="text-align:right;"/>
+                                <f:facet name="separator">
+                                    <af:spacer id="s9" height="1" width="1"/>
+                                </f:facet>
+                            </af:panelGroupLayout>
+                        </af:panelLabelAndMessage>
+                        <f:facet name="footer">
+                            <af:button actionListener="#{bindings.pdfPreCalificacion.execute}"
+                                       text="Precalificaci&#243;n" disabled="#{!bindings.pdfPreCalificacion.enabled}"
+                                       id="b6"/>
+                        </f:facet>
+                    </af:panelFormLayout>
+                </af:panelHeader>
+            </af:panelGroupLayout>
+        </f:facet>
+        <f:facet name="elementoCancelar">
+            <bl01:botonesCancelar id="bc1" inicioAccion="Inicio">
+                <f:facet name="botonesAcciones"/>
+            </bl01:botonesCancelar>
+        </f:facet>
+        <f:facet name="elementoAuditoria">
+            <af:panelFormLayout id="pfl2" labelWidth="110"></af:panelFormLayout>
+        </f:facet>
+        <f:attribute name="permisoVerAuditoria" value="#{pageFlowScope.pPermisoVerAuditoria}"/>
+        <f:attribute name="titulo" value="#{bnd.preliquidacion_itemFrg_titulo}"/>
+        <f:attribute name="tituloDescripcion" value="#{bnd.preliquidacion_itemFrg_descripcion}"/>
+    </af:pageTemplate>
+    <af:popup childCreation="deferred" autoCancel="disabled" id="p5">
+        <af:dialog id="d5" type="cancel" title="Descargar">
+            <f:facet name="buttonBar">
+                <af:button id="cb5" text="Descargar"
+                           destination="Download?idArchivo=#{sessionScope.idArchivo}&amp;nameUser=#{sessionScope.BaseBean.nameUser}"
+                           targetFrame="_blank" useWindow="true"/>
+            </f:facet>
+            <af:panelBorderLayout id="pbl5">
+                <af:panelHeader id="ph1" text="Descargar reporte" messageType="confirmation">
+                    <af:outputText value="Usted puede descargar el reporte en formato PDF" id="ot43"/>
+                </af:panelHeader>
+            </af:panelBorderLayout>
+        </af:dialog>
+    </af:popup>
+</jsp:root>

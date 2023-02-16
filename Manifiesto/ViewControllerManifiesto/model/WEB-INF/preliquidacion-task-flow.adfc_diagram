@@ -116,25 +116,6 @@
       <property
          name="exceptionHandler">false</property>
    </Router>
-   <View
-      id="View10">
-      <property
-         name="description">&lt;html>&lt;p>&lt;b>ItemFrg&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
-      <property
-         name="activityId">ItemFrg</property>
-      <property
-         name="inherited">true</property>
-      <property
-         name="pageFragment">true</property>
-      <property
-         name="x">958.50006</property>
-      <property
-         name="y">242.25</property>
-      <property
-         name="page">/paginasError/ItemFrg.jsff</property>
-      <property
-         name="exceptionHandler">false</property>
-   </View>
    <ControlFlowCase
       islink="true"
       id="ControlFlowCase11"
@@ -155,7 +136,7 @@
       islink="true"
       id="ControlFlowCase12"
       from="MethodCall7"
-      to="View10">
+      to="View21">
       <property
          name="tosrcid">__18</property>
       <property
@@ -165,13 +146,13 @@
       <property
          name="fromsrcid">__17</property>
       <property
-         name="sdm:polyPoints">R50,858.5,165.21877,917.50006,238.71875,L46</property>
+         name="sdm:polyPoints">R50,858.5,165.21877,990.0,253.34375,L46</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
       id="ControlFlowCase13"
       from="MethodCall8"
-      to="View10">
+      to="View21">
       <property
          name="tosrcid">__16</property>
       <property
@@ -181,7 +162,7 @@
       <property
          name="fromsrcid">__15</property>
       <property
-         name="sdm:polyPoints">R50,858.5,314.21875,917.50006,245.71875,L54</property>
+         name="sdm:polyPoints">R50,858.5,314.21875,990.0,260.34375,L54</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -277,7 +258,7 @@
       <property
          name="fromsrcid">__9</property>
       <property
-         name="sdm:polyPoints">R50,719.0357,212.46875,774.9643,165.21877,L50</property>
+         name="sdm:polyPoints">R46,717.5,208.96875,776.5,165.21877,L50</property>
    </ControlFlowCase>
    <View
       id="View20">
@@ -296,4 +277,31 @@
       <property
          name="exceptionHandler">false</property>
    </View>
+   <View
+      id="View21">
+      <property
+         name="activityId">ItemFrg</property>
+      <property
+         name="pageFragment">true</property>
+      <property
+         name="x">1031.0</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>ItemFrg&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="y">256.875</property>
+      <property
+         name="page">/preliquidacion/ItemFrg.jsff</property>
+      <property
+         name="exceptionHandler">false</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase22"
+      from="MethodCall3"
+      to="View21">
+      <property
+         name="fromOutcome">Create</property>
+      <property
+         name="sdm:polyPoints">R54,717.5,215.96875,988.7101,256.84375,L50</property>
+   </ControlFlowCase>
 </SDM>

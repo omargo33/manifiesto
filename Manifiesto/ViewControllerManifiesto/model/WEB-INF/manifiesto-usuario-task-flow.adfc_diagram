@@ -153,7 +153,7 @@
       <property
          name="fromsrcid">__1</property>
       <property
-         name="sdm:polyPoints">R50,123.44336,114.81415,204.38672,113.81415,L50</property>
+         name="sdm:polyPoints">R50,123.44336,115.95041,204.38672,114.95041,L50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -185,7 +185,7 @@
       <property
          name="fromsrcid">__6</property>
       <property
-         name="sdm:polyPoints">B56,410.88672,175.89587,2616.6074,208.17105,B33</property>
+         name="sdm:polyPoints">B56,410.88672,177.03214,2616.6074,209.30731,B33</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -201,7 +201,7 @@
       <property
          name="fromsrcid">__6</property>
       <property
-         name="sdm:polyPoints">T50,407.38672,67.895874,3981.7344,30.222618,T56</property>
+         name="sdm:polyPoints">T50,407.38672,69.032135,3981.7344,31.35888,T56</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -265,7 +265,7 @@
       <property
          name="fromsrcid">__11</property>
       <property
-         name="sdm:polyPoints">B67,2637.6074,208.17105,3283.629,289.1642,T50</property>
+         name="sdm:polyPoints">B67,2637.6074,209.30731,3283.629,290.30048,T50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -459,7 +459,7 @@
       <property
          name="fromOutcome">ejecutarConsulta</property>
       <property
-         name="sdm:polyPoints">T50,2000.2432,241.10593,2623.6074,215.0426,B44</property>
+         name="sdm:polyPoints">T50,2000.2432,242.24219,2623.6074,216.17886,B44</property>
    </ControlFlowCase>
    <MethodCall
       id="MethodCall44">
@@ -562,7 +562,7 @@
       <property
          name="fromOutcome">isCLI02</property>
       <property
-         name="sdm:polyPoints">R54,2809.1074,139.22485,2881.8018,180.53677,L50</property>
+         name="sdm:polyPoints">R54,2809.1074,140.36111,2881.8018,181.67303,L50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -664,7 +664,7 @@
       <property
          name="fromOutcome">noEsCli03</property>
       <property
-         name="sdm:polyPoints">B50,1177.8369,319.8403,2000.2432,349.10593,B50</property>
+         name="sdm:polyPoints">B50,1177.8369,320.97656,2000.2432,350.2422,B50</property>
    </ControlFlowCase>
    <MethodCall
       id="MethodCall68">
@@ -687,7 +687,7 @@
       <property
          name="fromOutcome">ejecutarConsulta</property>
       <property
-         name="sdm:polyPoints">B56,2491.041,69.98094,2586.1074,154.17105,L50</property>
+         name="sdm:polyPoints">B56,2491.041,71.1172,2586.1074,155.30731,L50</property>
    </ControlFlowCase>
    <Router
       id="Router70">
@@ -730,7 +730,7 @@
       <property
          name="fromOutcome">esCli03</property>
       <property
-         name="sdm:polyPoints">R50,1218.8369,265.8403,1298.7598,231.57468,L50</property>
+         name="sdm:polyPoints">R50,1218.8369,266.97656,1298.7598,232.71094,L50</property>
    </ControlFlowCase>
    <MethodCall
       id="MethodCall76">
@@ -822,7 +822,7 @@
       <property
          name="fromOutcome">ejecutarByIndiceReturn</property>
       <property
-         name="sdm:polyPoints">R50,2287.7842,127.98094,2484.041,69.98094,B44</property>
+         name="sdm:polyPoints">R50,2287.7842,129.1172,2484.041,71.1172,B44</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -836,6 +836,6 @@
       <property
          name="fromsrcid">__43</property>
       <property
-         name="sdm:polyPoints">R50,1029.9082,265.8403,1136.8369,265.8403,L50</property>
+         name="sdm:polyPoints">R50,1029.9082,266.97656,1136.8369,266.97656,L50</property>
    </ControlFlowCase>
 </SDM>

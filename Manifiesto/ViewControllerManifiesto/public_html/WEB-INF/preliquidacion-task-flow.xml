@@ -5,12 +5,26 @@
       <document>/WEB-INF/plantilla/maestro-template.xml</document>
       <id>maestro-template</id>
     </template-reference>
-    <data-control-scope>
-      <shared/>
-    </data-control-scope>
+    <managed-bean id="__23">
+            <managed-bean-name>PPRBackingPreliquidacionListaFrg</managed-bean-name>
+            <managed-bean-class>viewManifiesto.preliquidacion.PPRListaFrg</managed-bean-class>
+            <managed-bean-scope>backingBean</managed-bean-scope>
+        </managed-bean>
     <view id="ListaFrg">
       <page>/preliquidacion/ListaFrg.jsff</page>
     </view>
+    <view id="ItemFrg">
+      <page>/preliquidacion/ItemFrg.jsff</page>
+    </view>
+    
+    
+    <control-flow-rule id="__1">
+      <from-activity-id>ActionCrear</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>Create</from-outcome>
+        <to-activity-id>ItemFrg</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
     <use-page-fragments/>
   </task-flow-definition>
 </adfc-config>
