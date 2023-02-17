@@ -5,115 +5,277 @@
         <f:facet name="elementoCentro">
             <af:panelGroupLayout id="pgl1" layout="vertical">
                 <af:panelFormLayout id="pfl1" labelWidth="200">
-                    <af:inputText label="Raz&#243;n Social" id="it1" columns="50" disabled="true"/>
+                    <af:inputText label="Raz&#243;n Social" id="it1" columns="50" disabled="true"
+                                  value="#{sessionScope.siglaAerolineaOrigen} #{sessionScope.descripcionAerolineaOrigen}"/>
                     <af:separator id="s3"/>
                 </af:panelFormLayout>
                 <af:panelFormLayout id="pfl20" labelWidth="200" rows="1" maxColumns="2">
-                    <af:inputText label="Direcci&#243;n" id="it2" columns="30" showRequired="true" required="true"/>
+                    <af:inputText label="Direcci&#243;n" id="it2" columns="30" showRequired="true" required="true"
+                                  binding="#{PPRBackingPreliquidacionItemFrg.it2}">
+                        <af:validateLength minimum="5"/>
+                    </af:inputText>
                     <af:inputText label="Tel&#233;fono de contacto" id="it3" columns="30" showRequired="true"
-                                  required="true"/>
+                                  required="true" binding="#{PPRBackingPreliquidacionItemFrg.it3}">
+                        <af:validateLength minimum="5"/>
+                    </af:inputText>
                 </af:panelFormLayout>
                 <af:panelFormLayout id="pfl21" labelWidth="200" rows="1" maxColumns="2">
                     <af:inputText label="Nombre Aerolinea cual recuada" id="it4" columns="30" showRequired="true"
-                                  required="true"/>
+                                  required="true" binding="#{PPRBackingPreliquidacionItemFrg.it4}">
+                        <af:validateLength minimum="5"/>
+                    </af:inputText>
                     <af:inputText label="Ciudad y Departamento" id="it5" columns="30" showRequired="true"
-                                  required="true"/>
+                                  required="true" binding="#{PPRBackingPreliquidacionItemFrg.it5}">
+                        <af:validateLength minimum="5"/>
+                    </af:inputText>
                 </af:panelFormLayout>
                 <af:panelFormLayout id="pfl22" labelWidth="200" rows="1" maxColumns="2">
-                    <af:inputText label="Nombre Contacto" id="it6" columns="30" showRequired="true" required="true"/>
-                    <af:inputText label="Correo de contacto" id="it7" columns="30" showRequired="true" required="true"/>
+                    <af:inputText label="Nombre Contacto" id="it6" columns="30" showRequired="true" required="true"
+                                  binding="#{PPRBackingPreliquidacionItemFrg.it6}">
+                        <af:validateLength minimum="5"/>
+                    </af:inputText>
+                    <af:inputText label="Correo de contacto" id="it7" columns="30" showRequired="true" required="true"
+                                  binding="#{PPRBackingPreliquidacionItemFrg.it7}">
+                        <af:validateLength minimum="5"/>
+                    </af:inputText>
                 </af:panelFormLayout>
+                <af:spacer id="s15" height="5" width="5"/>
+                <af:separator id="s16" inlineStyle="width:70%;"/>
                 <af:panelFormLayout id="pfl3" labelWidth="200">
-                    <af:separator id="s4"/>
-                    <af:inputText label="Total Pasajeros Embarcados" id="it8" columns="10" disabled="true" value="444"
-                                  contentStyle="text-align:right;"/>
-                    <af:inputText label="Total Pasajeros Transito" id="it9" columns="10" disabled="true"
-                                  contentStyle="text-align:right;"/>
-                    <af:inputText label="Pasajeros Excentos de timbres" id="it10" columns="10" disabled="true"
-                                  contentStyle="text-align:right;"/>
-                    <af:inputText label="Pasajeros Sujetos de cobro" id="it11" columns="10" disabled="true"
-                                  contentStyle="text-align:right;"/>
+                    <af:inputText label="Total Pasajeros Embarcados" id="it8" columns="10" disabled="true"
+                                  value="#{sessionScope.totalPasajeros}" contentStyle="text-align:right;"/>
+                    <af:inputText label="(+) Total Pasajeros Transito" id="it9" columns="10" disabled="true"
+                                  contentStyle="text-align:right;" value="#{sessionScope.totalPasajerosTransito}"/>
+                    <af:inputText label="(-) Pasajeros Excentos de timbres" id="it10" columns="10" disabled="true"
+                                  contentStyle="text-align:right;"
+                                  value="#{sessionScope.totalPasajerosExcentosTimbre}"/>
+                    <af:separator id="s12"/>
+                    <af:inputText label="(=) Pasajeros Sujetos de cobro" id="it11" columns="10" disabled="true"
+                                  contentStyle="text-align:right;" value="#{sessionScope.totalCobroImpuesto}"/>
                     <f:facet name="footer"/>
                 </af:panelFormLayout>
-                <af:panelHeader text="Liquidaci&#243;n privada del monto a pagar" id="ph2">
+                <af:spacer id="s4" height="5" width="5"/>
+                <af:separator id="s18" inlineStyle="width:70%;"/>
+                <af:panelHeader text="Liquidaci&#243;n privada del monto a pagar" id="ph2" size="2" headerLevel="2"
+                                inlineStyle="background-color:transparent;">
                     <f:facet name="context"/>
                     <f:facet name="toolbar"/>
                     <f:facet name="menuBar"/>
                     <f:facet name="legend"/>
                     <f:facet name="info"/>
                     <af:panelFormLayout id="pfl4" labelWidth="200">
-                        <af:inputText label="Pasajeros Sujeto a cobro" id="it22" columns="10" contentStyle="text-align:right;"
-                                      required="true" showRequired="true"/>
-                        <af:inputText label="Tarifa de impuesto de timbre" id="it23" columns="10" contentStyle="text-align:right;"
-                                      required="true" showRequired="true"/>
-                        <af:inputText label="Subtotal" id="it24" columns="10" contentStyle="text-align:right;" disabled="true"/>
-                        
-                        
-                        <af:inputText label="Devoluciones y aclaraciones" id="it25" columns="10" contentStyle="text-align:right;"/>
-                        <af:inputText label="Valor liquidacion privada" id="it26" columns="10" contentStyle="text-align:right;" disabled="true"/>
-                        <af:inputText label="Valor Pagar (Aproximaciòn)" id="it27" columns="10" contentStyle="text-align:right;" disabled="true"/>
+                        <af:inputText label="Pasajeros Sujeto a cobro" id="it22" columns="10"
+                                      contentStyle="text-align:right;" required="true" showRequired="true"
+                                      value="#{sessionScope.totalCalculoImpuesto}"
+                                      binding="#{PPRBackingPreliquidacionItemFrg.it22}" immediate="true"
+                                      autoSubmit="true"
+                                      valueChangeListener="#{PPRBackingPreliquidacionItemFrg.it22ValueChange}">
+                            <af:convertNumber pattern="#,###,##0.00"/>
+                            <af:validateDoubleRange minimum="0.0"/>
+                        </af:inputText>
+                        <af:inputText label="(*) Tarifa de impuesto de timbre" id="it23" columns="10"
+                                      contentStyle="text-align:right;" required="true" showRequired="true"
+                                      value="#{sessionScope.tarifaImpuesto}"
+                                      binding="#{PPRBackingPreliquidacionItemFrg.it23}" autoSubmit="true"
+                                      immediate="true"
+                                      valueChangeListener="#{PPRBackingPreliquidacionItemFrg.it23ValueChange}">
+                            <af:convertNumber pattern="#,###,##0.00" messageDetailConvertNumber="#,###,##0.00"
+                                              type="number"/>
+                            <af:validateDoubleRange minimum="0.0"/>
+                        </af:inputText>
+                        <af:inputText label="(=) Subtotal" id="it24" columns="10" contentStyle="text-align:right;"
+                                      disabled="true" binding="#{PPRBackingPreliquidacionItemFrg.it24}"></af:inputText>
+                        <af:inputText label="(-) Devoluciones y aclaraciones" id="it25" columns="10"
+                                      contentStyle="text-align:right;" binding="#{PPRBackingPreliquidacionItemFrg.it25}"
+                                      immediate="true" autoSubmit="true"
+                                      valueChangeListener="#{PPRBackingPreliquidacionItemFrg.it25ValueChange}">
+                            <af:convertNumber pattern="#,###,##0.00" type="number"
+                                              messageDetailConvertPattern="#,###,##0.00"/>
+                            <f:validateDoubleRange minimum="0.0"/>
+                        </af:inputText>
+                        <af:separator id="s11"/>
+                        <af:inputText label="(=) Valor liquidacion privada" id="it26" columns="10"
+                                      contentStyle="text-align:right;" disabled="true"
+                                      binding="#{PPRBackingPreliquidacionItemFrg.it26}">
+                            <af:convertNumber pattern="#,###,##0.00" type="number" minFractionDigits="2"
+                                              minIntegerDigits="1" messageDetailConvertNumber="#,###,##0.00"/>
+                        </af:inputText>
+                        <af:inputText label="(~) Valor Pagar (Aproximaci&#243;n)" id="it27" columns="10"
+                                      contentStyle="text-align:right;" disabled="true"
+                                      binding="#{PPRBackingPreliquidacionItemFrg.it27}">
+                            <af:convertNumber pattern="#,###,##0.00" type="number" minFractionDigits="2"
+                                              minIntegerDigits="1" messageDetailConvertNumber="#,###,##0.00"/>
+                        </af:inputText>
                     </af:panelFormLayout>
                 </af:panelHeader>
-                
-                <af:panelHeader text="Concepto devoluciones/aclaraciones" id="ph3">
-                    <f:facet name="context"/>
-                    <f:facet name="toolbar"/>
-                    <f:facet name="menuBar"/>
-                    <f:facet name="legend"/>
-                    <f:facet name="info"/>
-                    <af:panelFormLayout id="pfl5" labelWidth="187">
-                        <af:panelLabelAndMessage label="Aclaraci&#243;n" id="plam1" inlineStyle="padding-left:20px;">
-                            <af:panelGroupLayout id="pgl4" layout="horizontal">
-                                <af:inputText id="it12" columns="40"/>
-                                <af:inputText id="it13" columns="10" contentStyle="text-align:right;"/>
-                                <f:facet name="separator">
-                                    <af:spacer id="s5" height="1" width="1"/>
-                                </f:facet>
-                            </af:panelGroupLayout>
-                        </af:panelLabelAndMessage>
-                        <af:panelLabelAndMessage label="Aclaraci&#243;n" id="plam2" inlineStyle="padding-left:20px;">
-                            <af:panelGroupLayout id="pgl2" layout="horizontal">
-                                <af:inputText id="it14" columns="40"/>
-                                <af:inputText id="it15" columns="10" contentStyle="text-align:right;"/>
-                                <f:facet name="separator">
-                                    <af:spacer id="s6" height="1" width="1"/>
-                                </f:facet>
-                            </af:panelGroupLayout>
-                        </af:panelLabelAndMessage>
-                        <af:panelLabelAndMessage label="Aclaraci&#243;n" id="plam3" inlineStyle="padding-left:20px;">
-                            <af:panelGroupLayout id="pgl5" layout="horizontal">
-                                <af:inputText id="it16" columns="40"/>
-                                <af:inputText id="it17" columns="10"  contentStyle="text-align:right;"/>
-                                <f:facet name="separator">
-                                    <af:spacer id="s7" height="1" width="1"/>
-                                </f:facet>
-                            </af:panelGroupLayout>
-                        </af:panelLabelAndMessage>
-                        <af:panelLabelAndMessage label="Aclaraci&#243;n" id="plam4" inlineStyle="padding-left:20px;">
-                            <af:panelGroupLayout id="pgl6" layout="horizontal">
-                                <af:inputText id="it18" columns="40"/>
-                                <af:inputText id="it19" columns="10"  contentStyle="text-align:right;"/>
-                                <f:facet name="separator">
-                                    <af:spacer id="s8" height="1" width="1"/>
-                                </f:facet>
-                            </af:panelGroupLayout>
-                        </af:panelLabelAndMessage>
-                        <af:panelLabelAndMessage label="Aclaraci&#243;n" id="plam5" inlineStyle="padding-left:20px;">
-                            <af:panelGroupLayout id="pgl7" layout="horizontal">
-                                <af:inputText id="it20" columns="40"/>
-                                <af:inputText id="it21" columns="10"  contentStyle="text-align:right;"/>
-                                <f:facet name="separator">
-                                    <af:spacer id="s9" height="1" width="1"/>
-                                </f:facet>
-                            </af:panelGroupLayout>
-                        </af:panelLabelAndMessage>
-                        <f:facet name="footer">
-                            <af:button actionListener="#{bindings.pdfPreCalificacion.execute}"
-                                       text="Precalificaci&#243;n" disabled="#{!bindings.pdfPreCalificacion.enabled}"
-                                       id="b6"/>
-                        </f:facet>
-                    </af:panelFormLayout>
-                </af:panelHeader>
+                <af:spacer id="s14" height="5" width="5"/>
+                <af:separator id="s17" inlineStyle="width:70%;"/>
+                <af:panelGroupLayout id="pgl9" layout="horizontal" valign="top">
+                    <af:panelHeader text="Concepto devoluciones/aclaraciones" id="ph3" size="2" headerLevel="2">
+                        <f:facet name="context"/>
+                        <f:facet name="toolbar"/>
+                        <f:facet name="menuBar"/>
+                        <f:facet name="legend"/>
+                        <f:facet name="info"/>
+                        <af:panelFormLayout id="pfl5" labelWidth="40"
+                                            binding="#{PPRBackingPreliquidacionItemFrg.pfl5}">
+                            <af:panelLabelAndMessage label="1.-" id="plam1"
+                                                     inlineStyle="padding-left:20px;">
+                                <af:panelGroupLayout id="pgl4" layout="horizontal">
+                                    <af:inputText id="it12" columns="40"
+                                                  binding="#{PPRBackingPreliquidacionItemFrg.it12}" immediate="true"
+                                                  autoSubmit="true">
+                                        <af:validateLength minimum="5"/>
+                                    </af:inputText>
+                                    <af:inputText id="it13" columns="10" contentStyle="text-align:right;"
+                                                  binding="#{PPRBackingPreliquidacionItemFrg.it13}" immediate="true"
+                                                  autoSubmit="true"
+                                                  valueChangeListener="#{PPRBackingPreliquidacionItemFrg.it13ValueChange}">
+                                        <af:convertNumber pattern="#,###,##0.00"/>
+                                        <af:validateDoubleRange minimum="0.0"/>
+                                    </af:inputText>
+                                    <f:facet name="separator">
+                                        <af:spacer id="s5" height="1" width="1"/>
+                                    </f:facet>
+                                    <af:button text="[X]" id="b1" immediate="true"
+                                               actionListener="#{PPRBackingPreliquidacionItemFrg.b1ValueChange}"/>
+                                </af:panelGroupLayout>
+                            </af:panelLabelAndMessage>
+                            <af:panelLabelAndMessage label="2.-" id="plam2"
+                                                     inlineStyle="padding-left:20px;">
+                                <af:panelGroupLayout id="pgl2" layout="horizontal">
+                                    <af:inputText id="it14" columns="40"
+                                                  binding="#{PPRBackingPreliquidacionItemFrg.it14}" immediate="true"
+                                                  autoSubmit="true">
+                                        <af:validateLength minimum="5"/>
+                                    </af:inputText>
+                                    <af:inputText id="it15" columns="10" contentStyle="text-align:right;"
+                                                  binding="#{PPRBackingPreliquidacionItemFrg.it15}" immediate="true"
+                                                  autoSubmit="true"
+                                                  valueChangeListener="#{PPRBackingPreliquidacionItemFrg.it15ValueChange}">
+                                        <af:convertNumber pattern="#,###,##0.00"/>
+                                        <af:validateDoubleRange minimum="0.0"/>
+                                    </af:inputText>
+                                    <f:facet name="separator">
+                                        <af:spacer id="s6" height="1" width="1"/>
+                                    </f:facet>
+                                    <af:button text="[X]" id="b2"
+                                               actionListener="#{PPRBackingPreliquidacionItemFrg.b2ValueChange}"
+                                               immediate="true"/>
+                                </af:panelGroupLayout>
+                            </af:panelLabelAndMessage>
+                            <af:panelLabelAndMessage label="3.-" id="plam3"
+                                                     inlineStyle="padding-left:20px;">
+                                <af:panelGroupLayout id="pgl5" layout="horizontal">
+                                    <af:inputText id="it16" columns="40"
+                                                  binding="#{PPRBackingPreliquidacionItemFrg.it16}" immediate="true"
+                                                  autoSubmit="true">
+                                        <af:validateLength minimum="5"/>
+                                    </af:inputText>
+                                    <af:inputText id="it17" columns="10" contentStyle="text-align:right;"
+                                                  binding="#{PPRBackingPreliquidacionItemFrg.it17}" immediate="true"
+                                                  autoSubmit="true"
+                                                  valueChangeListener="#{PPRBackingPreliquidacionItemFrg.it17ValueChange}">
+                                        <af:convertNumber pattern="#,###,##0.00"/>
+                                        <af:validateDoubleRange minimum="0.0"/>
+                                    </af:inputText>
+                                    <f:facet name="separator">
+                                        <af:spacer id="s7" height="1" width="1"/>
+                                    </f:facet>
+                                    <af:button text="[X]" id="b4"
+                                               actionListener="#{PPRBackingPreliquidacionItemFrg.b3ValueChange}"
+                                               immediate="true"/>
+                                </af:panelGroupLayout>
+                            </af:panelLabelAndMessage>
+                            <af:panelLabelAndMessage label="4.-" id="plam4"
+                                                     inlineStyle="padding-left:20px;">
+                                <af:panelGroupLayout id="pgl6" layout="horizontal">
+                                    <af:inputText id="it18" columns="40"
+                                                  binding="#{PPRBackingPreliquidacionItemFrg.it18}" immediate="true"
+                                                  autoSubmit="true">
+                                        <af:validateLength minimum="5"/>
+                                    </af:inputText>
+                                    <af:inputText id="it19" columns="10" contentStyle="text-align:right;"
+                                                  binding="#{PPRBackingPreliquidacionItemFrg.it19}" immediate="true"
+                                                  autoSubmit="true"
+                                                  valueChangeListener="#{PPRBackingPreliquidacionItemFrg.it19ValueChange}">
+                                        <af:convertNumber pattern="#,###,##0.00"/>
+                                        <af:validateDoubleRange minimum="0.0"/>
+                                    </af:inputText>
+                                    <f:facet name="separator">
+                                        <af:spacer id="s8" height="1" width="1"/>
+                                    </f:facet>
+                                    <af:button text="[X]" id="b8"
+                                               actionListener="#{PPRBackingPreliquidacionItemFrg.b4ValueChange}"
+                                               immediate="true"/>
+                                </af:panelGroupLayout>
+                            </af:panelLabelAndMessage>
+                            <af:panelLabelAndMessage label="5.-" id="plam5"
+                                                     inlineStyle="padding-left:20px;">
+                                <af:panelGroupLayout id="pgl7" layout="horizontal">
+                                    <af:inputText id="it20" columns="40"
+                                                  binding="#{PPRBackingPreliquidacionItemFrg.it20}" immediate="true"
+                                                  autoSubmit="true">
+                                        <af:validateLength minimum="5"/>
+                                    </af:inputText>
+                                    <af:inputText id="it21" columns="10" contentStyle="text-align:right;"
+                                                  binding="#{PPRBackingPreliquidacionItemFrg.it21}" immediate="true"
+                                                  autoSubmit="true"
+                                                  valueChangeListener="#{PPRBackingPreliquidacionItemFrg.it21ValueChange}">
+                                        <af:convertNumber pattern="#,###,##0.00"/>
+                                        <af:validateDoubleRange minimum="0.0"/>
+                                    </af:inputText>
+                                    <f:facet name="separator">
+                                        <af:spacer id="s9" height="1" width="1"/>
+                                    </f:facet>
+                                    <af:button text="[X]" id="b7"
+                                               actionListener="#{PPRBackingPreliquidacionItemFrg.b5ValueChange}"
+                                               immediate="true"/>
+                                </af:panelGroupLayout>
+                            </af:panelLabelAndMessage>
+                            <af:panelLabelAndMessage label="Total" id="plam6">
+                                <af:panelGroupLayout id="pgl8" layout="horizontal">
+                                    <af:spacer id="s10" height="5" width="327"/>
+                                    <af:inputText id="it28" binding="#{PPRBackingPreliquidacionItemFrg.it28}"
+                                                  contentStyle="text-align:right;" disabled="true" columns="10"/>
+                                </af:panelGroupLayout>
+                            </af:panelLabelAndMessage>
+                            <f:facet name="footer"/>
+                        </af:panelFormLayout>
+                    </af:panelHeader>
+                    <af:panelHeader text="Forma Pago" id="ph4" size="2" headerLevel="2">
+                        <f:facet name="context"/>
+                        <f:facet name="toolbar"/>
+                        <f:facet name="menuBar"/>
+                        <f:facet name="legend"/>
+                        <f:facet name="info"/>
+                        <af:panelFormLayout id="pfl7" labelWidth="200">
+                            <f:facet name="footer"/>
+                            <af:selectOneRadio label="Seleccionar forma de pago" id="sor1"
+                                               valueChangeListener="#{PPRBackingPreliquidacionItemFrg.sor1ValueChange}"
+                                               binding="#{PPRBackingPreliquidacionItemFrg.sor1}" autoSubmit="true"
+                                               immediate="true" value="E">
+                                <af:selectItem label="Efectivo" value="E" id="si1"/>
+                                <af:selectItem label="Transferencia" value="T" id="si3"/>
+                                <af:selectItem label="Cheque" value="C" id="si2"/>
+                            </af:selectOneRadio>
+                            <af:inputText label="No. Cheque" id="it29" binding="#{PPRBackingPreliquidacionItemFrg.it29}"
+                                          columns="10" disabled="true" showRequired="true" required="true"
+                                          immediate="true" autoSubmit="true">
+                                <af:validateLength minimum="4"/>
+                            </af:inputText>
+                        </af:panelFormLayout>
+                    </af:panelHeader>
+                    <f:facet name="separator">
+                        <af:spacer id="s13" height="5" width="5"/>
+                    </f:facet>
+                </af:panelGroupLayout>
+                <af:panelFormLayout id="pfl6" labelWidth="50">
+                    <f:facet name="footer">
+                        <af:button text="Precalificaci&#243;n" disabled="#{!bindings.pdfPreCalificacion.enabled}"
+                                   id="b6" action="#{PPRBackingPreliquidacionItemFrg.actionGenerarPDF}"/>
+                    </f:facet>
+                </af:panelFormLayout>
             </af:panelGroupLayout>
         </f:facet>
         <f:facet name="elementoCancelar">
@@ -128,7 +290,7 @@
         <f:attribute name="titulo" value="#{bnd.preliquidacion_itemFrg_titulo}"/>
         <f:attribute name="tituloDescripcion" value="#{bnd.preliquidacion_itemFrg_descripcion}"/>
     </af:pageTemplate>
-    <af:popup childCreation="deferred" autoCancel="disabled" id="p5">
+    <af:popup childCreation="deferred" autoCancel="disabled" id="p1" binding="#{PPRBackingPreliquidacionItemFrg.p1}">
         <af:dialog id="d5" type="cancel" title="Descargar">
             <f:facet name="buttonBar">
                 <af:button id="cb5" text="Descargar"
@@ -142,4 +304,5 @@
             </af:panelBorderLayout>
         </af:dialog>
     </af:popup>
+    <!--oracle-jdev-comment:preferred-managed-bean-name:PPRBackingPreliquidacionItemFrg-->
 </jsp:root>

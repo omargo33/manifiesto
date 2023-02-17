@@ -1,7 +1,14 @@
 package viewManifiesto.preliquidacion;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
+
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -60,6 +67,7 @@ public class PPRListaFrg extends BasePPR {
 
     private RichButton b1;
     private RichButton b2;
+    private RichInputText it29;
 
     /**
      * Metodo para crear el objeto de soporte a la presentacion.
@@ -178,8 +186,14 @@ public class PPRListaFrg extends BasePPR {
         ADFUtils.ejecutaAction(getBindings(), "ejecutarConsulta", null, null, map);
         doPartialRefresh(getResId5());
 
-        Map<String, String> mapa = (Map) ADFUtils.ejecutaActionConReturn(getBindings(), "calculosPreCalificacion", true, map);        
-       // ADFUtils.setEL("#{SesionBean.mapaPdfPrecalificacion}", mapa);
+        Map<String, String> mapa =
+            (Map) ADFUtils.ejecutaActionConReturn(getBindings(), "calculosPreCalificacion", true, map);
+
+        for (Map.Entry<String, String> entry : mapa.entrySet()) {
+            //TODO dejar el SOP hasta tener el sistema funcional y conocer las sesions usadas
+            System.out.println("#{sessionScope." + entry.getKey() + "}=" + entry.getValue());
+            ADFUtils.setEL("#{sessionScope." + entry.getKey() + "}", entry.getValue().trim());
+        }
     }
 
     /**
@@ -332,8 +346,43 @@ public class PPRListaFrg extends BasePPR {
 
         if (!respuesta) {
             ADFUtils.setMensajeError("Por lo menos debe escoger una Aerolinea");
+            return respuesta;
         }
 
+        Object fechaInicio = getId1().getValue();
+        Object fechaFin = getId2().getValue();
+        try {
+            String yearFechaInicio = convertirDate(String.valueOf(fechaInicio)).substring(0, 4);
+            String yearFechaFin = convertirDate(String.valueOf(fechaFin)).substring(0, 4);
+            respuesta = (yearFechaInicio.compareTo(yearFechaFin) == 0);
+        } catch (Exception e) {
+            respuesta = false;
+        }
+
+        if (!respuesta) {
+            ADFUtils.setMensajeError("Las fechas deben pertenecer al mismo año");
+        }
+
+        return respuesta;
+    }
+
+    /**
+     * Metodo para convertir una fecha.
+     *
+     * @param fechaStr
+     * @return
+     */
+    private String convertirDate(String fechaStr) {
+        DateFormat dateFormat = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy", Locale.US);
+        DateFormat dateFormatSimple = new SimpleDateFormat("yyyy-MM-dd");
+        String respuesta = fechaStr;
+        try {
+            java.util.Date fechaTemp = dateFormat.parse(fechaStr);
+            respuesta = dateFormatSimple.format(fechaTemp);
+
+        } catch (Exception e) {
+            Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).log(Level.SEVERE, e.toString());
+        }
         return respuesta;
     }
 
@@ -522,5 +571,13 @@ public class PPRListaFrg extends BasePPR {
 
     public void setB2(RichButton b2) {
         this.b2 = b2;
+    }
+
+    public void setIt29(RichInputText it29) {
+        this.it29 = it29;
+    }
+
+    public RichInputText getIt29() {
+        return it29;
     }
 }

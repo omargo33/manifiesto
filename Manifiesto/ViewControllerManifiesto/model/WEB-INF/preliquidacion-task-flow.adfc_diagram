@@ -57,9 +57,9 @@
       <property
          name="activityId">Error</property>
       <property
-         name="inherited">true</property>
-      <property
          name="pageFragment">true</property>
+      <property
+         name="inherited">true</property>
       <property
          name="x">70.49999</property>
       <property

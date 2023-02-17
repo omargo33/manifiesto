@@ -61,7 +61,7 @@ public class ManifiestoModuloImpl extends AuditoriaModuloImpl implements Manifie
     final String SQL_MANIFIESTO_TOTALES =
         "SELECT sum(pasajeros) total_pasajeros, sum(pasajeros_transito)total_pasajeros_transito, sum(pasajeros_exentos_timbres) total_excentos_timbres FROM MV_001_00.v_manifiesto where";
 
-    final String SQL_MANIFIESTO_FECHA = "select timbre from MV_001_00.tasa where nombre = ?";
+    final String SQL_MANIFIESTO_TIMBRE = "select timbre from MV_001_00.tasa where nombre = ?";
 
     final String SQL_MANIFIESTO_AEROLINEA = "select indice_secundario, nombre  from libro_direccion  where indice = ?";
 
@@ -219,16 +219,16 @@ public class ManifiestoModuloImpl extends AuditoriaModuloImpl implements Manifie
         } catch (Exception e) {
         }
 
-        valorTimbre = this.getBaseDML().ejecutaConsultaUnicoDato(SQL_MANIFIESTO_FECHA, convertirDate(fechaInicio).substring(0, 4));
+        valorTimbre = this.getBaseDML().ejecutaConsultaUnicoDato(SQL_MANIFIESTO_TIMBRE, convertirDate(fechaInicio).substring(0, 4));
 
         mapa.put("fechaInicio", convertirDate(fechaInicio));
         mapa.put("fechaFin", convertirDate(fechaFin));
         mapa.put("totalPasajeros", String.valueOf(totalPasajeros));
         mapa.put("totalPasajerosTransito", String.valueOf(totalPasajerosTransito));
         mapa.put("totalPasajerosExcentosTimbre", String.valueOf(totalExcenteosTimbres));
-        mapa.put("totalCobroImpuesto",
-                 String.valueOf((totalPasajeros + totalPasajerosTransito - totalExcenteosTimbres)));
-        mapa.put("tarifaImpuest", String.valueOf(valorTimbre));
+        mapa.put("totalCobroImpuesto",String.valueOf((totalPasajeros + totalPasajerosTransito - totalExcenteosTimbres)));
+        mapa.put("totalCalculoImpuesto",String.valueOf((totalPasajeros + totalPasajerosTransito - totalExcenteosTimbres)));
+        mapa.put("tarifaImpuesto", String.valueOf(valorTimbre));
 
         resultSet = this.getBaseDML().ejecutaConsulta(SQL_MANIFIESTO_AEROLINEA, indiceAerolinea);
         if (this.getBaseDML().getMensaje() != null) {

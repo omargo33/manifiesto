@@ -218,7 +218,7 @@ public class PreliquidacionCobro extends ImpresionBaseElementos {
                              "j. Valor de la liquidación privada (Casilla h menos Casilla i)",
                              "k. Valor a Pagar (Aproximar el valor obtenido en la casilla j al múltiplo de mil más cercano)");
         getForm()
-            .setListaValores(getParametrosBusqueda().get("totalCobroImpuesto"),
+            .setListaValores(getParametrosBusqueda().get("totalCalculoImpuesto"),
                              getParametrosBusqueda().get("tarifaImpuest"), getParametrosBusqueda().get("sutotal"),
                              getParametrosBusqueda().get("devoluciones"),
                              getParametrosBusqueda().get("valorLiquidacion"),
