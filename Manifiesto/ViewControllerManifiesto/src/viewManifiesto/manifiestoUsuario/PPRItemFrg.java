@@ -140,7 +140,6 @@ public class PPRItemFrg extends BasePPR {
             }
         } catch (Exception e) {
             getPfl5().setVisible(false);
-            System.out.println("Voy de salida - Error de Tipo");
         }
 
         try {

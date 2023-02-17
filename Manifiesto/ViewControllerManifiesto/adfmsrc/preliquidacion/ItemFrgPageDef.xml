@@ -8,7 +8,7 @@
   <bindings>
     <methodAction id="pdfPreCalificacion" RequiresUpdateModel="true" Action="invokeMethod"
                   MethodName="pdfPreCalificacion" IsViewObjectMethod="false" DataControl="ManifiestoModuloDataControl"
-                  InstanceName="bindings.pdfPreCalificacion.dataControl.dataProvider"
+                  InstanceName="ManifiestoModuloDataControl.dataProvider"
                   ReturnName="data.ManifiestoModuloDataControl.methodResults.pdfPreCalificacion_pdfPreCalificacion_dataControl_dataProvider_pdfPreCalificacion_result">
       <NamedData NDName="tabla" NDType="java.lang.String"/>
       <NamedData NDName="usuario" NDType="java.lang.String"/>

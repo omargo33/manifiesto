@@ -13,6 +13,7 @@ import java.text.SimpleDateFormat;
 
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Locale;
 import java.util.Map;
 import java.util.logging.Level;
@@ -339,14 +340,18 @@ public class ManifiestoModuloImpl extends AuditoriaModuloImpl implements Manifie
         preliquidacionCobro.setOrdenElementos(new int[] { 1, 2, 3, 4, 5, 6, 7 });
         ImpresionBaseIText impresionBaseIText = new ImpresionBaseIText(preliquidacionCobro);
 
-        mapa.put("documentoNombre", nombrePagina);
+        mapa.put("documentoNombre", "nombre");
         mapa.put("documentoCodigo", "codigo");
         mapa.put("horizontal", "true");
         mapa.put("imagenColombia", base_obtenerParametroTexto01("201"));
-        mapa.put("imagenAerocivil", base_obtenerParametroTexto02("202"));
-        mapa.put("tituloImpuesto", base_obtenerParametroTexto02("203"));
-        mapa.put("tituloDocumento", base_obtenerParametroTexto02("204"));
-
+        mapa.put("imagenAerocivil", base_obtenerParametroTexto01("202"));
+        mapa.put("tituloImpuesto", base_obtenerParametroTexto01("203"));
+        mapa.put("tituloDocumento", base_obtenerParametroTexto01("204"));
+        
+        Iterator iterator = mapa.entrySet().iterator();
+        while (iterator.hasNext()) {
+            Map.Entry entry = (Map.Entry) iterator.next();        
+        }        
 
         idArchivo =
             Reporte.crearReportePDF(this, impresionBaseIText, mapa, nombrePagina, "manifiesto", tabla, usuario,

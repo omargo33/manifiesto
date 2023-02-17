@@ -189,9 +189,7 @@ public class PPRListaFrg extends BasePPR {
         Map<String, String> mapa =
             (Map) ADFUtils.ejecutaActionConReturn(getBindings(), "calculosPreCalificacion", true, map);
 
-        for (Map.Entry<String, String> entry : mapa.entrySet()) {
-            //TODO dejar el SOP hasta tener el sistema funcional y conocer las sesions usadas
-            System.out.println("#{sessionScope." + entry.getKey() + "}=" + entry.getValue());
+        for (Map.Entry<String, String> entry : mapa.entrySet()) {        
             ADFUtils.setEL("#{sessionScope." + entry.getKey() + "}", entry.getValue().trim());
         }
     }

@@ -26,6 +26,8 @@ public class Test {
         MathContext mc = new MathContext(6);         
         b1 = b1.round(mc);
         System.out.println("The value of " + b1 + " after rounding is " + b1.toPlainString());
+        
+        pdf();
     }
 
     public static void pdf() {

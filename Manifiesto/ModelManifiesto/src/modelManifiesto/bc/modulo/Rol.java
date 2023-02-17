@@ -31,8 +31,6 @@ public class Rol {
      */
     public static boolean validarRolPorModulo(ModuloImpl moduloAplicacion, String indiceModulo, String rol,
                                               String nick) {  
-        System.out.println("solicitud local!!");
-        
         List<String> listaRespuestas = new ArrayList<String>();
         ResultSet resultSet = moduloAplicacion.getBaseDML().ejecutaConsulta(SQL_ROLES_POR_USUARIO, nick, indiceModulo);
         if (moduloAplicacion.getBaseDML().getMensaje() != null) {

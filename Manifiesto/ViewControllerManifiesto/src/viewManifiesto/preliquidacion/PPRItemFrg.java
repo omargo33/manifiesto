@@ -102,34 +102,98 @@ public class PPRItemFrg extends BasePPR {
      * @return
      */
     public String actionGenerarPDF() {
-        Map map = new HashMap<String, Object>();
+        Map<String, Object> mapaParametros = new HashMap<String, Object>();
 
+        mapaParametros.put("tabla", "manifiesto");
+        mapaParametros.put("usuario", convertirString(ADFUtils.evaluateEL("#{BaseBean.nameUser}")));
+        mapaParametros.put("usuarioPrograma",
+                           convertirString(ADFUtils.evaluateEL("#{session.servletContext.contextPath}")));
+
+        Map<String, Object> mapa = new HashMap<String, Object>();
         if (!validacionAclaraciones()) {
             return null;
         }
 
-        /*
-        Object rolUsuario = ADFUtils.evaluateEL("#{sessionScope.isCLI02}");
-        boolean isUsuario = (Boolean) rolUsuario;
-        if (isUsuario) {
-            map.put("idUsuario", convertirInt(ADFUtils.evaluateEL("#{sessionScope.idUsuario}")));
-        } else {
-            map.put("idUsuario", 0);
-        }
-        map.put("indiceAerolinea", convertirInt(getIt1().getValue()));
-        map.put("indiceAeropuertoOrigen", convertirInt(getIt2().getValue()));
-        map.put("indiceAeropuertoDestino", convertirInt(getIt3().getValue()));
-        map.put("indiceAeronave", convertirInt(getIt4().getValue()));
-        map.put("noVuelo", convertirString(getIt5().getValue()));
-        map.put("fechaInicio", convertirString(getId1().getValue()));
-        map.put("fechaFin", convertirString(getId2().getValue()));
-        map.put("tabla", "manifiesto");
-        map.put("usuario", convertirString(ADFUtils.evaluateEL("#{BaseBean.nameUser}")));
-        map.put("usuarioPrograma", convertirString(ADFUtils.evaluateEL("#{session.servletContext.contextPath}")));
+        mapa.put("documentoNombre", "nombre");
+        mapa.put("documentoCodigo", "codigo");
 
-        Object respuesta = ADFUtils.ejecutaActionConReturn(getBindings(), "excelManifiesto", true, map);
+        //#{sessionScope.totalCalculoImpuesto}=385
+        //#{sessionScope.totalPasajerosTransito}=97
+        // #{sessionScope.fechaInicio}=2023-02-01
+        //#{sessionScope.totalPasajerosExcentosTimbre}=9
+        //#{sessionScope.descripcionAerolineaOrigen}=  DIGIMASTER  LTDA
+        //#{sessionScope.totalPasajeros}=297
+        //#{sessionScope.totalCobroImpuesto}=385
+        //#{sessionScope.siglaAerolineaOrigen}=800057903
+        // #{sessionScope.tarifaImpuesto}=95010.0
+        //#{sessionScope.fechaFin}=2023-02-16
+
+        // ingreso sistema busqueda previa
+        mapa.put("fechaInicio", convertirString(ADFUtils.evaluateEL("#{sessionScope.fechaInicio}")));
+        mapa.put("fechaFin", convertirString(ADFUtils.evaluateEL("#{sessionScope.fechaFin}")));
+        mapa.put("totalPasajeros", convertirString(ADFUtils.evaluateEL("#{sessionScope.totalPasajeros}")));
+        mapa.put("totalPasajerosTransito",
+                 convertirString(ADFUtils.evaluateEL("#{sessionScope.totalPasajerosTransito}")));
+        mapa.put("totalPasajerosExcentosTimbre",
+                 convertirString(ADFUtils.evaluateEL("#{sessionScope.totalPasajerosExcentosTimbre}")));
+        mapa.put("totalCobroImpuesto", convertirString(ADFUtils.evaluateEL("#{sessionScope.totalCobroImpuesto}")));
+        mapa.put("totalCalculoImpuesto", convertirString(ADFUtils.evaluateEL("#{sessionScope.totalCalculoImpuesto}")));
+        mapa.put("tarifaImpuest", convertirString(ADFUtils.evaluateEL("#{sessionScope.tarifaImpuesto}")));
+        mapa.put("siglaAerolineaOrigen", convertirString(ADFUtils.evaluateEL("#{sessionScope.siglaAerolineaOrigen}")));
+        mapa.put("descripcionAerolineaOrigen",
+                 convertirString(ADFUtils.evaluateEL("#{sessionScope.descripcionAerolineaOrigen}")));
+
+        //ingreso manual
+        mapa.put("direccionAerolineaRecaudadora", this.it2.getValue());
+        mapa.put("telefonoAerolineaRecaudadora", this.it3.getValue());
+
+        //ingreso manual
+        mapa.put("nombreEnCualRecuada", this.it4.getValue());
+        mapa.put("ciudadDepartamentoEnCualRecuada", this.it5.getValue());
+
+        //ingreso manual
+        mapa.put("nombreContacto", this.it6.getValue());
+        mapa.put("emailContacto", this.it7.getValue());
+
+        //ingreso manual
+        String tipoPago = String.valueOf(this.sor1.getValue());
+        mapa.put("efectivo", "");
+        mapa.put("cheque", "");
+        mapa.put("transferencia", "");
+        if (tipoPago.compareTo("E") == 0) {
+            mapa.put("efectivo", "X");
+        }
+        if (tipoPago.compareTo("C") == 0) {
+            mapa.put("cheque", " X\nNo.: " + this.it29.getValue());
+        }
+        if (tipoPago.compareTo("T") == 0) {
+            mapa.put("transferencia", "X");
+        }
+
+        mapa.put("sutotal", this.it24.getValue());
+        mapa.put("devoluciones", this.it25.getValue());
+        mapa.put("valorLiquidacion", this.it26.getValue());
+        mapa.put("valorAPagar", this.it27.getValue());
+
+        mapa.put("aclaracion1", (isVacio(this.it12))?"\n":this.it12.getValue());
+        mapa.put("aclaracion2", (isVacio(this.it14))?"\n":this.it14.getValue());
+        mapa.put("aclaracion3", (isVacio(this.it16))?"\n":this.it16.getValue());
+        mapa.put("aclaracion4", (isVacio(this.it18))?"\n":this.it18.getValue());
+        mapa.put("aclaracion5", (isVacio(this.it20))?"\n":this.it20.getValue());
+        mapa.put("aclaracion6", "Total");
+
+        mapa.put("aclaracionValor1", (isVacio(this.it13))?"":this.it13.getValue());
+        mapa.put("aclaracionValor2", (isVacio(this.it15))?"":this.it15.getValue());
+        mapa.put("aclaracionValor3", (isVacio(this.it17))?"":this.it17.getValue());
+        mapa.put("aclaracionValor4", (isVacio(this.it19))?"":this.it19.getValue());
+        mapa.put("aclaracionValor5", (isVacio(this.it21))?"":this.it21.getValue());
+        mapa.put("aclaracionValor6", (isVacio(this.it28))?"0":this.it28.getValue());
+
+        mapaParametros.put("mapa", mapa);
+
+        Object respuesta = ADFUtils.ejecutaActionConReturn(getBindings(), "pdfPreCalificacion", true, mapaParametros);
         ADFUtils.setEL("#{sessionScope.idArchivo}", respuesta);
-*/
+
         RichPopup.PopupHints hints = new RichPopup.PopupHints();
         getP1().show(hints);
         doPartialRefresh(getP1());

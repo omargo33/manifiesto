@@ -312,6 +312,10 @@ public class PreliquidacionCobro extends ImpresionBaseElementos {
         Object[] aclaraciones5 = new Object[] {
             getParametrosBusqueda().get("aclaracion5"), getParametrosBusqueda().get("aclaracionValor5"), };
         lista.add(aclaraciones5);
+        
+        Object[] aclaraciones6 = new Object[] {
+            getParametrosBusqueda().get("aclaracion6"), getParametrosBusqueda().get("aclaracionValor6"), };
+        lista.add(aclaraciones6);
 
         getTabla().setListaValores(lista);
         getTabla().getMapaAlineamiento().put(0, TextAlignment.LEFT);
