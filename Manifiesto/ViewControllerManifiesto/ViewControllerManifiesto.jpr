@@ -110,6 +110,8 @@
       </list>
    </hash>
    <hash n="oracle.jdeveloper.compiler.OjcConfiguration">
+      <value n="outOfProcess" v="true"/>
+      <value n="outOfProcessJavaOptions" v="-Xmx2048m"/>
       <value n="webIANAEncoding" v="UTF-8"/>
    </hash>
    <hash n="oracle.jdeveloper.deploy.dt.DeploymentProfiles">
