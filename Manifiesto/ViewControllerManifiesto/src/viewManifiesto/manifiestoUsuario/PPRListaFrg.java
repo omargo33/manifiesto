@@ -3,7 +3,6 @@ package viewManifiesto.manifiestoUsuario;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.faces.component.UIComponent;
 import javax.faces.event.ActionEvent;
 import javax.faces.event.ValueChangeEvent;
 
@@ -11,8 +10,6 @@ import oracle.adf.view.rich.component.rich.RichPopup;
 import oracle.adf.view.rich.component.rich.data.RichTable;
 import oracle.adf.view.rich.component.rich.input.RichInputDate;
 import oracle.adf.view.rich.component.rich.input.RichInputText;
-import oracle.adf.view.rich.component.rich.layout.RichPanelGroupLayout;
-
 import oracle.adf.view.rich.component.rich.nav.RichButton;
 
 import oracle.jbo.uicli.binding.JUCtrlHierNodeBinding;

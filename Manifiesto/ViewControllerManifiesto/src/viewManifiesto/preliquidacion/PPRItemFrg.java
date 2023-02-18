@@ -2,19 +2,16 @@ package viewManifiesto.preliquidacion;
 
 import java.math.BigDecimal;
 import java.math.MathContext;
-import java.math.RoundingMode;
 
 import java.util.HashMap;
 import java.util.Map;
 
 import javax.faces.component.UIComponent;
-
 import javax.faces.event.ActionEvent;
 import javax.faces.event.ValueChangeEvent;
 
 import oracle.adf.view.rich.component.rich.RichPopup;
 import oracle.adf.view.rich.component.rich.input.RichInputText;
-
 import oracle.adf.view.rich.component.rich.input.RichSelectOneRadio;
 import oracle.adf.view.rich.component.rich.layout.RichPanelFormLayout;
 
@@ -139,6 +136,8 @@ public class PPRItemFrg extends BasePPR {
         mapa.put("totalCobroImpuesto", convertirString(ADFUtils.evaluateEL("#{sessionScope.totalCobroImpuesto}")));
         mapa.put("totalCalculoImpuesto", convertirString(ADFUtils.evaluateEL("#{sessionScope.totalCalculoImpuesto}")));
         mapa.put("tarifaImpuest", convertirString(ADFUtils.evaluateEL("#{sessionScope.tarifaImpuesto}")));
+        
+        
         mapa.put("siglaAerolineaOrigen", convertirString(ADFUtils.evaluateEL("#{sessionScope.siglaAerolineaOrigen}")));
         mapa.put("descripcionAerolineaOrigen",
                  convertirString(ADFUtils.evaluateEL("#{sessionScope.descripcionAerolineaOrigen}")));

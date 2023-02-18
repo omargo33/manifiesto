@@ -34,7 +34,7 @@
                                     <af:panelGroupLayout id="pgl10" layout="horizontal">
                                         <af:inputText id="it1"
                                                       binding="#{backingBeanScope.PPRBackingPreliquidacionListaFrg.it1}"
-                                                      visible="false"/>
+                                                      visible="false" immediate="true" autoSubmit="true" columns="5"/>
                                         <af:button id="b1"
                                                    icon="../../Imagen-001/icons/7548857_search_glass_interface_user_magnifier_zoom_find.svg"
                                                    binding="#{backingBeanScope.PPRBackingPreliquidacionListaFrg.b1}">
@@ -48,12 +48,13 @@
                                         </f:facet>
                                     </af:panelGroupLayout>
                                 </af:panelLabelAndMessage>
+                                <af:separator id="s8"/>
                                 <af:panelLabelAndMessage label="Aeropuerto Origen" id="plam2"
                                                          inlineStyle="padding-left:20px;">
                                     <af:panelGroupLayout id="pgl3" layout="horizontal">
                                         <af:inputText id="it2"
                                                       binding="#{backingBeanScope.PPRBackingPreliquidacionListaFrg.it2}"
-                                                      visible="false"/>
+                                                      visible="false" autoSubmit="true" immediate="true" columns="5"/>
                                         <af:button id="b2"
                                                    icon="../../Imagen-001/icons/7548857_search_glass_interface_user_magnifier_zoom_find.svg"
                                                    binding="#{backingBeanScope.PPRBackingPreliquidacionListaFrg.b2}">
@@ -103,17 +104,14 @@
                                 </af:panelLabelAndMessage>
                                 <af:inputText label="No. de Vuelo" id="it5" autoSubmit="true"
                                               binding="#{backingBeanScope.PPRBackingPreliquidacionListaFrg.it5}"
-                                              
                                               immediate="true"/>
                                 <af:inputDate id="id1" required="true" label="Fecha Inicio" autoSubmit="true"
                                               binding="#{backingBeanScope.PPRBackingPreliquidacionListaFrg.id1}"
-                                              
                                               immediate="true">
                                     <af:convertDateTime pattern="yyyy-MM-dd"/>
                                 </af:inputDate>
                                 <af:inputDate id="id2" required="true" label="Fecha Fin" autoSubmit="true"
                                               binding="#{backingBeanScope.PPRBackingPreliquidacionListaFrg.id2}"
-                                              
                                               immediate="true">
                                     <af:convertDateTime pattern="yyyy-MM-dd"/>
                                 </af:inputDate>
@@ -490,7 +488,7 @@
     </af:popup>
     <af:popup childCreation="deferred" autoCancel="disabled" id="p3"
               binding="#{backingBeanScope.PPRBackingPreliquidacionListaFrg.p3}">
-        <af:dialog id="d3" type="cancel" title="Buscar Aerolinea">
+        <af:dialog id="d3" type="cancel" title="Buscar Aeropuerto Destino">
             <af:panelGroupLayout layout="vertical" id="pgl8">
                 <af:query id="qryId1"
                           value="#{bindings.LibroDireccionesViewNoDMLCriteriaAeropuertoQuery.queryDescriptor}"

@@ -38,7 +38,8 @@
                                         <af:panelGroupLayout id="pgl10" layout="horizontal">
                                             <af:inputText id="it1"
                                                           binding="#{backingBeanScope.PPRBackingManifiestoUsuarioListaFrg.it1}"
-                                                          visible="false"/>
+                                                          visible="false" immediate="true" columns="5"
+                                                          autoSubmit="true"/>
                                             <af:button id="b1"
                                                        icon="../../Imagen-001/icons/7548857_search_glass_interface_user_magnifier_zoom_find.svg"
                                                        binding="#{backingBeanScope.PPRBackingManifiestoUsuarioListaFrg.b1}">
@@ -57,7 +58,8 @@
                                         <af:panelGroupLayout id="pgl3" layout="horizontal">
                                             <af:inputText id="it2"
                                                           binding="#{backingBeanScope.PPRBackingManifiestoUsuarioListaFrg.it2}"
-                                                          visible="false"/>
+                                                          visible="false" columns="5" autoSubmit="true"
+                                                          immediate="true"/>
                                             <af:button id="b2"
                                                        icon="../../Imagen-001/icons/7548857_search_glass_interface_user_magnifier_zoom_find.svg"
                                                        binding="#{backingBeanScope.PPRBackingManifiestoUsuarioListaFrg.b2}">

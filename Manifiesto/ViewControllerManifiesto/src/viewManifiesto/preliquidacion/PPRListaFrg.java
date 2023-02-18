@@ -6,24 +6,17 @@ import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
-
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import javax.faces.component.UIComponent;
-import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
-import javax.faces.event.ValueChangeEvent;
 
-import oracle.adf.model.binding.DCIteratorBinding;
 import oracle.adf.view.rich.component.rich.RichPopup;
 import oracle.adf.view.rich.component.rich.data.RichTable;
 import oracle.adf.view.rich.component.rich.input.RichInputDate;
 import oracle.adf.view.rich.component.rich.input.RichInputText;
-
 import oracle.adf.view.rich.component.rich.nav.RichButton;
 
-import oracle.jbo.Row;
 import oracle.jbo.uicli.binding.JUCtrlHierNodeBinding;
 
 import view.plantilla.BasePPR;
@@ -213,30 +206,7 @@ public class PPRListaFrg extends BasePPR {
 
         getIt5().setValue("%");
         getId1().setValue(getFecha15DiasCorto());
-        getId2().setValue(getFechaHoyCorto());
-
-        Object cli03 = ADFUtils.evaluateEL("#{sessionScope.isCLI03}");
-        if (cli03 != null && String.valueOf(cli03).compareToIgnoreCase("TRUE") == 0) {
-            try {
-                String idAerolinea = String.valueOf(ADFUtils.evaluateEL("#{sessionScope.idAerolinea}")).trim();
-                String aerolineaDescripcion =
-                    String.valueOf(ADFUtils.evaluateEL("#{sessionScope.aerolineaDescripcion}")).trim();
-
-                String idAeropuerto = String.valueOf(ADFUtils.evaluateEL("#{sessionScope.idAeropuerto}")).trim();
-                String aeropuertoDescripcion =
-                    String.valueOf(ADFUtils.evaluateEL("#{sessionScope.aeropuertoDescripcion}")).trim();
-
-                getIt1().setValue(idAerolinea);
-                getIt10().setValue(aerolineaDescripcion);
-                getB1().setDisabled(true);
-
-                getIt2().setValue(idAeropuerto);
-                getIt20().setValue(aeropuertoDescripcion);
-                getB2().setDisabled(true);
-            } catch (Exception e) {
-                System.out.println("error reportado " + e);
-            }
-        }
+        getId2().setValue(getFechaHoyCorto());        
     }
 
     /**
@@ -377,9 +347,8 @@ public class PPRListaFrg extends BasePPR {
         try {
             java.util.Date fechaTemp = dateFormat.parse(fechaStr);
             respuesta = dateFormatSimple.format(fechaTemp);
-
         } catch (Exception e) {
-            Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).log(Level.SEVERE, e.toString());
+            Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).log(Level.WARNING, e.toString());
         }
         return respuesta;
     }
