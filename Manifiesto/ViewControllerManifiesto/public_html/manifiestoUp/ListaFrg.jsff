@@ -1,24 +1,68 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
-    xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
-    xmlns:f="http://java.sun.com/jsf/core"
-    xmlns:bl01="/baseLib01">
-    <af:pageTemplate viewId="/plantilla/listaFrg.jspx" id="pt1">
-        <f:attribute name="titulo" value="#{bnd.XXXXX_listaFrg_titulo}"/>
-        <f:attribute name="tituloDescripcion" value="#{bnd.XXXXX_listaFrg_descripcion}"/>
-        <f:facet name="elementoBusqueda">
-            <!-- <af:query headerText="#{bnd.msg_busquea_titulo}" conjunctionReadOnly="true" searchButtonText="#{bnd.btn_buscar}" resetButtonText="#{bnd.btn_limpiar}" labelWidth="240" saveQueryMode="hidden" modeChangeVisible="false" disclosed="true" resultComponentId="::resId1"></af:query>-->
-        </f:facet>
-        <f:facet name="elementoCentro">
-            <!--<af:link text="#{row.Nombre}" id="l1" action="Editar"/>-->
-
-            <!-- id="resId1" columnStretching="column:cX" scrollPolicy="page" rowBandingInterval="1"
-
-            -->
-
-        </f:facet>
-        <f:facet name="elementoAcciones">
-            <bl01:botonesAtrasCrear id="bac1" atrasAccion="Inicio" crearAccion="Create" crearTexto="#{bnd.XXXXX_listaFrg_boton_crear}" crearPermiso="#{pageFlowScope.pPermisoCrear}"/>
-        </f:facet>
-    </af:pageTemplate>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+    <af:panelGroupLayout id="pgl2">        
+        <af:pageTemplate viewId="/plantilla/listaFrg.jspx" id="pt1">
+            <f:attribute name="titulo" value="#{bnd.up_listaFrg_titulo}"/>
+            <f:attribute name="tituloDescripcion" value="#{bnd.up_listaFrg_descripcion}"/>
+            <f:facet name="elementoBusqueda">
+                <!-- <af:query headerText="#{bnd.msg_busquea_titulo}" conjunctionReadOnly="true" searchButtonText="#{bnd.btn_buscar}" resetButtonText="#{bnd.btn_limpiar}" labelWidth="240" saveQueryMode="hidden" modeChangeVisible="false" disclosed="true" resultComponentId="::resId1"></af:query>-->
+            </f:facet>
+            <f:facet name="elementoCentro">
+                <af:panelGroupLayout id="pgl1" layout="vertical">
+                    <af:region value="#{bindings.archivotaskflow1.regionModel}" id="r1"/>
+                    <f:facet name="separator">
+                        <af:spacer id="s2" height="5" width="5"/>
+                    </f:facet>
+                    <af:panelHeader text="Procesar Lotes" id="ph2" size="2" headerLevel="2">
+                        <f:facet name="context"/>
+                        <f:facet name="toolbar"/>
+                        <f:facet name="menuBar"/>
+                        <f:facet name="legend"/>
+                        <f:facet name="info"/>
+                        <af:panelGroupLayout id="pgl4" layout="vertical">
+                            <af:panelFormLayout id="pfl1" labelWidth="140">
+                                <f:facet name="footer">
+                                    <af:button text="#{bnd.up_listaFrg_boton_procesar}" id="b1"
+                                               actionListener="#{backingBeanScope.PPRBackingManifiestoUpListaFrg.b1Action}"/>
+                                </f:facet>
+                            </af:panelFormLayout>
+                            <af:panelFormLayout id="pfl2" labelWidth="140">
+                                <f:facet name="footer"/>
+                                <af:inputText label="#{bnd.up_listaFrg_txt_01}" id="it1" columns="50" rows="8"
+                                              binding="#{backingBeanScope.PPRBackingManifiestoUpListaFrg.it1}"/>
+                            </af:panelFormLayout>
+                            <f:facet name="separator">
+                                <af:spacer id="s3"/>
+                            </f:facet>
+                        </af:panelGroupLayout>
+                    </af:panelHeader>
+                </af:panelGroupLayout>
+            </f:facet>
+            <f:facet name="elementoAcciones"></f:facet>
+        </af:pageTemplate>
+        <af:popup childCreation="deferred" autoCancel="disabled" id="p1"
+                  binding="#{backingBeanScope.PPRBackingManifiestoUpListaFrg.p1}">
+            <af:dialog id="d5" type="cancel" title="Procesar">
+                <f:facet name="buttonBar">
+                    <af:button id="cb3" text="Procesar"
+                               action="#{backingBeanScope.PPRBackingManifiestoUpListaFrg.procesarUp}">                        
+                    </af:button>
+                </f:facet>
+                <af:panelBorderLayout id="pbl5">
+                    <af:panelHeader id="ph1" text="Procesar Archivo(s)" messageType="confirmation">
+                        <af:panelGroupLayout id="pgl3" layout="vertical">
+                            <af:outputText value="Usted puede procesar todos los archivos subidos al sistema"
+                                           id="ot43"/>
+                            <af:outputText value="Esto puede demorar varios minutos"
+                                           id="ot44"/>
+                            <f:facet name="separator">
+                                <af:spacer id="s1" height="5" width="5"/>
+                            </f:facet>
+                        </af:panelGroupLayout>
+                    </af:panelHeader>
+                </af:panelBorderLayout>
+            </af:dialog>
+        </af:popup>
+    </af:panelGroupLayout>
 </jsp:root>

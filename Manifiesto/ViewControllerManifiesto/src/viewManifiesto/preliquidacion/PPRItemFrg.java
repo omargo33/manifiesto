@@ -114,17 +114,6 @@ public class PPRItemFrg extends BasePPR {
         mapa.put("documentoNombre", "nombre");
         mapa.put("documentoCodigo", "codigo");
 
-        //#{sessionScope.totalCalculoImpuesto}=385
-        //#{sessionScope.totalPasajerosTransito}=97
-        // #{sessionScope.fechaInicio}=2023-02-01
-        //#{sessionScope.totalPasajerosExcentosTimbre}=9
-        //#{sessionScope.descripcionAerolineaOrigen}=  DIGIMASTER  LTDA
-        //#{sessionScope.totalPasajeros}=297
-        //#{sessionScope.totalCobroImpuesto}=385
-        //#{sessionScope.siglaAerolineaOrigen}=800057903
-        // #{sessionScope.tarifaImpuesto}=95010.0
-        //#{sessionScope.fechaFin}=2023-02-16
-
         // ingreso sistema busqueda previa
         mapa.put("fechaInicio", convertirString(ADFUtils.evaluateEL("#{sessionScope.fechaInicio}")));
         mapa.put("fechaFin", convertirString(ADFUtils.evaluateEL("#{sessionScope.fechaFin}")));

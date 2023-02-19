@@ -52,7 +52,14 @@
 				"url": "jdbc:mysql://localhost:3306/GS_001_00",
 				"configurationType": "MANUAL",
 				"type": "dev",
-				"auth-model": "native"
+				"properties": {
+					"connectTimeout": "20000",
+					"rewriteBatchedStatements": "true",
+					"enabledTLSProtocols": "TLSv1,TLSv1.1,TLSv1.2",
+					"allowPublicKeyRetrieval": "TRUE"
+				},
+				"auth-model": "native",
+				"handlers": {}
 			}
 		}
 	},

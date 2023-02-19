@@ -24,6 +24,12 @@ import view.plantilla.BasePPR;
 import view.utilidades.ADFUtils;
 import view.utilidades.Flow;
 
+/**
+ * Objeto para dar soporte a la pantalla de ingreso de item del sistema.
+ * 
+ * @author omargo33@hotmail.com
+ * 
+ */
 public class PPRItemFrg extends BasePPR {
 
     private RichPanelFormLayout pfl3;
@@ -56,11 +62,8 @@ public class PPRItemFrg extends BasePPR {
     private int it21Int = 0;
 
     private RichPopup p1;
-
     private RichPopup p2;
-
     private RichPopup p3;
-
     private RichPopup p4;
 
     private RichTable resId1;
@@ -360,7 +363,6 @@ public class PPRItemFrg extends BasePPR {
         doPartialRefresh((UIComponent) getP1());
 
         JUCtrlHierNodeBinding nodeBinding = (JUCtrlHierNodeBinding) getResId1().getSelectedRowData();
-
 
         String descripcion =
             String.valueOf(nodeBinding.getAttribute("IndiceSecundario")) + " " +

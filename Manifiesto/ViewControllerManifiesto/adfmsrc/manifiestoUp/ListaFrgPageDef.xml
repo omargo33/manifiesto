@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48" id="ListaFrgPageDef"
+                Package="manifiestoUp">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <taskFlow id="archivotaskflow1" taskFlowId="/WEB-INF/archivo-task-flow.xml#archivo-task-flow" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding">
+       <parameters>
+        <parameter id="aId" value="#{sessionScope.idUsuario}"/>
+        <parameter id="aEsquema" value="Manifiesto"/>
+        <parameter id="aTabla" value="Usuario"/>
+        <parameter id="aLargoMaximo" value="8096"/>
+        <parameter id="aExtensiones" value="xlsx, xls"/>
+        <parameter id="aAncho" value="1000"/>
+        <parameter id="aAlto" value="100"/>
+        <parameter id="aMaximoArchivo" value="5"/>
+        <parameter id="aUsuario" value="#{BaseBean.nameUser}"/>
+        <parameter id="aUsuarioPrograma" value="#{BaseBean.urlBase}"/>
+        <parameter id="pAccion" value="0"/>
+        <parameter id="pAccionValueId" value="0"/>
+        <parameter id="pPermisoCrear" value="#{pageFlowScope.pPermisoCrear}"/>
+        <parameter id="pPermisoActualizar" value="#{pageFlowScope.pPermisoActualizar}"/>
+        <parameter id="pPermisoBorrar" value="#{pageFlowScope.pPermisoBorrar}"/>
+        <parameter id="pPermisoVerAuditoria" value="#{pageFlowScope.pPermisoVerAuditoria}"/>
+      </parameters>
+    </taskFlow>
+  </executables>
+  <bindings>
+  <methodAction id="subirLoteArchivos" RequiresUpdateModel="true" Action="invokeMethod" MethodName="subirLoteArchivos"
+                IsViewObjectMethod="false" DataControl="ManifiestoModuloDataControl"
+                InstanceName="ManifiestoModuloDataControl.dataProvider"
+                ReturnName="data.ManifiestoModuloDataControl.methodResults.subirLoteArchivos_subirLoteArchivos_dataControl_dataProvider_subirLoteArchivos_result">
+   <NamedData NDName="id" NDValue="#{sessionScope.idUsuario}" NDType="java.lang.String"/>
+   <NamedData NDName="esquema" NDValue="Manifiesto" NDType="java.lang.String"/>
+   <NamedData NDName="tabla" NDValue="Usuario" NDType="java.lang.String"/>
+  </methodAction>
+ </bindings>
+</pageDefinition>

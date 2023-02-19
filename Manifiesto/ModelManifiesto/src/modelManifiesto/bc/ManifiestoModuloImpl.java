@@ -55,7 +55,6 @@ public class ManifiestoModuloImpl extends AuditoriaModuloImpl implements Manifie
     final String SQL_MANIFIESTO_EXCEL =
         "SELECT id_manifiesto, id_usuario, nick, nombre_usuario, id_libro_direccion_aerolinea, indice_aerolinea, nombre_aerolinea, id_libro_direccion_aeropuerto, indice_aeropuerto, nombre_aeropuerto, id_libro_direccion_aeropuerto_des, indice_destino, nombre_destino, id_libro_direccion_aeronave, indice_aeronave, nombre_aeronave, fecha_local_operacion, fecha_corta_local_operacion, anio_fecha_operacion as 'año_fecha_operacion', mes_fecha_operacion, no_vuelo, pasajeros, pasajeros_transito, pasajeros_locales, pasajeros_exentos_tasas, pasajeros_pagan_tasas, pasajeros_pagan_dolares, pasajeros_pagan_pesos, pasajeros_exentos_timbres, pasajeros_pagan_timbres, pasajeros_pagan_timbres_dolares, pasajeros_pagan_timbres_pesos, tasa, CAST(timbre AS CHAR) timbre, CAST(timbre_total AS CHAR) timbre_total, indicador_comprobable, tipo, estado, usuario, usuario_fecha, usuario_programa FROM MV_001_00.v_manifiesto where";
 
-
     final String SQL_MANIFIESTO_PDF =
         "SELECT id_manifiesto, indice_aerolinea, nombre_aerolinea, indice_destino, nombre_destino, indice_aeronave, nombre_aeronave, fecha_corta_local_operacion, no_vuelo, pasajeros, pasajeros_transito, pasajeros_locales, pasajeros_exentos_tasas, pasajeros_pagan_tasas, pasajeros_exentos_timbres, pasajeros_pagan_timbres, timbre, timbre_total, tipo, estado  FROM MV_001_00.v_manifiesto where";
 
@@ -89,6 +88,28 @@ public class ManifiestoModuloImpl extends AuditoriaModuloImpl implements Manifie
     public void cambiarEstadoManifiestos() {
         Manifiesto.cambiarEstadoCompleto(this);
     }
+    
+    /**
+     * Metodo para subir archivos de manifiesto.
+     *
+     * @param id
+     * @param esquema
+     * @param tabla
+     * @return
+     */
+    public Map<String, String> subirLoteArchivos(String id, String esquema, String tabla){
+        Map<String, String> respuestas = new HashMap<>();
+        
+            try {
+                Thread.sleep(30 * 1000);
+            } catch (Exception ie) {
+                Thread.currentThread().interrupt();
+            }
+            
+            respuestas.put("el archivo xxx1", "correcto");
+            respuestas.put("el archivo xxx2", "incorrecto correcto");
+        return respuestas;
+        } 
 
     /**
      * Metodo para validar si un rol es usuario de un formato en particular

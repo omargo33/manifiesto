@@ -217,7 +217,7 @@
       <property
          name="fromsrcid">__11</property>
       <property
-         name="sdm:polyPoints">T50,2627.1074,100.17105,3974.7344,37.419357,T44</property>
+         name="sdm:polyPoints">T50,2627.1074,101.30731,3974.7344,38.55562,T44</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -233,7 +233,7 @@
       <property
          name="fromsrcid">__17</property>
       <property
-         name="sdm:polyPoints">R46,4162.5957,78.83249,4410.774,169.2764,L50</property>
+         name="sdm:polyPoints">R46,4162.5957,79.96875,4410.774,170.41266,L50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -249,7 +249,7 @@
       <property
          name="fromsrcid">__15</property>
       <property
-         name="sdm:polyPoints">R50,3324.629,343.1642,4412.2715,176.2764,L58</property>
+         name="sdm:polyPoints">R50,3324.629,344.30048,4412.2715,177.41266,L58</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -390,7 +390,7 @@
       <property
          name="fromOutcome">Editar</property>
       <property
-         name="sdm:polyPoints">B56,2630.6074,213.02112,2881.8018,394.52,L50</property>
+         name="sdm:polyPoints">B56,2630.6074,214.15738,2881.8018,395.65625,L50</property>
    </ControlFlowCase>
    <MethodCall
       id="MethodCall33">
@@ -436,7 +436,7 @@
       <property
          name="fromOutcome">getIdAeropuertoNick</property>
       <property
-         name="sdm:polyPoints">R50,3324.629,176.1017,3467.5312,176.1017,L50</property>
+         name="sdm:polyPoints">R50,3324.629,177.23796,3467.5312,177.23796,L50</property>
    </ControlFlowCase>
    <MethodCall
       id="MethodCall40">
@@ -482,7 +482,7 @@
       <property
          name="fromOutcome">ejecutarByIndiceReturn</property>
       <property
-         name="sdm:polyPoints">R50,3549.5312,176.1017,3731.3809,176.1017,L50</property>
+         name="sdm:polyPoints">R50,3549.5312,177.23796,3731.3809,177.23796,L50</property>
    </ControlFlowCase>
    <MethodCall
       id="MethodCall48">
@@ -525,7 +525,7 @@
       <property
          name="fromOutcome">Create</property>
       <property
-         name="sdm:polyPoints">R54,4161.3633,85.83249,4245.8174,116.598114,L50</property>
+         name="sdm:polyPoints">R54,4161.3633,86.96875,4245.8174,117.734375,L50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -631,7 +631,7 @@
       <property
          name="fromOutcome">getIdUsuarioNick</property>
       <property
-         name="sdm:polyPoints">R50,625.8096,265.8403,733.9072,265.8403,L50</property>
+         name="sdm:polyPoints">R50,625.8096,266.97656,733.9072,266.97656,L50</property>
    </ControlFlowCase>
    <Router
       id="Router64">
@@ -710,7 +710,7 @@
       <property
          name="fromOutcome">ok</property>
       <property
-         name="sdm:polyPoints">T50,1339.7598,177.57468,1487.4834,128.04344,L50</property>
+         name="sdm:polyPoints">T50,1339.7598,178.71094,1487.4834,129.1797,L50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"

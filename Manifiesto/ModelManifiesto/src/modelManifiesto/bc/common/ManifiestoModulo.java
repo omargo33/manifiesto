@@ -31,5 +31,7 @@ public interface ManifiestoModulo extends Modulo {
     Map calculosPreCalificacion(int idUsuario, int indiceAerolinea, int indiceAeropuertoOrigen,
                                 int indiceAeropuertoDestino, int indiceAeronave, String noVuelo, String fechaInicio,
                                 String fechaFin);
+
+    Map<String, String> subirLoteArchivos(String id, String esquema, String tabla);
 }
 
