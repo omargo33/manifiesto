@@ -787,17 +787,6 @@
             <value n="version" v="11"/>
          </hash>
          <hash>
-            <value n="jspVersion" v="2.1"/>
-            <value n="libraries" v="ADF Library"/>
-            <value n="name" v="baseLib01"/>
-            <value n="prefix" v="bl01"/>
-            <value n="runInEditor" v="true"/>
-            <value n="showInPalette" v="true"/>
-            <value n="tldURL" v="@project@../../../../13Aplicaciones/gestor/Lib/BaseViewADFLib-01.jar!/META-INF/baseLib01.tld"/>
-            <value n="URI" v="/baseLib01"/>
-            <value n="version" v="1.0"/>
-         </hash>
-         <hash>
             <hash n="baseLibrary">
                <value n="name" v="ADF Data Visualization"/>
                <value n="version" v="1.1"/>
@@ -807,6 +796,17 @@
             <value n="tldURL" v="@oracle.home@../oracle_common/modules/oracle.adf.view/dvt-faces.jar!/META-INF/bi.tld"/>
             <value n="URI" v="http://xmlns.oracle.com/dss/adf/faces"/>
             <value n="version" v="1.1"/>
+         </hash>
+         <hash>
+            <value n="jspVersion" v="2.1"/>
+            <value n="libraries" v="ADF Library"/>
+            <value n="name" v="baseLib01"/>
+            <value n="prefix" v="bl01"/>
+            <value n="runInEditor" v="true"/>
+            <value n="showInPalette" v="true"/>
+            <value n="tldURL" v="@project@../../../../13Aplicaciones/gestor/Lib/BaseViewADFLib-01.jar!/META-INF/baseLib01.tld"/>
+            <value n="URI" v="/baseLib01"/>
+            <value n="version" v="1.0"/>
          </hash>
       </list>
    </hash>

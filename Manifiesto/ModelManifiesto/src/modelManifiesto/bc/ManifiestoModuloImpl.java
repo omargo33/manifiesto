@@ -95,21 +95,13 @@ public class ManifiestoModuloImpl extends AuditoriaModuloImpl implements Manifie
      * @param id
      * @param esquema
      * @param tabla
+     * @param usuario
+     * @param usuarioPrograma
      * @return
-     */
-    public Map<String, String> subirLoteArchivos(String id, String esquema, String tabla){
-        Map<String, String> respuestas = new HashMap<>();
-        
-            try {
-                Thread.sleep(30 * 1000);
-            } catch (Exception ie) {
-                Thread.currentThread().interrupt();
-            }
-            
-            respuestas.put("el archivo xxx1", "correcto");
-            respuestas.put("el archivo xxx2", "incorrecto correcto");
-        return respuestas;
-        } 
+     */   
+    public Map<String, String> subirLoteArchivos(String id, String esquema, String tabla, String usuario, String usuarioPrograma){
+        return Manifiesto.procesarLotes(this, id, esquema, tabla, usuario, usuarioPrograma);        
+    } 
 
     /**
      * Metodo para validar si un rol es usuario de un formato en particular

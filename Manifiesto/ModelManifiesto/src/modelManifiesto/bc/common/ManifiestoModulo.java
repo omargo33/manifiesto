@@ -26,12 +26,11 @@ public interface ManifiestoModulo extends Modulo {
     void errorMysql(int param, String param2);
 
 
-    int pdfPreCalificacion(String tabla, String usuario, String usuarioPrograma, Map mapa);
-
     Map calculosPreCalificacion(int idUsuario, int indiceAerolinea, int indiceAeropuertoOrigen,
                                 int indiceAeropuertoDestino, int indiceAeronave, String noVuelo, String fechaInicio,
                                 String fechaFin);
 
-    Map<String, String> subirLoteArchivos(String id, String esquema, String tabla);
+    Map<String, String> subirLoteArchivos(String id, String esquema, String tabla, String usuario,
+                                          String usuarioPrograma);
 }
 

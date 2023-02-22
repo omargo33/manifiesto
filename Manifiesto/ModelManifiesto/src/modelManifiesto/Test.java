@@ -22,12 +22,19 @@ public class Test {
 
     public static void main(String[] args) {
         // Assign value to BigDecimal object b1
-        BigDecimal b1 = new BigDecimal("12345678");
+        
+        String data="12.23";
+        
+        System.out.println("data " + data);
+        System.out.println("data " + Integer.parseInt(data));
+            
+        
+        /*BigDecimal b1 = new BigDecimal("12345678");
         MathContext mc = new MathContext(6);         
         b1 = b1.round(mc);
-        System.out.println("The value of " + b1 + " after rounding is " + b1.toPlainString());
+        System.out.println("The value of " + b1 + " after rounding is " + b1.toPlainString());*/
         
-        pdf();
+        //pdf();
     }
 
     public static void pdf() {

@@ -4,7 +4,7 @@
   <parameters/>
   <executables>
     <variableIterator id="variables"/>
-    <taskFlow id="archivotaskflow1" taskFlowId="/WEB-INF/archivo-task-flow.xml#archivo-task-flow" activation="deferred"
+    <taskFlow id="archivotaskflow1" taskFlowId="/WEB-INF/archivo-task-flow.xml#archivo-task-flow" activation="immediate"
               xmlns="http://xmlns.oracle.com/adf/controller/binding">
        <parameters>
         <parameter id="aId" value="#{sessionScope.idUsuario}"/>
@@ -25,7 +25,8 @@
         <parameter id="pPermisoVerAuditoria" value="#{pageFlowScope.pPermisoVerAuditoria}"/>
       </parameters>
     </taskFlow>
-  </executables>
+  <iterator Binds="Base_ArchivoView2" RangeSize="25" DataControl="ModuloDataControl" id="Base_ArchivoView2Iterator"/>
+ </executables>
   <bindings>
   <methodAction id="subirLoteArchivos" RequiresUpdateModel="true" Action="invokeMethod" MethodName="subirLoteArchivos"
                 IsViewObjectMethod="false" DataControl="ManifiestoModuloDataControl"
@@ -35,5 +36,43 @@
    <NamedData NDName="esquema" NDValue="Manifiesto" NDType="java.lang.String"/>
    <NamedData NDName="tabla" NDValue="Usuario" NDType="java.lang.String"/>
   </methodAction>
+  <methodAction id="base_grupoBorrarArchivos" RequiresUpdateModel="true" Action="invokeMethod"
+                MethodName="base_grupoBorrarArchivos" IsViewObjectMethod="false"
+                DataControl="ManifiestoModuloDataControl"
+                InstanceName="ManifiestoModuloDataControl.dataProvider">
+   <NamedData NDName="idGrupo" NDValue="1" NDType="int"/>
+   <NamedData NDName="informacion" NDValue="1" NDType="java.lang.String"/>
+   <NamedData NDName="usuario" NDValue="1" NDType="java.lang.String"/>
+   <NamedData NDName="usuarioPrograma" NDValue="1" NDType="java.lang.String"/>
+  </methodAction>
+  <methodAction id="base_grupoBuscarIdGrupo" RequiresUpdateModel="true" Action="invokeMethod"
+                MethodName="base_grupoBuscarIdGrupo" IsViewObjectMethod="false"
+                DataControl="ManifiestoModuloDataControl"
+                InstanceName="ManifiestoModuloDataControl.dataProvider"
+                ReturnName="data.ManifiestoModuloDataControl.methodResults.base_grupoBuscarIdGrupo_base_grupoBuscarIdGrupo_dataControl_dataProvider_base_grupoBuscarIdGrupo_result">
+   <NamedData NDName="id" NDValue="dd" NDType="int"/>
+   <NamedData NDName="esquema" NDValue="dd" NDType="java.lang.String"/>
+   <NamedData NDName="tabla" NDValue="dd" NDType="java.lang.String"/>
+  </methodAction>
+  <tree IterBinding="Base_ArchivoView2Iterator" id="Base_ArchivoView2">
+   <nodeDefinition DefName="model.bc.vista.ArchivoView" Name="Base_ArchivoView20">
+    <AttrNames>
+     <Item Value="IdArchivo"/>
+     <Item Value="IdGrupo"/>
+     <Item Value="NombreRamdon"/>
+     <Item Value="Nombre"/>
+     <Item Value="Extension"/>
+     <Item Value="Largo"/>
+     <Item Value="PathRelativo"/>
+     <Item Value="Estado"/>
+     <Item Value="Usuario"/>
+     <Item Value="UsuarioFecha"/>
+     <Item Value="UsuarioPrograma"/>
+    </AttrNames>
+   </nodeDefinition>
+  </tree>
+  <action id="Commit" DataControl="ModuloDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
+  <action id="Rollback" DataControl="ModuloDataControl" RequiresUpdateModel="false"
+          Action="rollbackTransaction"/>
  </bindings>
 </pageDefinition>
