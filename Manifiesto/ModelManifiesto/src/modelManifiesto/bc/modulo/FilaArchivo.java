@@ -5,7 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-import jxl.Sheet;
+//import jxl.Sheet;
 
 import model.utilidades.Atributos;
 
@@ -14,6 +14,8 @@ import modelManifiesto.bc.entidad.ManifiestoImpl;
 import modelManifiesto.bc.vista.ManifiestoInsertViewImpl;
 
 import oracle.jbo.Row;
+
+import org.apache.poi.ss.usermodel.Sheet;
 
 
 /**
@@ -155,21 +157,20 @@ public class FilaArchivo {
      * @param pagina
      * @param row
      */
-    public FilaArchivo(Sheet pagina, int row) {
-        this.indiceAerolinea = pagina.getCell(0, row).getContents();
-        this.indiceAeropuertoOrigen = pagina.getCell(2, row).getContents();
-        this.indiceAeropuertoDestino = pagina.getCell(3, row).getContents();
-        this.indiceAeronave = pagina.getCell(4, row).getContents();
-        this.fecha = pagina.getCell(5, row).getContents();
-        this.numeroVuelo = pagina.getCell(8, row).getContents();
-
-        this.pasajeros = pagina.getCell(9, row).getContents();
-        this.pasajerosTransito = pagina.getCell(10, row).getContents();
-        this.pasajerosExentosTasas = pagina.getCell(12, row).getContents();
-        this.pasajerosPaganDolares = pagina.getCell(14, row).getContents();
-        this.pasajerosExcentosTimbres = pagina.getCell(17, row).getContents();
-        this.pasajerosPaganTimbresDolares = pagina.getCell(19, row).getContents();
-        this.tipo = pagina.getCell(16, row).getContents();
+    public FilaArchivo(Sheet pagina, int row) {        
+        this.indiceAerolinea = String.valueOf(pagina.getRow(row).getCell(0).getStringCellValue());
+        this.indiceAeropuertoOrigen = String.valueOf(pagina.getRow(row).getCell(2).getStringCellValue());
+        this.indiceAeropuertoDestino = String.valueOf(pagina.getRow(row).getCell(3).getStringCellValue());
+        this.indiceAeronave = String.valueOf(pagina.getRow(row).getCell(4).getStringCellValue());
+        this.fecha = String.valueOf(pagina.getRow(row).getCell(5).getStringCellValue());
+        this.numeroVuelo = String.valueOf(pagina.getRow(row).getCell(8).getStringCellValue());
+        this.pasajeros = String.valueOf(pagina.getRow(row).getCell(9).getStringCellValue());
+        this.pasajerosTransito = String.valueOf(pagina.getRow(row).getCell(10).getStringCellValue());
+        this.pasajerosExentosTasas = String.valueOf(pagina.getRow(row).getCell(12).getStringCellValue());
+        this.pasajerosPaganDolares = String.valueOf(pagina.getRow(row).getCell(14).getStringCellValue());
+        this.pasajerosExcentosTimbres = String.valueOf(pagina.getRow(row).getCell(17).getStringCellValue());
+        this.pasajerosPaganTimbresDolares = String.valueOf(pagina.getRow(row).getCell(19).getStringCellValue());
+        this.tipo = String.valueOf(pagina.getRow(row).getCell(16).getStringCellValue());
     }
 
     public String getIndiceAerolinea() {
