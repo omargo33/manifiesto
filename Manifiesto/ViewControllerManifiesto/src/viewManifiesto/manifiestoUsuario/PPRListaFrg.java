@@ -1,6 +1,8 @@
 package viewManifiesto.manifiestoUsuario;
 
 import java.util.HashMap;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.Map;
 
 import javax.faces.event.ActionEvent;
@@ -202,7 +204,7 @@ public class PPRListaFrg extends BasePPR {
                 getIt20().setValue(aeropuertoDescripcion);
                 getB2().setDisabled(true);
             } catch (Exception e) {
-                System.out.println("error reportado " + e);
+                Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).log(Level.WARNING, e.toString());                
             }
         }
     }

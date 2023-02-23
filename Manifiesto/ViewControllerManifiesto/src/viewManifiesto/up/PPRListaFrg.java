@@ -5,10 +5,6 @@ import java.util.Iterator;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.Map;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import javax.el.ValueExpression;
 
 import javax.faces.component.UIComponent;
 import javax.faces.event.ActionEvent;
@@ -55,8 +51,11 @@ public class PPRListaFrg extends BasePPR {
      */
     public String borrarArchivos() {
         if (borrarLotes()) {
-            getP2().hide();
-            doPartialRefresh((UIComponent) getP2());
+            getP2().hide();            
+            getIt1().setValue("");
+            
+            doPartialRefresh(getP2());
+            doPartialRefresh(getIt1());
             return "Inicio";
         }
         return null;
@@ -121,27 +120,30 @@ public class PPRListaFrg extends BasePPR {
     public String procesarUp() {
         String textoRespuesta = "";
         Map<String, String> maParametros = new HashMap<String, String>();
-        maParametros.put("id", "#{sessionScope.idUsuario}");
+        maParametros.put("id", String.valueOf(ADFUtils.evaluateEL("#{sessionScope.idUsuario}")));
         maParametros.put("esquema", "Manifiesto");
         maParametros.put("tabla", "Usuario");
+        maParametros.put("usuario", String.valueOf(ADFUtils.evaluateEL("#{BaseBean.nameUser}")));
+        maParametros.put("usuarioPrograma",
+                         String.valueOf(ADFUtils.evaluateEL("#{BaseBean.session.servletContext.contextPath}")));
 
         try {
             Object respuesta = ADFUtils.ejecutaActionConReturn(getBindings(), "subirLoteArchivos", true, maParametros);
             Map<String, String> map = (Map<String, String>) respuesta;
-            
+
             getP1().hide();
             doPartialRefresh(getP1());
-            
+
             if (map.size() == 0) {
                 if (borrarLotes()) {
-                    return null;        
+                    return null;
                 }
-            }
-
-            Iterator iterator = map.entrySet().iterator();
-            while (iterator.hasNext()) {
-                Map.Entry entry = (Map.Entry) iterator.next();
-                textoRespuesta = textoRespuesta + entry.getKey() + ", valor: " + entry.getValue() + "\n";
+            } else {
+                Iterator iterator = map.entrySet().iterator();
+                while (iterator.hasNext()) {
+                    Map.Entry entry = (Map.Entry) iterator.next();
+                    textoRespuesta = textoRespuesta + entry.getValue() + "\n";
+                }
             }
             getIt1().setValue(textoRespuesta);
             doPartialRefresh(getIt1());

@@ -14,9 +14,9 @@
       <property
          name="activityId">Error</property>
       <property
-         name="inherited">true</property>
-      <property
          name="pageFragment">true</property>
+      <property
+         name="inherited">true</property>
       <property
          name="x">87.44336</property>
       <property
@@ -46,9 +46,9 @@
       <property
          name="activityId">ItemFrg</property>
       <property
-         name="inherited">false</property>
-      <property
          name="pageFragment">true</property>
+      <property
+         name="inherited">false</property>
       <property
          name="x">4453.2715</property>
       <property
@@ -65,9 +65,9 @@
       <property
          name="activityId">ListaFrg</property>
       <property
-         name="inherited">false</property>
-      <property
          name="pageFragment">true</property>
+      <property
+         name="inherited">false</property>
       <property
          name="x">2627.1074</property>
       <property
@@ -281,7 +281,7 @@
       <property
          name="fromsrcid">__9</property>
       <property
-         name="sdm:polyPoints">R50,4019.2344,91.41936,4079.3633,82.33249,L50</property>
+         name="sdm:polyPoints">R50,4019.2344,92.55562,4079.3633,83.46875,L50</property>
    </ControlFlowCase>
    <Router
       id="Router21">
@@ -344,7 +344,7 @@
       <property
          name="fromOutcome">Listar</property>
       <property
-         name="sdm:polyPoints">B44,403.88672,181.25594,543.8096,265.8403,L50</property>
+         name="sdm:polyPoints">B44,403.88672,182.3922,543.8096,266.97656,L50</property>
    </ControlFlowCase>
    <MethodCall
       id="MethodCall37">
@@ -654,7 +654,7 @@
       <property
          name="fromOutcome">isOnlyUsuarioRol</property>
       <property
-         name="sdm:polyPoints">R50,815.9072,265.8403,947.9082,265.8403,L50</property>
+         name="sdm:polyPoints">R50,815.9072,266.97656,947.9082,266.97656,L50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"

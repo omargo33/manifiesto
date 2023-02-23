@@ -26,7 +26,7 @@
                             </af:panelGroupLayout>
                         </f:facet>
                         <af:separator id="s3"/>
-                        <af:inputText label="#{bnd.up_listaFrg_txt_01}" id="it1" columns="50" rows="8"
+                        <af:inputText label="#{bnd.up_listaFrg_txt_01}" id="it1" columns="100" rows="8"
                                       binding="#{backingBeanScope.PPRBackingManifiestoUpListaFrg.it1}" disabled="true"/>
                     </af:panelFormLayout>
                     <f:facet name="separator">

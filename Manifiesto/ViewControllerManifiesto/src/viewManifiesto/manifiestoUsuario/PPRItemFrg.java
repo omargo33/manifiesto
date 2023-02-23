@@ -26,9 +26,9 @@ import view.utilidades.Flow;
 
 /**
  * Objeto para dar soporte a la pantalla de ingreso de item del sistema.
- * 
+ *
  * @author omargo33@hotmail.com
- * 
+ *
  */
 public class PPRItemFrg extends BasePPR {
 
@@ -79,7 +79,7 @@ public class PPRItemFrg extends BasePPR {
 
     /**
      * Clase para dar soporte para la item de muletos.
-     * 
+     *
      */
     public PPRItemFrg() {
         setNombreBundle("view.ViewControllerBundle");
@@ -127,7 +127,7 @@ public class PPRItemFrg extends BasePPR {
         limpiarEjecute();
     }
 
-    public void limpiarEjecute() {        
+    public void limpiarEjecute() {
         try {
             setIt6Int(ADFUtils.evaluateEL("#{bindings.PasajerosExentosTasas.inputValue}"));
             setIt8Int(ADFUtils.evaluateEL("#{bindings.PasajerosPaganDolares.inputValue}"));
@@ -162,10 +162,10 @@ public class PPRItemFrg extends BasePPR {
                 doPartialRefresh((UIComponent) getPfl3());
                 doPartialRefresh((UIComponent) getPfl5());
                 doPartialRefresh((UIComponent) getPfl6());
-            }            
+            }
         } catch (Exception e) {
-            System.out.println("Voy de salida - Error de Cancelado");
-        }        
+            Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).log(Level.WARNING, e.toString());
+        }
     }
 
     public void valueChangeSoc1(ValueChangeEvent valueChangeEvent) {
@@ -217,7 +217,7 @@ public class PPRItemFrg extends BasePPR {
 
     /**
      * Metodo para anular los campos de vuelo cancelado.
-     * 
+     *
      * @param estatus
      */
     private void anularCamposVueloCancelado(boolean estatus) {
@@ -504,9 +504,9 @@ public class PPRItemFrg extends BasePPR {
 
     private void valueRespuesta(RichInputText arg1, String tex) {
         try {
-            System.out.println(tex + "=" + arg1.getValue());
+            Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).log(Level.INFO, tex + "=" + arg1.getValue());
         } catch (Exception e) {
-            System.out.println("no se pudo");
+            Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).log(Level.WARNING, e.toString());
         }
     }
 
@@ -1005,12 +1005,12 @@ public class PPRItemFrg extends BasePPR {
         this.it10Int = evaluarValue(it10Obj);
     }
 
-    public String getCorregir() {        
-        limpiarEjecute();        
+    public String getCorregir() {
+        limpiarEjecute();
         return "_";
     }
-    
-    public void setCorregir(String corregir){
-        System.out.println("corregir "+ corregir);
-        }
+
+    public void setCorregir(String corregir) {
+        Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).log(Level.INFO, "corregir " + corregir);
+    }
 }

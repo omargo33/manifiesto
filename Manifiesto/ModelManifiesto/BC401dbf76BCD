@@ -1,0 +1,100 @@
+<AM MomVer="0" ver="10">
+   <cd></cd>
+   <TXN Def="0" New="0" Lok="2" tsi="0" pcid="1"/>
+   <CONN/>
+   <VO>
+      <VO sig="1" qf="0" RS="0" Def="model.bc.vistaNoDML.CodigoDefinidoUsuarioViewNoDML" Name="Base_CodigoDefinidoUsuarioViewNoDML1"/>
+      <VO sig="2" qf="0" RS="0" Def="model.bc.vistaNoDML.ErrorViewNoDML" Name="Base_ErrorViewNoDML1"/>
+      <VO sig="3" qf="0" RS="0" Def="model.bc.vistaNoDML.ModuloViewNoDML" Name="Base_ModuloViewNoDML1"/>
+      <VO sig="4" qf="0" RS="0" Def="model.bc.vistaNoDML.ParametroViewNoDML" Name="Base_ParametroViewNoDML1"/>
+      <VO sig="5" qf="1" RS="0" Def="model.bc.vistaNoDML.CodigoDefinidoUsuarioViewNoDML" Name="Base_CodigoDefinidoUsuarioViewNoDML2"/>
+      <VO sig="6" qf="1" RS="0" Def="model.bc.vistaNoDML.ParametroViewNoDML" Name="Base_ParametroViewNoDML2"/>
+      <VO sig="7" qf="0" RS="0" Def="model.bc.vistaNoDML.MenusPermisosViewNoDML" Name="Base_MenusPermisosViewNoDML1"/>
+      <VO sig="8" qf="0" RS="0" Def="model.bc.vistaNoDML.InformacionViewNoDML" Name="Base_InformacionViewNoDML1"/>
+      <VO sig="9" qf="0" RS="0" Def="model.bc.vistaNoDML.UsuarioViewNoDML" Name="Base_UsuarioViewNoDML1"/>
+      <VO sig="10" qf="0" RS="0" Def="model.bc.vista.ArchivoEventoView" Name="Base_ArchivoEventoView1"/>
+      <VO sig="11" qf="0" RS="0" Def="model.bc.vista.GrupoView" Name="Base_GrupoView1"/>
+      <VO sig="12" qf="4101" avcs="ArchivoViewWhereCriteria" RS="0" Def="model.bc.vista.ArchivoView" Name="Base_ArchivoView1">
+         <VC n="ArchivoViewWhereCriteria" d="true" c="1" bv="true" m="3" j="false" r="3">
+            <vcp>
+               <p n="__REBUILD_CLAUSES__" v="true"/>
+            </vcp>
+            <Row n="ArchivoViewWhereCriteria_row_0" uc="1" cj="0">
+               <a i="7">
+                  <i o="&lt;>" cj="1" uc="1" r="2" vb="false" g="true" e="false" re="false">
+                     <iv i="0" b="0" sf="0">
+                        <![CDATA[X]]>
+                     </iv>
+                  </i>
+               </a>
+            </Row>
+         </VC>
+         <ea>
+            <an>IdArchivo</an>
+            <an>IdGrupo</an>
+            <an>NombreRamdon</an>
+            <an>Nombre</an>
+            <an>Extension</an>
+            <an>Largo</an>
+            <an>PathRelativo</an>
+            <an>Estado</an>
+            <an>Usuario</an>
+            <an>UsuarioFecha</an>
+            <an>UsuarioPrograma</an>
+            <an>ArchivoEventoView</an>
+         </ea>
+      </VO>
+      <VO sig="13" qf="4101" avcs="ArchivoViewWhereCriteria" RS="0" Def="model.bc.vista.ArchivoView" Name="Base_ArchivoView2">
+         <VC n="ArchivoViewWhereCriteria" d="true" c="1" bv="true" m="3" j="false" r="3">
+            <vcp>
+               <p n="__REBUILD_CLAUSES__" v="true"/>
+            </vcp>
+            <Row n="ArchivoViewWhereCriteria_row_0" uc="1" cj="0">
+               <a i="7">
+                  <i o="&lt;>" cj="1" uc="1" r="2" vb="false" g="true" e="false" re="false">
+                     <iv i="0" b="0" sf="0">
+                        <![CDATA[X]]>
+                     </iv>
+                  </i>
+               </a>
+            </Row>
+         </VC>
+         <ea>
+            <an>IdArchivo</an>
+            <an>IdGrupo</an>
+            <an>NombreRamdon</an>
+            <an>Nombre</an>
+            <an>Extension</an>
+            <an>Largo</an>
+            <an>PathRelativo</an>
+            <an>Estado</an>
+            <an>Usuario</an>
+            <an>UsuarioFecha</an>
+            <an>UsuarioPrograma</an>
+            <an>ArchivoEventoView</an>
+         </ea>
+      </VO>
+      <VO sig="14" qf="0" RS="0" Def="model.bc.vista.NotificacionView" Name="Base_NotificacionView1"/>
+      <VO sig="15" qf="0" RS="0" Def="model.bc.vista.NotificacionParametroView" Name="Base_NotificacionParametroView1"/>
+      <VO sig="16" qf="0" RS="0" Def="modelAuditoria.bc.vista.AuditoriaView" Name="Auditoria_AuditoriaView1"/>
+      <VO sig="17" qf="1" RS="0" Def="modelAuditoria.bc.vista.AuditoriaEventoView" Name="Auditoria_AuditoriaEventoView1"/>
+      <VO sig="18" qf="1" RS="0" Def="modelAuditoria.bc.vista.AuditoriaParametroView" Name="Auditoria_AuditoriaParametroView1"/>
+      <VO sig="19" qf="0" RS="0" Def="modelAuditoria.bc.vista.AccesoView" Name="Auditoria_AccesoView1"/>
+      <VO sig="20" qf="0" RS="0" Def="modelAuditoria.bc.vista.DireccionView" Name="Auditoria_DireccionView1"/>
+      <VO sig="21" qf="0" RS="0" Def="modelAuditoria.bc.vista.InformacionView" Name="Auditoria_InformacionView1"/>
+      <VO sig="22" qf="0" RS="0" Def="modelAuditoria.bc.vistaNoDML.AccesoTokenViewNoDML" Name="Auditoria_AccesoTokenViewNoDML1"/>
+      <VO sig="23" qf="0" RS="0" Def="modelManifiesto.bc.vista.InformacionView" Name="InformacionView1"/>
+      <VO sig="24" qf="0" RS="0" Def="modelManifiesto.bc.vista.ManifiestoView" Name="ManifiestoView1"/>
+      <VO sig="25" qf="0" RS="0" Def="modelManifiesto.bc.vista.LibroDireccionView" Name="LibroDireccionView1"/>
+      <VO sig="26" qf="0" RS="0" Def="modelManifiesto.bc.vistaNoDML.UsuarioViewNoDML" Name="UsuarioViewNoDML1"/>
+      <VO sig="27" qf="0" RS="0" Def="modelManifiesto.bc.vista.AerolineaUsuarioView" Name="AerolineaUsuarioView2"/>
+      <VO sig="28" qf="1" RS="0" Def="modelManifiesto.bc.vista.AerolineaUsuarioView" Name="AerolineaUsuarioView1"/>
+      <VO sig="29" qf="0" RS="0" Def="modelManifiesto.bc.vistaNoDML.UsuarioAsignadoViewNoDML" Name="UsuarioAsignadoViewNoDML1"/>
+      <VO sig="30" qf="0" RS="0" Def="modelManifiesto.bc.vistaNoDML.LibroDireccionesViewNoDML" Name="LibroDireccionesAeropuertoViewNoDML1"/>
+      <VO sig="31" qf="0" RS="0" Def="modelManifiesto.bc.vista.TasaView" Name="TasaView1"/>
+      <VO sig="32" qf="0" RS="0" Def="modelManifiesto.bc.vistaNoDML.ManifiestoViewNoDML" Name="ManifiestoViewNoDML1"/>
+      <VO sig="33" qf="0" RS="0" Def="modelManifiesto.bc.vistaNoDML.LibroDireccionesViewNoDML" Name="LibroDireccionesAeronaveViewNoDML1"/>
+      <VO sig="34" qf="0" RS="0" Def="modelManifiesto.bc.vistaNoDML.LibroDireccionesViewNoDML" Name="LibroDireccionesAeropuertoDestinoViewNoDML1"/>
+      <VO sig="35" qf="0" RS="0" Def="modelManifiesto.bc.vistaNoDML.LibroDireccionesViewNoDML" Name="LibroDireccionesAerolineaViewNoDML1"/>
+   </VO>
+</AM>

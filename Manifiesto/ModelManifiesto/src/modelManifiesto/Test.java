@@ -9,6 +9,8 @@ import java.math.BigDecimal;
 import java.math.MathContext;
 
 import java.util.HashMap;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.Map;
 
 
@@ -21,19 +23,12 @@ public class Test {
     }
 
     public static void main(String[] args) {
-        // Assign value to BigDecimal object b1
-        
-        String data="12.23";
-        
-        System.out.println("data " + data);
-        System.out.println("data " + Integer.parseInt(data));
-            
-        
-        /*BigDecimal b1 = new BigDecimal("12345678");
-        MathContext mc = new MathContext(6);         
+        BigDecimal b1 = new BigDecimal("12345678");
+        MathContext mc = new MathContext(6);
         b1 = b1.round(mc);
-        System.out.println("The value of " + b1 + " after rounding is " + b1.toPlainString());*/
-        
+        Logger.getLogger(Logger.GLOBAL_LOGGER_NAME)
+            .log(Level.INFO, "The value of " + b1 + " after rounding is " + b1.toPlainString());
+
         //pdf();
     }
 
