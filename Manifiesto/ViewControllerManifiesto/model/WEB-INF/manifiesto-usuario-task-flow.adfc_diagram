@@ -14,9 +14,9 @@
       <property
          name="activityId">Error</property>
       <property
-         name="pageFragment">true</property>
-      <property
          name="inherited">true</property>
+      <property
+         name="pageFragment">true</property>
       <property
          name="x">87.44336</property>
       <property
@@ -46,9 +46,9 @@
       <property
          name="activityId">ItemFrg</property>
       <property
-         name="pageFragment">true</property>
-      <property
          name="inherited">false</property>
+      <property
+         name="pageFragment">true</property>
       <property
          name="x">4453.2715</property>
       <property
@@ -65,9 +65,9 @@
       <property
          name="activityId">ListaFrg</property>
       <property
-         name="pageFragment">true</property>
-      <property
          name="inherited">false</property>
+      <property
+         name="pageFragment">true</property>
       <property
          name="x">2627.1074</property>
       <property
@@ -572,7 +572,7 @@
       <property
          name="fromOutcome">noIsCLI02</property>
       <property
-         name="sdm:polyPoints">R46,2809.1074,132.22485,3936.1208,87.91936,L46</property>
+         name="sdm:polyPoints">R46,2809.1074,133.36111,3936.1208,89.05562,L46</property>
    </ControlFlowCase>
    <MethodCall
       id="MethodCall65">

@@ -184,9 +184,9 @@ public class PreliquidacionCobro extends ImpresionBaseElementos {
         getEspacio().escribir(1);
         getForm()
             .setListaTitulos("d. Número de total de pasajeros embarcados durante el período liquidado",
-                             "d. Número de total de pasajeros en Tránsito",
-                             "e. Número de pasajeros exentos de Timbre durante el período liquidado",
-                             "f. Número de pasajeros sujetos al cobro de impuesto de timbre (d-e)");
+                             "e. Número de total de pasajeros en Tránsito",
+                             "f. Número de pasajeros exentos de Timbre durante el período liquidado",
+                             "g. Número de pasajeros sujetos al cobro de impuesto de timbre (d + e) - f");
         getForm()
             .setListaValores(getParametrosBusqueda().get("totalPasajeros"),
                              getParametrosBusqueda().get("totalPasajerosTransito"),
@@ -213,10 +213,10 @@ public class PreliquidacionCobro extends ImpresionBaseElementos {
         getH3().setTextoCentro("LIQUIDACIÓN PRIVADA DEL MONTO A PAGAR POR CONCEPTO DEL RECAUDO DEL IMPUESTO DE TIMBRE");
         getH3().escribir();
         getForm()
-            .setListaTitulos("f. Número de pasajeros sujetos a cobro", "g. Tarifa del impuesto de timbre por pasajero",
+            .setListaTitulos("g. Número de pasajeros sujetos a cobro", "g. Tarifa del impuesto de timbre por pasajero",
                              "h. Subtotal (Casilla f multiplicada por Casilla g)", "i. Devoluciones y/o aclaraciones",
-                             "j. Valor de la liquidación privada (Casilla h menos Casilla i)",
-                             "k. Valor a Pagar (Aproximar el valor obtenido en la casilla j al múltiplo de mil más cercano)");
+                             "i. Valor de la liquidación privada (Casilla h menos Casilla i)",
+                             "j. Valor a Pagar (Aproximar el valor obtenido en la casilla j al múltiplo de mil más cercano)");
         getForm()
             .setListaValores(getParametrosBusqueda().get("totalCalculoImpuesto"),
                              getParametrosBusqueda().get("tarifaImpuest"), getParametrosBusqueda().get("sutotal"),
@@ -231,7 +231,7 @@ public class PreliquidacionCobro extends ImpresionBaseElementos {
         getForm().getMapaAlineamiento().put(6, TextAlignment.RIGHT);
         getForm().setListaDimensiones(80f, 20f);
         getForm()
-            .setListaFormatos(Elemento.FORMATO_DOUBLE, Elemento.FORMATO_MONEDA, Elemento.FORMATO_MONEDA,
+            .setListaFormatos(Elemento.FORMATO_ENTERO, Elemento.FORMATO_MONEDA, Elemento.FORMATO_MONEDA,
                               Elemento.FORMATO_MONEDA, Elemento.FORMATO_MONEDA, Elemento.FORMATO_MONEDA);
         getForm().procesarMargenesEscribir();
     }
@@ -290,7 +290,7 @@ public class PreliquidacionCobro extends ImpresionBaseElementos {
      *
      */
     public synchronized void elemento70() {
-        getTabla().setListaTitulos("l. CONCEPTO DEVOLUCIONES/ACLARACIONES", "");
+        getTabla().setListaTitulos("CONCEPTO DEVOLUCIONES/ACLARACIONES", "");
         List<Object[]> lista = new ArrayList();
         Object[] aclaraciones1 = new Object[] {
             getParametrosBusqueda().get("aclaracion1"), getParametrosBusqueda().get("aclaracionValor1"), };
@@ -321,7 +321,7 @@ public class PreliquidacionCobro extends ImpresionBaseElementos {
         getTabla().getMapaAlineamiento().put(0, TextAlignment.LEFT);
         getTabla().getMapaAlineamiento().put(1, TextAlignment.RIGHT);
         getTabla().setListaDimensiones(75f, 25f);
-        getTabla().setListaFormatos(Elemento.FORMATO_STRING, Elemento.FORMATO_STRING);
+        getTabla().setListaFormatos(Elemento.FORMATO_STRING, Elemento.FORMATO_MONEDA);
         getTabla().procesarMargenesEscribir();
     }
 

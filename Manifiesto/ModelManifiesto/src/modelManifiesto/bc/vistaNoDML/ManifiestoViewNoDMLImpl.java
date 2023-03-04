@@ -32,6 +32,19 @@ public class ManifiestoViewNoDMLImpl extends VistaObjeto implements ManifiestoVi
     }
 
     /**
+     * Metodo para iniciar la lista sin consultas previas.
+     * 
+     */
+    public void inicioVacio() {
+        ViewCriteria vc = this.getViewCriteriaManager().getViewCriteria("ManifiestoViewNoDMLCriteria");
+        VariableValueManager vvm = vc.ensureVariableManager();
+        vvm.setVariableValue("v_IdUsuario", 0);
+        this.applyViewCriteria(vc, false);
+        this.executeQuery();
+        this.setApplyViewCriteriaName(null);
+    }
+
+    /**
      * Metodo para ejecutar una busqueda de manifiesto general.
      *
      * @param indiceAerolinea
@@ -42,21 +55,23 @@ public class ManifiestoViewNoDMLImpl extends VistaObjeto implements ManifiestoVi
      * @param fechaInicio
      * @param fechaFin
      */
-    public void ejecutarConsulta(int idUsuario, int indiceAerolinea, int indiceAeropuertoOrigen, int indiceAeropuertoDestino,
-                                 int indiceAeronave, String noVuelo, String fechaInicio, String fechaFin) {
+    public void ejecutarConsulta(int idUsuario, int indiceAerolinea, int indiceAeropuertoOrigen,
+                                 int indiceAeropuertoDestino, int indiceAeronave, String noVuelo, String fechaInicio,
+                                 String fechaFin) {
+
 
         java.sql.Date fechaSQLInicio = convertirDate(fechaInicio);
         java.sql.Date fechaSQLFin = convertirDate(fechaFin);
 
         ViewCriteria vc = this.getViewCriteriaManager().getViewCriteria("ManifiestoViewNoDMLCriteria");
         VariableValueManager vvm = vc.ensureVariableManager();
-        
-        
+
+
         if (idUsuario > 0) {
             vvm.setVariableValue("v_IdUsuario", idUsuario);
         } else {
             vvm.setVariableValue("v_IdUsuario", null);
-        }        
+        }
         if (indiceAerolinea > 0) {
             vvm.setVariableValue("v_IndiceAerolinea", indiceAerolinea);
         } else {
@@ -82,28 +97,29 @@ public class ManifiestoViewNoDMLImpl extends VistaObjeto implements ManifiestoVi
         } else {
             vvm.setVariableValue("v_NoVuelo", null);
         }
-        
+
         if (fechaSQLInicio != null && fechaSQLFin != null) {
             vvm.setVariableValue("v_FechaInicio", fechaSQLInicio);
             vvm.setVariableValue("v_FechaFin", fechaSQLFin);
         } else {
-            vvm.setVariableValue("v_FechaInicio", new java.sql.Date( new Date().getTime() - (15 * 24 * 60 * 60 * 1000)));
+            vvm.setVariableValue("v_FechaInicio", new java.sql.Date(new Date().getTime() - (15 * 24 * 60 * 60 * 1000)));
             vvm.setVariableValue("v_FechaFin", new java.sql.Date(new Date().getTime() + (5 * 60 * 1000)));
         }
 
         this.applyViewCriteria(vc, false);
         this.executeQuery();
         this.setApplyViewCriteriaName(null);
+
     }
 
 
     public void ejecutarConsultaErrorJDE() {
         ViewCriteria vc = getViewCriteriaManager().getViewCriteria("ManifiestoViewNoDMLCriteriaErrorRest");
-        
+
         applyViewCriteria(vc, false);
         executeQuery();
         setApplyViewCriteriaName(null);
-      }
+    }
 
     /**
      * Metodo para cargar valores por default para busquedas.

@@ -6,6 +6,7 @@
         <f:attribute name="tituloDescripcion" value="#{bnd.preliquidacion_listaFrg_descripcion}"/>
         <f:facet name="elementoBusqueda">
             <af:panelGroupLayout id="pgl1" layout="vertical">
+                <af:region value="#{bindings.infousuarioaeropuertotaskflow1.regionModel}" id="r1"/>
                 <af:showDetailHeader text="#{bnd.btn_buscar}" disclosed="true" id="sdh1">
                     <f:facet name="context"/>
                     <f:facet name="toolbar"/>
@@ -30,25 +31,6 @@
                         </f:facet>
                         <f:facet name="center">
                             <af:panelFormLayout id="pfl1" labelWidth="200">
-                                <af:panelLabelAndMessage label="Aerolinea" id="plam1" inlineStyle="padding-left:20px;">
-                                    <af:panelGroupLayout id="pgl10" layout="horizontal">
-                                        <af:inputText id="it1"
-                                                      binding="#{backingBeanScope.PPRBackingPreliquidacionListaFrg.it1}"
-                                                      visible="false" immediate="true" autoSubmit="true" columns="5"/>
-                                        <af:button id="b1"
-                                                   icon="../../Imagen-001/icons/7548857_search_glass_interface_user_magnifier_zoom_find.svg"
-                                                   binding="#{backingBeanScope.PPRBackingPreliquidacionListaFrg.b1}">
-                                            <af:showPopupBehavior popupId="::p1"/>
-                                        </af:button>
-                                        <af:inputText id="it10"
-                                                      binding="#{backingBeanScope.PPRBackingPreliquidacionListaFrg.it10}"
-                                                      columns="50" immediate="true" disabled="true"/>
-                                        <f:facet name="separator">
-                                            <af:spacer id="s1" height="2" width="2"/>
-                                        </f:facet>
-                                    </af:panelGroupLayout>
-                                </af:panelLabelAndMessage>
-                                <af:separator id="s8"/>
                                 <af:panelLabelAndMessage label="Aeropuerto Origen" id="plam2"
                                                          inlineStyle="padding-left:20px;">
                                     <af:panelGroupLayout id="pgl3" layout="horizontal">
@@ -358,70 +340,6 @@
 " crearPermiso="#{pageFlowScope.pPermisoCrear}"/>
         </f:facet>
     </af:pageTemplate>
-    <af:popup childCreation="deferred" autoCancel="disabled" id="p1"
-              binding="#{backingBeanScope.PPRBackingPreliquidacionListaFrg.p1}">
-        <af:dialog id="d1" type="cancel" title="Buscar Aerolinea">
-            <af:panelGroupLayout layout="vertical" id="pgl7">
-                <f:facet name="separator">
-                    <af:spacer id="s5" height="3" width="3"/>
-                </f:facet>
-                <af:query id="qryId3"
-                          value="#{bindings.LibroDireccionesViewNoDMLCriteriaAerolineaQuery.queryDescriptor}"
-                          model="#{bindings.LibroDireccionesViewNoDMLCriteriaAerolineaQuery.queryModel}"
-                          queryListener="#{bindings.LibroDireccionesViewNoDMLCriteriaAerolineaQuery.processQuery}"
-                          queryOperationListener="#{bindings.LibroDireccionesViewNoDMLCriteriaAerolineaQuery.processQueryOperation}"
-                          resultComponentId="::resId1" headerText="#{bnd.msg_busquea_titulo}" conjunctionReadOnly="true"
-                          searchButtonText="#{bnd.btn_buscar}" resetButtonText="#{bnd.btn_limpiar}" labelWidth="240"
-                          saveQueryMode="hidden" modeChangeVisible="false" disclosed="true"/>
-                <af:table value="#{bindings.LibroDireccionesAerolineaViewNoDML1.collectionModel}" var="row"
-                          rows="#{bindings.LibroDireccionesAerolineaViewNoDML1.rangeSize}"
-                          emptyText="#{bindings.LibroDireccionesAerolineaViewNoDML1.viewable ? 'No data to display.' : 'Access Denied.'}"
-                          rowBandingInterval="1"
-                          selectedRowKeys="#{bindings.LibroDireccionesAerolineaViewNoDML1.collectionModel.selectedRow}"
-                          selectionListener="#{bindings.LibroDireccionesAerolineaViewNoDML1.collectionModel.makeCurrent}"
-                          rowSelection="single" fetchSize="#{bindings.LibroDireccionesAerolineaViewNoDML1.rangeSize}"
-                          id="resId1" scrollPolicy="page" columnStretching="column:resId1c5"
-                          binding="#{backingBeanScope.PPRBackingPreliquidacionListaFrg.resId1}"
-                          inlineStyle="width:60vw;">
-                    <af:column headerText="#{bindings.LibroDireccionesAerolineaViewNoDML1.hints.IdLibroDireccion.label}"
-                               id="c1" rendered="false">
-                        <af:outputText value="#{row.IdLibroDireccion}"
-                                       shortDesc="#{bindings.LibroDireccionesAerolineaViewNoDML1.hints.IdLibroDireccion.tooltip}"
-                                       id="ot8">
-                            <af:convertNumber groupingUsed="false"
-                                              pattern="#{bindings.LibroDireccionesAerolineaViewNoDML1.hints.IdLibroDireccion.format}"/>
-                        </af:outputText>
-                    </af:column>
-                    <af:column headerText="#{bindings.LibroDireccionesAerolineaViewNoDML1.hints.Indice.label}"
-                               id="resId1c2" rendered="false">
-                        <af:outputText value="#{row.Indice}"
-                                       shortDesc="#{bindings.LibroDireccionesAerolineaViewNoDML1.hints.Indice.tooltip}"
-                                       id="ot14">
-                            <af:convertNumber groupingUsed="false"
-                                              pattern="#{bindings.LibroDireccionesAerolineaViewNoDML1.hints.Indice.format}"/>
-                        </af:outputText>
-                    </af:column>
-                    <af:column headerText="#{bindings.LibroDireccionesAerolineaViewNoDML1.hints.IndiceSecundario.label}"
-                               id="c2">
-                        <af:outputText value="#{row.IndiceSecundario}"
-                                       shortDesc="#{bindings.LibroDireccionesAerolineaViewNoDML1.hints.IndiceSecundario.tooltip}"
-                                       id="ot18"/>
-                    </af:column>
-                    <af:column headerText="#{bindings.LibroDireccionesAerolineaViewNoDML1.hints.IdentificacionFiscal.label}"
-                               id="c3" rendered="false">
-                        <af:outputText value="#{row.IdentificacionFiscal}"
-                                       shortDesc="#{bindings.LibroDireccionesAerolineaViewNoDML1.hints.IdentificacionFiscal.tooltip}"
-                                       id="ot19"/>
-                    </af:column>
-                    <af:column headerText="#{bindings.LibroDireccionesAerolineaViewNoDML1.hints.Nombre.label}"
-                               id="resId1c5">
-                        <af:link text="#{row.Nombre}" id="ot20" styleClass="linkSelected"
-                                 actionListener="#{backingBeanScope.PPRBackingPreliquidacionListaFrg.accionSeleccionar1}"/>
-                    </af:column>
-                </af:table>
-            </af:panelGroupLayout>
-        </af:dialog>
-    </af:popup>
     <af:popup childCreation="deferred" autoCancel="disabled" id="p2"
               binding="#{backingBeanScope.PPRBackingPreliquidacionListaFrg.p2}">
         <af:dialog id="d2" type="cancel" title="Buscar Aeropuerto Origen">

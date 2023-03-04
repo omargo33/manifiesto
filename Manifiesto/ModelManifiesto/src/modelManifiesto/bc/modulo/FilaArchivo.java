@@ -13,6 +13,7 @@ import modelManifiesto.bc.ManifiestoModuloImpl;
 import modelManifiesto.bc.entidad.ManifiestoImpl;
 import modelManifiesto.bc.vista.ManifiestoInsertViewImpl;
 
+import oracle.jbo.JboException;
 import oracle.jbo.Row;
 
 import org.apache.poi.ss.usermodel.Sheet;
@@ -48,8 +49,8 @@ public class FilaArchivo {
     private String pasajerosExcentosTimbres;
     private String pasajerosPaganTimbresDolares;
     private String tipo;
-
     private String mensaje;
+    private boolean createOk = true;
 
     /**
      * Metodo constructor.
@@ -78,6 +79,12 @@ public class FilaArchivo {
      * @return
      */
     public boolean isValidar(ManifiestoModuloImpl manifiestoModulo) {
+
+        if (!createOk) {
+            return false;
+        }
+
+
         if (!isPasajeros()) {
             return false;
         }
@@ -157,20 +164,74 @@ public class FilaArchivo {
      * @param pagina
      * @param row
      */
-    public FilaArchivo(Sheet pagina, int row) {        
-        this.indiceAerolinea = String.valueOf(pagina.getRow(row).getCell(0).getStringCellValue());
-        this.indiceAeropuertoOrigen = String.valueOf(pagina.getRow(row).getCell(2).getStringCellValue());
-        this.indiceAeropuertoDestino = String.valueOf(pagina.getRow(row).getCell(3).getStringCellValue());
-        this.indiceAeronave = String.valueOf(pagina.getRow(row).getCell(4).getStringCellValue());
-        this.fecha = String.valueOf(pagina.getRow(row).getCell(5).getStringCellValue());
-        this.numeroVuelo = String.valueOf(pagina.getRow(row).getCell(8).getStringCellValue());
-        this.pasajeros = String.valueOf(pagina.getRow(row).getCell(9).getStringCellValue());
-        this.pasajerosTransito = String.valueOf(pagina.getRow(row).getCell(10).getStringCellValue());
-        this.pasajerosExentosTasas = String.valueOf(pagina.getRow(row).getCell(12).getStringCellValue());
-        this.pasajerosPaganDolares = String.valueOf(pagina.getRow(row).getCell(14).getStringCellValue());
-        this.pasajerosExcentosTimbres = String.valueOf(pagina.getRow(row).getCell(17).getStringCellValue());
-        this.pasajerosPaganTimbresDolares = String.valueOf(pagina.getRow(row).getCell(19).getStringCellValue());
-        this.tipo = String.valueOf(pagina.getRow(row).getCell(16).getStringCellValue());
+    public FilaArchivo(Sheet pagina, int row) {
+        String mensajeCreacion = "";
+        try {
+            mensajeCreacion = "Indice de Aerolinea";
+            this.indiceAerolinea = String.valueOf(pagina.getRow(row)
+                                                        .getCell(0)
+                                                        .getStringCellValue());
+            mensajeCreacion = "Indice de Aeropuerto Origen";
+            this.indiceAeropuertoOrigen = String.valueOf(pagina.getRow(row)
+                                                               .getCell(2)
+                                                               .getStringCellValue());
+            mensajeCreacion = "Indice de Aeropuerto Destino";
+            this.indiceAeropuertoDestino = String.valueOf(pagina.getRow(row)
+                                                                .getCell(3)
+                                                                .getStringCellValue());
+            mensajeCreacion = "Indice de Aeronave";
+            this.indiceAeronave = String.valueOf(pagina.getRow(row)
+                                                       .getCell(4)
+                                                       .getStringCellValue());
+
+            mensajeCreacion = "Fecha Local Operacion";
+            this.fecha = String.valueOf(pagina.getRow(row)
+                                              .getCell(5)
+                                              .getStringCellValue());
+
+            mensajeCreacion = "No Vuelo";
+            this.numeroVuelo = String.valueOf((int) (pagina.getRow(row)
+                                                           .getCell(8)
+                                                           .getNumericCellValue()));
+
+            mensajeCreacion = "Pasajeros";
+            this.pasajeros = String.valueOf(pagina.getRow(row)
+                                                  .getCell(9)
+                                                  .getStringCellValue());
+
+            mensajeCreacion = "Pasajeros Transito";
+            this.pasajerosTransito = String.valueOf(pagina.getRow(row)
+                                                          .getCell(10)
+                                                          .getStringCellValue());
+            
+            mensajeCreacion = "Pasajeros Excentos Tasas";
+            this.pasajerosExentosTasas = String.valueOf(pagina.getRow(row)
+                                                              .getCell(12)
+                                                              .getStringCellValue());
+            
+            mensajeCreacion = "Pasajeros Pagan Dolares";
+            this.pasajerosPaganDolares = String.valueOf(pagina.getRow(row)
+                                                              .getCell(14)
+                                                              .getStringCellValue());
+            
+            mensajeCreacion = "Pasajeros Excentos Timbres";
+            this.pasajerosExcentosTimbres = String.valueOf(pagina.getRow(row)
+                                                                 .getCell(17)
+                                                                 .getStringCellValue());
+            
+            mensajeCreacion = "Pasajeros Pagan Timbres Dolares";
+            this.pasajerosPaganTimbresDolares = String.valueOf(pagina.getRow(row)
+                                                                     .getCell(19)
+                                                                     .getStringCellValue());
+            
+            mensajeCreacion = "Tipo";
+            this.tipo = String.valueOf(pagina.getRow(row)
+                                             .getCell(16)
+                                             .getStringCellValue());
+        } catch (Exception e) {
+            createOk = false;
+            mensaje = String.format("El formato de la columna %s no es el correcto, debe ser texto simple", mensajeCreacion);
+        }
     }
 
     public String getIndiceAerolinea() {
@@ -194,7 +255,7 @@ public class FilaArchivo {
      */
     private String idLibroDirecciones(ManifiestoModuloImpl manifiestoModulo, String indice, String tipo) {
         Object data = manifiestoModulo.getBaseDML().ejecutaConsultaUnicoDato(SQL_LIBRO_DIRECCIONES_ID, indice, tipo);
-        if (manifiestoModulo.getBaseDML().getMensaje() == null) {            
+        if (manifiestoModulo.getBaseDML().getMensaje() == null) {
             return String.valueOf(data);
         }
         return null;
@@ -295,7 +356,7 @@ public class FilaArchivo {
         calendar.setTime(new java.util.Date());
         calendar.add(Calendar.DAY_OF_YEAR, (diasPrevios.intValue() * -1));
         if (date.getTime() < calendar.getTime().getTime()) {
-            mensaje = "La fecha de operacion tiene un limite de " + diasPrevios +" días";
+            mensaje = "La fecha de operacion tiene un limite de " + diasPrevios + " días";
             return false;
         }
 

@@ -122,9 +122,9 @@ public class PPRItemFrg extends BasePPR {
                  convertirString(ADFUtils.evaluateEL("#{sessionScope.totalPasajerosTransito}")));
         mapa.put("totalPasajerosExcentosTimbre",
                  convertirString(ADFUtils.evaluateEL("#{sessionScope.totalPasajerosExcentosTimbre}")));
-        mapa.put("totalCobroImpuesto", convertirString(ADFUtils.evaluateEL("#{sessionScope.totalCobroImpuesto}")));
-        mapa.put("totalCalculoImpuesto", convertirString(ADFUtils.evaluateEL("#{sessionScope.totalCalculoImpuesto}")));
-        mapa.put("tarifaImpuest", convertirString(ADFUtils.evaluateEL("#{sessionScope.tarifaImpuesto}")));
+        mapa.put("totalCobroImpuesto", String.valueOf(ADFUtils.evaluateEL("#{sessionScope.totalCobroImpuesto}")));
+        mapa.put("totalCalculoImpuesto", String.valueOf(ADFUtils.evaluateEL("#{sessionScope.totalCalculoImpuesto}")));
+        mapa.put("tarifaImpuest", String.valueOf(ADFUtils.evaluateEL("#{sessionScope.tarifaImpuesto}")));
         
         
         mapa.put("siglaAerolineaOrigen", convertirString(ADFUtils.evaluateEL("#{sessionScope.siglaAerolineaOrigen}")));

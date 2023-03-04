@@ -15,4 +15,6 @@ public interface ManifiestoViewNoDML extends ViewObject {
                           int indiceAeronave, String noVuelo, String fechaInicio, String fechaFin);
 
     void ejecutarConsultaErrorJDE();
+
+    void inicioVacio();
 }

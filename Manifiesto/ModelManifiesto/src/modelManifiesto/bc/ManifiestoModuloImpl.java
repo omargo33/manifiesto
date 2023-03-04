@@ -66,7 +66,7 @@ public class ManifiestoModuloImpl extends AuditoriaModuloImpl implements Manifie
 
     final String SQL_MANIFIESTO_TIMBRE = "select timbre from MV_001_00.tasa where nombre = ?";
 
-    final String SQL_MANIFIESTO_AEROLINEA = "select indice_secundario, nombre  from libro_direccion  where indice = ?";
+    final String SQL_MANIFIESTO_AEROLINEA = "select indice_secundario, nombre, identificacion_fiscal from libro_direccion  where indice = ?";
 
     /**
      * This is the default constructor (do not remove).
@@ -263,7 +263,7 @@ public class ManifiestoModuloImpl extends AuditoriaModuloImpl implements Manifie
         }
         try {
             while (resultSet.next()) {
-                mapa.put("siglaAerolineaOrigen", resultSet.getString(1));
+                mapa.put("siglaAerolineaOrigen", resultSet.getString(3));
                 mapa.put("descripcionAerolineaOrigen", resultSet.getString(2));
             }
         } catch (Exception e) {

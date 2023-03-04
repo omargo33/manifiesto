@@ -61,20 +61,20 @@
       <property
          name="fromsrcid">__2</property>
       <property
-         name="sdm:polyPoints">R50,301.4655,96.60156,381.09695,130.86719,L50</property>
+         name="sdm:polyPoints">R50,294.5,96.60156,388.0625,130.86719,L50</property>
    </ControlFlowCase>
    <MethodCall
       id="MethodCall13">
       <property
          name="activityId">getIdAerolineaNick</property>
       <property
-         name="x">91.5</property>
+         name="x">103.5</property>
       <property
          name="start">true</property>
       <property
          name="description">&lt;html>&lt;p>&lt;b>getIdAerolineaNick&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
       <property
-         name="y">83.4375</property>
+         name="y">87.40625</property>
       <property
          name="exceptionHandler">false</property>
    </MethodCall>
@@ -86,7 +86,7 @@
       <property
          name="fromOutcome">getIdAerolineaNick</property>
       <property
-         name="sdm:polyPoints">R50,139.46553,83.40625,205.5345,96.60156,L50</property>
+         name="sdm:polyPoints">R50,144.5,87.40625,212.5,96.60156,L50</property>
    </ControlFlowCase>
    <MethodCall
       id="MethodCall15">
@@ -109,7 +109,7 @@
       <property
          name="fromOutcome">ejecutarByIndiceReturn</property>
       <property
-         name="sdm:polyPoints">R50,477.02798,130.86719,556.6594,96.60156,L50</property>
+         name="sdm:polyPoints">R50,470.0625,130.86719,563.625,96.60156,L50</property>
    </ControlFlowCase>
    <View
       id="View10">

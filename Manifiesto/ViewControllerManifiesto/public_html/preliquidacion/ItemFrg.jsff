@@ -7,6 +7,9 @@
                 <af:panelFormLayout id="pfl1" labelWidth="200">
                     <af:inputText label="Raz&#243;n Social" id="it1" columns="50" disabled="true"
                                   value="#{sessionScope.siglaAerolineaOrigen} #{sessionScope.descripcionAerolineaOrigen}"/>
+                                  
+                    <af:inputText label="Periodo de Preliquidaci&#243;n" id="it30" columns="50" disabled="true"
+                                  value="Del #{sessionScope.fechaInicio} a #{sessionScope.fechaFin}"/>                                  
                     <af:separator id="s3"/>
                 </af:panelFormLayout>
                 <af:panelFormLayout id="pfl20" labelWidth="200" rows="1" maxColumns="2">

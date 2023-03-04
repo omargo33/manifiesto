@@ -33,8 +33,6 @@ public class PPRListaFrg extends BasePPR {
     @SuppressWarnings("compatibility:5936010330712211772")
     private static final long serialVersionUID = 1L;
 
-    private RichInputText it1; //indiceAerolinea
-    private RichInputText it10; //indiceAerolineaDescripcion
     private RichInputText it2; //indiceAeropuertoOrigen
     private RichInputText it20; //indiceAeropuertoOrigenDescripcion
     private RichInputText it3; //indiceAeropuertoDestino
@@ -52,7 +50,6 @@ public class PPRListaFrg extends BasePPR {
     private RichTable resId4; //Tabla aerolinea
     private RichTable resId5; //Tabla aeropuerto origen
 
-    private RichPopup p1; //indiceAerolinea
     private RichPopup p2; //indiceAeropuertoOrigen
     private RichPopup p3; //indiceAeropuertoDestino
     private RichPopup p4; //indiceAeronave
@@ -76,8 +73,6 @@ public class PPRListaFrg extends BasePPR {
      * Inicializa datos.
      */
     private void init() {
-        setIt1(new RichInputText());
-        setIt10(new RichInputText());
         setIt2(new RichInputText());
         setIt20(new RichInputText());
         setIt3(new RichInputText());
@@ -95,7 +90,6 @@ public class PPRListaFrg extends BasePPR {
         setResId4(new RichTable());
         setResId5(new RichTable());
 
-        setP1(new RichPopup());
         setP2(new RichPopup());
         setP3(new RichPopup());
         setP4(new RichPopup());
@@ -111,9 +105,12 @@ public class PPRListaFrg extends BasePPR {
      * @return
      */
     public String actionCrear() {
+        if (getResId5().getRowCount() == 0) {
+            ADFUtils.setMensajeError("No existe datos para preliquidar, ingreso valores y vuelva a ejecutar la busqueda.");
+            return null;
+        }
+
         if (isAerolineaSeleccionada()) {
-
-
             return "Create";
         }
         return null;
@@ -142,9 +139,6 @@ public class PPRListaFrg extends BasePPR {
     public void accionLimpiar(ActionEvent actionEvent) {
         iniciarDatosFormularios();
 
-        doPartialRefresh(getIt1());
-        doPartialRefresh(getIt10());
-
         doPartialRefresh(getIt2());
         doPartialRefresh(getIt20());
 
@@ -158,8 +152,6 @@ public class PPRListaFrg extends BasePPR {
 
         doPartialRefresh(getId1());
         doPartialRefresh(getId2());
-
-        ejecutarBusqueda();
     }
 
     /**
@@ -167,9 +159,12 @@ public class PPRListaFrg extends BasePPR {
      *
      */
     private void ejecutarBusqueda() {
+        Object aerolienaId = ADFUtils.evaluateEL("#{sessionScope.idAerolinea}");
+        String aerolienaIdString = String.valueOf(aerolienaId);
+
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("idUsuario", 0);
-        map.put("indiceAerolinea", convertirInt(getIt1().getValue()));
+        map.put("indiceAerolinea", convertirInt(aerolienaIdString));
         map.put("indiceAeropuertoOrigen", convertirInt(getIt2().getValue()));
         map.put("indiceAeropuertoDestino", convertirInt(getIt3().getValue()));
         map.put("indiceAeronave", convertirInt(getIt4().getValue()));
@@ -182,7 +177,7 @@ public class PPRListaFrg extends BasePPR {
         Map<String, String> mapa =
             (Map) ADFUtils.ejecutaActionConReturn(getBindings(), "calculosPreCalificacion", true, map);
 
-        for (Map.Entry<String, String> entry : mapa.entrySet()) {        
+        for (Map.Entry<String, String> entry : mapa.entrySet()) {
             ADFUtils.setEL("#{sessionScope." + entry.getKey() + "}", entry.getValue().trim());
         }
     }
@@ -192,9 +187,6 @@ public class PPRListaFrg extends BasePPR {
      *
      */
     public void iniciarDatosFormularios() {
-        getIt1().setValue("");
-        getIt10().setValue("<No Definido>");
-
         getIt2().setValue("");
         getIt20().setValue("<No Definido>");
 
@@ -206,28 +198,7 @@ public class PPRListaFrg extends BasePPR {
 
         getIt5().setValue("%");
         getId1().setValue(getFecha15DiasCorto());
-        getId2().setValue(getFechaHoyCorto());        
-    }
-
-    /**
-     * Seleccionar Aerolinea
-     *
-     * @param actionEvent
-     */
-    public void accionSeleccionar1(ActionEvent actionEvent) {
-        getP1().hide();
-        doPartialRefresh(getP1());
-
-        JUCtrlHierNodeBinding nodeBinding = (JUCtrlHierNodeBinding) getResId1().getSelectedRowData();
-        String descripcion =
-            String.valueOf(nodeBinding.getAttribute("IndiceSecundario")) + " " +
-            String.valueOf(nodeBinding.getAttribute("Nombre"));
-        String indice = String.valueOf(nodeBinding.getAttribute("Indice"));
-
-        getIt1().setValue(indice);
-        getIt10().setValue(descripcion);
-        doPartialRefresh(getIt1());
-        doPartialRefresh(getIt10());
+        getId2().setValue(getFechaHoyCorto());
     }
 
     /**
@@ -294,6 +265,7 @@ public class PPRListaFrg extends BasePPR {
         doPartialRefresh(getIt40());
     }
 
+
     /**
      * Metodo para conocer si esta seleccionada una aerolinea.
      *
@@ -301,7 +273,8 @@ public class PPRListaFrg extends BasePPR {
      */
     private boolean isAerolineaSeleccionada() {
         boolean respuesta = true;
-        Object aerolienaId = getIt1().getValue();
+
+        Object aerolienaId = ADFUtils.evaluateEL("#{sessionScope.idAerolinea}");
 
         try {
             if (aerolienaId == null || aerolienaId.toString().compareTo("") == 0 ||
@@ -370,15 +343,6 @@ public class PPRListaFrg extends BasePPR {
         return resId2;
     }
 
-
-    public void setIt1(RichInputText it1) {
-        this.it1 = it1;
-    }
-
-    public RichInputText getIt1() {
-        return it1;
-    }
-
     public void setId2(RichInputDate id2) {
         this.id2 = id2;
     }
@@ -435,14 +399,6 @@ public class PPRListaFrg extends BasePPR {
         return it30;
     }
 
-    public void setP1(RichPopup p1) {
-        this.p1 = p1;
-    }
-
-    public RichPopup getP1() {
-        return p1;
-    }
-
     public void setResId3(RichTable resId3) {
         this.resId3 = resId3;
     }
@@ -481,14 +437,6 @@ public class PPRListaFrg extends BasePPR {
 
     public RichPopup getP4() {
         return p4;
-    }
-
-    public void setIt10(RichInputText it10) {
-        this.it10 = it10;
-    }
-
-    public RichInputText getIt10() {
-        return it10;
     }
 
     public void setIt20(RichInputText it20) {
