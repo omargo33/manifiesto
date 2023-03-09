@@ -60,6 +60,11 @@ public class PPRItemFrg extends BasePPR {
 
     private RichInputText it28;
     private RichInputText it29;
+    
+    private RichInputText it31; //Responsable
+    private RichInputText it32; //Responsable Identificacion
+    private RichInputText it33; //Responsable contador
+    private RichInputText it34; //Responsable Identificacion
 
     /**
      * Metodo para crear un objeto.
@@ -91,6 +96,11 @@ public class PPRItemFrg extends BasePPR {
         it28 = new RichInputText();
         //Cheque
         it29 = new RichInputText();
+        
+        setIt31(new RichInputText());
+        setIt32(new RichInputText());
+        setIt33(new RichInputText());
+        setIt34(new RichInputText());
     }
 
     /**
@@ -114,7 +124,11 @@ public class PPRItemFrg extends BasePPR {
         mapa.put("documentoNombre", "nombre");
         mapa.put("documentoCodigo", "codigo");
 
+        System.out.println("indiceAerolinea=" + convertirString(ADFUtils.evaluateEL("#{sessionScope.indiceAerolinea}")));
+        System.out.println("indiceAerolinea=" + ADFUtils.evaluateEL("#{sessionScope.indiceAerolinea}"));
+
         // ingreso sistema busqueda previa
+        mapa.put("indiceAerolinea", ADFUtils.evaluateEL("#{sessionScope.indiceAerolinea}"));
         mapa.put("fechaInicio", convertirString(ADFUtils.evaluateEL("#{sessionScope.fechaInicio}")));
         mapa.put("fechaFin", convertirString(ADFUtils.evaluateEL("#{sessionScope.fechaFin}")));
         mapa.put("totalPasajeros", convertirString(ADFUtils.evaluateEL("#{sessionScope.totalPasajeros}")));
@@ -142,6 +156,12 @@ public class PPRItemFrg extends BasePPR {
         //ingreso manual
         mapa.put("nombreContacto", this.it6.getValue());
         mapa.put("emailContacto", this.it7.getValue());
+        
+        //ingreso manual        
+        mapa.put("nombre01",this.it31.getValue());
+        mapa.put("identificacion01",this.it32.getValue());
+        mapa.put("nombre02",this.it33.getValue());
+        mapa.put("identificacion02",this.it34.getValue());        
 
         //ingreso manual
         String tipoPago = String.valueOf(this.sor1.getValue());
@@ -619,6 +639,38 @@ public class PPRItemFrg extends BasePPR {
 
     public RichInputText getIt29() {
         return it29;
+    }
+    
+    public RichInputText getIt31() {
+        return it31;
+    }
+
+    public void setIt31(RichInputText it31) {
+        this.it31 = it31;
+    }
+
+    public RichInputText getIt32() {
+        return it32;
+    }
+
+    public void setIt32(RichInputText it32) {
+        this.it32 = it32;
+    }
+
+    public RichInputText getIt33() {
+        return it33;
+    }
+
+    public void setIt33(RichInputText it33) {
+        this.it33 = it33;
+    }
+
+    public RichInputText getIt34() {
+        return it34;
+    }
+
+    public void setIt34(RichInputText it34) {
+        this.it34 = it34;
     }
 
     private boolean isVacio(RichInputText inputText) {

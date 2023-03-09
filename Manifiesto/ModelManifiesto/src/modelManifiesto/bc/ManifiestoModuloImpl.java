@@ -66,7 +66,12 @@ public class ManifiestoModuloImpl extends AuditoriaModuloImpl implements Manifie
 
     final String SQL_MANIFIESTO_TIMBRE = "select timbre from MV_001_00.tasa where nombre = ?";
 
-    final String SQL_MANIFIESTO_AEROLINEA = "select indice_secundario, nombre, identificacion_fiscal from libro_direccion  where indice = ?";
+    final String SQL_MANIFIESTO_AEROLINEA =
+        "select indice_secundario, nombre, identificacion_fiscal, nombre_01, identificacion_01, nombre_02, Identificacion_02 from libro_direccion  where indice = ?";
+
+    final String SQL_UPDATE_NOMBRES_AEROLINEA =
+        "UPDATE libro_direccion SET nombre_01 = ?, identificacion_01 = ?, nombre_02 = ?, identificacion_02 = ?  WHERE indice = ?";
+
 
     /**
      * This is the default constructor (do not remove).
@@ -252,9 +257,9 @@ public class ManifiestoModuloImpl extends AuditoriaModuloImpl implements Manifie
         mapa.put("totalPasajerosTransito", String.valueOf(totalPasajerosTransito));
         mapa.put("totalPasajerosExcentosTimbre", String.valueOf(totalExcenteosTimbres));
         mapa.put("totalCobroImpuesto",
-                 String.valueOf((totalPasajeros + totalPasajerosTransito - totalExcenteosTimbres)));
+                 String.valueOf((totalPasajeros - totalPasajerosTransito - totalExcenteosTimbres)));
         mapa.put("totalCalculoImpuesto",
-                 String.valueOf((totalPasajeros + totalPasajerosTransito - totalExcenteosTimbres)));
+                 String.valueOf((totalPasajeros - totalPasajerosTransito - totalExcenteosTimbres)));
         mapa.put("tarifaImpuesto", String.valueOf(valorTimbre));
 
         resultSet = this.getBaseDML().ejecutaConsulta(SQL_MANIFIESTO_AEROLINEA, indiceAerolinea);
@@ -263,8 +268,13 @@ public class ManifiestoModuloImpl extends AuditoriaModuloImpl implements Manifie
         }
         try {
             while (resultSet.next()) {
+                mapa.put("indiceAerolinea", String.valueOf(indiceAerolinea));
                 mapa.put("siglaAerolineaOrigen", resultSet.getString(3));
                 mapa.put("descripcionAerolineaOrigen", resultSet.getString(2));
+                mapa.put("nombre01", resultSet.getString(4));
+                mapa.put("identificacion01", resultSet.getString(5));
+                mapa.put("nombre02", resultSet.getString(6));
+                mapa.put("identificacion02", resultSet.getString(7));
             }
         } catch (Exception e) {
             Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).log(Level.WARNING, e.toString());
@@ -374,10 +384,39 @@ public class ManifiestoModuloImpl extends AuditoriaModuloImpl implements Manifie
         mapa.put("tituloImpuesto", base_obtenerParametroTexto01("203"));
         mapa.put("tituloDocumento", base_obtenerParametroTexto01("204"));
 
+        try {
+            int indice = Integer.parseInt(String.valueOf(mapa.get("indiceAerolinea")));
+            updateNombresResponsables(indice, String.valueOf(mapa.get("nombre01")),
+                                      String.valueOf(mapa.get("identificacion01")),
+                                      String.valueOf(mapa.get("nombre02")),
+                                      String.valueOf(mapa.get("identificacion02")));
+        } catch (Exception e) {
+            throw new JboException("No se puede actualizar responsables");
+        }
+
         idArchivo =
             Reporte.crearReportePDF(this, impresionBaseIText, mapa, nombrePagina, "manifiesto", tabla, usuario,
                                     usuarioPrograma);
         return idArchivo;
+    }
+
+    /**
+     * Metodo para actualizar los datos de responsables.
+     *
+     * @param indice
+     * @param nombre01
+     * @param identificacion01
+     * @param nombre02
+     * @param identificacion02
+     */
+    private void updateNombresResponsables(int indice, String nombre01, String identificacion01, String nombre02,
+                                           String identificacion02) {
+        this.getBaseDML()
+            .ejecutaDML(SQL_UPDATE_NOMBRES_AEROLINEA, nombre01, identificacion01, nombre02, identificacion02, indice);
+
+        if (this.getBaseDML().getMensaje() != null) {
+            throw new JboException(this.getBaseDML().getMensaje());
+        }
     }
 
     /**
@@ -665,14 +704,10 @@ public class ManifiestoModuloImpl extends AuditoriaModuloImpl implements Manifie
 
             if (pagina != null) {
                 int totalFilas = pagina.getLastRowNum();
-                if (totalFilas > 2) {
-                    if (totalFilas > 2) {
-                        for (int row = 2; row < totalFilas; row++) {
-                            filaTrabajo = new FilaArchivo(pagina, row);
-                            filaTrabajo.crearManifiesto(manifiestoModulo, id, usuario, usuarioPrograma);
-                        }
-                    } else {
-                        mapEventos.put("P2", "La página no tiene contenido");
+                if (totalFilas > 0) {
+                    for (int row = 0; row < totalFilas; row++) {
+                        filaTrabajo = new FilaArchivo(pagina, row);
+                        filaTrabajo.crearManifiesto(manifiestoModulo, id, usuario, usuarioPrograma);
                     }
                 } else {
                     mapEventos.put("P1", "Archivo no tiene páginas");

@@ -68,7 +68,7 @@ public class PreliquidacionCobro extends ImpresionBaseElementos {
         float dime[] = { total * 40 / 100 };
         Table tabla = new Table(dime);
         tabla.setBorder(Border.NO_BORDER);
-        
+
         P ptitulo = new P(getParametrosBusqueda().get("tituloImpuesto"), P.NOTA);
         Cell cell = new Cell();
         cell.add(ptitulo.getParagraph());
@@ -186,7 +186,7 @@ public class PreliquidacionCobro extends ImpresionBaseElementos {
             .setListaTitulos("d. Número de total de pasajeros embarcados durante el período liquidado",
                              "e. Número de total de pasajeros en Tránsito",
                              "f. Número de pasajeros exentos de Timbre durante el período liquidado",
-                             "g. Número de pasajeros sujetos al cobro de impuesto de timbre (d + e) - f");
+                             "g. Número de pasajeros sujetos al cobro de impuesto de timbre (d - e - f)");
         getForm()
             .setListaValores(getParametrosBusqueda().get("totalPasajeros"),
                              getParametrosBusqueda().get("totalPasajerosTransito"),
@@ -202,8 +202,8 @@ public class PreliquidacionCobro extends ImpresionBaseElementos {
                               Elemento.FORMATO_ENTERO);
         getForm().procesarMargenesEscribir();
     }
-    
-    
+
+
     /**
      * Metodo para presentar la informacion de la liquidacion y totales.
      */
@@ -213,10 +213,12 @@ public class PreliquidacionCobro extends ImpresionBaseElementos {
         getH3().setTextoCentro("LIQUIDACIÓN PRIVADA DEL MONTO A PAGAR POR CONCEPTO DEL RECAUDO DEL IMPUESTO DE TIMBRE");
         getH3().escribir();
         getForm()
-            .setListaTitulos("g. Número de pasajeros sujetos a cobro", "g. Tarifa del impuesto de timbre por pasajero",
-                             "h. Subtotal (Casilla f multiplicada por Casilla g)", "i. Devoluciones y/o aclaraciones",
-                             "i. Valor de la liquidación privada (Casilla h menos Casilla i)",
-                             "j. Valor a Pagar (Aproximar el valor obtenido en la casilla j al múltiplo de mil más cercano)");
+            .setListaTitulos("g. Número de pasajeros sujetos a cobro", 
+                             "h. Tarifa del impuesto de timbre por pasajero",
+                             "i. Subtotal (g * h)", 
+                             "j. Devoluciones y/o aclaraciones",
+                             "k. Valor de la liquidación privada (i - j)",
+                             "l. Valor a Pagar (Aproximar el valor obtenido en la casilla k al múltiplo de mil más cercano)");
         getForm()
             .setListaValores(getParametrosBusqueda().get("totalCalculoImpuesto"),
                              getParametrosBusqueda().get("tarifaImpuest"), getParametrosBusqueda().get("sutotal"),
@@ -312,7 +314,7 @@ public class PreliquidacionCobro extends ImpresionBaseElementos {
         Object[] aclaraciones5 = new Object[] {
             getParametrosBusqueda().get("aclaracion5"), getParametrosBusqueda().get("aclaracionValor5"), };
         lista.add(aclaraciones5);
-        
+
         Object[] aclaraciones6 = new Object[] {
             getParametrosBusqueda().get("aclaracion6"), getParametrosBusqueda().get("aclaracionValor6"), };
         lista.add(aclaraciones6);
@@ -333,11 +335,16 @@ public class PreliquidacionCobro extends ImpresionBaseElementos {
         getEspacio().escribir(1);
         getTabla().setListaTitulos("m. NOMBRES Y FIRMAS :", "");
         List<Object[]> lista = new ArrayList();
-        Object[] firma1 = new Object[] { "RESPONSABLE:\n\n\n\nMARTHA PATRICIA NIÑO RUIZ\nC.C. 39.745.264" };
+        Object[] firma1 = new Object[] {
+            "RESPONSABLE:\n\n\n\n" + getParametrosBusqueda().get("nombre01") + "\nC.C." +
+            getParametrosBusqueda().get("identificacion01")
+        };
         lista.add(firma1);
 
         Object[] firma2 = new Object[] {
-            "REVISOR FISCAL o CONTADOR:\n\n\n\nJAIME LEON\nC.C. 17.135.692     T.P. 710-T" };
+            "REVISOR FISCAL o CONTADOR:\n\n\n\n" + getParametrosBusqueda().get("nombre02") + "\nC.C." +
+            getParametrosBusqueda().get("identificacion02")
+        };
         lista.add(firma2);
 
         getTabla().setListaValores(lista);

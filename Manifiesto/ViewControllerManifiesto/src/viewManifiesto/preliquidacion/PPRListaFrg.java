@@ -41,6 +41,7 @@ public class PPRListaFrg extends BasePPR {
     private RichInputText it40; //indiceAeronaveDescripcion
     private RichInputText it5; //noVuelo
 
+
     private RichInputDate id1; //fechaInicio
     private RichInputDate id2; //fechaFin
 
@@ -178,8 +179,14 @@ public class PPRListaFrg extends BasePPR {
             (Map) ADFUtils.ejecutaActionConReturn(getBindings(), "calculosPreCalificacion", true, map);
 
         for (Map.Entry<String, String> entry : mapa.entrySet()) {
-            ADFUtils.setEL("#{sessionScope." + entry.getKey() + "}", entry.getValue().trim());
+            String value = entry.getValue();
+            if (value != null) {
+                value = value.trim();
+            }
+            ADFUtils.setEL("#{sessionScope." + entry.getKey() + "}", value);            
+            System.out.println("#{sessionScope." + entry.getKey() + "}" + " " + value);
         }
+        ADFUtils.setEL("#{sessionScope.indiceAerolinea}", convertirInt(aerolienaIdString));
     }
 
     /**
