@@ -204,7 +204,7 @@ public class FilaArchivo {
                                                           .getCell(10)
                                                           .getStringCellValue());
             
-            mensajeCreacion = "Pasajeros Excentos Tasas";
+            mensajeCreacion = "Pasajeros Exentos Tasas";
             this.pasajerosExentosTasas = String.valueOf(pagina.getRow(row)
                                                               .getCell(12)
                                                               .getStringCellValue());
@@ -214,7 +214,7 @@ public class FilaArchivo {
                                                               .getCell(14)
                                                               .getStringCellValue());
             
-            mensajeCreacion = "Pasajeros Excentos Timbres";
+            mensajeCreacion = "Pasajeros Exentos Timbres";
             this.pasajerosExcentosTimbres = String.valueOf(pagina.getRow(row)
                                                                  .getCell(17)
                                                                  .getStringCellValue());

@@ -100,7 +100,7 @@ public class Preliquidacion extends ImpresionBaseElementos {
                                    "Pasajeros Locales",
                                    "Pasajeros Exentos de Tasas",
                                    "Pasajeros Pagan Tasas",
-                                   "Pasajeros Excentos Timbre",
+                                   "Pasajeros Exentos Timbre",
                                    "Pasajeros Pagan Timbre",
                                    "Valor Unit. en pesos Timbres",
                                    "Valor Pesos Timbre",

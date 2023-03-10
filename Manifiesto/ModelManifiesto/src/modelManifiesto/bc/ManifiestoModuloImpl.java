@@ -658,8 +658,8 @@ public class ManifiestoModuloImpl extends AuditoriaModuloImpl implements Manifie
 
             if (pagina != null) {
                 int totalFilas = pagina.getLastRowNum();
-                if (totalFilas > 2) {
-                    for (int row = 2; row < totalFilas; row++) {
+                if (totalFilas > 0) {
+                    for (int row = 0; row <= totalFilas; row++) {
                         filaTrabajo = new FilaArchivo(pagina, row);
                         if (!filaTrabajo.isValidar(manifiestoModulo)) {
                             mapEventos.put("P3-" + row,
@@ -705,7 +705,7 @@ public class ManifiestoModuloImpl extends AuditoriaModuloImpl implements Manifie
             if (pagina != null) {
                 int totalFilas = pagina.getLastRowNum();
                 if (totalFilas > 0) {
-                    for (int row = 0; row < totalFilas; row++) {
+                    for (int row = 0; row <= totalFilas; row++) {
                         filaTrabajo = new FilaArchivo(pagina, row);
                         filaTrabajo.crearManifiesto(manifiestoModulo, id, usuario, usuarioPrograma);
                     }

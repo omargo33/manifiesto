@@ -13,31 +13,31 @@
                 <af:panelFormLayout id="pfl20" labelWidth="200" rows="1" maxColumns="2">
                     <af:inputText label="Direcci&#243;n" id="it2" columns="30" showRequired="true" required="true"
                                   binding="#{PPRBackingPreliquidacionItemFrg.it2}">
-                        <af:validateLength minimum="5"/>
+                        <af:validateLength minimum="3"/>
                     </af:inputText>
                     <af:inputText label="Tel&#233;fono de contacto" id="it3" columns="30" showRequired="true"
                                   required="true" binding="#{PPRBackingPreliquidacionItemFrg.it3}">
-                        <af:validateLength minimum="5"/>
+                        <af:validateLength minimum="3"/>
                     </af:inputText>
                 </af:panelFormLayout>
                 <af:panelFormLayout id="pfl21" labelWidth="200" rows="1" maxColumns="2">
                     <af:inputText label="Nombre Aerolinea cual recuada" id="it4" columns="30" showRequired="true"
                                   required="true" binding="#{PPRBackingPreliquidacionItemFrg.it4}">
-                        <af:validateLength minimum="5"/>
+                        <af:validateLength minimum="3"/>
                     </af:inputText>
                     <af:inputText label="Ciudad y Departamento" id="it5" columns="30" showRequired="true"
                                   required="true" binding="#{PPRBackingPreliquidacionItemFrg.it5}">
-                        <af:validateLength minimum="5"/>
+                        <af:validateLength minimum="3"/>
                     </af:inputText>
                 </af:panelFormLayout>
                 <af:panelFormLayout id="pfl22" labelWidth="200" rows="1" maxColumns="2">
                     <af:inputText label="Nombre Contacto" id="it6" columns="30" showRequired="true" required="true"
                                   binding="#{PPRBackingPreliquidacionItemFrg.it6}">
-                        <af:validateLength minimum="5"/>
+                        <af:validateLength minimum="3"/>
                     </af:inputText>
                     <af:inputText label="Correo de contacto" id="it7" columns="30" showRequired="true" required="true"
                                   binding="#{PPRBackingPreliquidacionItemFrg.it7}">
-                        <af:validateLength minimum="5"/>
+                        <af:validateLength minimum="3"/>
                     </af:inputText>
                 </af:panelFormLayout>
                 <af:panelFormLayout id="pfl3" labelWidth="200">
@@ -120,7 +120,7 @@
                                     <af:inputText id="it12" columns="40"
                                                   binding="#{PPRBackingPreliquidacionItemFrg.it12}" immediate="true"
                                                   autoSubmit="true">
-                                        <af:validateLength minimum="5"/>
+                                        <af:validateLength minimum="3"/>
                                     </af:inputText>
                                     <af:inputText id="it13" columns="10" contentStyle="text-align:right;"
                                                   binding="#{PPRBackingPreliquidacionItemFrg.it13}" immediate="true"
@@ -141,7 +141,7 @@
                                     <af:inputText id="it14" columns="40"
                                                   binding="#{PPRBackingPreliquidacionItemFrg.it14}" immediate="true"
                                                   autoSubmit="true">
-                                        <af:validateLength minimum="5"/>
+                                        <af:validateLength minimum="3"/>
                                     </af:inputText>
                                     <af:inputText id="it15" columns="10" contentStyle="text-align:right;"
                                                   binding="#{PPRBackingPreliquidacionItemFrg.it15}" immediate="true"
@@ -163,7 +163,7 @@
                                     <af:inputText id="it16" columns="40"
                                                   binding="#{PPRBackingPreliquidacionItemFrg.it16}" immediate="true"
                                                   autoSubmit="true">
-                                        <af:validateLength minimum="5"/>
+                                        <af:validateLength minimum="3"/>
                                     </af:inputText>
                                     <af:inputText id="it17" columns="10" contentStyle="text-align:right;"
                                                   binding="#{PPRBackingPreliquidacionItemFrg.it17}" immediate="true"
@@ -185,7 +185,7 @@
                                     <af:inputText id="it18" columns="40"
                                                   binding="#{PPRBackingPreliquidacionItemFrg.it18}" immediate="true"
                                                   autoSubmit="true">
-                                        <af:validateLength minimum="5"/>
+                                        <af:validateLength minimum="3"/>
                                     </af:inputText>
                                     <af:inputText id="it19" columns="10" contentStyle="text-align:right;"
                                                   binding="#{PPRBackingPreliquidacionItemFrg.it19}" immediate="true"
@@ -207,7 +207,7 @@
                                     <af:inputText id="it20" columns="40"
                                                   binding="#{PPRBackingPreliquidacionItemFrg.it20}" immediate="true"
                                                   autoSubmit="true">
-                                        <af:validateLength minimum="5"/>
+                                        <af:validateLength minimum="3"/>
                                     </af:inputText>
                                     <af:inputText id="it21" columns="10" contentStyle="text-align:right;"
                                                   binding="#{PPRBackingPreliquidacionItemFrg.it21}" immediate="true"
@@ -253,7 +253,7 @@
                             <af:inputText label="No. Cheque" id="it29" binding="#{PPRBackingPreliquidacionItemFrg.it29}"
                                           columns="10" disabled="true" showRequired="true" required="true"
                                           immediate="true" autoSubmit="true">
-                                <af:validateLength minimum="4"/>
+                                <af:validateLength minimum="3"/>
                             </af:inputText>
                         </af:panelFormLayout>
                     </af:panelHeader>
