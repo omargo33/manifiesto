@@ -58,8 +58,48 @@
 					"enabledTLSProtocols": "TLSv1,TLSv1.1,TLSv1.2",
 					"allowPublicKeyRetrieval": "TRUE"
 				},
+				"auth-model": "native"
+			}
+		},
+		"mysql8-18711cdecd5-7e4b7358f4d18d1": {
+			"provider": "mysql",
+			"driver": "mysql8",
+			"name": "mysql",
+			"save-password": true,
+			"configuration": {
+				"host": "127.0.0.1",
+				"port": "3306",
+				"database": "sys",
+				"url": "jdbc:mysql://127.0.0.1:3306/sys",
+				"configurationType": "MANUAL",
+				"type": "dev",
+				"properties": {
+					"rewriteBatchedStatements": "true",
+					"enabledTLSProtocols": "TLSv1,TLSv1.1,TLSv1.2",
+					"allowPublicKeyRetrieval": "TRUE",
+					"failOverReadOnly": "FALSE",
+					"connectTimeout": "20000",
+					"autoReconnect": "TRUE",
+					"maxReconnects": "2",
+					"useSSL": "FALSE"
+				},
 				"auth-model": "native",
-				"handlers": {}
+				"handlers": {
+					"ssh_tunnel": {
+						"type": "TUNNEL",
+						"enabled": true,
+						"save-password": true,
+						"properties": {
+							"host": "13.68.186.120",
+							"port": 22.0,
+							"authType": "PUBLIC_KEY",
+							"keyPath": "/home/ovelez/Documentos/clientes/Aerocivil/accesoservidoresubuntuazure/PortalTest-EastUS-VM_key.pem",
+							"implementation": "sshj",
+							"localHost": "",
+							"remoteHost": ""
+						}
+					}
+				}
 			}
 		}
 	},
