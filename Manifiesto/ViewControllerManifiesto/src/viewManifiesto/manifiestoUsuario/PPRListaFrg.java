@@ -504,7 +504,7 @@ public class PPRListaFrg extends BasePPR {
         map.put("noVuelo", convertirString(getIt5().getValue()));
         map.put("fechaInicio", convertirString(getId1().getValue()));
         map.put("fechaFin", convertirString(getId2().getValue()));
-        map.put("tabla", "manifiesto");
+        map.put("tabla", "Manifiesto");
         map.put("usuario", convertirString(ADFUtils.evaluateEL("#{BaseBean.nameUser}")));
         map.put("usuarioPrograma", convertirString(ADFUtils.evaluateEL("#{session.servletContext.contextPath}")));
 

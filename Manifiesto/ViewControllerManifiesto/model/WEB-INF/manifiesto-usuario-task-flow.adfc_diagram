@@ -14,9 +14,9 @@
       <property
          name="activityId">Error</property>
       <property
-         name="inherited">true</property>
-      <property
          name="pageFragment">true</property>
+      <property
+         name="inherited">true</property>
       <property
          name="x">87.44336</property>
       <property
@@ -46,9 +46,9 @@
       <property
          name="activityId">ItemFrg</property>
       <property
-         name="inherited">false</property>
-      <property
          name="pageFragment">true</property>
+      <property
+         name="inherited">false</property>
       <property
          name="x">4453.2715</property>
       <property
@@ -65,9 +65,9 @@
       <property
          name="activityId">ListaFrg</property>
       <property
-         name="inherited">false</property>
-      <property
          name="pageFragment">true</property>
+      <property
+         name="inherited">false</property>
       <property
          name="x">2627.1074</property>
       <property

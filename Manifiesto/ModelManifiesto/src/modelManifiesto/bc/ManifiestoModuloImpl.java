@@ -183,7 +183,7 @@ public class ManifiestoModuloImpl extends AuditoriaModuloImpl implements Manifie
         }
 
         idArchivo =
-            Reporte.crearReporteExcel(this, resultSet, nombrePagina, "manifiesto", tabla, usuario, usuarioPrograma);
+            Reporte.crearReporteExcel(this, resultSet, nombrePagina, "Manifiesto", tabla, usuario, usuarioPrograma);
         return idArchivo;
     }
 
@@ -351,7 +351,7 @@ public class ManifiestoModuloImpl extends AuditoriaModuloImpl implements Manifie
 
 
         idArchivo =
-            Reporte.crearReportePDF(this, impresionBaseIText, mapa, nombrePagina, "manifiesto", tabla, usuario,
+            Reporte.crearReportePDF(this, impresionBaseIText, mapa, nombrePagina, "Manifiesto", tabla, usuario,
                                     usuarioPrograma);
         return idArchivo;
     }
