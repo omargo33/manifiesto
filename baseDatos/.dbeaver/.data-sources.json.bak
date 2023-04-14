@@ -1,50 +1,58 @@
 {
-	"folders": {},
+	"folders": {
+		"Zaimella": {},
+		"Qapaq": {},
+		"Aerocivil": {}
+	},
 	"connections": {
-		"mysql8-1862f02a602-5a27b17a6e7ec4fb": {
+		"mysql8-1874ef3372e-3cafc3e265080856": {
 			"provider": "mysql",
 			"driver": "mysql8",
-			"name": "Server",
+			"name": "Local",
 			"save-password": true,
+			"folder": "Qapaq",
 			"configuration": {
-				"host": "3.139.25.45",
+				"host": "127.0.0.1",
 				"port": "3306",
-				"database": "MV_001_00",
-				"url": "jdbc:mysql://3.139.25.45:3306/MV_001_00",
+				"database": "sys",
+				"url": "jdbc:mysql://127.0.0.1:3306/sys",
 				"configurationType": "MANUAL",
 				"type": "dev",
 				"properties": {
-					"connectTimeout": "20000",
 					"rewriteBatchedStatements": "true",
 					"enabledTLSProtocols": "TLSv1,TLSv1.1,TLSv1.2",
-					"allowPublicKeyRetrieval": "true",
-					"useSSL": "false"
+					"allowPublicKeyRetrieval": "TRUE",
+					"failOverReadOnly": "FALSE",
+					"connectTimeout": "20000",
+					"autoReconnect": "TRUE",
+					"maxReconnects": "2",
+					"useSSL": "FALSE"
 				},
 				"auth-model": "native",
 				"handlers": {
-					"mysql_ssl": {
-						"type": "CONFIG",
+					"ssh_tunnel": {
+						"type": "TUNNEL",
 						"enabled": true,
 						"save-password": true,
 						"properties": {
-							"ssl.ca.cert": "",
-							"ssl.client.cert": "",
-							"ssl.client.key": "/home/ovelez/Documentos/clientes/Aerocivil/Centos8.ppk",
-							"ssl.method": "CERTIFICATES",
-							"ssl.require": "false",
-							"ssl.verify.server": "true",
-							"ssl.public.key.retrieve": "false",
-							"ssl.cipher.suites": ""
+							"host": "13.68.186.120",
+							"port": 22.0,
+							"authType": "PUBLIC_KEY",
+							"keyPath": "/home/ovelez/Documentos/clientes/Aerocivil/accesoservidoresubuntuazure/PortalTest-EastUS-VM_key.pem",
+							"implementation": "sshj",
+							"localHost": "",
+							"remoteHost": ""
 						}
 					}
 				}
 			}
 		},
-		"mysql8-186616071cb-5a2e22f26c324396": {
+		"mysql8-1874ef51d02-695f5fd5b3151e2e": {
 			"provider": "mysql",
 			"driver": "mysql8",
 			"name": "Localhost-GS_001_00",
 			"save-password": true,
+			"folder": "Aerocivil",
 			"configuration": {
 				"host": "localhost",
 				"port": "3306",
@@ -61,45 +69,38 @@
 				"auth-model": "native"
 			}
 		},
-		"mysql8-18711cdecd5-7e4b7358f4d18d1": {
-			"provider": "mysql",
-			"driver": "mysql8",
-			"name": "mysql",
+		"oracle_thin-1874ef5954e-119ea9d7545e39e": {
+			"provider": "oracle",
+			"driver": "oracle_thin",
+			"name": "ZAITEST",
 			"save-password": true,
+			"folder": "Zaimella",
 			"configuration": {
-				"host": "127.0.0.1",
-				"port": "3306",
-				"database": "mysql",
-				"url": "jdbc:mysql://127.0.0.1:3306/mysql",
+				"host": "192.168.5.6",
+				"port": "1523",
+				"database": "ZAITEST",
+				"url": "jdbc:oracle:thin:@192.168.5.6:1523:ZAITEST",
 				"configurationType": "MANUAL",
+				"home": "/home/ovelez/Oracle/android-studio",
 				"type": "dev",
-				"properties": {
-					"rewriteBatchedStatements": "true",
-					"enabledTLSProtocols": "TLSv1,TLSv1.1,TLSv1.2",
-					"failOverReadOnly": "FALSE",
-					"connectTimeout": "20000",
-					"autoReconnect": "TRUE",
-					"maxReconnects": "2",
-					"useSSL": "FALSE"
+				"provider-properties": {
+					"@dbeaver-connection-type@": "BASIC",
+					"@dbeaver-sid-service@": "SID"
 				},
-				"auth-model": "native",
-				"handlers": {
-					"ssh_tunnel": {
-						"type": "TUNNEL",
-						"enabled": true,
-						"save-password": true,
-						"properties": {
-							"host": "13.68.186.120",
-							"port": 22,
-							"authType": "PUBLIC_KEY",
-							"keyPath": "/home/ovelez/Documentos/clientes/Aerocivil/accesoservidoresubuntuazure/PortalTest-EastUS-VM_key.pem",
-							"implementation": "sshj",
-							"localHost": "",
-							"remoteHost": ""
-						}
-					}
+				"auth-model": "oracle_native"
+			},
+			"filters": [
+				{
+					"type": "org.jkiss.dbeaver.ext.oracle.model.OracleSchema",
+					"enabled": true,
+					"include": [
+						"DATA",
+						"MPZML_HER",
+						"MPZML_REP",
+						"MPZML_SOL"
+					]
 				}
-			}
+			]
 		}
 	},
 	"connection-types": {

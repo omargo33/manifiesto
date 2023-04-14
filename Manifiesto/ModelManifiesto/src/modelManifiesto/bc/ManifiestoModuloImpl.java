@@ -349,7 +349,6 @@ public class ManifiestoModuloImpl extends AuditoriaModuloImpl implements Manifie
         mapa.put("fechaInicio", fechaInicio);
         mapa.put("fechaFin", fechaFin);
 
-
         idArchivo =
             Reporte.crearReportePDF(this, impresionBaseIText, mapa, nombrePagina, "Manifiesto", tabla, usuario,
                                     usuarioPrograma);
@@ -616,7 +615,6 @@ public class ManifiestoModuloImpl extends AuditoriaModuloImpl implements Manifie
                                              String tabla, String usuario, String usuarioPrograma) {
         Map<String, String> mapRespuesta = new HashMap<>();
 
-        //TODO cambiar por SQL directo
         int idGrupo = this.base_grupoBuscarIdGrupo(Integer.parseInt(id), esquema, tabla);
         Map<String, String> mapaArchivos = this.base_grupoPathsArchivos(idGrupo);
 

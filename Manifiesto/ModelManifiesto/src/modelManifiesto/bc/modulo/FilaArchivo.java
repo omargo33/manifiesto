@@ -195,42 +195,42 @@ public class FilaArchivo {
                                                            .getNumericCellValue()));
 
             mensajeCreacion = "Pasajeros";
-            this.pasajeros = String.valueOf(pagina.getRow(row)
-                                                  .getCell(9)
-                                                  .getStringCellValue());
-
+            this.pasajeros = String.valueOf((int) pagina.getRow(row)
+                                                        .getCell(9)
+                                                        .getNumericCellValue());
             mensajeCreacion = "Pasajeros Transito";
-            this.pasajerosTransito = String.valueOf(pagina.getRow(row)
-                                                          .getCell(10)
-                                                          .getStringCellValue());
-            
+            this.pasajerosTransito = String.valueOf((int) pagina.getRow(row)
+                                                                .getCell(10)
+                                                                .getNumericCellValue());
+
             mensajeCreacion = "Pasajeros Exentos Tasas";
-            this.pasajerosExentosTasas = String.valueOf(pagina.getRow(row)
-                                                              .getCell(12)
-                                                              .getStringCellValue());
-            
+            this.pasajerosExentosTasas = String.valueOf((int) pagina.getRow(row)
+                                                                    .getCell(12)
+                                                                    .getNumericCellValue());
+
             mensajeCreacion = "Pasajeros Pagan Dolares";
-            this.pasajerosPaganDolares = String.valueOf(pagina.getRow(row)
-                                                              .getCell(14)
-                                                              .getStringCellValue());
-            
+            this.pasajerosPaganDolares = String.valueOf((int) pagina.getRow(row)
+                                                                    .getCell(14)
+                                                                    .getNumericCellValue());
+
             mensajeCreacion = "Pasajeros Exentos Timbres";
-            this.pasajerosExcentosTimbres = String.valueOf(pagina.getRow(row)
-                                                                 .getCell(17)
-                                                                 .getStringCellValue());
-            
+            this.pasajerosExcentosTimbres = String.valueOf((int) pagina.getRow(row)
+                                                                       .getCell(17)
+                                                                       .getNumericCellValue());
+
             mensajeCreacion = "Pasajeros Pagan Timbres Dolares";
-            this.pasajerosPaganTimbresDolares = String.valueOf(pagina.getRow(row)
-                                                                     .getCell(19)
-                                                                     .getStringCellValue());
-            
+            this.pasajerosPaganTimbresDolares = String.valueOf((int) pagina.getRow(row)
+                                                                           .getCell(19)
+                                                                           .getNumericCellValue());
+
             mensajeCreacion = "Tipo";
             this.tipo = String.valueOf(pagina.getRow(row)
                                              .getCell(16)
                                              .getStringCellValue());
         } catch (Exception e) {
             createOk = false;
-            mensaje = String.format("El formato de la columna %s no es el correcto, debe ser texto simple", mensajeCreacion);
+            mensaje =
+                String.format("El formato de la columna %s no es el correcto, debe ser texto simple", mensajeCreacion);
         }
     }
 
