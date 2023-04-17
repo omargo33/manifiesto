@@ -15,11 +15,6 @@
       <managed-bean-class>viewManifiesto.preliquidacion.PPRItemFrg</managed-bean-class>
       <managed-bean-scope>request</managed-bean-scope>
     </managed-bean>
-    <managed-bean id="__4">
-      <managed-bean-name>PPRBackingManifiestoUpListaFrg</managed-bean-name>
-      <managed-bean-class>viewManifiesto.up.PPRListaFrg</managed-bean-class>
-      <managed-bean-scope>backingBean</managed-bean-scope>
-    </managed-bean>
     <view id="ListaFrg">
       <page>/preliquidacion/ListaFrg.jsff</page>
     </view>

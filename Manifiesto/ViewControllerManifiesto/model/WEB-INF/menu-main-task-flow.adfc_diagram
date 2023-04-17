@@ -61,9 +61,9 @@
       <property
          name="activityId">Menu</property>
       <property
-         name="pageFragment">true</property>
-      <property
          name="inherited">true</property>
+      <property
+         name="pageFragment">true</property>
       <property
          name="x">463.46094</property>
       <property
@@ -237,7 +237,7 @@
       <property
          name="activityId">base_obtenerParametroTexto01</property>
       <property
-         name="inherited">true</property>
+         name="inherited">false</property>
       <property
          name="x">764.15625</property>
       <property
