@@ -67,10 +67,10 @@ public class ManifiestoModuloImpl extends AuditoriaModuloImpl implements Manifie
     final String SQL_MANIFIESTO_TIMBRE = "select timbre from MV_001_00.tasa where nombre = ?";
 
     final String SQL_MANIFIESTO_AEROLINEA =
-        "select indice_secundario, nombre, identificacion_fiscal, nombre_01, identificacion_01, nombre_02, Identificacion_02 from libro_direccion  where indice = ?";
+        "select indice_secundario, nombre, identificacion_fiscal, nombre_01, identificacion_01, nombre_02, Identificacion_02 from MV_001_00.libro_direccion  where indice = ?";
 
     final String SQL_UPDATE_NOMBRES_AEROLINEA =
-        "UPDATE libro_direccion SET nombre_01 = ?, identificacion_01 = ?, nombre_02 = ?, identificacion_02 = ?  WHERE indice = ?";
+        "UPDATE MV_001_00.libro_direccion SET nombre_01 = ?, identificacion_01 = ?, nombre_02 = ?, identificacion_02 = ?  WHERE indice = ?";
 
 
     /**

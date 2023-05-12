@@ -167,70 +167,73 @@ public class FilaArchivo {
     public FilaArchivo(Sheet pagina, int row) {
         String mensajeCreacion = "";
         try {
-            mensajeCreacion = "Indice de Aerolinea";
+            mensajeCreacion = "Indice de Aerolinea es texto";
             this.indiceAerolinea = String.valueOf(pagina.getRow(row)
                                                         .getCell(0)
                                                         .getStringCellValue());
-            mensajeCreacion = "Indice de Aeropuerto Origen";
+
+            mensajeCreacion = "Indice de Aeropuerto Origen es texto";
             this.indiceAeropuertoOrigen = String.valueOf(pagina.getRow(row)
                                                                .getCell(2)
                                                                .getStringCellValue());
-            mensajeCreacion = "Indice de Aeropuerto Destino";
+
+            mensajeCreacion = "Indice de Aeropuerto Destino es texto";
             this.indiceAeropuertoDestino = String.valueOf(pagina.getRow(row)
                                                                 .getCell(3)
                                                                 .getStringCellValue());
-            mensajeCreacion = "Indice de Aeronave";
+
+            mensajeCreacion = "Indice de Aeronave es texto";
             this.indiceAeronave = String.valueOf(pagina.getRow(row)
                                                        .getCell(4)
                                                        .getStringCellValue());
 
-            mensajeCreacion = "Fecha Local Operacion";
+            mensajeCreacion = "Fecha Local Operacion es texto";
             this.fecha = String.valueOf(pagina.getRow(row)
                                               .getCell(5)
                                               .getStringCellValue());
 
-            mensajeCreacion = "No Vuelo";
-            this.numeroVuelo = String.valueOf((int) (pagina.getRow(row)
-                                                           .getCell(8)
-                                                           .getNumericCellValue()));
+            mensajeCreacion = "No Vuelo es texto";
+            this.numeroVuelo = String.valueOf(pagina.getRow(row)
+                                                    .getCell(8)
+                                                    .getStringCellValue());
 
-            mensajeCreacion = "Pasajeros";
+            mensajeCreacion = "Pasajeros es valor entero";
             this.pasajeros = String.valueOf((int) pagina.getRow(row)
                                                         .getCell(9)
                                                         .getNumericCellValue());
-            mensajeCreacion = "Pasajeros Transito";
+
+            mensajeCreacion = "Pasajeros Transito es valor entero";
             this.pasajerosTransito = String.valueOf((int) pagina.getRow(row)
                                                                 .getCell(10)
                                                                 .getNumericCellValue());
 
-            mensajeCreacion = "Pasajeros Exentos Tasas";
+            mensajeCreacion = "Pasajeros Exentos Tasas es valor entero";
             this.pasajerosExentosTasas = String.valueOf((int) pagina.getRow(row)
                                                                     .getCell(12)
                                                                     .getNumericCellValue());
 
-            mensajeCreacion = "Pasajeros Pagan Dolares";
+            mensajeCreacion = "Pasajeros Pagan Dolares es valor entero";
             this.pasajerosPaganDolares = String.valueOf((int) pagina.getRow(row)
                                                                     .getCell(14)
                                                                     .getNumericCellValue());
 
-            mensajeCreacion = "Pasajeros Exentos Timbres";
+            mensajeCreacion = "Pasajeros Exentos Timbres es valor entero";
             this.pasajerosExcentosTimbres = String.valueOf((int) pagina.getRow(row)
                                                                        .getCell(17)
                                                                        .getNumericCellValue());
 
-            mensajeCreacion = "Pasajeros Pagan Timbres Dolares";
+            mensajeCreacion = "Pasajeros Pagan Timbres Dolares es valor entero";
             this.pasajerosPaganTimbresDolares = String.valueOf((int) pagina.getRow(row)
                                                                            .getCell(19)
                                                                            .getNumericCellValue());
 
-            mensajeCreacion = "Tipo";
+            mensajeCreacion = "Tipo es texto";
             this.tipo = String.valueOf(pagina.getRow(row)
                                              .getCell(16)
                                              .getStringCellValue());
         } catch (Exception e) {
             createOk = false;
-            mensaje =
-                String.format("El formato de la columna %s no es el correcto, debe ser texto simple", mensajeCreacion);
+            mensaje = String.format("El formato de la columna %s", mensajeCreacion);
         }
     }
 
