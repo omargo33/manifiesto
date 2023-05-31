@@ -7,7 +7,7 @@
 ## Omar Velez Personal
 ##
 13a.usuario=omargo33@hotmail.com 
-13a.clave=admin2483700 
+13a.clave= 
 13a.instancia.servidor=true 
 13a.acceso.ssl=true 
 mail.smtp.host=smtp.office365.com 
@@ -18,12 +18,19 @@ mail.smtp.starttls.enable=true
 mail.smtp.ssl.protocols=TLSv1.2 
 mail.debug=false 
 
+portal.tasastimbres
+74r92sEX$beans
+
+13a.usuario=portal.tasastimbres  13a.instancia.servidor=true 13a.acceso.ssl=true mail.smtp.host=smtp.office365.com mail.smtp.post=587 mail.smtp.port=587 mail.smtp.auth=true mail.smtp.starttls.enable=true mail.smtp.ssl.protocols=TLSv1.2 mail.debug=false 
+
+
+
 ##
 ## Formato para Zimbra 2022
 ## Jardin Azuayo Test
 ##
 13a.usuario=test.portal@jardinazuayo.fin.ec 
-13a.clave=Testportal.2022 
+
 13a.instancia.servidor=false 
 13a.acceso.ssl=true 
 mail.smtp.host=smt 
@@ -41,7 +48,6 @@ mail.smtp.starttls.enable=true
 ## Proceso Electronico Test
 ##
 13a.usuario=facturacion@procesoelectronico.com
-13a.clave=Fac%%001
 13a.instancia.servidor=false 
 13a.acceso.ssl=true 
 mail.smtp.host=smtp.gmail.com

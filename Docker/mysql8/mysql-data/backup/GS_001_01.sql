@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.32, for Linux (x86_64)
 --
--- Host: localhost    Database: GS_001_00
+-- Host: localhost    Database: GS_001_01
 -- ------------------------------------------------------
 -- Server version	8.0.32
 
@@ -16,14 +16,14 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Current Database: `GS_001_00`
+-- Current Database: `GS_001_01`
 --
 
-/*!40000 DROP DATABASE IF EXISTS `GS_001_00`*/;
+/*!40000 DROP DATABASE IF EXISTS `GS_001_01`*/;
 
-CREATE DATABASE /*!32312 IF NOT EXISTS*/ `GS_001_00` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_bin */ /*!80016 DEFAULT ENCRYPTION='N' */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/ `GS_001_01` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_bin */ /*!80016 DEFAULT ENCRYPTION='N' */;
 
-USE `GS_001_00`;
+USE `GS_001_01`;
 
 --
 -- Table structure for table `codigo_definido_usuario`
@@ -46,7 +46,8 @@ CREATE TABLE `codigo_definido_usuario` (
   `usuario_fecha` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Fecha de insercion del registro',
   `usuario_programa` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT 'Programa usado para el cambio',
   PRIMARY KEY (`id_codigo_definido_usuario`),
-  KEY `codigo_definido_usuario_id_modulo_IDX` (`id_modulo`,`grupo`) USING BTREE
+  KEY `codigo_definido_usuario_FK` (`id_modulo`),
+  CONSTRAINT `codigo_definido_usuario_FK` FOREIGN KEY (`id_modulo`) REFERENCES `modulo` (`id_modulo`)
 ) ENGINE=InnoDB AUTO_INCREMENT=82 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_german2_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -58,36 +59,6 @@ LOCK TABLES `codigo_definido_usuario` WRITE;
 /*!40000 ALTER TABLE `codigo_definido_usuario` DISABLE KEYS */;
 INSERT INTO `codigo_definido_usuario` (`id_codigo_definido_usuario`, `id_modulo`, `grupo`, `codigo_texto`, `codigo_numero`, `nombre`, `descripcion`, `orden`, `estado`, `usuario`, `usuario_fecha`, `usuario_programa`) VALUES (1,1,'AD_US_01','A',1,'Activo','Usuario Activo',1,'A','ovelez','2021-05-19 01:41:42','manual'),(2,1,'AD_US_01','X',2,'Borrado','Usuario Borrado',3,'A','ovelez','2021-05-19 01:42:36','manual'),(3,1,'AD_US_01','P',3,'Pausado','Usuario Suspendido',2,'A','ovelez','2021-05-19 01:43:01','manual'),(4,1,'001','AD_US_01',1,'Usuario-Estado','Usuario-Estado',11,'A','ovelez','2021-05-19 01:43:01','manual'),(5,1,'AD_RL_01','A',1,'Activo','Rol Activo',1,'A','ovelez','2021-06-18 17:15:10','manual'),(6,1,'AD_RL_01','I',2,'Inactivo','Rol Inactivo',2,'A','ovelez','2021-06-18 17:15:10','manual'),(7,1,'AD_RL_02','ADM',1,'Administrador','Rol-Administrador',2,'A','ovelez','2021-06-18 17:15:10','manual'),(8,1,'AD_RL_02','LOG',2,'Auditor','Rol-Auditor',3,'A','ovelez','2021-06-18 17:15:10','manual'),(9,1,'AD_RL_02','CLI-01',3,'Cliente 01','Rol-Cliente 01',4,'A','ovelez','2021-06-18 17:15:10','manual'),(10,1,'AD_RL_02','CLI-02',4,'Cliente 02','Rol-Cliente 02',5,'A','ovelez','2021-06-18 17:15:10','manual'),(11,1,'AD_RL_02','ROOT',5,'Principal','Rol-Principal',1,'A','ovelez','2021-06-18 17:15:10','manual'),(12,1,'001','AD_RL_01',2,'Rol-Estado','Rol-Estado',12,'A','ovelez','2021-05-19 01:43:01','manual'),(13,1,'001','AD_RL_02',3,'Rol-Tipo-Acceso','Rol-Tipo-Acceso',13,'A','ovelez','2021-05-19 01:43:01','manual'),(14,1,'001','AD_MD_01',4,'Modulo-Estado','Modulo-Estado',17,'A','ovelez','2021-06-22 22:11:12','manual'),(15,1,'AD_MD_01','A',1,'Activo','Modulo Activo',1,'A','ovelez','2021-06-22 22:11:52','manual'),(16,1,'AD_MD_01','I',1,'Inactivo','Modulo Inactivo',2,'A','ovelez','2021-06-22 22:12:39','manual'),(17,1,'001','AD_CD_01',5,'CDU-Estado','CDU-Estado',6,'A','ovelez','2021-06-22 22:11:12','manual'),(18,1,'AD_CD_01','A',1,'Activo','Codigo Definido Usuario Activo',1,'A','ovelez','2021-06-22 23:37:06','manual'),(19,1,'AD_CD_01','I',2,'Inactivo','Codigo Definido Usuario Inactivo',2,'A','ovelez','2021-06-22 23:37:06','manual'),(23,1,'sdfsadf','11',11,'11','11',-1,'A','Pendiente','2021-06-25 22:18:28','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(24,1,'001','AD_PM_01',1,'Parametro-Clave','Administracion de parametros, en el que se tiene como clave o no',14,'A','Pendiente','2021-07-01 16:24:40','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(25,1,'AD_PM_01','C',0,'Clave','El parametro contiene claves',1,'A','Pendiente','2021-07-01 16:26:59','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(26,1,'AD_PM_01','N',1,'Sin Clave','El parametro no tiene claves',2,'A','Pendiente','2021-07-01 16:27:26','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(27,1,'001','AD_TK_01',1,'Token-Tipo','Tipo de toke, Correo, Facebook o cualquier otra red social',15,'A','Pendiente','2021-07-02 15:22:02','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(28,1,'AD_TK_01','C',1,'Correo','Es el inicial que usa directamente el correo',1,'A','Pendiente','2021-07-02 15:24:18','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(29,1,'AD_TK_01','F',2,'Facebook','Ingreso por Facebook',2,'A','Pendiente','2021-07-02 15:25:51','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(30,1,'AD_TK_01','G',3,'Google','Google Autenticador',3,'A','Pendiente','2021-07-02 16:01:19','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(35,1,'001','AD_TK_02',2,'Token-Estado','Estado del token',16,'A','Pendiente','2021-07-02 16:35:17','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(36,1,'AD_TK_02','A',1,'Activo','Token Activo',2,'A','Pendiente','2021-07-02 16:35:59','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(37,1,'AD_TK_02','I',2,'Inactivo','Token inactivo',3,'A','Pendiente','2021-07-02 16:36:19','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(38,1,'AD_TK_02','C',0,'Creado','Creado pero aun no activado',1,'A','Pendiente','2021-07-02 17:32:39','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(39,1,'001','AD_MN_01',1,'Menu-Tipo','Tipo de menus',9,'A','Pendiente','2021-07-07 22:44:29','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(42,1,'001','AD_MN_02',1,'Menu-Estado','Menu Estado',10,'A','Pendiente','2021-07-07 22:47:25','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(43,1,'AD_MN_01','P',1,'Principal','Es menu principal',1,'A','Pendiente','2021-07-07 22:50:25','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(44,1,'AD_MN_01','S',2,'Secundario','Menu Secundario',2,'A','Pendiente','2021-07-07 22:51:02','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(45,1,'AD_MN_01','U',2,'Usuario','Menu de Usuario',3,'A','Pendiente','2021-07-07 22:51:27','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(46,1,'AD_MN_01','X',4,'Salir','Menu de salida ',4,'A','Pendiente','2021-07-07 22:52:03','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(47,1,'AD_MN_02','A',1,'Activo','Menu activo',2,'A','Pendiente','2021-07-07 22:52:29','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(48,1,'AD_MN_02','I',2,'Inactivo','Menu inactivo',1,'A','Pendiente','2021-07-07 22:52:47','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(49,1,'001','AD_PR_01',1,'Permiso-Crear','Permisos de creación, actualizar, borrar y auditar',8,'A','Pendiente','2021-07-08 16:36:32','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(50,1,'AD_PR_01','S',1,'Si','Esta habilitado',1,'A','Pendiente','2021-07-08 16:37:51','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(51,1,'AD_PR_01','N',0,'No','No Habilitado',2,'A','Pendiente','2021-07-08 16:38:13','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(52,4,'001','CL_PR_01',1,'Estado proyecto','Estado proyecto',7,'A','omar','2022-01-20 14:41:54','/ViewControllerAdministrativo'),(53,4,'CL_PR_01','A',1,'Activo','Proyecto Activo/Ejecución ',1,'A','omar','2022-01-20 14:42:40','/ViewControllerAdministrativo'),(54,4,'001','CL_UB_01',2,'Ubicación','CDU para la ubicación de clientes',3,'A','omar','2022-01-28 00:37:24','/Administrativo-001'),(55,4,'CL_UB_01','E',1,'Email','Correo de contacto',2,'A','omar','2022-01-28 00:40:08','/Administrativo-001'),(56,4,'CL_UB_01','C',2,'Celular','Teléfono Celular',1,'A','omar','2022-01-28 00:42:06','/Administrativo-001'),(57,4,'CL_UB_01','T',3,'Teléfono','Teléfono Fijo',3,'A','omar','2022-01-28 00:42:35','/Administrativo-001'),(58,6,'001','MV_LD_01',1,'Tipo de Direcciones','Tipo de direcciones para el manifiesto',1,'A','omar','2022-02-18 23:05:46','/Administrativo-001'),(59,6,'MV_LD_01','C',1,'Aerolinea','Aerolinea',0,'A','omar','2022-02-18 23:06:27','/Administrativo-001'),(60,6,'MV_LD_01','AR',2,'Aeropuerto','Aeropuerto Origen/Desino ',1,'A','omar','2022-02-18 23:08:23','/Administrativo-001'),(61,6,'MV_LD_01','CA',2,'Aeronave','Idenfivicacion de Avion',2,'A','omar','2022-02-18 23:09:00','/Administrativo-001'),(62,6,'001','MV_LD_02',2,'Estado libro de direcciones','Estado libro de direcciones si esta borrado acitivo, etc',2,'A','omar','2022-02-20 16:09:55','/Administrativo-001'),(63,6,'MV_LD_02','A',1,'Activo','Activo',0,'A','omar','2022-02-20 16:11:02','/Administrativo-001'),(64,6,'MV_LD_02','I',1,'Inactivo','Inactivo',2,'A','omar','2022-02-20 16:11:29','/Administrativo-001'),(65,6,'MV_LD_02','X',2,'Borrado','Borrado Logico',2,'A','omar','2022-02-20 16:11:51','/Administrativo-001'),(66,6,'001','MV_LD_03',3,'Estado Sin borrar','Estado Sin borrar',4,'A','omar','2022-02-20 16:50:01','/Administrativo-001'),(67,6,'MV_LD_03','A',1,'Activo','Activo',0,'A','omar','2022-02-20 16:11:02','/Administrativo-001'),(68,6,'MV_LD_03','I',1,'Inactivo','Inactivo',2,'A','omar','2022-02-20 16:11:29','/Administrativo-001'),(69,6,'001','MV_MN_02',4,'Tipo de Manifiesto','Tipo de Manifiesto',18,'A','omar','2022-02-21 23:37:02','/Administrativo-001'),(70,6,'MV_MN_02','N',0,'Nacional','Vuelo Local',0,'A','omar','2022-02-21 23:37:34','/Administrativo-001'),(71,6,'MV_MN_02','I',1,'Internacional','Vuelo Internacional',2,'A','omar','2022-02-21 23:38:51','/Administrativo-001'),(72,6,'001','MV_MN_01',2,'Estado','Estado de manifiesto',5,'A','omar','2022-02-22 00:02:12','/Administrativo-001'),(73,6,'MV_MN_01','C',1,'Creado','Creado',1,'A','omar','2022-02-22 00:02:42','/Administrativo-001'),(74,6,'MV_MN_01','B',2,'Bloqueado','Bloqueado para Ediciones',2,'A','omar','2022-02-22 00:03:29','/Administrativo-001'),(75,6,'MV_MN_01','JDE',3,'JDE','Pasado a JDE',3,'A','omar','2022-02-22 00:04:04','/Administrativo-001'),(76,6,'MV_MN_01','BAD',4,'Error JDE','Error al pasar a JDE',4,'A','omar','2022-02-22 00:04:48','/Administrativo-001'),(77,1,'AD_MN_01','R',5,'REST','Rest',5,'A','omar78','2022-12-17 21:57:36','/Administrativo-001'),(78,6,'001','MV_MN_03',2,'Cancelado','Vuelo Cancelado',5,'A','omar','2022-02-22 00:02:12','/Administrativo-001'),(79,6,'MV_MN_03','N',1,'Ninguna','Ninguna',0,'A','omar','2022-02-21 23:38:51','/Administrativo-001'),(80,6,'MV_MN_03','C',2,'Vuelo Cancelado','Vuelo Cancelado',1,'A','omar','2022-02-21 23:38:51','/Administrativo-001'),(81,1,'AD_RL_02','CLI-03',5,'Cliente 03','Rol-Cliente 03',6,'A','ovelez','2021-06-18 17:15:10','manual');
 /*!40000 ALTER TABLE `codigo_definido_usuario` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `error`
---
-
-DROP TABLE IF EXISTS `error`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `error` (
-  `id_error` int NOT NULL AUTO_INCREMENT,
-  `indice` varchar(128) NOT NULL COMMENT 'Indice de error',
-  `mensaje` varchar(1024) NOT NULL COMMENT 'Mensaje de error',
-  `descripcion` varchar(4098) DEFAULT NULL COMMENT 'Descripcion del mensaje de error',
-  `usuario` varchar(128) NOT NULL COMMENT 'Usuario que realizo el cambio',
-  `usuario_fecha` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Fecha de insercion del registro',
-  `usuario_programa` varchar(256) NOT NULL COMMENT 'Programa usado para el cambio',
-  PRIMARY KEY (`id_error`),
-  KEY `error_indice_IDX` (`indice`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `error`
---
-
-LOCK TABLES `error` WRITE;
-/*!40000 ALTER TABLE `error` DISABLE KEYS */;
-INSERT INTO `error` (`id_error`, `indice`, `mensaje`, `descripcion`, `usuario`, `usuario_fecha`, `usuario_programa`) VALUES (1,'SAF000001','SAF000001 Error commit para el codigo {0} en la ubicacion {1}.{2}(). Motivado por: {3}','Mensaje que se usa al dar: \n\ncommitRollback(elemento, \"metodoInvocado\");\n\nelemento: es el campo de los datos que va a indicar los datos que se esten haciendo.\n\n\"metodoInvocado\": es el campo con el nombre del metodo que invoca el commitRollback \n\n','o_velez','2021-05-04 23:03:08','manual'),(2,'SAF000002','SAF000002 Error al registrar el acceso {0}. ','Mensaje que se usa al dar: \n\ncrearAcceso(SAFAuditoriaModuloImpl moduloAplicacion, String nombre, String token, String tokenApi, String usuarioPrograma)\n\nNo fue capaz de ejecutar','o_velez','2021-05-04 23:03:08','manual');
-/*!40000 ALTER TABLE `error` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -115,7 +86,7 @@ CREATE TABLE `informacion` (
 
 LOCK TABLES `informacion` WRITE;
 /*!40000 ALTER TABLE `informacion` DISABLE KEYS */;
-INSERT INTO `informacion` (`id_informacion`, `nombre`, `valor_01`, `valor_02`, `usuario`, `usuario_fecha`, `usuario_programa`) VALUES (1,'Nombre','GS_001_00','','ovelez','2012-12-12 17:12:12','manual'),(2,'Descripción','General Setup version 001','..','ovelez','2012-12-12 17:12:12','manual'),(3,'Autor','Omar Velez omargo33@hotmail.com','..','ovelez','2021-04-08 14:58:38','manual'),(4,'E-GS00100-8','Registro no existe','EmptyResultDataAccessException','ovelez','2021-04-08 14:58:38','manual'),(5,'E-GS00100-18','Formato de fecha incorrecto, YYYY-MM-DD HH:MM:SS','@Pattern','ovelez','2021-04-08 14:58:38','manual'),(6,'W-GS00100-1','La seguridad de usuario no se ejecuto y se presenta en al evaluar','generarMensajeError','ovelez','2021-04-08 14:58:38','manual'),(7,'E-GS00100-2','El campo no debe ser nulo','@NotNull','manual','2022-10-30 14:45:21','manual'),(8,'E-GS00100-3','El campo no puede estar vacio','@NotEmpty','ovelez','2021-04-08 14:58:38','manual'),(9,'E-GS00100-4','El indice del modulo ya existe ','@ModuloIndice','ovelez','2021-04-08 14:58:38','manual'),(10,'E-GS00100-5','El nombre del modulo ya existe ','@ModuloNombre','ovelez','2021-04-08 14:58:38','manual'),(11,'E-GS00100-6','El nombre de usuario ya existe','@UsuarioNick','ovelez','2021-04-08 14:58:38','manual'),(12,'E-GS00100-7','Campo Relacionado a otro recurso no existe','SQLIntegrityConstraintViolationException','ovelez','2021-04-08 14:58:38','manual'),(13,'W-GS00100-2','No esta definido el mensaje de error de ComonController','handleExceptions','ovelez','2021-04-08 14:58:38','manual'),(14,'W-GS00100-3','Autentification Ejecutada','','ovelez','2021-04-08 14:58:38','manual'),(15,'W-GS00100-4','Autentification no Ejecutada','','ovelez','2021-04-08 14:58:38','manual'),(16,'E-GS00100-9','usuarioRechazado No se ejecuto correctamente el JSON de salida','usuarioRechazado','ovelez','2021-04-08 14:58:38','manual'),(17,'W-GS00100-5','Problemas al identificar el usuario','loadUserByUsername','ovelez','2021-04-08 14:58:38','manual'),(18,'W-GS00100-6','Credencial Invalida','generarMensajeError','ovelez','2021-04-08 14:58:38','manual'),(19,'W-GS00100-7','Usuario Excede el numero de intentos validos.','generarMensajeError','ovelez','2021-04-08 14:58:38','manual'),(20,'W-GS00100-8','Token inactivo','generarMensajeError','ovelez','2021-04-08 14:58:38','manual');
+INSERT INTO `informacion` (`id_informacion`, `nombre`, `valor_01`, `valor_02`, `usuario`, `usuario_fecha`, `usuario_programa`) VALUES (1,'Nombre','GS_001_01','','ovelez','2012-12-12 17:12:12','manual'),(2,'Descripción','General Setup version 001','..','ovelez','2012-12-12 17:12:12','manual'),(3,'Autor','Omar Velez omargo33@hotmail.com','..','ovelez','2021-04-08 14:58:38','manual'),(4,'E-GS00100-8','Registro no existe','EmptyResultDataAccessException','ovelez','2021-04-08 14:58:38','manual'),(5,'E-GS00100-18','Formato de fecha incorrecto, YYYY-MM-DD HH:MM:SS','@Pattern','ovelez','2021-04-08 14:58:38','manual'),(6,'W-GS00100-1','La seguridad de usuario no se ejecuto y se presenta en al evaluar','generarMensajeError','ovelez','2021-04-08 14:58:38','manual'),(7,'E-GS00100-2','El campo no debe ser nulo','@NotNull','manual','2022-10-30 14:45:21','manual'),(8,'E-GS00100-3','El campo no puede estar vacio','@NotEmpty','ovelez','2021-04-08 14:58:38','manual'),(9,'E-GS00100-4','El indice del modulo ya existe ','@ModuloIndice','ovelez','2021-04-08 14:58:38','manual'),(10,'E-GS00100-5','El nombre del modulo ya existe ','@ModuloNombre','ovelez','2021-04-08 14:58:38','manual'),(11,'E-GS00100-6','El nombre de usuario ya existe','@UsuarioNick','ovelez','2021-04-08 14:58:38','manual'),(12,'E-GS00100-7','Campo Relacionado a otro recurso no existe','SQLIntegrityConstraintViolationException','ovelez','2021-04-08 14:58:38','manual'),(13,'W-GS00100-2','No esta definido el mensaje de error de ComonController','handleExceptions','ovelez','2021-04-08 14:58:38','manual'),(14,'W-GS00100-3','Autentification Ejecutada','','ovelez','2021-04-08 14:58:38','manual'),(15,'W-GS00100-4','Autentification no Ejecutada','','ovelez','2021-04-08 14:58:38','manual'),(16,'E-GS00100-9','usuarioRechazado No se ejecuto correctamente el JSON de salida','usuarioRechazado','ovelez','2021-04-08 14:58:38','manual'),(17,'W-GS00100-5','Problemas al identificar el usuario','loadUserByUsername','ovelez','2021-04-08 14:58:38','manual'),(18,'W-GS00100-6','Credencial Invalida','generarMensajeError','ovelez','2021-04-08 14:58:38','manual'),(19,'W-GS00100-7','Usuario Excede el numero de intentos validos.','generarMensajeError','ovelez','2021-04-08 14:58:38','manual'),(20,'W-GS00100-8','Token inactivo','generarMensajeError','ovelez','2021-04-08 14:58:38','manual');
 /*!40000 ALTER TABLE `informacion` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -139,8 +110,8 @@ CREATE TABLE `menu` (
   `usuario_fecha` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Fecha de insercion del registro',
   `usuario_programa` varchar(256) NOT NULL COMMENT 'Programa usado para el cambio',
   PRIMARY KEY (`id_menu`),
-  KEY `menu_indice_IDX` (`indice`),
-  KEY `menu_FK` (`id_modulo`)
+  KEY `menu_FK` (`id_modulo`),
+  CONSTRAINT `menu_FK` FOREIGN KEY (`id_modulo`) REFERENCES `modulo` (`id_modulo`)
 ) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -170,8 +141,7 @@ CREATE TABLE `modulo` (
   `usuario_fecha` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Fecha de insercion del registro',
   `usuario_programa` varchar(256) NOT NULL COMMENT 'Programa usado para el cambio',
   `estado` varchar(8) DEFAULT NULL COMMENT 'Estado del listado A=Activo, I=Inactivo y X=Eliminado',
-  PRIMARY KEY (`id_modulo`),
-  KEY `modulo_indice_IDX` (`indice`) USING BTREE
+  PRIMARY KEY (`id_modulo`)
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -181,36 +151,8 @@ CREATE TABLE `modulo` (
 
 LOCK TABLES `modulo` WRITE;
 /*!40000 ALTER TABLE `modulo` DISABLE KEYS */;
-INSERT INTO `modulo` (`id_modulo`, `indice`, `nombre`, `contexto`, `usuario`, `usuario_fecha`, `usuario_programa`, `estado`) VALUES (1,'LG_001_00','Login','http://192.168.1.7:28080/Login-001/faces/LOG001?server=GF5&?token=','ovelez','2021-05-16 22:47:55','manual','A'),(2,'GS_001_00','Administrativo','http://192.168.1.7:28082/Administrativo-001/faces/LOG001?server=GF5&?token=','Pendiente','2021-07-07 23:24:44','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT','A'),(3,'IW_001_00','Reportes Impresiones','ViewControllerReportes/faces/LOG001','Pendiebnte','2022-01-05 04:52:13','manual','I'),(4,'CS_001_00','Cliente SAF','Cliente-001/faces/LOG001','omar','2022-01-06 13:40:57','/ViewControllerAdministrativo','I'),(6,'MV_001_00','Manifiesto','http://192.168.1.7:28083/Manifiesto-001/faces/LOG001?server=GF5&?token=','omar','2022-02-18 18:13:50','/Administrativo-001','A'),(7,'GA_001_00','Servicios Reportes Notificaciones','Archivo-001/faces/LOG001','omar','2022-02-25 04:30:28','/Administrativo-001','I'),(8,'BD_001_00','Base Desarrollo','BaseDesarrollo-001/faces/LOG001','omar','2022-02-25 04:30:28','/Administrativo-001','I'),(9,'GS_001_10-1.0.0','REST Administrativo','http://localhost:8082/gs_001_10','ovelez','2022-10-30 15:55:45','Manual','A'),(10,'SI_001_10-1.0.0','REST Sistema de Informacion','http://localhost:8081/si_001_10','ovelez','2022-10-30 15:55:45','Manual','A'),(11,'LG_001_10-1.0.0','REST Login','http://localhost:8080/ls_001_10','ovelez','2022-10-30 15:55:45','Manual','A'),(12,'test123','test123','http://test','admin','2023-03-22 03:25:25','manual@GS_001_10-1.0.0','A');
+INSERT INTO `modulo` (`id_modulo`, `indice`, `nombre`, `contexto`, `usuario`, `usuario_fecha`, `usuario_programa`, `estado`) VALUES (1,'LG_001_00','Login','http://192.168.1.7:28080/Login-001/faces/LOG001?server=GF5&?token=','ovelez','2021-05-16 22:47:55','manual','A'),(2,'GS_001_01','Administrativo','http://192.168.1.7:28082/Administrativo-001/faces/LOG001?server=GF5&?token=','Pendiente','2021-07-07 23:24:44','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT','A'),(3,'IW_001_00','Reportes Impresiones','ViewControllerReportes/faces/LOG001','Pendiebnte','2022-01-05 04:52:13','manual','I'),(4,'CS_001_00','Cliente SAF','Cliente-001/faces/LOG001','omar','2022-01-06 13:40:57','/ViewControllerAdministrativo','I'),(6,'MV_001_00','Manifiesto','http://192.168.1.7:28083/Manifiesto-001/faces/LOG001?server=GF5&?token=','omar','2022-02-18 18:13:50','/Administrativo-001','A'),(7,'GA_001_00','Servicios Reportes Notificaciones','Archivo-001/faces/LOG001','omar','2022-02-25 04:30:28','/Administrativo-001','I'),(8,'BD_001_00','Base Desarrollo','BaseDesarrollo-001/faces/LOG001','omar','2022-02-25 04:30:28','/Administrativo-001','I'),(9,'GS_001_10-1.0.0','REST Administrativo','http://localhost:8082/gs_001_10','ovelez','2022-10-30 15:55:45','Manual','A'),(10,'SI_001_10-1.0.0','REST Sistema de Informacion','http://localhost:8081/si_001_10','ovelez','2022-10-30 15:55:45','Manual','A'),(11,'LG_001_10-1.0.0','REST Login','http://localhost:8080/ls_001_10','ovelez','2022-10-30 15:55:45','Manual','A'),(12,'test123','test123','http://test','admin','2023-03-22 03:25:25','manual@GS_001_10-1.0.0','A');
 /*!40000 ALTER TABLE `modulo` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `notificacion_evento`
---
-
-DROP TABLE IF EXISTS `notificacion_evento`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `notificacion_evento` (
-  `id_notificacion_evento` bigint NOT NULL AUTO_INCREMENT,
-  `id_notificacion` bigint DEFAULT NULL,
-  `informacion` varchar(4096) COLLATE utf8mb4_bin DEFAULT NULL,
-  `tipo` varchar(8) COLLATE utf8mb4_bin DEFAULT NULL,
-  `usuario` varchar(128) COLLATE utf8mb4_bin DEFAULT NULL,
-  `usuario_fecha` datetime DEFAULT NULL,
-  `usuario_programa` varchar(128) COLLATE utf8mb4_bin DEFAULT NULL,
-  PRIMARY KEY (`id_notificacion_evento`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `notificacion_evento`
---
-
-LOCK TABLES `notificacion_evento` WRITE;
-/*!40000 ALTER TABLE `notificacion_evento` DISABLE KEYS */;
-/*!40000 ALTER TABLE `notificacion_evento` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -239,7 +181,8 @@ CREATE TABLE `parametro` (
   `usuario_fecha` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Fecha de insercion del registro',
   `usuario_programa` varchar(256) NOT NULL COMMENT 'Programa usado para el cambio',
   PRIMARY KEY (`id_parametro`),
-  KEY `parametro_FK` (`id_modulo`)
+  KEY `parametro_FK` (`id_modulo`),
+  CONSTRAINT `parametro_FK` FOREIGN KEY (`id_modulo`) REFERENCES `modulo` (`id_modulo`)
 ) ENGINE=InnoDB AUTO_INCREMENT=66 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -254,526 +197,12 @@ INSERT INTO `parametro` (`id_parametro`, `id_modulo`, `indice`, `clave`, `nombre
 UNLOCK TABLES;
 
 --
--- Table structure for table `permiso`
---
-
-DROP TABLE IF EXISTS `permiso`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `permiso` (
-  `id_permiso` int NOT NULL AUTO_INCREMENT,
-  `id_menu` int DEFAULT NULL COMMENT 'Id de menu',
-  `id_rol` int DEFAULT NULL COMMENT 'Id de Rol',
-  `crear` varchar(8) NOT NULL COMMENT 'Si el menu permite crear',
-  `actualizar` varchar(8) NOT NULL COMMENT 'Si el menu permite actualizar',
-  `borrar` varchar(8) NOT NULL COMMENT 'Si el menu permite borrar',
-  `ver_auditoria` varchar(8) NOT NULL COMMENT 'Si el menu permite ver la auditoria',
-  `usuario` varchar(128) NOT NULL COMMENT 'Usuario que realizo el cambio',
-  `usuario_fecha` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Fecha de insercion del registro',
-  `usuario_programa` varchar(256) NOT NULL COMMENT 'Programa usado para el cambio',
-  PRIMARY KEY (`id_permiso`),
-  KEY `permiso_FK` (`id_rol`),
-  KEY `permiso_FK_1` (`id_menu`)
-) ENGINE=InnoDB AUTO_INCREMENT=106 DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `permiso`
---
-
-LOCK TABLES `permiso` WRITE;
-/*!40000 ALTER TABLE `permiso` DISABLE KEYS */;
-INSERT INTO `permiso` (`id_permiso`, `id_menu`, `id_rol`, `crear`, `actualizar`, `borrar`, `ver_auditoria`, `usuario`, `usuario_fecha`, `usuario_programa`) VALUES (4,6,1,'S','S','S','S','omar','2021-07-09 05:02:38','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(8,6,4,'S','S','S','S','omar','2021-07-09 05:10:35','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(9,6,2,'S','S','S','S','omar','2021-07-09 05:11:59','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(11,9,1,'S','S','S','S','omar','2021-07-09 05:20:01','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(12,10,1,'S','S','S','S','omar','2021-07-11 17:45:20','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(13,10,2,'S','S','S','S','omar','2021-07-11 17:45:29','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(14,10,4,'S','S','S','S','omar','2021-07-11 17:45:45','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(15,11,4,'S','S','S','S','omar','2022-01-04 15:54:50','manual'),(17,12,4,'S','S','S','S','omar','2022-01-04 16:28:32','manual'),(18,3,4,'S','S','S','S','omar','2022-01-05 04:41:15','manual'),(19,13,1,'S','S','S','N','omar','2022-01-05 04:54:43','manual'),(20,14,7,'S','S','S','S','omar','2022-01-06 13:44:28','/ViewControllerAdministrativo'),(21,14,7,'S','S','S','S','omar','2022-01-06 13:46:02','/ViewControllerAdministrativo'),(22,14,7,'S','S','S','S','omar','2022-01-06 13:46:13','/ViewControllerAdministrativo'),(23,15,1,'S','S','S','S','omar','2022-01-08 05:55:12','/ViewControllerAdministrativo'),(24,15,2,'S','S','S','S','omar','2022-01-08 05:55:38','/ViewControllerAdministrativo'),(25,3,1,'S','S','S','S','omar','2022-01-19 04:56:31','/ViewControllerAdministrativo'),(28,3,3,'S','S','S','S','omar','2022-01-19 05:26:01','/ViewControllerAdministrativo'),(29,3,5,'S','S','S','S','omar','2022-01-19 05:26:09','/ViewControllerAdministrativo'),(31,16,1,'S','S','S','S','omar','2022-01-20 16:02:05','/ViewControllerAdministrativo'),(32,16,4,'S','S','S','S','omar','2022-01-20 16:02:10','/ViewControllerAdministrativo'),(48,9,4,'S','S','S','S','omar','2022-01-20 18:30:18','/ViewControllerAdministrativo'),(49,17,1,'S','S','S','N','omar','2022-01-25 04:47:25','/Administrativo-001'),(50,17,2,'S','S','S','N','omar','2022-01-25 04:47:38','/Administrativo-001'),(51,17,3,'S','S','S','N','omar','2022-01-25 04:47:45','/Administrativo-001'),(52,17,5,'S','S','S','N','omar','2022-01-25 04:47:50','/Administrativo-001'),(53,17,4,'S','S','S','N','omar','2022-01-25 04:47:56','/Administrativo-001'),(54,18,7,'S','S','S','S','omar','2022-01-25 14:42:53','/Administrativo-001'),(55,18,7,'S','S','S','S','omar','2022-01-25 14:42:58','/Administrativo-001'),(56,19,7,'S','S','S','S','omar','2022-02-08 14:54:00','/Administrativo-001'),(57,20,8,'S','S','S','S','omar','2022-02-18 18:20:43','/Administrativo-001'),(59,22,8,'S','S','S','S','omar','2022-02-20 16:38:43','/Administrativo-001'),(64,9,8,'S','S','S','S','admin','2022-03-08 21:01:15','/Administrativo-001'),(65,6,8,'S','S','S','S','admin','2022-03-08 21:01:30','/Administrativo-001'),(67,10,8,'S','S','S','S','admin','2022-03-08 21:02:35','/Administrativo-001'),(69,20,3,'S','S','S','S','admin','2022-03-08 21:04:58','/Administrativo-001'),(73,12,3,'S','S','S','S','admin','2022-03-09 14:40:38','/Administrativo-001'),(74,12,5,'S','S','S','S','admin','2022-03-09 14:40:43','/Administrativo-001'),(75,22,5,'S','S','S','S','admin','2022-03-09 14:54:51','/Administrativo-001'),(76,22,3,'S','S','S','S','admin','2022-03-09 15:05:07','/Administrativo-001'),(77,23,3,'S','S','S','S','admin','2022-03-15 18:03:52','/Administrativo-001'),(78,23,5,'S','S','S','S','admin','2022-03-15 18:03:59','/Administrativo-001'),(79,21,3,'S','S','S','S','admin','2022-03-15 20:53:25','/Administrativo-001'),(80,15,3,'S','S','S','S','omar','2022-01-08 05:55:38','/ViewControllerAdministrativo'),(81,15,4,'S','S','S','S','omar','2022-01-08 05:55:38','/ViewControllerAdministrativo'),(82,15,5,'S','S','S','S','omar','2022-01-08 05:55:38','/ViewControllerAdministrativo'),(83,15,7,'S','S','S','S','omar','2022-01-08 05:55:38','/ViewControllerAdministrativo'),(84,15,8,'S','S','S','S','omar','2022-01-08 05:55:38','/ViewControllerAdministrativo'),(85,24,5,'S','S','S','S','admin','2022-03-15 18:03:59','/Administrativo-001'),(86,24,3,'S','S','S','S','admin','2022-03-15 18:03:59','/Administrativo-001'),(87,25,13,'S','S','S','S','omar','2022-01-08 05:55:38','/ViewControllerAdministrativo'),(89,26,13,'S','S','S','S','omar78','2022-12-17 20:47:01','/Administrativo-001'),(90,26,9,'S','S','S','S','omar78','2022-12-17 20:47:09','/Administrativo-001'),(91,27,13,'S','S','S','S','omar78','2022-12-17 21:11:16','/Administrativo-001'),(92,27,9,'S','S','S','S','omar78','2022-12-17 21:11:24','/Administrativo-001'),(93,25,9,'S','S','S','S','omar78','2022-12-17 21:21:29','/Administrativo-001'),(94,28,13,'S','S','S','S','omar78','2022-12-17 21:25:01','/Administrativo-001'),(95,28,9,'S','S','S','S','omar78','2022-12-17 21:25:08','/Administrativo-001'),(96,29,9,'S','S','S','S','omar78','2022-12-17 21:32:48','/Administrativo-001'),(97,29,13,'S','S','S','S','omar78','2022-12-17 21:32:55','/Administrativo-001'),(98,30,13,'S','S','S','S','omar78','2022-12-17 21:42:13','/Administrativo-001'),(99,30,9,'S','S','S','S','omar78','2022-12-17 21:42:18','/Administrativo-001'),(100,31,9,'S','S','S','S','omar78','2022-12-17 22:02:25','/Administrativo-001'),(101,31,13,'S','S','S','S','omar78','2022-12-17 22:02:34','/Administrativo-001'),(102,21,5,'S','S','S','S','aerocivil','2023-02-09 03:00:10','/Administrativo-001'),(103,21,15,'S','S','S','S','admin','2023-02-09 05:39:14','/Administrativo-001'),(104,32,3,'S','S','S','S','admin','2023-02-10 02:53:11','/Administrativo-001'),(105,33,3,'S','S','S','S','admin','2023-02-10 02:53:57','/Administrativo-001');
-/*!40000 ALTER TABLE `permiso` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `rol`
---
-
-DROP TABLE IF EXISTS `rol`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `rol` (
-  `id_rol` int NOT NULL AUTO_INCREMENT,
-  `id_modulo` int DEFAULT NULL COMMENT 'Menu al que afecta este modulo',
-  `nombre` varchar(128) NOT NULL COMMENT 'Nombre del rol',
-  `tipo` varchar(8) NOT NULL COMMENT 'Tipo de Rol tecnico en desarrollo JANZ',
-  `estado` varchar(8) NOT NULL COMMENT 'Estado del listado A=Activo, I=Inactivo y X=Eliminado',
-  `usuario` varchar(128) NOT NULL COMMENT 'Usuario que realizo el cambio',
-  `usuario_fecha` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Fecha de insercion del registro',
-  `usuario_programa` varchar(256) NOT NULL COMMENT 'Programa usado para el cambio',
-  PRIMARY KEY (`id_rol`),
-  KEY `rol_FK` (`id_modulo`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `rol`
---
-
-LOCK TABLES `rol` WRITE;
-/*!40000 ALTER TABLE `rol` DISABLE KEYS */;
-INSERT INTO `rol` (`id_rol`, `id_modulo`, `nombre`, `tipo`, `estado`, `usuario`, `usuario_fecha`, `usuario_programa`) VALUES (1,2,'Administrador','ADM','A','sdfsadf','2021-06-21 22:01:53','fsdfs'),(2,2,'Auditoria','LOG','A','Pendiente','2021-06-25 15:04:11','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(3,2,'Operador 01 Manifeisto','CLI-01','A','Pendiente','2021-06-25 15:04:45','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(4,2,'Root','ROOT','A','Pendiente','2021-07-09 04:53:42','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(5,2,'Operador 02 Manifeisto','CLI-02','A','Pendiente','2021-07-09 04:55:16','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(7,4,'Root Cliente SAF','ROOT','A','omar','2022-02-18 17:59:26','/Administrativo-001'),(8,6,'Root Manifeisto','ROOT','A','omar','2022-02-18 18:20:08','/Administrativo-001'),(9,9,'REST Administrador ','ADM','A','sdfsadf','2021-06-21 22:01:53','fsdfs'),(13,9,'REST Root','ROOT','A','Pendiente','2021-07-09 04:53:42','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(15,NULL,'Cliente 03 Manifiesto','CLI-03','A','admin','2023-02-09 05:38:37','/Administrativo-001');
-/*!40000 ALTER TABLE `rol` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `rol_usuario`
---
-
-DROP TABLE IF EXISTS `rol_usuario`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `rol_usuario` (
-  `id_rol_usuario` int NOT NULL AUTO_INCREMENT,
-  `id_rol` int NOT NULL,
-  `id_usuario` int NOT NULL,
-  `usuario` varchar(128) NOT NULL COMMENT 'Usuario que realizo el cambio',
-  `usuario_fecha` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Fecha de insercion del registro',
-  `usuario_programa` varchar(256) NOT NULL COMMENT 'Programa usado para el cambio',
-  PRIMARY KEY (`id_rol_usuario`),
-  KEY `rol_usuario_FK` (`id_rol`),
-  KEY `rol_usuario_FK_1` (`id_usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=62 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `rol_usuario`
---
-
-LOCK TABLES `rol_usuario` WRITE;
-/*!40000 ALTER TABLE `rol_usuario` DISABLE KEYS */;
-INSERT INTO `rol_usuario` (`id_rol_usuario`, `id_rol`, `id_usuario`, `usuario`, `usuario_fecha`, `usuario_programa`) VALUES (6,1,13,'Pendiente','2021-07-01 16:57:02','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(8,4,13,'Pendiente','2021-07-02 22:10:48','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(9,1,15,'Pendiente','2021-07-04 22:30:02','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(10,4,15,'Pendiente','2021-07-09 14:04:34','SAFAdministrativo.ViewControllerAdministrativo.1.0-SNAPSHOT'),(11,3,13,'omar','2022-01-06 13:46:34','/ViewControllerAdministrativo'),(14,5,17,'omar','2022-02-15 17:41:58','/Administrativo-001'),(15,8,13,'omar','2022-02-18 20:12:29','/Administrativo-001'),(18,3,17,'omar','2022-03-08 20:43:51','/Administrativo-001'),(19,5,18,'omar','2022-03-08 20:47:23','/Administrativo-001'),(26,3,9,'admin','2022-03-09 15:06:24','/Administrativo-001'),(27,5,9,'admin','2022-03-09 15:11:48','/Administrativo-001'),(28,3,18,'admin','2022-03-09 15:12:11','/Administrativo-001'),(29,3,20,'admin','2022-03-11 14:49:56','/Administrativo-001'),(30,5,20,'admin','2022-03-11 14:50:02','/Administrativo-001'),(44,1,37,'admin','2022-04-19 07:09:00','/Administrativo-001'),(45,1,38,'admin','2022-04-19 07:34:38','/Administrativo-001'),(46,1,39,'admin','2022-04-19 07:51:20','/Administrativo-001'),(47,1,40,'admin','2022-04-19 08:00:45','/Administrativo-001'),(48,2,41,'admin','2022-04-19 08:30:04','/Administrativo-001'),(49,1,42,'admin','2022-04-19 08:55:15','/Administrativo-001'),(51,1,44,'admin','2022-04-19 09:33:58','/Administrativo-001'),(52,1,45,'u023','2022-04-19 09:42:25','/Administrativo-001'),(53,13,13,'omar78','2022-12-15 04:02:12','/Administrativo-001'),(54,9,13,'omar78','2022-12-15 04:15:16','/Administrativo-001'),(59,15,19,'admin','2023-02-09 05:39:38','/Administrativo-001'),(61,3,19,'admin','2023-02-10 02:54:18','/Administrativo-001');
-/*!40000 ALTER TABLE `rol_usuario` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `servicio`
---
-
-DROP TABLE IF EXISTS `servicio`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `servicio` (
-  `id_servicio` int NOT NULL AUTO_INCREMENT,
-  `indice` varchar(64) NOT NULL COMMENT 'Indice del servicio',
-  `tipo` varchar(8) NOT NULL COMMENT 'Tipo de notificacion E correo, S sms, P push, Etc',
-  `nombre` varchar(128) NOT NULL COMMENT 'Nombre de la información a relatar',
-  `usuario_proveedor` varchar(256) DEFAULT NULL COMMENT 'Usuario del proveedor del servicio',
-  `token_proveedor` varchar(256) DEFAULT NULL COMMENT 'Clave, token o password del provedor',
-  `configuracion_proveedor_01` varchar(1024) DEFAULT NULL COMMENT 'Configuracion del proveedor',
-  `configuracion_proveedor_02` varchar(1024) DEFAULT NULL,
-  `estado` varchar(8) DEFAULT NULL COMMENT 'Estado del servicio: A: activo, P: pausado y X borrado logico',
-  `usuario` varchar(128) NOT NULL COMMENT 'Usuario que realizo el cambio',
-  `usuario_fecha` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Fecha de insercion del registro',
-  `usuario_programa` varchar(256) NOT NULL COMMENT 'Programa usado para el cambio',
-  PRIMARY KEY (`id_servicio`),
-  KEY `servicio_indice_IDX` (`indice`) USING BTREE,
-  KEY `servicio_tipo_IDX` (`tipo`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `servicio`
---
-
-LOCK TABLES `servicio` WRITE;
-/*!40000 ALTER TABLE `servicio` DISABLE KEYS */;
-/*!40000 ALTER TABLE `servicio` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `token`
---
-
-DROP TABLE IF EXISTS `token`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `token` (
-  `id_token` int NOT NULL AUTO_INCREMENT,
-  `id_usuario` int NOT NULL,
-  `tipo` varchar(8) NOT NULL COMMENT 'Tipo de red social, L=linkeid, G=google, etc',
-  `social_nick` varchar(256) NOT NULL COMMENT 'Nombre de usuario de red @omargo33',
-  `correo` varchar(256) DEFAULT NULL COMMENT 'Correo electrónico',
-  `token` varchar(512) NOT NULL COMMENT 'Token o clave encripatada',
-  `validador` varchar(512) NOT NULL COMMENT 'Campo validacion de los campos ejecutados',
-  `estado` varchar(8) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT 'Estado del listado A=Activo,C=tokenCreado-PideClave I=Inactivo y X=Eliminado',
-  `usuario` varchar(128) NOT NULL COMMENT 'Usuario que realizo el cambio',
-  `usuario_fecha` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Fecha de insercion del registro',
-  `usuario_programa` varchar(256) NOT NULL COMMENT 'Programa usado para el cambio',
-  PRIMARY KEY (`id_token`),
-  KEY `token_FK` (`id_usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=63 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `token`
---
-
-LOCK TABLES `token` WRITE;
-/*!40000 ALTER TABLE `token` DISABLE KEYS */;
-INSERT INTO `token` (`id_token`, `id_usuario`, `tipo`, `social_nick`, `correo`, `token`, `validador`, `estado`, `usuario`, `usuario_fecha`, `usuario_programa`) VALUES (2,9,'F','omargo22','omargo22@hotmail.com','{SHA-1}5KwhAbbpcWybIfBzdkOj9991P6U=','123456','A','omar','2022-01-25 23:24:10','weblogic 12c'),(3,9,'C','sdfkjasli','ksjdfalk','{SHA-1}5KwhAbbpcWybIfBzdkOj9991P6U=','111','A','omar','2022-01-25 23:24:10','weblogic 12c'),(4,15,'C','omar78','omargo33@hotmail.com','$2a$10$kH.ztfKpfXKSOeGP.pbDKudmCaWFCblxM8YjdFTI5iK/Xp3ceN3/i','-1013466704','C','omar78','2023-03-19 21:24:30','LG_001_10-1.0.0'),(5,13,'C','admin','omargo@hotmail.com','$2a$10$N15bZJtS7pn4eY7umaeYqOBU41FI2fSg7Z6trhbDKuKUzxWHg8Sgm','92668751','C','admin','2023-04-03 00:30:12','LG_001_10-1.0.0'),(6,17,'C','joy','omarfgo@gmail.com','8DF79DEB606C9A5955D4D7FBD93037C29F736659B06AEF73A377626DCD404B41','777','A','joy','2022-01-25 23:25:37','weblogic 12c'),(7,18,'C','manifiesto','omarfgo@gmail.com','{SHA-1}5KwhAbbpcWybIfBzdkOj9991P6U=','979921403','A','manifiesto','2022-05-02 16:15:03','/Usuario-001'),(8,19,'C','aerocivil','omargo33@gmail.com','{SHA-1}5KwhAbbpcWybIfBzdkOj9991P6U=','2069474610','A','aerocivil','2022-06-14 22:41:17','/Administrativo-001'),(9,20,'C','truiz','tania.ruiz@sicsas.com','$2a$10$UnUJPAOVBeJTEfdVuEHSpO0NpZP5FzIk8DbuPiQGDZy.kLSkWMOly','1598 67 110640424','A','admin','2023-04-03 00:59:40','/Administrativo-001@GS_001_10-1.0.0'),(10,21,'C','ovelez','oamrgo@hotmail.com','{SHA-1}zCcnoUrDxkOppCip0kdiAGah/9I=','-1005040125','A','admin','2022-04-19 04:06:06','/Administrativo-001'),(25,36,'C','u001','u001@dom.com','{SHA-1}dy7jGVvJ8l2WzIBTSRLrQlL5RpA=','3533212','A','admin','2022-04-19 07:04:09','/Administrativo-001'),(26,37,'C','u002','u002@dom.com','F1FE2B6E33E2D6F424FF103C4616843D2F5BE523A2C8173055A6D4B040834DB3','3533213','A','admin','2022-04-19 07:08:43','/Administrativo-001'),(27,38,'C','u003','u003@doc.com','8DF79DEB606C9A5955D4D7FBD93037C29F736659B06AEF73A377626DCD404B41','3533214','A','admin','2022-04-19 07:34:25','/Administrativo-001'),(28,39,'C','u015','u015@doc.com','8DF79DEB606C9A5955D4D7FBD93037C29F736659B06AEF73A377626DCD404B41','3533247','A','admin','2022-04-19 07:51:10','/Administrativo-001'),(29,40,'C','u004','u004@doc.com','{SHA-1}NCIbEjTRQ32tUI5w6aTntgUr3Fw=','3533215','C','admin','2022-04-19 08:00:37','/Administrativo-001'),(30,41,'C','u010','u010@doc.com','8DF79DEB606C9A5955D4D7FBD93037C29F736659B06AEF73A377626DCD404B41','3533242','A','admin','2022-04-19 08:29:51','/Administrativo-001'),(31,42,'C','u05','u05@doic.com','8DF79DEB606C9A5955D4D7FBD93037C29F736659B06AEF73A377626DCD404B41','113978','A','admin','2022-04-19 08:55:04','/Administrativo-001'),(32,43,'C','u089','u089@gom.com','8DF79DEB606C9A5955D4D7FBD93037C29F736659B06AEF73A377626DCD404B41','3533468','A','admin','2022-04-19 09:16:08','/Administrativo-001'),(33,44,'C','u023','u023@dog.com','8DF79DEB606C9A5955D4D7FBD93037C29F736659B06AEF73A377626DCD404B41','3533276','A','admin','2022-04-19 09:33:44','/Administrativo-001'),(34,45,'C','u016','u016@doc.com','8DF79DEB606C9A5955D4D7FBD93037C29F736659B06AEF73A377626DCD404B41','3533248','A','u023','2022-04-19 09:42:16','/Administrativo-001');
-/*!40000 ALTER TABLE `token` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `token_servidor`
---
-
-DROP TABLE IF EXISTS `token_servidor`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `token_servidor` (
-  `id_token_servidor` int NOT NULL AUTO_INCREMENT,
-  `id_token` int DEFAULT NULL,
-  `tipo` varchar(8) NOT NULL COMMENT 'Tipo de encripcion AES DES JASCRIPT',
-  `servidor` varchar(8) NOT NULL COMMENT 'Servidor que esta utilizando WL12=weblogic 12c  WF19=wildfly 19, GF5 glassfish 5',
-  `password` varchar(512) DEFAULT NULL COMMENT 'Clave que se ha guardado password',
-  `usuario_fecha` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Fecha de insercion del registro',
-  `usuario_programa` varchar(256) NOT NULL COMMENT 'Programa usado para el cambio',
-  PRIMARY KEY (`id_token_servidor`),
-  KEY `token_servidor_indice_IDX` (`tipo`),
-  KEY `token_servidor_FK` (`id_token`)
-) ENGINE=InnoDB AUTO_INCREMENT=724 DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `token_servidor`
---
-
-LOCK TABLES `token_servidor` WRITE;
-/*!40000 ALTER TABLE `token_servidor` DISABLE KEYS */;
-INSERT INTO `token_servidor` (`id_token_servidor`, `id_token`, `tipo`, `servidor`, `password`, `usuario_fecha`, `usuario_programa`) VALUES (652,33,'JASCRIPT','WL12','{SHA-1}5KwhAbbpcWybIfBzdkOj9991P6U=','2022-04-19 09:41:52','/Login-001'),(653,34,'JASCRIPT','WL12','{SHA-1}5KwhAbbpcWybIfBzdkOj9991P6U=','2022-04-19 09:43:37','/Login-001'),(654,7,'JASCRIPT','WL12','{SHA-1}5KwhAbbpcWybIfBzdkOj9991P6U=','2022-04-19 09:44:33','/Login-001'),(658,NULL,'JASCRIPT','WL12','{SHA-1}5KwhAbbpcWybIfBzdkOj9991P6U=','2022-04-21 13:10:58','/Login-001'),(663,8,'JASCRIPT','WL12','{SHA-1}5KwhAbbpcWybIfBzdkOj9991P6U=','2022-04-21 16:14:20','/Login-001'),(664,NULL,'JASCRIPT','WL12','{SHA-1}5KwhAbbpcWybIfBzdkOj9991P6U=','2022-04-21 16:15:16','/Login-001'),(665,NULL,'JASCRIPT','WL12','{SHA-1}5KwhAbbpcWybIfBzdkOj9991P6U=','2022-04-21 16:34:14','/Login-001'),(666,NULL,'JASCRIPT','WL12','{SHA-1}5KwhAbbpcWybIfBzdkOj9991P6U=','2022-04-25 17:58:32','/Login-001'),(667,10,'JASCRIPT','WL12','{SHA-1}5KwhAbbpcWybIfBzdkOj9991P6U=','2022-04-25 19:12:24','/Login-001'),(668,8,'JASCRIPT','WL12','{SHA-1}5KwhAbbpcWybIfBzdkOj9991P6U=','2022-04-25 19:13:00','/Login-001'),(669,8,'JASCRIPT','WL12','{SHA-1}5KwhAbbpcWybIfBzdkOj9991P6U=','2022-04-25 19:15:51','/Login-001'),(670,8,'JASCRIPT','WL12','{SHA-1}5KwhAbbpcWybIfBzdkOj9991P6U=','2022-04-26 04:42:34','/Login-001'),(672,7,'JASCRIPT','WL12','{SHA-1}5KwhAbbpcWybIfBzdkOj9991P6U=','2022-04-27 06:09:44','/Login-001'),(674,7,'JASCRIPT','WL12','{SHA-1}5KwhAbbpcWybIfBzdkOj9991P6U=','2022-05-02 14:45:07','/Login-001'),(675,7,'JASCRIPT','WL12','{SHA-1}5KwhAbbpcWybIfBzdkOj9991P6U=','2022-05-02 14:48:19','/Login-001'),(676,7,'JASCRIPT','WL12','{SHA-1}5KwhAbbpcWybIfBzdkOj9991P6U=','2022-05-02 14:49:48','/Login-001'),(677,7,'JASCRIPT','WL12','{SHA-1}5KwhAbbpcWybIfBzdkOj9991P6U=','2022-05-02 14:50:35','/Login-001'),(679,7,'JASCRIPT','WL12','{SHA-1}5KwhAbbpcWybIfBzdkOj9991P6U=','2022-05-02 15:04:16','/Login-001'),(680,7,'JASCRIPT','WL12','{SHA-1}5KwhAbbpcWybIfBzdkOj9991P6U=','2022-05-02 15:05:16','/Login-001'),(681,7,'JASCRIPT','WL12','{SHA-1}Ro6pXejEiYrcOt+g/E1J4G1uDws=','2022-05-02 15:07:31','/Login-001'),(684,7,'JASCRIPT','WL12','{SHA-1}5KwhAbbpcWybIfBzdkOj9991P6U=','2022-05-02 15:27:59','/Login-001'),(686,7,'JASCRIPT','WL12','{SHA-1}5KwhAbbpcWybIfBzdkOj9991P6U=','2022-05-02 15:30:11','/Login-001'),(688,7,'JASCRIPT','WL12','{SHA-1}5KwhAbbpcWybIfBzdkOj9991P6U=','2022-05-02 15:44:34','/Login-001'),(689,7,'JASCRIPT','WL12','{SHA-1}ufgNSIOhpqhkD0wusY+xHke5794=','2022-05-02 15:47:58','/Login-001'),(693,7,'JASCRIPT','WL12','{SHA-1}5KwhAbbpcWybIfBzdkOj9991P6U=','2022-05-02 15:54:32','/Login-001'),(695,7,'JASCRIPT','WL12','{SHA-1}5KwhAbbpcWybIfBzdkOj9991P6U=','2022-05-02 16:03:47','/Login-001'),(697,7,'JASCRIPT','WL12','{SHA-1}5KwhAbbpcWybIfBzdkOj9991P6U=','2022-05-02 16:14:39','/Login-001'),(698,7,'JASCRIPT','WL12','{SHA-1}ufgNSIOhpqhkD0wusY+xHke5794=','2022-05-02 16:16:08','/Login-001'),(699,4,'JASCRIPT','WL12','{SHA-1}GCkvbsrDEe+VZwka4Q6iLRobSo8=','2022-06-14 20:51:39','/Login-001'),(700,4,'JASCRIPT','WL12','{SHA-1}GCkvbsrDEe+VZwka4Q6iLRobSo8=','2022-06-14 20:53:15','/Login-001'),(701,4,'JASCRIPT','WL12','{SHA-1}GCkvbsrDEe+VZwka4Q6iLRobSo8=','2022-06-14 20:54:58','/Login-001'),(702,4,'JASCRIPT','WL12','{SHA-1}GCkvbsrDEe+VZwka4Q6iLRobSo8=','2022-06-14 20:59:08','/Login-001'),(703,4,'JASCRIPT','WL12','{SHA-1}GCkvbsrDEe+VZwka4Q6iLRobSo8=','2022-06-14 21:15:39','/Login-001'),(704,4,'JASCRIPT','WL12','{SHA-1}GCkvbsrDEe+VZwka4Q6iLRobSo8=','2022-06-14 21:17:29','/Login-001'),(705,4,'JASCRIPT','WL12','{SHA-1}GCkvbsrDEe+VZwka4Q6iLRobSo8=','2022-06-14 21:20:29','/Login-001'),(706,4,'JASCRIPT','WL12','{SHA-1}KgoR+jTF4ZMSQckErPfupY6X/4Y=','2022-06-14 21:24:19','/Login-001'),(707,4,'JASCRIPT','WL12','{SHA-1}Himv5qjSgFm5gvPGJoBpqq+NVW4=','2022-06-14 21:40:00','/Login-001'),(708,4,'JASCRIPT','WL12','{SHA-1}TQ9eftpUKclzHJsyBBcDDdKnKpc=','2022-06-14 21:40:36','/Login-001'),(709,4,'JASCRIPT','WL12','{SHA-1}TQ9eftpUKclzHJsyBBcDDdKnKpc=','2022-06-14 21:42:46','/Login-001'),(710,4,'JASCRIPT','WL12','{SHA-1}H9zjAZgGCQZEkPD7gQFHTG5aBuU=','2022-06-14 22:26:18','/Login-001'),(711,4,'JASCRIPT','WL12','{SHA-1}TQ9eftpUKclzHJsyBBcDDdKnKpc=','2022-06-14 22:27:05','/Login-001'),(712,4,'JASCRIPT','WL12','{SHA-1}TQ9eftpUKclzHJsyBBcDDdKnKpc=','2022-06-14 22:28:21','/Login-001'),(713,4,'JASCRIPT','WL12','{SHA-1}TQ9eftpUKclzHJsyBBcDDdKnKpc=','2022-06-14 22:35:28','/Login-001'),(714,8,'JASCRIPT','WL12','{SHA-1}KJ28ZjU5T0VFj/eLqbKcJWrIlTk=','2022-06-14 22:40:38','/Login-001'),(715,8,'JASCRIPT','WL12','{SHA-1}TQ9eftpUKclzHJsyBBcDDdKnKpc=','2022-06-14 22:41:26','/Login-001'),(716,8,'JASCRIPT','WL12','{SHA-1}TQ9eftpUKclzHJsyBBcDDdKnKpc=','2022-06-14 22:43:59','/Login-001'),(717,4,'JASCRIPT','WL12','{SHA-1}FHUUjHtembkmTmGWYh5FJQ867WE=','2022-06-15 01:35:27','/Login-001'),(718,4,'JASCRIPT','WL12','{SHA-1}TQ9eftpUKclzHJsyBBcDDdKnKpc=','2022-06-15 01:36:16','/Login-001'),(720,8,'JASCRIPT','WL12','{SHA-1}5KwhAbbpcWybIfBzdkOj9991P6U=','2022-09-08 04:14:09','/Login-001'),(721,8,'JASCRIPT','WL12','{SHA-1}5KwhAbbpcWybIfBzdkOj9991P6U=','2022-09-08 04:14:58','/Login-001'),(722,4,'JASCRIPT','WL12','{SHA-1}5KwhAbbpcWybIfBzdkOj9991P6U=','2022-12-17 18:32:19','/Login-001'),(723,4,'JASCRIPT','WL12','{SHA-1}5KwhAbbpcWybIfBzdkOj9991P6U=','2022-12-17 19:07:59','/Login-001');
-/*!40000 ALTER TABLE `token_servidor` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `usuario`
---
-
-DROP TABLE IF EXISTS `usuario`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `usuario` (
-  `id_usuario` int NOT NULL AUTO_INCREMENT,
-  `id_archivo` int DEFAULT NULL COMMENT 'Codigo de archivos que no tiene obligotariedad',
-  `nick` varchar(128) DEFAULT NULL COMMENT 'Nick de Usuario',
-  `nombre` varchar(128) NOT NULL COMMENT 'Nombre de Usuario',
-  `apellido` varchar(128) NOT NULL COMMENT 'Apellido de Usuario',
-  `usuario` varchar(128) NOT NULL COMMENT 'Usuario que realizo el cambio',
-  `validador` varchar(512) NOT NULL COMMENT 'Campo de validacion para los registros',
-  `usuario_fecha` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Fecha de insercion del registro',
-  `usuario_programa` varchar(256) NOT NULL COMMENT 'Programa usado para el cambio',
-  `estado` varchar(8) DEFAULT NULL COMMENT 'Estado del listado A=Activo, I=Inactivo y X=Eliminado',
-  `contador_ingreso` int DEFAULT NULL COMMENT 'Contador de intentos fallidos',
-  `contador_fecha` datetime DEFAULT NULL COMMENT 'Fecha y hora del intentos fallidos',
-  PRIMARY KEY (`id_usuario`),
-  UNIQUE KEY `usuario_nick_IDX` (`nick`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `usuario`
---
-
-LOCK TABLES `usuario` WRITE;
-/*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-INSERT INTO `usuario` (`id_usuario`, `id_archivo`, `nick`, `nombre`, `apellido`, `usuario`, `validador`, `usuario_fecha`, `usuario_programa`, `estado`, `contador_ingreso`, `contador_fecha`) VALUES (9,NULL,'omar45','jk45','kljlkj','Pendiente','123','2021-06-22 17:10:25','/Login-001','A',0,'2022-03-11 14:30:05'),(13,NULL,'admin','admin','admin','dsfsadf','3414671','2021-06-22 17:29:13','/Login-001','A',0,'2023-04-03 05:31:50'),(15,NULL,'omar78','jklsdjfklaj','kjslkdfaj','jlksjdflkaj','kjsdalfkj','2021-06-22 21:39:42','/Login-001','A',0,'2022-12-17 19:07:59'),(17,NULL,'joy','Joy','Velez','omar','123','2022-01-22 03:19:16','/Login-001','A',1,'2022-04-21 15:10:30'),(18,NULL,'manifiesto','manifiesto','manifiesto','omar','123','2022-03-08 20:46:09','/Login-001','A',0,'2022-05-02 16:16:08'),(19,NULL,'aerocivil','aerocivil','aerocivil','admin','123','2022-03-08 20:54:53','/Login-001','A',0,'2022-09-08 04:14:58'),(20,NULL,'truiz','Tania','Ruiz','admin','123','2022-03-11 14:45:56','/Login-001','A',0,'2022-04-25 17:58:31'),(21,NULL,'ovelez','ovelez','ovelez','admin','123','2022-04-19 04:05:50','/Login-001','A',1,'2022-04-25 21:14:58'),(36,NULL,'u001','u001','u001','admin','123','2022-04-19 07:03:48','/Administrativo-001','A',0,NULL),(37,NULL,'u002','u002','u002','admin','123','2022-04-19 07:08:27','/Administrativo-001','A',0,NULL),(38,NULL,'u003','u003','u003','admin','123','2022-04-19 07:34:10','/Administrativo-001','A',0,NULL),(39,NULL,'u015','u015','u015','admin','123','2022-04-19 07:50:57','/Administrativo-001','A',0,NULL),(40,NULL,'u004','u004','u004','admin','123','2022-04-19 08:00:24','/Administrativo-001','A',0,NULL),(41,NULL,'u010','u010','u010','admin','123','2022-04-19 08:29:36','/Administrativo-001','A',0,NULL),(42,NULL,'u05','u05','u05','admin','123','2022-04-19 08:54:51','/Administrativo-001','A',0,NULL),(43,NULL,'u089','u089','u089','admin','123','2022-04-19 09:15:50','/Administrativo-001','A',0,NULL),(44,NULL,'u023','u023','u023','admin','123','2022-04-19 09:33:29','/Login-001','A',0,'2022-04-19 09:41:52'),(45,NULL,'u016','jk45-001','kljlkj','none','001','2022-10-30 23:48:41','rest-client@GS_001_00-1.0.0',NULL,NULL,NULL),(46,NULL,'omar45-001','jk45-001','kljlkj','none','001','2022-10-30 23:40:17','rest-client@GS_001_00 1.0.0','I',0,'2022-10-30 23:40:17');
-/*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Temporary view structure for view `v_group_members`
---
-
-DROP TABLE IF EXISTS `v_group_members`;
-/*!50001 DROP VIEW IF EXISTS `v_group_members`*/;
-SET @saved_cs_client     = @@character_set_client;
-/*!50503 SET character_set_client = utf8mb4 */;
-/*!50001 CREATE VIEW `v_group_members` AS SELECT 
- 1 AS `NAME`,
- 1 AS `MEMBER`*/;
-SET character_set_client = @saved_cs_client;
-
---
--- Temporary view structure for view `v_groups`
---
-
-DROP TABLE IF EXISTS `v_groups`;
-/*!50001 DROP VIEW IF EXISTS `v_groups`*/;
-SET @saved_cs_client     = @@character_set_client;
-/*!50503 SET character_set_client = utf8mb4 */;
-/*!50001 CREATE VIEW `v_groups` AS SELECT 
- 1 AS `NAME`,
- 1 AS `DESCRIPTION`*/;
-SET character_set_client = @saved_cs_client;
-
---
--- Temporary view structure for view `v_menu`
---
-
-DROP TABLE IF EXISTS `v_menu`;
-/*!50001 DROP VIEW IF EXISTS `v_menu`*/;
-SET @saved_cs_client     = @@character_set_client;
-/*!50503 SET character_set_client = utf8mb4 */;
-/*!50001 CREATE VIEW `v_menu` AS SELECT 
- 1 AS `nick`,
- 1 AS `id_menu`,
- 1 AS `indice_menu`,
- 1 AS `nombre_menu`,
- 1 AS `task_flow`,
- 1 AS `task_flow_informacion`,
- 1 AS `tipo`,
- 1 AS `indice_modulo`,
- 1 AS `nombre_modulo`,
- 1 AS `contexto`,
- 1 AS `orden`*/;
-SET character_set_client = @saved_cs_client;
-
---
--- Temporary view structure for view `v_menu_usuario`
---
-
-DROP TABLE IF EXISTS `v_menu_usuario`;
-/*!50001 DROP VIEW IF EXISTS `v_menu_usuario`*/;
-SET @saved_cs_client     = @@character_set_client;
-/*!50503 SET character_set_client = utf8mb4 */;
-/*!50001 CREATE VIEW `v_menu_usuario` AS SELECT 
- 1 AS `nick`,
- 1 AS `id_menu`*/;
-SET character_set_client = @saved_cs_client;
-
---
--- Temporary view structure for view `v_users`
---
-
-DROP TABLE IF EXISTS `v_users`;
-/*!50001 DROP VIEW IF EXISTS `v_users`*/;
-SET @saved_cs_client     = @@character_set_client;
-/*!50503 SET character_set_client = utf8mb4 */;
-/*!50001 CREATE VIEW `v_users` AS SELECT 
- 1 AS `id_usuario`,
- 1 AS `DESCRIPTION`,
- 1 AS `NAME`,
- 1 AS `PASSWORD`*/;
-SET character_set_client = @saved_cs_client;
-
---
--- Dumping events for database 'GS_001_00'
+-- Dumping events for database 'GS_001_01'
 --
 
 --
--- Dumping routines for database 'GS_001_00'
+-- Dumping routines for database 'GS_001_01'
 --
-/*!50003 DROP FUNCTION IF EXISTS `permiso_menu_actualizar` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8mb4 */ ;
-/*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
-CREATE DEFINER=`root`@`%` FUNCTION `permiso_menu_actualizar`(
- 	pii_id_menu int, 
- 	piv_nick varchar(128) 
-) RETURNS int
-    DETERMINISTIC
-BEGIN
-	
-	
-	DECLARE permiso INT;
-	
-	
-	SELECT		
-		COUNT(p.actualizar  = 'S' OR NULL) INTO permiso	
-	FROM
-		permiso p
-	WHERE
-		p.id_menu = pii_id_menu
-		and p.id_rol in (
-			select
-				ru.id_rol
-			from
-				usuario u,
-				rol_usuario ru
-			WHERE
-				u.id_usuario = ru.id_usuario
-				and u.nick = piv_nick
-			)
-		group by p.id_menu;
-	
-	
-	
-	if permiso > 0 then
-		return(1);
-	else
-		return(0);
-	end if;
-END ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 DROP FUNCTION IF EXISTS `permiso_menu_borrar` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8mb4 */ ;
-/*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
-CREATE DEFINER=`root`@`%` FUNCTION `permiso_menu_borrar`(
- 	pii_id_menu int, 
- 	piv_nick varchar(128) 
-) RETURNS int
-    DETERMINISTIC
-BEGIN
-	
-	
-	DECLARE permiso INT;
-	
-	
-	SELECT		
-		COUNT(p.borrar = 'S' OR NULL) INTO permiso	
-	FROM
-		permiso p
-	WHERE
-		p.id_menu = pii_id_menu
-		and p.id_rol in (
-			select
-				ru.id_rol
-			from
-				usuario u,
-				rol_usuario ru
-			WHERE
-				u.id_usuario = ru.id_usuario
-				and u.nick = piv_nick
-			)
-		group by p.id_menu;
-	
-	
-	
-	if permiso > 0 then
-		return(1);
-	else
-		return(0);
-	end if;
-END ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 DROP FUNCTION IF EXISTS `permiso_menu_crear` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8mb4 */ ;
-/*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
-CREATE DEFINER=`root`@`%` FUNCTION `permiso_menu_crear`(
- 	pii_id_menu int, 
- 	piv_nick varchar(128) 
-) RETURNS int
-    DETERMINISTIC
-BEGIN
-	
-	
-	DECLARE permiso INT;
-	
-	
-	SELECT		
-		COUNT(p.crear = 'S' OR NULL) INTO permiso	
-	FROM
-		permiso p
-	WHERE
-		p.id_menu = pii_id_menu
-		and p.id_rol in (
-			select
-				ru.id_rol
-			from
-				usuario u,
-				rol_usuario ru
-			WHERE
-				u.id_usuario = ru.id_usuario
-				and u.nick = piv_nick
-			)
-		group by p.id_menu;
-	
-	
-	
-	if permiso > 0 then
-		return(1);
-	else
-		return(0);
-	end if;
-END ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 DROP FUNCTION IF EXISTS `permiso_menu_ver_auditoria` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8mb4 */ ;
-/*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
-CREATE DEFINER=`root`@`%` FUNCTION `permiso_menu_ver_auditoria`(
- 	pii_id_menu int, 
- 	piv_nick varchar(128) 
-) RETURNS int
-    DETERMINISTIC
-BEGIN
-	
-	
-	DECLARE permiso INT;
-	
-	
-	SELECT		
-		COUNT(p.ver_auditoria = 'S' OR NULL) INTO permiso	
-	FROM
-		permiso p
-	WHERE
-		p.id_menu = pii_id_menu
-		and p.id_rol in (
-			select
-				ru.id_rol
-			from
-				usuario u,
-				rol_usuario ru
-			WHERE
-				u.id_usuario = ru.id_usuario
-				and u.nick = piv_nick
-			)
-		group by p.id_menu;
-	
-	
-	
-	if permiso > 0 then
-		return(1);
-	else
-		return(0);
-	end if;
-END ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `codigo_definido_usuario_bajar` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -851,7 +280,7 @@ MainDeclare:BEGIN
    
    	
 	
-   	CALL GS_001_00.codigo_definido_usuario_ordenar(pv_grupo,pi_codigo_error);  
+   	CALL GS_001_01.codigo_definido_usuario_ordenar(pv_grupo,pi_codigo_error);  
    	if poi_codigo_error > 0 then
    		ROLLBACK;
    		set poi_codigo_error = pi_codigo_error;
@@ -1069,7 +498,7 @@ MainDeclare:BEGIN
    
    	
 	
-   	CALL GS_001_00.codigo_definido_usuario_ordenar(pv_grupo,pi_codigo_error);  
+   	CALL GS_001_01.codigo_definido_usuario_ordenar(pv_grupo,pi_codigo_error);  
    	if poi_codigo_error > 0 then
    		ROLLBACK;
    		set poi_codigo_error = pi_codigo_error;
@@ -1118,7 +547,7 @@ BEGIN
 
     DECLARE CONTINUE HANDLER FOR NOT FOUND SET v_done = TRUE;
 
-    -- Check if the source database exists
+    
     SELECT SCHEMA_NAME INTO v_db_name_check
       FROM INFORMATION_SCHEMA.SCHEMATA
      WHERE SCHEMA_NAME = in_db_name;
@@ -1129,7 +558,7 @@ BEGIN
             SET MESSAGE_TEXT = v_db_err_msg;
     END IF;
 
-    -- Check if a database of the synonym name already exists
+    
     SELECT SCHEMA_NAME INTO v_db_name_check
       FROM INFORMATION_SCHEMA.SCHEMATA
      WHERE SCHEMA_NAME = in_synonym;
@@ -1140,7 +569,7 @@ BEGIN
             SET MESSAGE_TEXT = v_db_err_msg;
     END IF;
 
-    -- All good, create the database and views
+    
     SET @create_db_stmt := CONCAT('CREATE DATABASE ', sys.quote_identifier(in_synonym));
     PREPARE create_db_stmt FROM @create_db_stmt;
     EXECUTE create_db_stmt;
@@ -1261,7 +690,7 @@ MainDeclare:BEGIN
    
    	
 	
-   	CALL GS_001_00.menu_ordenar(pi_id_modulo,pi_codigo_error);  
+   	CALL GS_001_01.menu_ordenar(pi_id_modulo,pi_codigo_error);  
    	if poi_codigo_error > 0 then
    		ROLLBACK;
    		set poi_codigo_error = pi_codigo_error;
@@ -1479,7 +908,7 @@ MainDeclare:BEGIN
    
    	
 	
-   	CALL GS_001_00.menu_ordenar(pi_modulo,pi_codigo_error);  
+   	CALL GS_001_01.menu_ordenar(pi_modulo,pi_codigo_error);  
    	if poi_codigo_error > 0 then
    		ROLLBACK;
    		set poi_codigo_error = pi_codigo_error;
@@ -1494,102 +923,6 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
-
---
--- Current Database: `GS_001_00`
---
-
-USE `GS_001_00`;
-
---
--- Final view structure for view `v_group_members`
---
-
-/*!50001 DROP VIEW IF EXISTS `v_group_members`*/;
-/*!50001 SET @saved_cs_client          = @@character_set_client */;
-/*!50001 SET @saved_cs_results         = @@character_set_results */;
-/*!50001 SET @saved_col_connection     = @@collation_connection */;
-/*!50001 SET character_set_client      = utf8mb4 */;
-/*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_general_ci */;
-/*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`root`@`172.17.0.1` SQL SECURITY DEFINER */
-/*!50001 VIEW `v_group_members` AS select `r`.`tipo` AS `NAME`,`u`.`nick` AS `MEMBER` from ((`rol` `r` join `rol_usuario` `ru`) join `usuario` `u`) where ((`ru`.`id_usuario` = `u`.`id_usuario`) and (`ru`.`id_rol` = `r`.`id_rol`) and (`u`.`estado` = 'A')) */;
-/*!50001 SET character_set_client      = @saved_cs_client */;
-/*!50001 SET character_set_results     = @saved_cs_results */;
-/*!50001 SET collation_connection      = @saved_col_connection */;
-
---
--- Final view structure for view `v_groups`
---
-
-/*!50001 DROP VIEW IF EXISTS `v_groups`*/;
-/*!50001 SET @saved_cs_client          = @@character_set_client */;
-/*!50001 SET @saved_cs_results         = @@character_set_results */;
-/*!50001 SET @saved_col_connection     = @@collation_connection */;
-/*!50001 SET character_set_client      = utf8mb4 */;
-/*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_general_ci */;
-/*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`root`@`172.17.0.1` SQL SECURITY DEFINER */
-/*!50001 VIEW `v_groups` AS select `rol`.`tipo` AS `NAME`,`rol`.`nombre` AS `DESCRIPTION` from `rol` where (`rol`.`estado` = 'A') */;
-/*!50001 SET character_set_client      = @saved_cs_client */;
-/*!50001 SET character_set_results     = @saved_cs_results */;
-/*!50001 SET collation_connection      = @saved_col_connection */;
-
---
--- Final view structure for view `v_menu`
---
-
-/*!50001 DROP VIEW IF EXISTS `v_menu`*/;
-/*!50001 SET @saved_cs_client          = @@character_set_client */;
-/*!50001 SET @saved_cs_results         = @@character_set_results */;
-/*!50001 SET @saved_col_connection     = @@collation_connection */;
-/*!50001 SET character_set_client      = utf8mb4 */;
-/*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_general_ci */;
-/*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`root`@`172.17.0.1` SQL SECURITY DEFINER */
-/*!50001 VIEW `v_menu` AS select `vmu`.`nick` AS `nick`,`m`.`id_menu` AS `id_menu`,`m`.`indice` AS `indice_menu`,`m`.`nombre` AS `nombre_menu`,`m`.`task_flow` AS `task_flow`,`m`.`task_flow` AS `task_flow_informacion`,`m`.`tipo` AS `tipo`,`md`.`indice` AS `indice_modulo`,`md`.`nombre` AS `nombre_modulo`,`md`.`contexto` AS `contexto`,`m`.`orden` AS `orden` from ((`modulo` `md` join `menu` `m`) join `v_menu_usuario` `vmu`) where ((`vmu`.`id_menu` = `m`.`id_menu`) and (`m`.`id_modulo` = `md`.`id_modulo`) and (`m`.`estado` = 'A') and (`md`.`estado` = 'A')) order by `m`.`orden` */;
-/*!50001 SET character_set_client      = @saved_cs_client */;
-/*!50001 SET character_set_results     = @saved_cs_results */;
-/*!50001 SET collation_connection      = @saved_col_connection */;
-
---
--- Final view structure for view `v_menu_usuario`
---
-
-/*!50001 DROP VIEW IF EXISTS `v_menu_usuario`*/;
-/*!50001 SET @saved_cs_client          = @@character_set_client */;
-/*!50001 SET @saved_cs_results         = @@character_set_results */;
-/*!50001 SET @saved_col_connection     = @@collation_connection */;
-/*!50001 SET character_set_client      = utf8mb4 */;
-/*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_general_ci */;
-/*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`root`@`%` SQL SECURITY DEFINER */
-/*!50001 VIEW `v_menu_usuario` AS select distinct `u`.`nick` AS `nick`,`p`.`id_menu` AS `id_menu` from ((((`rol_usuario` `ru` join `rol` `r`) join `permiso` `p`) join `usuario` `u`) join `token` `t`) where ((`u`.`id_usuario` = `ru`.`id_usuario`) and (`ru`.`id_rol` = `r`.`id_rol`) and (`r`.`id_rol` = `p`.`id_rol`) and (`r`.`estado` = 'A') and (`u`.`estado` = 'A') and (`u`.`id_usuario` = `t`.`id_usuario`) and (`t`.`estado` = 'C') and (`p`.`id_menu` = (select `p`.`valor_numero_01` from (`parametro` `p` join `modulo` `m`) where ((`m`.`indice` = 'LG_001_00') and (`m`.`id_modulo` = `p`.`id_modulo`) and (`p`.`indice` = '004'))))) union all select distinct `u`.`nick` AS `nick`,`p`.`id_menu` AS `id_menu` from ((((`rol_usuario` `ru` join `rol` `r`) join `permiso` `p`) join `usuario` `u`) join `token` `t`) where ((`u`.`id_usuario` = `ru`.`id_usuario`) and (`ru`.`id_rol` = `r`.`id_rol`) and (`r`.`id_rol` = `p`.`id_rol`) and (`r`.`estado` = 'A') and (`u`.`estado` = 'A') and (`u`.`id_usuario` = `t`.`id_usuario`) and (`t`.`estado` = 'A')) */;
-/*!50001 SET character_set_client      = @saved_cs_client */;
-/*!50001 SET character_set_results     = @saved_cs_results */;
-/*!50001 SET collation_connection      = @saved_col_connection */;
-
---
--- Final view structure for view `v_users`
---
-
-/*!50001 DROP VIEW IF EXISTS `v_users`*/;
-/*!50001 SET @saved_cs_client          = @@character_set_client */;
-/*!50001 SET @saved_cs_results         = @@character_set_results */;
-/*!50001 SET @saved_col_connection     = @@collation_connection */;
-/*!50001 SET character_set_client      = utf8mb4 */;
-/*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_general_ci */;
-/*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`root`@`172.17.0.1` SQL SECURITY DEFINER */
-/*!50001 VIEW `v_users` AS select `u`.`id_usuario` AS `id_usuario`,concat(`u`.`nombre`,' ',`u`.`apellido`) AS `DESCRIPTION`,`u`.`nick` AS `NAME`,(select `t`.`token` from `token` `t` where ((`t`.`id_usuario` = `u`.`id_usuario`) and (`t`.`tipo` = 'C')) limit 1) AS `PASSWORD` from `usuario` `u` where (`u`.`estado` = 'A') */;
-/*!50001 SET character_set_client      = @saved_cs_client */;
-/*!50001 SET character_set_results     = @saved_cs_results */;
-/*!50001 SET collation_connection      = @saved_col_connection */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -1600,4 +933,4 @@ USE `GS_001_00`;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-05-29 22:18:36
+-- Dump completed on 2023-05-30 21:51:19

@@ -73,4 +73,8 @@ services:
 ## mysqldump -u root -p123456s --default-character-set=utf8 --opt --single-transaction --routines --triggers --events --add-drop-database --add-drop-table --complete-insert --tz-utc --databases SI_001_00 > /home/backup/SI_001_00.sql
 ## restore database SI_001_00
 ## mysql -u root -p123456s < /home/backup/SI_001_00.sql
-
+##
+## database GS_001_01
+## mysqldump -u root -p123456s --default-character-set=utf8 --opt --single-transaction --routines --triggers --events --add-drop-database --add-drop-table --complete-insert --tz-utc --databases GS_001_01 > /home/backup/GS_001_01.sql
+## restore database GS_001_01
+## mysql -u root -p123456s < /home/backup/GS_001_01.sql
