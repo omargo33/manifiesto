@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+    xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:bl01="/baseLib01">
+    <af:pageTemplate viewId="/plantilla/listaFrg.jspx" id="pt1">
+        <f:attribute name="titulo" value="#{bnd.tasa_listaFrg_titulo}"/>
+        <f:attribute name="tituloDescripcion" value="#{bnd.tasa_listaFrg_descripcion}"/>
+        <f:facet name="elementoBusqueda">
+            
+        </f:facet>
+        <f:facet name="elementoCentro">
+            <!--<af:link text="#{row.Nombre}" id="l1" action="Editar"/>-->
+
+        </f:facet>
+        <f:facet name="elementoAcciones">
+            <bl01:botonesAtrasCrear id="bac1" atrasAccion="Inicio" crearAccion="Create" crearTexto="#{bnd.tasa_listaFrg_boton_crear}" crearPermiso="#{pageFlowScope.pPermisoCrear}"/>
+        </f:facet>
+    </af:pageTemplate>
+</jsp:root>

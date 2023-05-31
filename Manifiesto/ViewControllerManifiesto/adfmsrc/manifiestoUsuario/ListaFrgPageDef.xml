@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48" id="ListaFrgPageDef"
+                Package="manifiestoUsuario">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ManifiestoViewNoDML1" RangeSize="15" DataControl="ManifiestoModuloDataControl"
+              id="ManifiestoViewNoDML1Iterator"/>
+    <iterator Binds="LibroDireccionesAeropuertoDestinoViewNoDML1" RangeSize="5"
+              DataControl="ManifiestoModuloDataControl" id="LibroDireccionesAeropuertoDestinoViewNoDML1Iterator"/>
+    <searchRegion Criteria="LibroDireccionesViewNoDMLCriteriaAeropuerto"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="LibroDireccionesAeropuertoDestinoViewNoDML1Iterator"
+                  id="LibroDireccionesViewNoDMLCriteriaAeropuertoQuery"/>
+    <iterator Binds="LibroDireccionesAeronaveViewNoDML1" RangeSize="5" DataControl="ManifiestoModuloDataControl"
+              id="LibroDireccionesAeronaveViewNoDML1Iterator"/>
+    <searchRegion Criteria="LibroDireccionesViewNoDMLCriteriaAeronave"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="LibroDireccionesAeronaveViewNoDML1Iterator"
+                  id="LibroDireccionesViewNoDMLCriteriaAeronaveQuery"/>
+    <iterator Binds="LibroDireccionesAerolineaViewNoDML1" RangeSize="5" DataControl="ManifiestoModuloDataControl"
+              id="LibroDireccionesAerolineaViewNoDML1Iterator"/>
+    <searchRegion Criteria="LibroDireccionesViewNoDMLCriteriaAerolinea"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="LibroDireccionesAerolineaViewNoDML1Iterator"
+                  id="LibroDireccionesViewNoDMLCriteriaAerolineaQuery"/>
+    <iterator Binds="LibroDireccionesAeropuertoViewNoDML1" RangeSize="5" DataControl="ManifiestoModuloDataControl"
+              id="LibroDireccionesAeropuertoViewNoDML1Iterator"/>
+    <searchRegion Criteria="LibroDireccionesViewNoDMLCriteriaAeropuerto"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="LibroDireccionesAeropuertoViewNoDML1Iterator"
+                  id="LibroDireccionesViewNoDMLCriteriaAeropuertoQuery1"/>
+    <taskFlow id="infousuarioaeropuertotaskflow1"
+              taskFlowId="/WEB-INF/info-usuario-aeroliena-task-flow.xml#info-usuario-aeropuerto-task-flow"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="ManifiestoViewNoDML1Iterator" id="ManifiestoViewNoDML1">
+      <nodeDefinition DefName="modelManifiesto.bc.vistaNoDML.ManifiestoViewNoDML" Name="ManifiestoViewNoDML10">
+        <AttrNames>
+          <Item Value="IdManifiesto"/>
+          <Item Value="IdUsuario"/>
+          <Item Value="Nick"/>
+          <Item Value="NombreUsuario"/>
+          <Item Value="IdLibroDireccionAerolinea"/>
+          <Item Value="IndiceAerolinea"/>
+          <Item Value="NombreAerolinea"/>
+          <Item Value="IdLibroDireccionAeropuerto"/>
+          <Item Value="IndiceAeropuerto"/>
+          <Item Value="NombreAeropuerto"/>
+          <Item Value="IdLibroDireccionAeropuertoDes"/>
+          <Item Value="IndiceDestino"/>
+          <Item Value="NombreDestino"/>
+          <Item Value="IdLibroDireccionAeronave"/>
+          <Item Value="IndiceAeronave"/>
+          <Item Value="NombreAeronave"/>
+          <Item Value="FechaLocalOperacion"/>
+          <Item Value="FechaCortaLocalOperacion"/>
+          <Item Value="AnioFechaOperacion"/>
+          <Item Value="MesFechaOperacion"/>
+          <Item Value="NoVuelo"/>
+          <Item Value="Pasajeros"/>
+          <Item Value="PasajerosTransito"/>
+          <Item Value="PasajerosLocales"/>
+          <Item Value="PasajerosExentosTasas"/>
+          <Item Value="PasajerosPaganTasas"/>
+          <Item Value="PasajerosPaganDolares"/>
+          <Item Value="PasajerosPaganPesos"/>
+          <Item Value="PasajerosExentosTimbres"/>
+          <Item Value="PasajerosPaganTimbres"/>
+          <Item Value="PasajerosPaganTimbresDolares"/>
+          <Item Value="PasajerosPaganTimbresPesos"/>
+          <Item Value="Tasa"/>
+          <Item Value="Timbre"/>
+          <Item Value="TimbreTotal"/>
+          <Item Value="IndicadorComprobable"/>
+          <Item Value="Tipo"/>
+          <Item Value="Estado"/>
+          <Item Value="Usuario"/>
+          <Item Value="UsuarioFecha"/>
+          <Item Value="UsuarioPrograma"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="LibroDireccionesAeropuertoDestinoViewNoDML1Iterator"
+          id="LibroDireccionesAeropuertoDestinoViewNoDML1">
+      <nodeDefinition DefName="modelManifiesto.bc.vistaNoDML.LibroDireccionesViewNoDML"
+                      Name="LibroDireccionesAeropuertoDestinoViewNoDML10">
+        <AttrNames>
+          <Item Value="IdLibroDireccion"/>
+          <Item Value="Indice"/>
+          <Item Value="IndiceSecundario"/>
+          <Item Value="Nombre"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="LibroDireccionesAeronaveViewNoDML1Iterator" id="LibroDireccionesAeronaveViewNoDML1">
+      <nodeDefinition DefName="modelManifiesto.bc.vistaNoDML.LibroDireccionesViewNoDML"
+                      Name="LibroDireccionesAeronaveViewNoDML10">
+        <AttrNames>
+          <Item Value="IdLibroDireccion"/>
+          <Item Value="Indice"/>
+          <Item Value="IndiceSecundario"/>
+          <Item Value="Nombre"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="LibroDireccionesAerolineaViewNoDML1Iterator" id="LibroDireccionesAerolineaViewNoDML1">
+      <nodeDefinition DefName="modelManifiesto.bc.vistaNoDML.LibroDireccionesViewNoDML"
+                      Name="LibroDireccionesAerolineaViewNoDML10">
+        <AttrNames>
+          <Item Value="IdLibroDireccion"/>
+          <Item Value="Indice"/>
+          <Item Value="IndiceSecundario"/>
+          <Item Value="IdentificacionFiscal"/>
+          <Item Value="Nombre"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="LibroDireccionesAeropuertoViewNoDML1Iterator" id="LibroDireccionesAeropuertoViewNoDML1">
+      <nodeDefinition DefName="modelManifiesto.bc.vistaNoDML.LibroDireccionesViewNoDML"
+                      Name="LibroDireccionesAeropuertoViewNoDML10">
+        <AttrNames>
+          <Item Value="IdLibroDireccion"/>
+          <Item Value="Indice"/>
+          <Item Value="IndiceSecundario"/>
+          <Item Value="IdentificacionFiscal"/>
+          <Item Value="Nombre"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action id="Rollback" DataControl="ManifiestoModuloDataControl" RequiresUpdateModel="false"
+            Action="rollbackTransaction"/>
+    <methodAction id="ejecutarConsulta" RequiresUpdateModel="true" Action="invokeMethod" MethodName="ejecutarConsulta"
+                  IsViewObjectMethod="true" DataControl="ManifiestoModuloDataControl"
+                  InstanceName="ManifiestoModuloDataControl.ManifiestoViewNoDML1">
+      <NamedData NDName="idUsuario" NDType="int"/>
+      <NamedData NDName="indiceAerolinea" NDType="int"/>
+      <NamedData NDName="indiceAeropuertoOrigen" NDType="int"/>
+      <NamedData NDName="indiceAeropuertoDestino" NDType="int"/>
+      <NamedData NDName="indiceAeronave" NDType="int"/>
+      <NamedData NDName="noVuelo" NDType="java.lang.String"/>
+      <NamedData NDName="fechaInicio" NDType="java.lang.String"/>
+      <NamedData NDName="fechaFin" NDType="java.lang.String"/>
+    </methodAction>
+    <methodAction id="excelManifiesto" RequiresUpdateModel="true" Action="invokeMethod" MethodName="excelManifiesto"
+                  IsViewObjectMethod="false" DataControl="ManifiestoModuloDataControl"
+                  InstanceName="ManifiestoModuloDataControl.dataProvider"
+                  ReturnName="data.ManifiestoModuloDataControl.methodResults.excelManifiesto_excelManifiesto_dataControl_dataProvider_excelManifiesto_result">
+      <NamedData NDName="idUsuario" NDType="int"/>
+      <NamedData NDName="indiceAerolinea" NDType="int"/>
+      <NamedData NDName="indiceAeropuertoOrigen" NDType="int"/>
+      <NamedData NDName="indiceAeropuertoDestino" NDType="int"/>
+      <NamedData NDName="indiceAeronave" NDType="int"/>
+      <NamedData NDName="noVuelo" NDType="java.lang.String"/>
+      <NamedData NDName="fechaInicio" NDType="java.lang.String"/>
+      <NamedData NDName="fechaFin" NDType="java.lang.String"/>
+      <NamedData NDName="tabla" NDType="java.lang.String"/>
+      <NamedData NDName="usuario" NDType="java.lang.String"/>
+      <NamedData NDName="usuarioPrograma" NDType="java.lang.String"/>
+    </methodAction>
+  </bindings>
+</pageDefinition>

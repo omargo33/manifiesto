@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+    xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:bl01="/baseLib01">
+    <af:pageTemplate viewId="/plantilla/listaFrg.jspx" id="pt1">
+
+        <f:attribute name="titulo" value="#{bnd.aerolinea_usuario_listaFrg_titulo}"/>
+        <f:attribute name="tituloDescripcion" value="#{bnd.aerolinea_usuario_listaFrg_descripcion}"/>
+        <f:facet name="elementoBusqueda"/>
+        <f:facet name="elementoCentro">
+            <af:table value="#{bindings.AerolineaUsuarioView1.collectionModel}" var="row"
+                      rows="#{bindings.AerolineaUsuarioView1.rangeSize}"
+                      emptyText="#{bindings.AerolineaUsuarioView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                      
+                      selectedRowKeys="#{bindings.AerolineaUsuarioView1.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.AerolineaUsuarioView1.collectionModel.makeCurrent}"
+                      rowSelection="single" fetchSize="#{bindings.AerolineaUsuarioView1.rangeSize}" id="t1"
+                      
+                      columnStretching="column:c4" scrollPolicy="page" rowBandingInterval="1"
+                      
+                      >
+                <af:column headerText="#{bindings.AerolineaUsuarioView1.hints.IdAerolineaUsuario.label}" id="c1">
+                    <af:link text="#{row.IdAerolineaUsuario}" id="l1" action="Editar"/>
+                </af:column>
+                <af:column headerText="#{bindings.AerolineaUsuarioView1.hints.IdUsuario.label}" id="c3" width="160">
+                    <af:selectOneChoice value="#{row.bindings.IdUsuario.inputValue}"
+                                        label="#{row.bindings.IdUsuario.label}"
+                                        required="#{bindings.AerolineaUsuarioView1.hints.IdUsuario.mandatory}"
+                                        shortDesc="#{bindings.AerolineaUsuarioView1.hints.IdUsuario.tooltip}"
+                                        readOnly="true" id="soc1">
+                        <f:selectItems value="#{row.bindings.IdUsuario.items}" id="si1"/>
+                        <f:validator binding="#{row.bindings.IdUsuario.validator}"/>
+                    </af:selectOneChoice>
+                </af:column>
+                <af:column headerText="#{bindings.AerolineaUsuarioView1.hints.IdLibroDireccionAeropuerto.label}"
+                           id="c4">
+                    <af:selectOneChoice value="#{row.bindings.IdLibroDireccionAeropuerto.inputValue}"
+                                        label="#{row.bindings.IdLibroDireccionAeropuerto.label}"
+                                        required="#{bindings.AerolineaUsuarioView1.hints.IdLibroDireccionAeropuerto.mandatory}"
+                                        shortDesc="#{bindings.AerolineaUsuarioView1.hints.IdLibroDireccionAeropuerto.tooltip}"
+                                        readOnly="true" id="soc2">
+                        <f:selectItems value="#{row.bindings.IdLibroDireccionAeropuerto.items}" id="si2"/>
+                        <f:validator binding="#{row.bindings.IdLibroDireccionAeropuerto.validator}"/>
+                    </af:selectOneChoice>
+                </af:column>
+                <af:column headerText="#{bindings.AerolineaUsuarioView1.hints.Usuario.label}" id="c5">
+                    <af:outputText value="#{row.Usuario}"
+                                   shortDesc="#{bindings.AerolineaUsuarioView1.hints.Usuario.tooltip}" id="ot3"/>
+                </af:column>
+            </af:table>
+        </f:facet>
+        <f:facet name="elementoAcciones">
+            <bl01:botonesAtrasCrear id="bac1" atrasAccion="Inicio" crearAccion="Create" crearTexto="#{bnd.aerolinea_usuario_listaFrg_boton_crear}" crearPermiso="#{pageFlowScope.hPermisoCrear}"/>
+        </f:facet>
+    </af:pageTemplate>
+</jsp:root>

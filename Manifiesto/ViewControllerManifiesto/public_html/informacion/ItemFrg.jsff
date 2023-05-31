@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core" xmlns:bl01="/baseLib01">
+    <af:pageTemplate viewId="/plantilla/itemFrg.jspx" id="pt1">
+        <f:facet name="elementoCentro">
+            <af:panelFormLayout id="pfl1" labelWidth="200">
+                <f:facet name="footer">
+                    <bl01:botonesGuardarBorrar id="bgb1" actualizarAccion="#{BackingItemFrg.actionGuardar}"
+                                               actualizarPermiso="#{pageFlowScope.pPermisoActualizar}"
+                                               borrarAccion="#{BackingItemFrg.actionDelete}"
+                                               borrarDisabled="#{bindings.Idtasa.inputValue eq 0}"
+                                               borrarPermiso="#{pageFlowScope.pPermisoBorrar}"/>
+                </f:facet>
+            </af:panelFormLayout>
+        </f:facet>
+        <f:facet name="elementoCancelar">
+            <bl01:botonesCancelar id="bc1" inicioAccion="Inicio">                
+            </bl01:botonesCancelar>
+        </f:facet>
+        <f:facet name="elementoAuditoria">
+            <af:panelFormLayout id="pfl2" labelWidth="170"></af:panelFormLayout>
+        </f:facet>
+        <f:attribute name="permisoVerAuditoria" value="#{pageFlowScope.pPermisoVerAuditoria}"/>
+        <f:attribute name="titulo" value="#{bnd.tasa_itemFrg_titulo}"/>
+        <f:attribute name="tituloDescripcion" value="#{bnd.tasa_itemFrg_descripcion}"/>
+    </af:pageTemplate>
+</jsp:root>

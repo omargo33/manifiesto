@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="manifiesto-up-task-flow">
+    <template-reference>
+      <document>/WEB-INF/plantilla/maestro-template.xml</document>
+      <id>maestro-template</id>
+    </template-reference>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <managed-bean id="__5">
+      <managed-bean-name>PPRBackingManifiestoUpListaFrg</managed-bean-name>
+      <managed-bean-class>viewManifiesto.up.PPRListaFrg</managed-bean-class>
+      <managed-bean-scope>backingBean</managed-bean-scope>
+    </managed-bean>
+    <view id="ListaFrg">
+      <page>/manifiestoUp/ListaFrg.jsff</page>
+    </view>
+    <method-call id="getIdUsuarioNick">
+      <method>#{bindings.getIdUsuarioNick.execute}</method>
+      <return-value>#{sessionScope.idUsuario}</return-value>
+      <outcome>
+        <fixed-outcome>getIdUsuarioNick</fixed-outcome>
+      </outcome>
+    </method-call>
+    <control-flow-rule id="__1">
+      <from-activity-id>router</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>Listar</from-outcome>
+        <to-activity-id>getIdUsuarioNick</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__3">
+      <from-activity-id>getIdUsuarioNick</from-activity-id>
+      <control-flow-case id="__4">
+        <from-outcome>getIdUsuarioNick</from-outcome>
+        <to-activity-id>ListaFrg</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

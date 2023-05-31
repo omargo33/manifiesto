@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="preliquidacion-task-flow">
+    <template-reference>
+      <document>/WEB-INF/plantilla/maestro-template.xml</document>
+      <id>maestro-template</id>
+    </template-reference>
+    <managed-bean id="__23">
+            <managed-bean-name>PPRBackingPreliquidacionListaFrg</managed-bean-name>
+            <managed-bean-class>viewManifiesto.preliquidacion.PPRListaFrg</managed-bean-class>
+            <managed-bean-scope>backingBean</managed-bean-scope>
+        </managed-bean>
+    <managed-bean id="__3">
+      <managed-bean-name>PPRBackingPreliquidacionItemFrg</managed-bean-name>
+      <managed-bean-class>viewManifiesto.preliquidacion.PPRItemFrg</managed-bean-class>
+      <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <view id="ListaFrg">
+      <page>/preliquidacion/ListaFrg.jsff</page>
+    </view>
+    <view id="ItemFrg">
+      <page>/preliquidacion/ItemFrg.jsff</page>
+    </view>
+    <method-call id="inicioVacio">
+      <method>#{bindings.inicioVacio.execute}</method>
+      <outcome>
+        <fixed-outcome>inicioVacio</fixed-outcome>
+      </outcome>
+    </method-call>
+    <control-flow-rule id="__1">
+      <from-activity-id>ActionCrear</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>Create</from-outcome>
+        <to-activity-id>ItemFrg</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__9">
+      <from-activity-id>router</from-activity-id>
+      <control-flow-case id="__10">
+        <from-outcome>Listar</from-outcome>
+        <to-activity-id>inicioVacio</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__11">
+      <from-activity-id>inicioVacio</from-activity-id>
+      <control-flow-case id="__12">
+        <from-outcome>inicioVacio</from-outcome>
+        <to-activity-id>ListaFrg</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

@@ -1,0 +1,1 @@
+select * from GS_001_00.rol 

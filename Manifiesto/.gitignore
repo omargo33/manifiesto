@@ -1,0 +1,6 @@
+/.data/
+/target/
+/classes/
+/deploy/
+/ejecutaMVN.sh
+/copyDeploy.sh

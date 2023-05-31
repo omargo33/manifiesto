@@ -1,0 +1,80 @@
+##
+## Docker Compose file for the MySQL database 5.7
+##
+## author: omargo33@hotmail.com
+## date: 2023-01-26
+##
+## mysqldump -u root -p123456s --databases SI_001_00 > /home/backup/SI_001_00.sql
+##
+## https://hub.docker.com/_/mysql/
+##
+
+version: '2'
+services:
+  db:
+    container_name: mysql_8.0
+    image: mysql:8.0    
+    volumes:
+      - "./mysql-data/db:/var/lib/mysql"    
+      - "./mysql-data/backup:/home/backup"
+    ports:
+      - 3306:3306
+    environment:
+      TZ: "America/Guayaquil"
+      MYSQL_ROOT_PASSWORD: 123456s
+      MYSQL_DATABASE: db
+      MYSQL_USER: user
+      MYSQL_PASSWORD: 123456s
+
+##
+## Comandos para ejecutar el contenedor.
+## docker-compose up
+##
+## Comandos para ejecutar el contenedor en segundo plano.
+## docker-compose up -d 
+##
+## Comandos para detener el contenedor.
+## docker-compose stop
+##
+##
+## Comandos para respaldar base de datos.
+##      
+## 1. Listar contenedores
+## docker ps
+##
+## 2. Ingresar al contenedor
+## docker exec -it mysql_8.0 bash
+## docker exec -u root -t -i mysql_8.0 /bin/bash
+##
+## see "https://simplebackups.com/blog/the-complete-mysqldump-guide-with-examples/"
+##
+## 3. Respaldar base de datos
+## database AR_001_00
+## mysqldump -u root -p123456s --default-character-set=utf8 --opt --single-transaction --routines --triggers --events --add-drop-database --add-drop-table --complete-insert --tz-utc --databases AR_001_00 > /home/backup/AR_001_00.sql
+## restore database AR_001_00
+## mysql -u root -p123456s < /home/backup/AR_001_00.sql
+##
+## database GA_001_00
+## mysqldump -u root -p123456s --default-character-set=utf8 --opt --single-transaction --routines --triggers --events --add-drop-database --add-drop-table --complete-insert --tz-utc --databases GA_001_00 > /home/backup/GA_001_00.sql
+## restore database GA_001_00
+## mysql -u root -p123456s < /home/backup/GA_001_00.sql
+##
+## database GS_001_00
+## mysqldump -u root -p123456s --default-character-set=utf8 --opt --single-transaction --routines --triggers --events --add-drop-database --add-drop-table --complete-insert --tz-utc --databases GS_001_00 > /home/backup/GS_001_00.sql
+## restore database GS_001_00
+## mysql -u root -p123456s < /home/backup/GS_001_00.sql
+##
+## database MV_001_00
+## mysqldump -u root -p123456s --default-character-set=utf8 --opt --single-transaction --routines --triggers --events --add-drop-database --add-drop-table --complete-insert --tz-utc --databases MV_001_00 > /home/backup/MV_001_00.sql
+## restore database MV_001_00
+## mysql -u root -p123456s < /home/backup/MV_001_00.sql
+##
+## database SI_001_00
+## mysqldump -u root -p123456s --default-character-set=utf8 --opt --single-transaction --routines --triggers --events --add-drop-database --add-drop-table --complete-insert --tz-utc --databases SI_001_00 > /home/backup/SI_001_00.sql
+## restore database SI_001_00
+## mysql -u root -p123456s < /home/backup/SI_001_00.sql
+##
+## database GS_001_01
+## mysqldump -u root -p123456s --default-character-set=utf8 --opt --single-transaction --routines --triggers --events --add-drop-database --add-drop-table --complete-insert --tz-utc --databases GS_001_01 > /home/backup/GS_001_01.sql
+## restore database GS_001_01
+## mysql -u root -p123456s < /home/backup/GS_001_01.sql

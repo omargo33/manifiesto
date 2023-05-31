@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core" xmlns:bl01="/baseLib01">
+    <af:panelGroupLayout id="pgl2">
+        <af:pageTemplate viewId="/plantilla/itemFrg.jspx" id="pt1">
+            <f:attribute name="titulo" value="#{bnd.aerolinea_usuario_itemFrg_titulo}"/>
+            <f:attribute name="tituloDescripcion" value="#{bnd.aerolinea_usuario_itemFrg_descripcion}"/>
+            <f:attribute name="permisoVerAuditoria" value="#{pageFlowScope.hPermisoVerAuditoria}"/>
+            <f:facet name="elementoCentro">
+                <af:panelFormLayout id="pfl1" labelWidth="200">
+                    <af:selectOneChoice value="#{bindings.IdUsuario1.inputValue}" label="#{bindings.IdUsuario1.label}"
+                                        required="#{bindings.IdUsuario1.hints.mandatory}"
+                                        shortDesc="#{bindings.IdUsuario1.hints.tooltip}" id="soc1">
+                        <f:selectItems value="#{bindings.IdUsuario1.items}" id="si1"/>
+                        <f:validator binding="#{bindings.IdUsuario1.validator}"/>
+                    </af:selectOneChoice>
+                    <af:selectOneChoice value="#{bindings.IdLibroDireccionAeropuerto1.inputValue}"
+                                        label="#{bindings.IdLibroDireccionAeropuerto1.label}"
+                                        required="#{bindings.IdLibroDireccionAeropuerto1.hints.mandatory}"
+                                        shortDesc="#{bindings.IdLibroDireccionAeropuerto1.hints.tooltip}" id="soc2">
+                        <f:selectItems value="#{bindings.IdLibroDireccionAeropuerto1.items}" id="si2"/>
+                        <f:validator binding="#{bindings.IdLibroDireccionAeropuerto1.validator}"/>
+                    </af:selectOneChoice>
+                    <f:facet name="footer">
+                    
+                    
+
+                    
+                        <bl01:botonesGuardarBorrar id="bgb1" nivel="2"
+                                                   actualizarAccion="#{BackingItemFrgHijo.actionGuardar}"
+                                                   actualizarPermiso="#{pageFlowScope.hPermisoActualizar}"
+                                                   borrarAccion="#{BackingItemFrgHijo.actionDelete}"
+                                                   borrarDisabled="#{bindings.IdAerolineaUsuario.inputValue  eq 0}"
+                                                   borrarPermiso="#{pageFlowScope.hPermisoBorrar}"/>
+                    </f:facet>
+                    
+                    
+                    
+                    
+                </af:panelFormLayout>
+            </f:facet>
+            <f:facet name="elementoCancelar">
+                <bl01:botonesCancelar id="bc1" inicioAccion="Inicio"></bl01:botonesCancelar>
+            </f:facet>
+            <f:facet name="elementoAuditoria">
+                <af:panelFormLayout id="pfl2" labelWidth="170">
+                    <af:inputText value="#{bindings.IdAerolineaUsuario.inputValue}"
+                                  label="#{bindings.IdAerolineaUsuario.hints.label}"
+                                  required="#{bindings.IdAerolineaUsuario.hints.mandatory}"
+                                  columns="#{bindings.IdAerolineaUsuario.hints.displayWidth}"
+                                  maximumLength="#{bindings.IdAerolineaUsuario.hints.precision}"
+                                  shortDesc="#{bindings.IdAerolineaUsuario.hints.tooltip}" id="it1" autoSubmit="true">
+                        <f:validator binding="#{bindings.IdAerolineaUsuario.validator}"/>
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.IdAerolineaUsuario.format}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.IdLibroDireccionAerolinea.inputValue}"
+                                  label="#{bindings.IdLibroDireccionAerolinea.hints.label}"
+                                  required="#{bindings.IdLibroDireccionAerolinea.hints.mandatory}"
+                                  columns="#{bindings.IdLibroDireccionAerolinea.hints.displayWidth}"
+                                  maximumLength="#{bindings.IdLibroDireccionAerolinea.hints.precision}"
+                                  shortDesc="#{bindings.IdLibroDireccionAerolinea.hints.tooltip}" id="it2">
+                        <f:validator binding="#{bindings.IdLibroDireccionAerolinea.validator}"/>
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.IdLibroDireccionAerolinea.format}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.Usuario.inputValue}" label="#{bindings.Usuario.hints.label}"
+                                  required="#{bindings.Usuario.hints.mandatory}"
+                                  columns="#{bindings.Usuario.hints.displayWidth}"
+                                  maximumLength="#{bindings.Usuario.hints.precision}"
+                                  shortDesc="#{bindings.Usuario.hints.tooltip}" id="it5">
+                        <f:validator binding="#{bindings.Usuario.validator}"/>
+                    </af:inputText>
+                    <af:inputDate value="#{bindings.UsuarioFecha.inputValue}"
+                                  label="#{bindings.UsuarioFecha.hints.label}"
+                                  required="#{bindings.UsuarioFecha.hints.mandatory}"
+                                  columns="#{bindings.UsuarioFecha.hints.displayWidth}"
+                                  shortDesc="#{bindings.UsuarioFecha.hints.tooltip}" id="id1">
+                        <f:validator binding="#{bindings.UsuarioFecha.validator}"/>
+                        <af:convertDateTime pattern="#{bindings.UsuarioFecha.format}"/>
+                    </af:inputDate>
+                    <af:inputText value="#{bindings.UsuarioPrograma.inputValue}"
+                                  label="#{bindings.UsuarioPrograma.hints.label}"
+                                  required="#{bindings.UsuarioPrograma.hints.mandatory}"
+                                  columns="#{bindings.UsuarioPrograma.hints.displayWidth}"
+                                  maximumLength="#{bindings.UsuarioPrograma.hints.precision}"
+                                  shortDesc="#{bindings.UsuarioPrograma.hints.tooltip}" id="it6">
+                        <f:validator binding="#{bindings.UsuarioPrograma.validator}"/>
+                    </af:inputText>
+                    <f:facet name="footer"/>
+                </af:panelFormLayout>
+            </f:facet>
+        </af:pageTemplate>
+    </af:panelGroupLayout>
+</jsp:root>
