@@ -135,6 +135,8 @@ public class ManifiestoTarea {
             tasasTimbresCliente.getCuerpo().setFechaHasta(formatoFechaString(finSemana(vmanifiesto.getFechaLocalOperacion())));
 
             if (!tasasTimbresCliente.ejecutarConsulta()) {
+                LOG.error("error"+tasasTimbresCliente.getRespuesta().getErrorCode());
+                LOG.error("error"+tasasTimbresCliente.getRespuesta().getErrorDescripcion());
                 estado = Integer.parseInt(tasasTimbresCliente.getRespuesta().getErrorCode());
             }
         } catch (Exception e) {

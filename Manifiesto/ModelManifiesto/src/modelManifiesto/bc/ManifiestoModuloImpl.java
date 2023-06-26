@@ -15,6 +15,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Locale;
 import java.util.Map;
+import java.util.TreeMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -647,7 +648,7 @@ public class ManifiestoModuloImpl extends AuditoriaModuloImpl implements Manifie
      */
     private Map<String, String> validarArchivoManifiesto(ManifiestoModuloImpl manifiestoModulo, int idArchivo,
                                                          String path, String usuario, String usuarioPrograma) {
-        Map<String, String> mapEventos = new HashMap<>();
+        Map<String, String> mapEventos = new TreeMap<>();
         try {
             FilaArchivo filaTrabajo = new FilaArchivo();
             FileInputStream fs = new FileInputStream(path);
@@ -661,7 +662,7 @@ public class ManifiestoModuloImpl extends AuditoriaModuloImpl implements Manifie
                         filaTrabajo = new FilaArchivo(pagina, row);
                         if (!filaTrabajo.isValidar(manifiestoModulo)) {
                             mapEventos.put("P3-" + row,
-                                           String.format("Linea %s %s", row, filaTrabajo.errorValidacion()));
+                                           String.format("Linea %s %s", row + 1, filaTrabajo.errorValidacion()));
                         }
                     }
                 } else {
