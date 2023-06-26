@@ -61,9 +61,9 @@
       <property
          name="activityId">Menu</property>
       <property
-         name="inherited">true</property>
-      <property
          name="pageFragment">true</property>
+      <property
+         name="inherited">true</property>
       <property
          name="x">463.46094</property>
       <property
@@ -261,7 +261,7 @@
       <property
          name="fromsrcid">__4</property>
       <property
-         name="sdm:polyPoints">R50,504.46094,263.5,760.65625,115.46875,B44</property>
+         name="sdm:polyPoints">R50,504.46094,263.5,760.65625,115.4375,B44</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -277,6 +277,6 @@
       <property
          name="fromsrcid">__15</property>
       <property
-         name="sdm:polyPoints">B56,767.65625,119.2854,625.46094,217.46875,T50</property>
+         name="sdm:polyPoints">B56,767.65625,119.25362,625.46094,217.46875,T50</property>
    </ControlFlowCase>
 </SDM>
