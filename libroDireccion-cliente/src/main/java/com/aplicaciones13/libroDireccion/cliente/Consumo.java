@@ -6,7 +6,6 @@
 package com.aplicaciones13.libroDireccion.cliente;
 
 import com.aplicaciones13.libroDireccion.cliente.estructura.LibroDirecciones;
-import com.aplicaciones13.tools.LogTemp;
 
 
 import java.io.IOException;
@@ -114,7 +113,7 @@ public class Consumo extends SolicitaRESTURL {
             objectMapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
             libroDireccionesRespuesta = objectMapper.readValue(json, LibroDirecciones.class);
         } catch (JsonProcessingException ex) {
-            Logger.getLogger(LibroDirecciones.class.getName()).log(Level.INFO, ex.toString());
+            Logger.getLogger(Consumo.class.getName()).log(Level.INFO, ex.toString());
             return false;
         }
         return true;
@@ -130,7 +129,7 @@ public class Consumo extends SolicitaRESTURL {
             ObjectMapper om = new ObjectMapper();
             json = om.writeValueAsString(this.libroDirecciones);
         } catch (JsonProcessingException e) {
-            LogTemp.escribir(Consumo.class.getName(), e.toString());
+            Logger.getLogger(Consumo.class.getName()).log(Level.INFO, e.toString());     
         }
 
         return json;
