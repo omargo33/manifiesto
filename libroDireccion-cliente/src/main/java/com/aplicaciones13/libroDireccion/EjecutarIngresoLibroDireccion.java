@@ -7,7 +7,6 @@ package com.aplicaciones13.libroDireccion;
 
 import com.aplicaciones13.libroDireccion.cliente.Consumo;
 import com.aplicaciones13.libroDireccion.cliente.estructura.LibroDirecciones;
-import com.aplicaciones13.tools.LogTemp;
 
 /**
  *
