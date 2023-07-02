@@ -160,7 +160,7 @@ public class ManifiestoViewNoDMLImpl extends VistaObjeto implements ManifiestoVi
             java.sql.Date fechaSQLTemp = new java.sql.Date(fechaTemp.getTime());
             return fechaSQLTemp;
         } catch (Exception e) {
-            Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).log(Level.SEVERE, e.toString());
+            Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).log(Level.WARNING, e.toString());
         }
         return null;
     }

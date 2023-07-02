@@ -7,7 +7,6 @@ package com.aplicaciones13.manifiesto.scheduler;
 
 import com.aplicaciones13.manifiesto.jpa.model.Manifiesto;
 import com.aplicaciones13.manifiesto.jpa.model.VManifiesto;
-import com.aplicaciones13.manifiesto.jpa.queries.VManifiestoRepositorio;
 import com.aplicaciones13.manifiesto.servicio.ManifiestoService;
 import com.aplicaciones13.manifiesto.servicio.ParametroService;
 import com.aplicaciones13.tasasTimbres.TasasTimbresCliente;
@@ -22,14 +21,15 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
-import org.slf4j.Logger;
 
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
+
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Tarea de Scheduler para enviar una solicitud WSDL.
@@ -39,14 +39,13 @@ import org.springframework.stereotype.Component;
 @Component
 public class ManifiestoTarea {
 
-    private static final Logger LOG = LoggerFactory.getLogger(ManifiestoTarea.class);
+        private final static Logger LOGGER = Logger.getLogger(ManifiestoTarea.class.getName());
+
 
     @Value("${aplicacion.nombre}")
     String nompreAplicacion;
 
-    @Autowired
-    private VManifiestoRepositorio vManifiestoRepositorio;
-
+    
     @Autowired
     private ManifiestoService manifiestoServicio;
 
@@ -89,6 +88,14 @@ public class ManifiestoTarea {
         int estado = 0;
         TasasTimbresCliente tasasTimbresCliente = new TasasTimbresCliente();
         try {
+            
+                LOGGER.log(Level.WARNING, parametroService.findParametro("001").getValorTexto01());
+            LOGGER.log(Level.WARNING, parametroService.findParametro("002").getValorTexto01());
+            LOGGER.log(Level.WARNING, parametroService.findParametro("002").getValorTexto02());
+            LOGGER.log(Level.WARNING, parametroService.findParametro("003").getValorTexto01());
+            LOGGER.log(Level.WARNING, parametroService.findParametro("003").getValorTexto02());
+
+
             //Datos de configuracion
             tasasTimbresCliente.getEncabezado().setUrl(parametroService.findParametro("001").getValorTexto01());
             tasasTimbresCliente.getEncabezado().setUsuario(parametroService.findParametro("002").getValorTexto01());
@@ -135,12 +142,12 @@ public class ManifiestoTarea {
             tasasTimbresCliente.getCuerpo().setFechaHasta(formatoFechaString(finSemana(vmanifiesto.getFechaLocalOperacion())));
 
             if (!tasasTimbresCliente.ejecutarConsulta()) {
-                LOG.error("error"+tasasTimbresCliente.getRespuesta().getErrorCode());
-                LOG.error("error"+tasasTimbresCliente.getRespuesta().getErrorDescripcion());
+                LOGGER.log(Level.WARNING, "error omar check "+tasasTimbresCliente.getRespuesta().getErrorCode());
+                LOGGER.log(Level.WARNING, "error omar check "+tasasTimbresCliente.getRespuesta().getErrorDescripcion());
                 estado = Integer.parseInt(tasasTimbresCliente.getRespuesta().getErrorCode());
             }
         } catch (Exception e) {
-            LOG.error(e.toString());
+            LOGGER.log(Level.WARNING, "error omar check" + e.toString());
             tasasTimbresCliente.getRespuesta().setErrorDescripcion(e.toString());
             estado = -1;
         }

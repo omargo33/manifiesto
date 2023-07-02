@@ -489,7 +489,7 @@ public class PPRItemFrg extends BasePPR {
                 getR2().setRendered(true);
                 doPartialRefresh(getR1().getParent());
                 doPartialRefresh(getR2().getParent());
-                Logger.getLogger("global").log(Level.SEVERE, "actualizao region=yes");
+                Logger.getLogger("global").log(Level.WARNING, "actualizao region=yes");
 
                 getIt6().setValue(Integer.valueOf(getIt6Int()));
                 getIt8().setValue(Integer.valueOf(getIt8Int()));
