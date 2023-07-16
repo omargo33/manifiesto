@@ -145,6 +145,7 @@ public class ManifiestoTarea {
                 LOGGER.log(Level.WARNING, "error omar check "+tasasTimbresCliente.getRespuesta().getErrorCode());
                 LOGGER.log(Level.WARNING, "error omar check "+tasasTimbresCliente.getRespuesta().getErrorDescripcion());
                 estado = Integer.parseInt(tasasTimbresCliente.getRespuesta().getErrorCode());
+                estado = Integer.parseInt(tasasTimbresCliente.getRespuesta().getErrorCode());
             }
         } catch (Exception e) {
             LOGGER.log(Level.WARNING, "error omar check" + e.toString());

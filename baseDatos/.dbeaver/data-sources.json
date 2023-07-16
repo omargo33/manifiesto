@@ -8,7 +8,7 @@
 		"mysql8-1874ef3372e-3cafc3e265080856": {
 			"provider": "mysql",
 			"driver": "mysql8",
-			"name": "Local",
+			"name": "Test",
 			"save-password": true,
 			"folder": "Aerocivil",
 			"configuration": {
@@ -76,10 +76,10 @@
 			"save-password": true,
 			"folder": "Zaimella",
 			"configuration": {
-				"host": "192.168.5.6",
+				"host": "zaitestdb.zaimella.com",
 				"port": "1523",
 				"database": "ZAITEST",
-				"url": "jdbc:oracle:thin:@192.168.5.6:1523:ZAITEST",
+				"url": "jdbc:oracle:thin:@zaitestdb.zaimella.com:1523:ZAITEST",
 				"configurationType": "MANUAL",
 				"home": "/home/ovelez/Oracle/android-studio",
 				"type": "dev",
@@ -93,12 +93,7 @@
 				{
 					"type": "org.jkiss.dbeaver.ext.oracle.model.OracleSchema",
 					"enabled": true,
-					"include": [
-						"DATA",
-						"MPZML_HER",
-						"MPZML_REP",
-						"MPZML_SOL"
-					]
+					"include": ["DATA","MPZML_HER","MPZML_REP","MPZML_SOL"]
 				}
 			]
 		},
@@ -128,7 +123,7 @@
 		"mysql8-1890043d2c5-3b9d7bac8a7ebe4f": {
 			"provider": "mysql",
 			"driver": "mysql8",
-			"name": "Local 1",
+			"name": "Produccion",
 			"save-password": true,
 			"folder": "Aerocivil",
 			"configuration": {
@@ -156,7 +151,7 @@
 						"save-password": true,
 						"properties": {
 							"host": "20.121.194.254",
-							"port": 22,
+							"port": 22.0,
 							"authType": "PUBLIC_KEY",
 							"keyPath": "/home/ovelez/Documentos/clientes/Aerocivil/accesoservidoresubuntuazure/PortalTest-EastUS-VM_key.pem",
 							"implementation": "sshj",
@@ -168,17 +163,7 @@
 			}
 		}
 	},
-	"virtual-models": {
-		"mysql8-1874ef51d02-695f5fd5b3151e2e": {
-			"GS_001_01": {
-				"@properties": {
-					"erd.diagram.state": {
-						"serialized": "\u003cdiagram version\u003d\"1\" name\u003d\"empty\" time\u003d\"202305310019\"\u003e\u003centities\u003e\u003cdata-source id\u003d\"mysql8-1874ef51d02-695f5fd5b3151e2e\"\u003e\u003centity id\u003d\"1\" name\u003d\"codigo_definido_usuario\" fq-name\u003d\"GS_001_01.codigo_definido_usuario\" order\u003d\"0\" font\u003d\"Segoe UI:9:0\" x\u003d\"20\" y\u003d\"20\"\u003e\u003cpath name\u003d\"GS_001_01\"/\u003e\u003c/entity\u003e\u003centity id\u003d\"2\" name\u003d\"informacion\" fq-name\u003d\"GS_001_01.informacion\" order\u003d\"1\" font\u003d\"Segoe UI:9:0\" x\u003d\"20\" y\u003d\"978\"\u003e\u003cpath name\u003d\"GS_001_01\"/\u003e\u003c/entity\u003e\u003centity id\u003d\"3\" name\u003d\"menu\" fq-name\u003d\"GS_001_01.menu\" order\u003d\"2\" font\u003d\"Segoe UI:9:0\" x\u003d\"20\" y\u003d\"314\"\u003e\u003cpath name\u003d\"GS_001_01\"/\u003e\u003c/entity\u003e\u003centity id\u003d\"4\" name\u003d\"modulo\" fq-name\u003d\"GS_001_01.modulo\" order\u003d\"3\" font\u003d\"Segoe UI:9:0\" x\u003d\"245\" y\u003d\"342\"\u003e\u003cpath name\u003d\"GS_001_01\"/\u003e\u003c/entity\u003e\u003centity id\u003d\"5\" name\u003d\"parametro\" fq-name\u003d\"GS_001_01.parametro\" order\u003d\"4\" font\u003d\"Segoe UI:9:0\" x\u003d\"20\" y\u003d\"589\"\u003e\u003cpath name\u003d\"GS_001_01\"/\u003e\u003c/entity\u003e\u003c/data-source\u003e\u003c/entities\u003e\u003crelations\u003e\u003crelation name\u003d\"codigo_definido_usuario_FK\" fq-name\u003d\"GS_001_01.codigo_definido_usuario.codigo_definido_usuario_FK\" type\u003d\"fk\" pk-ref\u003d\"4\" fk-ref\u003d\"1\"/\u003e\u003crelation name\u003d\"menu_FK\" fq-name\u003d\"GS_001_01.menu.menu_FK\" type\u003d\"fk\" pk-ref\u003d\"4\" fk-ref\u003d\"3\"/\u003e\u003crelation name\u003d\"parametro_FK\" fq-name\u003d\"GS_001_01.parametro.parametro_FK\" type\u003d\"fk\" pk-ref\u003d\"4\" fk-ref\u003d\"5\"/\u003e\u003c/relations\u003e\u003c/diagram\u003e"
-					}
-				}
-			}
-		}
-	},
+	"virtual-models": {"mysql8-1874ef51d02-695f5fd5b3151e2e":{"GS_001_01":{"@properties":{"erd.diagram.state":{"serialized":"\u003cdiagram version\u003d\"1\" name\u003d\"empty\" time\u003d\"202305310019\"\u003e\u003centities\u003e\u003cdata-source id\u003d\"mysql8-1874ef51d02-695f5fd5b3151e2e\"\u003e\u003centity id\u003d\"1\" name\u003d\"codigo_definido_usuario\" fq-name\u003d\"GS_001_01.codigo_definido_usuario\" order\u003d\"0\" font\u003d\"Segoe UI:9:0\" x\u003d\"20\" y\u003d\"20\"\u003e\u003cpath name\u003d\"GS_001_01\"/\u003e\u003c/entity\u003e\u003centity id\u003d\"2\" name\u003d\"informacion\" fq-name\u003d\"GS_001_01.informacion\" order\u003d\"1\" font\u003d\"Segoe UI:9:0\" x\u003d\"20\" y\u003d\"978\"\u003e\u003cpath name\u003d\"GS_001_01\"/\u003e\u003c/entity\u003e\u003centity id\u003d\"3\" name\u003d\"menu\" fq-name\u003d\"GS_001_01.menu\" order\u003d\"2\" font\u003d\"Segoe UI:9:0\" x\u003d\"20\" y\u003d\"314\"\u003e\u003cpath name\u003d\"GS_001_01\"/\u003e\u003c/entity\u003e\u003centity id\u003d\"4\" name\u003d\"modulo\" fq-name\u003d\"GS_001_01.modulo\" order\u003d\"3\" font\u003d\"Segoe UI:9:0\" x\u003d\"245\" y\u003d\"342\"\u003e\u003cpath name\u003d\"GS_001_01\"/\u003e\u003c/entity\u003e\u003centity id\u003d\"5\" name\u003d\"parametro\" fq-name\u003d\"GS_001_01.parametro\" order\u003d\"4\" font\u003d\"Segoe UI:9:0\" x\u003d\"20\" y\u003d\"589\"\u003e\u003cpath name\u003d\"GS_001_01\"/\u003e\u003c/entity\u003e\u003c/data-source\u003e\u003c/entities\u003e\u003crelations\u003e\u003crelation name\u003d\"codigo_definido_usuario_FK\" fq-name\u003d\"GS_001_01.codigo_definido_usuario.codigo_definido_usuario_FK\" type\u003d\"fk\" pk-ref\u003d\"4\" fk-ref\u003d\"1\"/\u003e\u003crelation name\u003d\"menu_FK\" fq-name\u003d\"GS_001_01.menu.menu_FK\" type\u003d\"fk\" pk-ref\u003d\"4\" fk-ref\u003d\"3\"/\u003e\u003crelation name\u003d\"parametro_FK\" fq-name\u003d\"GS_001_01.parametro.parametro_FK\" type\u003d\"fk\" pk-ref\u003d\"4\" fk-ref\u003d\"5\"/\u003e\u003c/relations\u003e\u003c/diagram\u003e"}}}}},
 	"connection-types": {
 		"dev": {
 			"name": "Development",
@@ -187,7 +172,10 @@
 			"auto-commit": true,
 			"confirm-execute": false,
 			"confirm-data-change": false,
-			"auto-close-transactions": false
+			"smart-commit": false,
+			"smart-commit-recover": true,
+			"auto-close-transactions": true,
+			"close-transactions-period": 1800
 		}
 	}
 }
