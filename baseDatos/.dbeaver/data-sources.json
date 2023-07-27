@@ -50,7 +50,7 @@
 		"mysql8-1874ef51d02-695f5fd5b3151e2e": {
 			"provider": "mysql",
 			"driver": "mysql8",
-			"name": "Localhost-GS_001_00",
+			"name": "Keycloak",
 			"save-password": true,
 			"folder": "Qapaq",
 			"configuration": {
@@ -100,14 +100,14 @@
 		"mysql8-1887f1f418c-15053854fe179ef3": {
 			"provider": "mysql",
 			"driver": "mysql8",
-			"name": "keycloak",
+			"name": "GS_001_01",
 			"save-password": true,
 			"folder": "Qapaq",
 			"configuration": {
 				"host": "localhost",
 				"port": "3306",
-				"database": "mysql",
-				"url": "jdbc:mysql://localhost:3306/mysql",
+				"database": "GS_001_01",
+				"url": "jdbc:mysql://localhost:3306/GS_001_01",
 				"configurationType": "MANUAL",
 				"type": "dev",
 				"properties": {
