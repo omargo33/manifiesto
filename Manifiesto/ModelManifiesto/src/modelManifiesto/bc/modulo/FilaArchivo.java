@@ -193,9 +193,9 @@ public class FilaArchivo {
                                               .getStringCellValue());
 
             mensajeCreacion = "No Vuelo es texto";
-            this.numeroVuelo = String.valueOf(pagina.getRow(row)
+            this.numeroVuelo = String.valueOf((int)pagina.getRow(row)
                                                     .getCell(8)
-                                                    .getStringCellValue());
+                                                    .getNumericCellValue());
 
             mensajeCreacion = "Pasajeros es valor entero";
             this.pasajeros = String.valueOf((int) pagina.getRow(row)

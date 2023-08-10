@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="autorizacion-task-flow">
+    <template-reference>
+      <document></document>
+      <id>autorizacion-base-template</id>
+    </template-reference>
+    <default-activity>urlView1</default-activity>
+    <method-call id="base_obtenerParametroTexto01">
+      <method>#{bindings.base_obtenerParametroTexto01.execute}</method>
+      <return-value>#{sessionScope.urlLogout}</return-value>
+      <outcome>
+        <fixed-outcome>base_obtenerParametroTexto01</fixed-outcome>
+      </outcome>
+    </method-call>
+    <url-view id="urlView1">
+      <url>http://172.190.64.224:28080/Login-001/faces/Home.jspx</url>
+    </url-view>
+    <control-flow-rule id="__1">
+      <from-activity-id>base_obtenerParametroTexto01</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>base_obtenerParametroTexto01</from-outcome>
+        <to-activity-id>urlView1</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

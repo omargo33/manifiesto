@@ -5,7 +5,7 @@
       <property
          name="x">91.5</property>
       <property
-         name="y">378.55206</property>
+         name="y">376.78125</property>
    </OverallProperties>
    <MethodCall
       id="MethodCall2">
@@ -14,7 +14,7 @@
       <property
          name="inherited">false</property>
       <property
-         name="x">625.46094</property>
+         name="x">660.1172</property>
       <property
          name="description">&lt;html>&lt;p>&lt;b>Rollback&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
       <property
@@ -29,11 +29,11 @@
       <property
          name="inherited">true</property>
       <property
-         name="x">625.46094</property>
+         name="x">877.77344</property>
       <property
          name="description">&lt;html>&lt;p>&lt;b>UrlLogOut&lt;/b>&lt;/p>&lt;p>Activity Type:  Url View&lt;/p></property>
       <property
-         name="y">271.5</property>
+         name="y">263.53125</property>
       <property
          name="finish">true</property>
       <property
@@ -50,7 +50,7 @@
       <property
          name="description">&lt;html>&lt;p>&lt;b>ejecutarMenusPermisos&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
       <property
-         name="y">229.26562</property>
+         name="y">226.60938</property>
       <property
          name="exceptionHandler">false</property>
    </MethodCall>
@@ -61,13 +61,13 @@
       <property
          name="activityId">Menu</property>
       <property
-         name="pageFragment">true</property>
-      <property
          name="inherited">true</property>
+      <property
+         name="pageFragment">true</property>
       <property
          name="x">463.46094</property>
       <property
-         name="y">263.53125</property>
+         name="y">260.875</property>
       <property
          name="page">/menuEstructura/Menu.jsff</property>
       <property
@@ -86,7 +86,7 @@
       <property
          name="description">&lt;html>&lt;p>&lt;b>router1&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  Router&lt;/p></property>
       <property
-         name="y">211.48958</property>
+         name="y">209.71875</property>
       <property
          name="exceptionHandler">false</property>
    </Router>
@@ -97,7 +97,7 @@
       <property
          name="inherited">true</property>
       <property
-         name="x">808.46094</property>
+         name="x">877.77344</property>
       <property
          name="description">&lt;html>&lt;p>&lt;b>urlView1&lt;/b>&lt;/p>&lt;p>Activity Type:  Url View&lt;/p></property>
       <property
@@ -121,7 +121,7 @@
       <property
          name="fromsrcid">__6</property>
       <property
-         name="sdm:polyPoints">R50,328.98047,229.23438,422.46094,263.5,L50</property>
+         name="sdm:polyPoints">R50,328.98047,226.57812,422.46094,260.84375,L50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -137,7 +137,7 @@
       <property
          name="fromsrcid">__10</property>
       <property
-         name="sdm:polyPoints">B50,91.5,265.4583,459.96094,317.5,B44</property>
+         name="sdm:polyPoints">B50,91.5,263.6875,459.96094,314.84375,B44</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -153,7 +153,7 @@
       <property
          name="fromsrcid">__11</property>
       <property
-         name="sdm:polyPoints">R50,666.46094,443.53125,767.46094,451.5,L50</property>
+         name="sdm:polyPoints">R50,701.1172,443.53125,836.77344,451.5,L50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -169,7 +169,7 @@
       <property
          name="fromsrcid">__13</property>
       <property
-         name="sdm:polyPoints">L46,582.51227,79.96875,132.5,207.95833,R46</property>
+         name="sdm:polyPoints">L46,617.4791,79.96875,132.5,206.1875,R46</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -185,7 +185,7 @@
       <property
          name="fromsrcid">__10</property>
       <property
-         name="sdm:polyPoints">R54,132.5,214.95833,246.98047,229.23438,L50</property>
+         name="sdm:polyPoints">R54,132.5,213.1875,246.98047,226.57812,L50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -201,7 +201,7 @@
       <property
          name="fromsrcid">__4</property>
       <property
-         name="sdm:polyPoints">B56,466.96094,317.5,584.46094,443.53125,L50</property>
+         name="sdm:polyPoints">B56,466.96094,314.84375,619.1172,443.53125,L50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -217,14 +217,14 @@
       <property
          name="fromsrcid">__4</property>
       <property
-         name="sdm:polyPoints">T50,463.46094,209.5,584.46094,86.96875,L54</property>
+         name="sdm:polyPoints">T50,463.46094,206.84375,619.1172,86.96875,L54</property>
    </ControlFlowCase>
    <MethodCall
       id="MethodCall18">
       <property
          name="activityId">RollbackModulo</property>
       <property
-         name="x">625.46094</property>
+         name="x">660.1172</property>
       <property
          name="description">&lt;html>&lt;p>&lt;b>RollbackModulo&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
       <property
@@ -239,11 +239,11 @@
       <property
          name="inherited">false</property>
       <property
-         name="x">764.15625</property>
+         name="x">660.1172</property>
       <property
          name="description">&lt;html>&lt;p>&lt;b>base_obtenerParametroTexto01&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
       <property
-         name="y">61.46875</property>
+         name="y">255.5625</property>
       <property
          name="exceptionHandler">false</property>
    </MethodCall>
@@ -261,7 +261,7 @@
       <property
          name="fromsrcid">__4</property>
       <property
-         name="sdm:polyPoints">R50,504.46094,263.5,760.65625,115.4375,B44</property>
+         name="sdm:polyPoints">R50,504.46094,260.84375,619.1172,255.53125,L50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -277,6 +277,6 @@
       <property
          name="fromsrcid">__15</property>
       <property
-         name="sdm:polyPoints">B56,767.65625,119.25362,625.46094,217.46875,T50</property>
+         name="sdm:polyPoints">R50,701.1172,255.53125,836.77344,263.5,L50</property>
    </ControlFlowCase>
 </SDM>

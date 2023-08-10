@@ -21,10 +21,10 @@
     <view id="ItemFrg">
       <page>/preliquidacion/ItemFrg.jsff</page>
     </view>
-    <method-call id="inicioVacio">
-      <method>#{bindings.inicioVacio.execute}</method>
+    <method-call id="inicioVacioPreliquidacion">
+      <method>#{bindings.inicioVacioPreliquidacion.execute}</method>
       <outcome>
-        <fixed-outcome>inicioVacio</fixed-outcome>
+        <fixed-outcome>inicioVacioPreliquidacion</fixed-outcome>
       </outcome>
     </method-call>
     <control-flow-rule id="__1">
@@ -34,17 +34,17 @@
         <to-activity-id>ItemFrg</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
-    <control-flow-rule id="__9">
+    <control-flow-rule id="__4">
       <from-activity-id>router</from-activity-id>
-      <control-flow-case id="__10">
+      <control-flow-case id="__5">
         <from-outcome>Listar</from-outcome>
-        <to-activity-id>inicioVacio</to-activity-id>
+        <to-activity-id>inicioVacioPreliquidacion</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
-    <control-flow-rule id="__11">
-      <from-activity-id>inicioVacio</from-activity-id>
-      <control-flow-case id="__12">
-        <from-outcome>inicioVacio</from-outcome>
+    <control-flow-rule id="__6">
+      <from-activity-id>inicioVacioPreliquidacion</from-activity-id>
+      <control-flow-case id="__7">
+        <from-outcome>inicioVacioPreliquidacion</from-outcome>
         <to-activity-id>ListaFrg</to-activity-id>
       </control-flow-case>
     </control-flow-rule>

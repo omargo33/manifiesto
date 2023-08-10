@@ -36,7 +36,7 @@
 						"save-password": true,
 						"properties": {
 							"host": "172.190.64.224",
-							"port": 22.0,
+							"port": 22,
 							"authType": "PUBLIC_KEY",
 							"keyPath": "/home/ovelez/Documentos/clientes/Aerocivil/accesoservidoresubuntuazure/PortalTest-EastUS-VM_key.pem",
 							"implementation": "sshj",

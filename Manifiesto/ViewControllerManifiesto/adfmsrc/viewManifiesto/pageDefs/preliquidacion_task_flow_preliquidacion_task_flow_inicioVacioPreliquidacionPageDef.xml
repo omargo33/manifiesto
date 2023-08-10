@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48"
-                id="preliquidacion_task_flow_preliquidacion_task_flow_inicioVacioPageDef"
+                id="preliquidacion_task_flow_preliquidacion_task_flow_inicioVacioPreliquidacionPageDef"
                 Package="viewManifiesto.pageDefs" SkipValidation="true">
   <parameters/>
   <executables/>
   <bindings>
-    <methodAction id="inicioVacio" RequiresUpdateModel="true" Action="invokeMethod" MethodName="inicioVacio"
-                  IsViewObjectMethod="true" DataControl="ManifiestoModuloDataControl"
+    <methodAction id="inicioVacioPreliquidacion" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="inicioVacioPreliquidacion" IsViewObjectMethod="true"
+                  DataControl="ManifiestoModuloDataControl"
                   InstanceName="ManifiestoModuloDataControl.ManifiestoViewNoDML1"/>
   </bindings>
 </pageDefinition>

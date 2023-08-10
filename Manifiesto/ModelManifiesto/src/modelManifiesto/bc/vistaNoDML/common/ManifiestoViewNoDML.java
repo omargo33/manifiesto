@@ -17,4 +17,10 @@ public interface ManifiestoViewNoDML extends ViewObject {
     void ejecutarConsultaErrorJDE();
 
     void inicioVacio();
+
+    void ejecutarConsultaPreliquidacion(int idUsuario, int indiceAerolinea, int indiceAeropuertoOrigen,
+                                        int indiceAeropuertoDestino, int indiceAeronave, String noVuelo,
+                                        String fechaInicio, String fechaFin);
+
+    void inicioVacioPreliquidacion();
 }

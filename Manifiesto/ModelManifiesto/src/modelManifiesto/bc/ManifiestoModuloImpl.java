@@ -204,7 +204,7 @@ public class ManifiestoModuloImpl extends AuditoriaModuloImpl implements Manifie
     public Map calculosPreCalificacion(int idUsuario, int indiceAerolinea, int indiceAeropuertoOrigen,
                                        int indiceAeropuertoDestino, int indiceAeronave, String noVuelo,
                                        String fechaInicio, String fechaFin) {
-        String sql = SQL_MANIFIESTO_TOTALES;
+        String sql = SQL_MANIFIESTO_TOTALES +" tipo = 'I' AND " ;
         int totalPasajeros = 0;
         int totalPasajerosTransito = 0;
         int totalExcenteosTimbres = 0;
@@ -661,8 +661,8 @@ public class ManifiestoModuloImpl extends AuditoriaModuloImpl implements Manifie
                     for (int row = 0; row <= totalFilas; row++) {
                         filaTrabajo = new FilaArchivo(pagina, row);
                         if (!filaTrabajo.isValidar(manifiestoModulo)) {
-                            mapEventos.put("P3-" + row,
-                                           String.format("Linea %s %s", row + 1, filaTrabajo.errorValidacion()));
+                            mapEventos.put("P3-" + row + filaTrabajo.errorValidacion(),
+                                           String.format("Línea %s %s", row + 1, filaTrabajo.errorValidacion()));
                         }
                     }
                 } else {

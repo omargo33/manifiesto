@@ -210,7 +210,7 @@
       <property
          name="fromsrcid">__6</property>
       <property
-         name="sdm:polyPoints">B50,407.38672,300.5,852.5156,318.47525,B50</property>
+         name="sdm:polyPoints">R54,448.38672,250.0,810.10736,267.97525,L54</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -226,7 +226,7 @@
       <property
          name="fromsrcid">__11</property>
       <property
-         name="sdm:polyPoints">R54,751.3867,208.0104,811.5156,264.47525,L50</property>
+         name="sdm:polyPoints">R54,751.3867,208.0104,811.5156,260.97525,L46</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -242,7 +242,7 @@
       <property
          name="fromsrcid">__6</property>
       <property
-         name="sdm:polyPoints">T50,407.38672,192.5,710.3867,150.5104,T50</property>
+         name="sdm:polyPoints">R46,448.38672,243.0,669.3867,204.5104,L50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -304,37 +304,37 @@
       <property
          name="sdm:polyPoints">R46,893.5156,260.97525,1098.1792,241.63153,L50</property>
    </ControlFlowCase>
-   <ControlFlowCase
-      islink="true"
-      id="ControlFlowCase26"
-      from="Router9"
-      to="MethodCall27">
-      <property
-         name="fromOutcome">Listar</property>
-      <property
-         name="sdm:polyPoints">R50,448.38672,246.5,528.3867,238.77603,L50</property>
-   </ControlFlowCase>
    <MethodCall
-      id="MethodCall27">
+      id="MethodCall26">
       <property
-         name="activityId">inicioVacio</property>
+         name="activityId">inicioVacioPreliquidacion</property>
       <property
-         name="x">569.3867</property>
+         name="x">598.43555</property>
       <property
-         name="description">&lt;html>&lt;p>&lt;b>inicioVacio&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+         name="description">&lt;html>&lt;p>&lt;b>inicioVacioPreliquidacion&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
       <property
-         name="y">238.80728</property>
+         name="y">450.46875</property>
       <property
          name="exceptionHandler">false</property>
    </MethodCall>
    <ControlFlowCase
       islink="true"
+      id="ControlFlowCase27"
+      from="Router9"
+      to="MethodCall26">
+      <property
+         name="fromOutcome">Listar</property>
+      <property
+         name="sdm:polyPoints">B50,407.38672,300.5,557.43555,450.4375,L50</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
       id="ControlFlowCase28"
-      from="MethodCall27"
+      from="MethodCall26"
       to="View20">
       <property
-         name="fromOutcome">inicioVacio</property>
+         name="fromOutcome">inicioVacioPreliquidacion</property>
       <property
-         name="sdm:polyPoints">R50,610.3867,238.77603,669.3867,204.5104,L50</property>
+         name="sdm:polyPoints">T50,598.43555,396.4375,710.3867,258.5104,B50</property>
    </ControlFlowCase>
 </SDM>

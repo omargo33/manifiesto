@@ -44,6 +44,19 @@ public class ManifiestoViewNoDMLImpl extends VistaObjeto implements ManifiestoVi
         this.setApplyViewCriteriaName(null);
     }
 
+    public void inicioVacioPreliquidacion() {
+        
+
+        Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).log(Level.WARNING, "preliquidar iniicializa");
+        
+        ViewCriteria vc = this.getViewCriteriaManager().getViewCriteria("ManifiestoViewPreliquidacionNoDMLCriteria");
+        VariableValueManager vvm = vc.ensureVariableManager();
+        vvm.setVariableValue("v_IdUsuario", 0);
+        this.applyViewCriteria(vc, false);
+        this.executeQuery();
+        this.setApplyViewCriteriaName(null);
+    }
+
     /**
      * Metodo para ejecutar una busqueda de manifiesto general.
      *
@@ -111,6 +124,78 @@ public class ManifiestoViewNoDMLImpl extends VistaObjeto implements ManifiestoVi
         this.setApplyViewCriteriaName(null);
 
     }
+
+
+
+    /**
+     * Metodo para ejecutar una busqueda de manifiesto para preliquidacion.
+     *
+     * @param indiceAerolinea
+     * @param indiceAeropuertoOrigen
+     * @param indiceAeropuertoDestino
+     * @param indiceAeronave
+     * @param noVuelo
+     * @param fechaInicio
+     * @param fechaFin
+     */
+    public void ejecutarConsultaPreliquidacion(int idUsuario, int indiceAerolinea, int indiceAeropuertoOrigen,
+                                 int indiceAeropuertoDestino, int indiceAeronave, String noVuelo, String fechaInicio,
+                                 String fechaFin) {
+
+        Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).log(Level.WARNING, "preliquidar consulta");
+
+        java.sql.Date fechaSQLInicio = convertirDate(fechaInicio);
+        java.sql.Date fechaSQLFin = convertirDate(fechaFin);
+
+        ViewCriteria vc = this.getViewCriteriaManager().getViewCriteria("ManifiestoViewPreliquidacionNoDMLCriteria");
+        VariableValueManager vvm = vc.ensureVariableManager();
+
+
+        if (idUsuario > 0) {
+            vvm.setVariableValue("v_IdUsuario", idUsuario);
+        } else {
+            vvm.setVariableValue("v_IdUsuario", null);
+        }
+        if (indiceAerolinea > 0) {
+            vvm.setVariableValue("v_IndiceAerolinea", indiceAerolinea);
+        } else {
+            vvm.setVariableValue("v_IndiceAerolinea", null);
+        }
+        if (indiceAeropuertoOrigen > 0) {
+            vvm.setVariableValue("v_IndiceAeropuertoOrigen", indiceAeropuertoOrigen);
+        } else {
+            vvm.setVariableValue("v_IndiceAeropuertoOrigen", null);
+        }
+        if (indiceAeropuertoDestino > 0) {
+            vvm.setVariableValue("v_IndiceAeropuertoDestino", indiceAeropuertoDestino);
+        } else {
+            vvm.setVariableValue("v_IndiceAeropuertoDestino", null);
+        }
+        if (indiceAeronave > 0) {
+            vvm.setVariableValue("v_IndiceAeronave", indiceAeronave);
+        } else {
+            vvm.setVariableValue("v_IndiceAeronave", null);
+        }
+        if (noVuelo != null && noVuelo.trim().length() > 0 && noVuelo.compareTo("0") != 0) {
+            vvm.setVariableValue("v_NoVuelo", noVuelo);
+        } else {
+            vvm.setVariableValue("v_NoVuelo", null);
+        }
+
+        if (fechaSQLInicio != null && fechaSQLFin != null) {
+            vvm.setVariableValue("v_FechaInicio", fechaSQLInicio);
+            vvm.setVariableValue("v_FechaFin", fechaSQLFin);
+        } else {
+            vvm.setVariableValue("v_FechaInicio", new java.sql.Date(new Date().getTime() - (15 * 24 * 60 * 60 * 1000)));
+            vvm.setVariableValue("v_FechaFin", new java.sql.Date(new Date().getTime() + (5 * 60 * 1000)));
+        }
+
+        this.applyViewCriteria(vc, false);
+        this.executeQuery();
+        this.setApplyViewCriteriaName(null);
+
+    }
+
 
 
     public void ejecutarConsultaErrorJDE() {
