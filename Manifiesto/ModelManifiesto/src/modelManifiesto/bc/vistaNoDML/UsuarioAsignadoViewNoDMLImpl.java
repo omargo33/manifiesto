@@ -31,7 +31,7 @@ public class UsuarioAsignadoViewNoDMLImpl extends VistaObjeto implements Usuario
             try {
                 idUsuarioInteger = Integer.parseInt(idUsuario);
             } catch (Exception e) {
-                Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).log(Level.SEVERE, "convert error=" + e.toString());
+                Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).log(Level.WARNING, "convert error=" + e.toString());
                 idUsuarioInteger = 0;
             }
         }*/

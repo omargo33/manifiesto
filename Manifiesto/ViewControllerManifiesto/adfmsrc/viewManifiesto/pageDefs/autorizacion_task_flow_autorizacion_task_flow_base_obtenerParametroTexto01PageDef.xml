@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48"
+                id="autorizacion_task_flow_autorizacion_task_flow_base_obtenerParametroTexto01PageDef"
+                Package="viewManifiesto.pageDefs" SkipValidation="true">
+  <parameters/>
+  <executables/>
+  <bindings>
+    <methodAction id="base_obtenerParametroTexto01" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="base_obtenerParametroTexto01" IsViewObjectMethod="false"
+                  DataControl="ManifiestoModuloDataControl"
+                  InstanceName="ManifiestoModuloDataControl.dataProvider"
+                  ReturnName="data.ManifiestoModuloDataControl.methodResults.base_obtenerParametroTexto01_base_obtenerParametroTexto01_dataControl_dataProvider_base_obtenerParametroTexto01_result">
+      <NamedData NDName="indiceParametro" NDValue="50" NDType="java.lang.String"/>
+    </methodAction>
+  </bindings>
+</pageDefinition>

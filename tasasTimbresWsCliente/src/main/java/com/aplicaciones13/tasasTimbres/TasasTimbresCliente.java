@@ -56,7 +56,6 @@ public class TasasTimbresCliente {
             solicitaWebServicesURL.agregarCertificadoSSL(getEncabezado().getPathCertificado(), getEncabezado().getClaveCertificado());
             solicitaWebServicesURL.ejecutarConsultaWebService();
             solicitaWebServicesURL.quitarCertificadoSSL(getEncabezado().getPathCertificado());
-            System.out.println("trama:" +  solicitaWebServicesURL.toString());
         } catch (Exception e) {
             estado = false;
             this.respuesta.setErrorDescripcion("Error en la solicitud web service " + e.toString());

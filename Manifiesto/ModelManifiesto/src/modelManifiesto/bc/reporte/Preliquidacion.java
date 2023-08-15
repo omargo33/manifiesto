@@ -179,7 +179,7 @@ public class Preliquidacion extends ImpresionBaseElementos {
                 valoresTemp.add(fila);
             }
         } catch (Exception e) {
-            Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).log(Level.SEVERE, e.toString());
+            Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).log(Level.WARNING, e.toString());
         }
         this.valores = valoresTemp;
     }

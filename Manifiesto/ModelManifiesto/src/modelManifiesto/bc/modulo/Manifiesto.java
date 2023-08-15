@@ -1,32 +1,8 @@
 package modelManifiesto.bc.modulo;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-
-import java.text.SimpleDateFormat;
-
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import jxl.Sheet;
-import jxl.Workbook;
-
-import jxl.read.biff.BiffException;
-
-import modelManifiesto.bc.entidad.ManifiestoImpl;
-
-import model.utilidades.Atributos;
-
 import modelManifiesto.bc.ManifiestoModuloImpl;
 
-import modelManifiesto.bc.vista.ManifiestoViewImpl;
-
 import oracle.jbo.JboException;
-import oracle.jbo.Row;
 
 /**
  * Objeto para acciones de procesos sobre el manifiesto.

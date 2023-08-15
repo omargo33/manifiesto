@@ -113,8 +113,8 @@
         </tree>
         <action id="Rollback" DataControl="ManifiestoModuloDataControl" RequiresUpdateModel="false"
                 Action="rollbackTransaction"/>
-        <methodAction id="ejecutarConsulta" RequiresUpdateModel="true" Action="invokeMethod"
-                      MethodName="ejecutarConsulta" IsViewObjectMethod="true" DataControl="ManifiestoModuloDataControl"
+        <methodAction id="ejecutarConsultaPreliquidacion" RequiresUpdateModel="true" Action="invokeMethod"
+                      MethodName="ejecutarConsultaPreliquidacion" IsViewObjectMethod="true" DataControl="ManifiestoModuloDataControl"
                       InstanceName="ManifiestoModuloDataControl.ManifiestoViewNoDML1">
             <NamedData NDName="idUsuario" NDType="int"/>
             <NamedData NDName="indiceAerolinea" NDType="int"/>

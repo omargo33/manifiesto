@@ -17,4 +17,19 @@
       <property
          name="exceptionHandler">false</property>
    </View>
+   <View
+      id="View3">
+      <property
+         name="activityId">SalidaError</property>
+      <property
+         name="x">447.0</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>SalidaError&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="y">399.9375</property>
+      <property
+         name="page">/SalidaError.jspx</property>
+      <property
+         name="exceptionHandler">true</property>
+   </View>
 </SDM>
