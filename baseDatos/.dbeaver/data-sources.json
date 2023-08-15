@@ -2,7 +2,8 @@
 	"folders": {
 		"Zaimella": {},
 		"Aerocivil": {},
-		"Qapaq": {}
+		"Qapaq": {},
+		"ICreativa": {}
 	},
 	"connections": {
 		"mysql8-1874ef3372e-3cafc3e265080856": {
@@ -36,7 +37,7 @@
 						"save-password": true,
 						"properties": {
 							"host": "172.190.64.224",
-							"port": 22,
+							"port": 22.0,
 							"authType": "PUBLIC_KEY",
 							"keyPath": "/home/ovelez/Documentos/clientes/Aerocivil/accesoservidoresubuntuazure/PortalTest-EastUS-VM_key.pem",
 							"implementation": "sshj",
@@ -160,6 +161,23 @@
 						}
 					}
 				}
+			}
+		},
+		"postgres-jdbc-189f0bdda41-5475c68c543b03fb": {
+			"provider": "postgresql",
+			"driver": "postgres-jdbc",
+			"name": "postgres",
+			"save-password": true,
+			"folder": "ICreativa",
+			"configuration": {
+				"host": "localhost",
+				"port": "5432",
+				"database": "postgres",
+				"url": "jdbc:postgresql://localhost:5432/postgres",
+				"configurationType": "MANUAL",
+				"type": "dev",
+				"provider-properties": {},
+				"auth-model": "native"
 			}
 		}
 	},

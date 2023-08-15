@@ -8,7 +8,7 @@
     <methodAction id="base_obtenerParametroTexto01" RequiresUpdateModel="true" Action="invokeMethod"
                   MethodName="base_obtenerParametroTexto01" IsViewObjectMethod="false"
                   DataControl="ManifiestoModuloDataControl"
-                  InstanceName="bindings.base_obtenerParametroTexto01.dataControl.dataProvider"
+                  InstanceName="ManifiestoModuloDataControl.dataProvider"
                   ReturnName="data.ManifiestoModuloDataControl.methodResults.base_obtenerParametroTexto01_base_obtenerParametroTexto01_dataControl_dataProvider_base_obtenerParametroTexto01_result">
       <NamedData NDName="indiceParametro" NDValue="50" NDType="java.lang.String"/>
     </methodAction>

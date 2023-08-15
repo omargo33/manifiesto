@@ -155,36 +155,41 @@ public class ManifiestoModuloImpl extends AuditoriaModuloImpl implements Manifie
 
         String sql = SQL_MANIFIESTO_EXCEL;
 
-        if (idUsuario > 0) {
-            sql = sql + " (id_usuario = " + idUsuario + " )  AND";
-        }
-        if (indiceAerolinea > 0) {
-            sql = sql + " (id_libro_direccion_aerolinea = " + indiceAerolinea + " )  AND";
-        }
-        if (indiceAeropuertoOrigen > 0) {
-            sql = sql + " (id_libro_direccion_aeropuerto = " + indiceAeropuertoOrigen + " ) AND";
-        }
-        if (indiceAeropuertoDestino > 0) {
-            sql = sql + " (id_libro_direccion_aeropuerto_des = " + indiceAeropuertoDestino + " ) AND";
-        }
-        if (indiceAeronave > 0) {
-            sql = sql + " (id_libro_direccion_aeronave = " + indiceAeronave + " ) AND";
-        }
-        if (noVuelo != null && noVuelo.trim().length() > 0 && noVuelo.compareTo("0") != 0) {
-            sql = sql + " (UPPER(no_vuelo) LIKE UPPER('%" + noVuelo + "%') ) AND";
-        }
+        try {
 
-        sql =
-            sql + " (fecha_corta_local_operacion BETWEEN  '" + convertirDate(fechaInicio) + "'  AND  '" +
-            convertirDate(fechaFin) + "')";
+            if (idUsuario > 0) {
+                sql = sql + " (id_usuario = " + idUsuario + " )  AND";
+            }
+            if (indiceAerolinea > 0) {
+                sql = sql + " (id_libro_direccion_aerolinea = " + indiceAerolinea + " )  AND";
+            }
+            if (indiceAeropuertoOrigen > 0) {
+                sql = sql + " (id_libro_direccion_aeropuerto = " + indiceAeropuertoOrigen + " ) AND";
+            }
+            if (indiceAeropuertoDestino > 0) {
+                sql = sql + " (id_libro_direccion_aeropuerto_des = " + indiceAeropuertoDestino + " ) AND";
+            }
+            if (indiceAeronave > 0) {
+                sql = sql + " (id_libro_direccion_aeronave = " + indiceAeronave + " ) AND";
+            }
+            if (noVuelo != null && noVuelo.trim().length() > 0 && noVuelo.compareTo("0") != 0) {
+                sql = sql + " (UPPER(no_vuelo) LIKE UPPER('%" + noVuelo + "%') ) AND";
+            }
 
-        ResultSet resultSet = this.getBaseDML().ejecutaConsulta(sql);
-        if (this.getBaseDML().getMensaje() != null) {
-            throw new JboException("no consulta SQL");
+            sql =
+                sql + " (fecha_corta_local_operacion BETWEEN  '" + convertirDate(fechaInicio) + "'  AND  '" +
+                convertirDate(fechaFin) + "')";
+
+            ResultSet resultSet = this.getBaseDML().ejecutaConsulta(sql);
+            if (this.getBaseDML().getMensaje() != null) {
+                throw new JboException("No consulta SQL");
+            }
+
+            idArchivo =
+                Reporte.crearReporteExcel(this, resultSet, nombrePagina, "Manifiesto", tabla, usuario, usuarioPrograma);
+        } catch (Exception e) {
+            Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).log(Level.WARNING, "excelManifiesto" + e.toString());
         }
-
-        idArchivo =
-            Reporte.crearReporteExcel(this, resultSet, nombrePagina, "Manifiesto", tabla, usuario, usuarioPrograma);
         return idArchivo;
     }
 
@@ -204,7 +209,7 @@ public class ManifiestoModuloImpl extends AuditoriaModuloImpl implements Manifie
     public Map calculosPreCalificacion(int idUsuario, int indiceAerolinea, int indiceAeropuertoOrigen,
                                        int indiceAeropuertoDestino, int indiceAeronave, String noVuelo,
                                        String fechaInicio, String fechaFin) {
-        String sql = SQL_MANIFIESTO_TOTALES +" tipo = 'I' AND " ;
+        String sql = SQL_MANIFIESTO_TOTALES + " tipo = 'I' AND ";
         int totalPasajeros = 0;
         int totalPasajerosTransito = 0;
         int totalExcenteosTimbres = 0;
