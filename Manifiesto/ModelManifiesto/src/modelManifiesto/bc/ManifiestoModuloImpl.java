@@ -460,13 +460,28 @@ public class ManifiestoModuloImpl extends AuditoriaModuloImpl implements Manifie
 
 
     public int getIdAerolineaNick(String nick) {
+        
+        try{    
         aerolineaUsuarioIndices = AerolineaUsuario.buscarUsuario(this, nick);
         return aerolineaUsuarioIndices.getIdAerolinea();
+        }catch(Exception e){
+                Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).log(Level.WARNING, "getIdAerolineaNick() " + e.toString());
+            return 0;
+            }
+    
     }
 
     public int getIdAeropuertoNick(String nick) {
+        
+        try{
+        
         aerolineaUsuarioIndices = AerolineaUsuario.buscarUsuario(this, nick);
         return aerolineaUsuarioIndices.getIdAeropuerto();
+            
+        }catch(Exception e){
+                Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).log(Level.WARNING, "getIdAeropuertoNick() " + e.toString());
+                return 0;
+            }
     }
 
     /**

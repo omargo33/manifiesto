@@ -1,5 +1,7 @@
 package viewManifiesto.manifiestoUsuario;
 
+import java.io.Serializable;
+
 import view.utilidades.ADFUtils;
 
 /**
@@ -7,7 +9,10 @@ import view.utilidades.ADFUtils;
  *
  * @author omargo33@hotmail.com
  */
-public class SessionBean {
+public class SessionBean implements Serializable{
+    @SuppressWarnings("compatibility:-3321574774011149350")
+    private static final long serialVersionUID = 1L;
+
     public SessionBean() {
         super();
     }

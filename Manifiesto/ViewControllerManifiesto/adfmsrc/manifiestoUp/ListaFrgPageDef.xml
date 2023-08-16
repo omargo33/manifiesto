@@ -40,8 +40,8 @@
   </methodAction>
   <methodAction id="base_grupoBorrarArchivos" RequiresUpdateModel="true" Action="invokeMethod"
                 MethodName="base_grupoBorrarArchivos" IsViewObjectMethod="false"
-                DataControl="ManifiestoModuloDataControl"
-                InstanceName="ManifiestoModuloDataControl.dataProvider">
+                DataControl="ModuloDataControl"
+                InstanceName="ModuloDataControl.dataProvider">
    <NamedData NDName="idGrupo" NDValue="1" NDType="int"/>
    <NamedData NDName="informacion" NDValue="1" NDType="java.lang.String"/>
    <NamedData NDName="usuario" NDValue="1" NDType="java.lang.String"/>
@@ -49,12 +49,12 @@
   </methodAction>
   <methodAction id="base_grupoBuscarIdGrupo" RequiresUpdateModel="true" Action="invokeMethod"
                 MethodName="base_grupoBuscarIdGrupo" IsViewObjectMethod="false"
-                DataControl="ManifiestoModuloDataControl"
-                InstanceName="ManifiestoModuloDataControl.dataProvider"
-                ReturnName="data.ManifiestoModuloDataControl.methodResults.base_grupoBuscarIdGrupo_base_grupoBuscarIdGrupo_dataControl_dataProvider_base_grupoBuscarIdGrupo_result">
-   <NamedData NDName="id" NDValue="dd" NDType="int"/>
-   <NamedData NDName="esquema" NDValue="dd" NDType="java.lang.String"/>
-   <NamedData NDName="tabla" NDValue="dd" NDType="java.lang.String"/>
+                DataControl="ModuloDataControl"
+                InstanceName="ModuloDataControl.dataProvider"
+                ReturnName="data.ModuloDataControl.methodResults.base_grupoBuscarIdGrupo_base_grupoBuscarIdGrupo_dataControl_dataProvider_base_grupoBuscarIdGrupo_result">
+   <NamedData NDName="id" NDValue="0" NDType="int"/>
+   <NamedData NDName="esquema" NDValue="e" NDType="java.lang.String"/>
+   <NamedData NDName="tabla" NDValue="t" NDType="java.lang.String"/>
   </methodAction>
   <tree IterBinding="Base_ArchivoView2Iterator" id="Base_ArchivoView2">
    <nodeDefinition DefName="model.bc.vista.ArchivoView" Name="Base_ArchivoView20">
