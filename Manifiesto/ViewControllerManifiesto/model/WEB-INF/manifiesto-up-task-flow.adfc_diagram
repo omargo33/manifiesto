@@ -57,9 +57,9 @@
       <property
          name="activityId">Error</property>
       <property
-         name="pageFragment">true</property>
-      <property
          name="inherited">true</property>
+      <property
+         name="pageFragment">true</property>
       <property
          name="x">87.44336</property>
       <property
@@ -123,9 +123,9 @@
       <property
          name="activityId">ItemFrg</property>
       <property
-         name="pageFragment">true</property>
-      <property
          name="inherited">true</property>
+      <property
+         name="pageFragment">true</property>
       <property
          name="x">1170.9395</property>
       <property
@@ -197,7 +197,7 @@
       <property
          name="fromsrcid">__11</property>
       <property
-         name="sdm:polyPoints">R46,782.2324,200.76562,986.71484,148.9336,L50</property>
+         name="sdm:polyPoints">R50,851.2324,144.26562,986.71484,148.9336,L50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -245,7 +245,7 @@
       <property
          name="fromsrcid">__11</property>
       <property
-         name="sdm:polyPoints">R54,782.2324,207.76562,842.3613,264.23047,L50</property>
+         name="sdm:polyPoints">B50,810.2324,198.26562,842.3613,264.23047,L50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -261,7 +261,7 @@
       <property
          name="fromsrcid">__6</property>
       <property
-         name="sdm:polyPoints">T50,407.38672,192.5,741.2324,150.26562,T50</property>
+         name="sdm:polyPoints">T50,407.38672,192.5,767.96906,140.76562,L46</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -286,11 +286,11 @@
       <property
          name="pageFragment">true</property>
       <property
-         name="x">741.2324</property>
+         name="x">810.2324</property>
       <property
          name="description">&lt;html>&lt;p>&lt;b>ListaFrg&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
-         name="y">204.29688</property>
+         name="y">144.26562</property>
       <property
          name="page">/manifiestoUp/ListaFrg.jsff</property>
       <property
@@ -327,6 +327,6 @@
       <property
          name="fromOutcome">getIdUsuarioNick</property>
       <property
-         name="sdm:polyPoints">R50,625.8096,238.53125,700.2324,204.26562,L50</property>
+         name="sdm:polyPoints">R50,625.8096,238.53125,769.2324,147.76562,L54</property>
    </ControlFlowCase>
 </SDM>

@@ -143,6 +143,7 @@ public class PPRItemFrg extends BasePPR {
             }
         } catch (Exception e) {
             getPfl5().setVisible(false);
+            Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).log(Level.WARNING, "limpiarEjecute() 1 ov " + e.toString());
         }
 
         try {
@@ -164,55 +165,69 @@ public class PPRItemFrg extends BasePPR {
                 doPartialRefresh((UIComponent) getPfl6());
             }
         } catch (Exception e) {
-            Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).log(Level.WARNING, e.toString());
+            Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).log(Level.WARNING, "limpiarEjecute() 2 ov " + e.toString());
         }
     }
 
     public void valueChangeSoc1(ValueChangeEvent valueChangeEvent) {
-        Object oldValue = valueChangeEvent.getOldValue();
-        Object newValue = valueChangeEvent.getNewValue();
 
         try {
-            String old = String.valueOf(oldValue);
-            String nuevo = String.valueOf(newValue);
 
-            if (old.compareTo(nuevo) == 0) {
-                return;
-            }
-        } catch (Exception exception) {
-        }
+            Object oldValue = valueChangeEvent.getOldValue();
+            Object newValue = valueChangeEvent.getNewValue();
 
-        if (newValue != null) {
-            if (String.valueOf(newValue).compareToIgnoreCase("C") == 0) {
-                //Deshabilitar
-                acerarValores();
-                anularCamposVueloCancelado(true);
-            } else {
-                //Habilitar
-                anularCamposVueloCancelado(false);
+            try {
+                String old = String.valueOf(oldValue);
+                String nuevo = String.valueOf(newValue);
+
+                if (old.compareTo(nuevo) == 0) {
+                    return;
+                }
+            } catch (Exception e) {
+                Logger.getLogger(Logger.GLOBAL_LOGGER_NAME)
+                    .log(Level.WARNING, "valueChangeSoc1() 1 ov " + e.toString());
+
             }
-            //Refrescar
-            doPartialRefresh((UIComponent) getPfl3());
-            doPartialRefresh((UIComponent) getPfl5());
-            doPartialRefresh((UIComponent) getPfl6());
+
+            if (newValue != null) {
+                if (String.valueOf(newValue).compareToIgnoreCase("C") == 0) {
+                    //Deshabilitar
+                    acerarValores();
+                    anularCamposVueloCancelado(true);
+                } else {
+                    //Habilitar
+                    anularCamposVueloCancelado(false);
+                }
+                //Refrescar
+                doPartialRefresh((UIComponent) getPfl3());
+                doPartialRefresh((UIComponent) getPfl5());
+                doPartialRefresh((UIComponent) getPfl6());
+            }
+        } catch (Exception e) {
+            Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).log(Level.WARNING, "valueChangeSoc1() 2 ov " + e.toString());
         }
     }
 
     private void acerarValores() {
-        // Input activos
-        getIt3().setValue("0");
-        getIt4().setValue("0");
-        getIt6().setValue("0");
-        getIt8().setValue("0");
-        getIt10().setValue("0");
-        getIt12().setValue("0");
+        try {
+            // Input activos
+            getIt3().setValue("0");
+            getIt4().setValue("0");
+            getIt6().setValue("0");
+            getIt8().setValue("0");
+            getIt10().setValue("0");
+            getIt12().setValue("0");
 
-        // Input inactivos
-        getIt5().setValue("0");
-        getIt7().setValue("0");
-        getIt9().setValue("0");
-        getIt11().setValue("0");
-        getIt13().setValue("0");
+            // Input inactivos
+            getIt5().setValue("0");
+            getIt7().setValue("0");
+            getIt9().setValue("0");
+            getIt11().setValue("0");
+            getIt13().setValue("0");
+        } catch (Exception e) {
+            Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).log(Level.WARNING, "acerarValores() ov " + e.toString());
+
+        }
     }
 
     /**
@@ -221,12 +236,17 @@ public class PPRItemFrg extends BasePPR {
      * @param estatus
      */
     private void anularCamposVueloCancelado(boolean estatus) {
-        getIt3().setDisabled(estatus);
-        getIt4().setDisabled(estatus);
-        getIt6().setDisabled(estatus);
-        getIt8().setDisabled(estatus);
-        getIt10().setDisabled(estatus);
-        //getIt12().setDisabled(estatus);
+        try {
+            getIt3().setDisabled(estatus);
+            getIt4().setDisabled(estatus);
+            getIt6().setDisabled(estatus);
+            getIt8().setDisabled(estatus);
+            getIt10().setDisabled(estatus);
+            //getIt12().setDisabled(estatus);
+        } catch (Exception e) {
+            Logger.getLogger(Logger.GLOBAL_LOGGER_NAME)
+                .log(Level.WARNING, "anularCamposVueloCancelado() ov " + e.toString());
+        }
     }
 
 
@@ -241,26 +261,34 @@ public class PPRItemFrg extends BasePPR {
             if (old.compareTo(nuevo) == 0) {
                 return;
             }
-        } catch (Exception exception) {
+        } catch (Exception e) {
+            Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).log(Level.WARNING, "valueChangeSoc6() 1 ov " + e.toString());
+
         }
 
-        if (newValue != null) {
-            if (String.valueOf(newValue).compareToIgnoreCase("N") == 0) {
-                getIt10().setValue("0");
-                getIt12().setValue("0");
-                getPfl5().setVisible(false);
-                doPartialRefresh((UIComponent) getPfl5());
-            }
+        try {
+            if (newValue != null) {
+                if (String.valueOf(newValue).compareToIgnoreCase("N") == 0) {
+                    getIt10().setValue("0");
+                    getIt12().setValue("0");
+                    getPfl5().setVisible(false);
+                    doPartialRefresh((UIComponent) getPfl5());
+                }
 
-            if (String.valueOf(newValue).compareToIgnoreCase("I") == 0) {
-                getPfl5().setVisible(true);
-                doPartialRefresh((UIComponent) getPfl5());
+                if (String.valueOf(newValue).compareToIgnoreCase("I") == 0) {
+                    getPfl5().setVisible(true);
+                    doPartialRefresh((UIComponent) getPfl5());
+                }
             }
+        } catch (Exception e) {
+            Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).log(Level.WARNING, "valueChangeSoc6() 2 ov " + e.toString());
+
         }
     }
 
 
     public void valueChangeIt3(ValueChangeEvent valueChangeEvent) {
+        try{
         doPartialRefresh((UIComponent) getIt5());
 
         doPartialRefresh((UIComponent) getIt7());
@@ -270,10 +298,15 @@ public class PPRItemFrg extends BasePPR {
         doPartialRefresh((UIComponent) getIt11());
         doPartialRefresh((UIComponent) getIt12());
         doPartialRefresh((UIComponent) getIt13());
+        }catch(Exception e){
+                Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).log(Level.WARNING, "valueChangeIt3() ov " + e.toString());
+
+            }
     }
 
 
     public void valueChangeIt4(ValueChangeEvent valueChangeEvent) {
+        try{
         doPartialRefresh((UIComponent) getIt5());
 
         doPartialRefresh((UIComponent) getIt7());
@@ -283,10 +316,15 @@ public class PPRItemFrg extends BasePPR {
         doPartialRefresh((UIComponent) getIt11());
         doPartialRefresh((UIComponent) getIt12());
         doPartialRefresh((UIComponent) getIt13());
+        }catch(Exception e){
+
+                Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).log(Level.WARNING, "valueChangeIt4() ov " + e.toString());
+            }
     }
 
 
     public void valueChangeIt6(ValueChangeEvent valueChangeEvent) {
+        try{
         setIt6Int(valueChangeEvent.getNewValue());
         doPartialRefresh((UIComponent) getIt7());
 
@@ -295,10 +333,15 @@ public class PPRItemFrg extends BasePPR {
         doPartialRefresh((UIComponent) getIt11());
         doPartialRefresh((UIComponent) getIt12());
         doPartialRefresh((UIComponent) getIt13());
+        }catch(Exception e){
+
+                Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).log(Level.WARNING, "valueChangeIt6() ov " + e.toString());
+            }
     }
 
 
     public void valueChangeIt8(ValueChangeEvent valueChangeEvent) {
+        try{
         setIt8Int(valueChangeEvent.getNewValue());
 
         doPartialRefresh((UIComponent) getIt9());
@@ -306,20 +349,31 @@ public class PPRItemFrg extends BasePPR {
         doPartialRefresh((UIComponent) getIt11());
         doPartialRefresh((UIComponent) getIt12());
         doPartialRefresh((UIComponent) getIt13());
+        }catch(Exception e){Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).log(Level.WARNING, "valueChangeIt8() ov " + e.toString());
+            }
     }
 
 
     public void valueChangeIt10(ValueChangeEvent valueChangeEvent) {
+        try{
         setIt10Int(valueChangeEvent.getNewValue());
 
         getIt12().setValue("0");
         doPartialRefresh((UIComponent) getIt11());
         doPartialRefresh((UIComponent) getIt12());
         doPartialRefresh((UIComponent) getIt13());
+        }catch(Exception e){
+                Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).log(Level.WARNING, "valueChangeIt10() ov " + e.toString());
+            
+            }
     }
 
 
     private String valueResta(RichInputText arg1, RichInputText arg2) {
+        int argRespuesta=0;
+        
+        try{
+        
         if (arg1 == null) {
             arg1 = new RichInputText();
             arg1.setValue("0");
@@ -353,12 +407,15 @@ public class PPRItemFrg extends BasePPR {
             arg2Int = 0;
         }
 
-        int argRespuesta = arg1Int - arg2Int;
-
+        argRespuesta = arg1Int - arg2Int;
+        }catch(Exception e){
+                Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).log(Level.WARNING, "valueResta() ov " + e.toString());
+            }
         return String.valueOf(argRespuesta);
     }
 
     public void accionSeleccionar1(ActionEvent actionEvent) {
+        try{
         getP1().hide();
         doPartialRefresh((UIComponent) getP1());
 
@@ -376,9 +433,13 @@ public class PPRItemFrg extends BasePPR {
 
         doPartialRefresh((UIComponent) getIt20());
         doPartialRefresh((UIComponent) getIt200());
+        }catch(Exception e){
+                Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).log(Level.WARNING, "accionSeleccionar1() ov " + e.toString());
+            }
     }
 
     public void accionSeleccionar2(ActionEvent actionEvent) {
+        try{
         getP2().hide();
         doPartialRefresh((UIComponent) getP2());
 
@@ -396,9 +457,13 @@ public class PPRItemFrg extends BasePPR {
         getIt210().setValue(descripcion);
         doPartialRefresh((UIComponent) getIt21());
         doPartialRefresh((UIComponent) getIt210());
+        }catch(Exception e){
+                Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).log(Level.WARNING, "accionSeleccionar2() ov " + e.toString());
+            }
     }
 
     public void accionSeleccionar3(ActionEvent actionEvent) {
+        try{
         getP3().hide();
         doPartialRefresh((UIComponent) getP3());
 
@@ -416,9 +481,13 @@ public class PPRItemFrg extends BasePPR {
         getIt190().setValue(descripcion);
         doPartialRefresh((UIComponent) getIt19());
         doPartialRefresh((UIComponent) getIt190());
+        }catch(Exception e){
+                Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).log(Level.WARNING, "accionSeleccionar3() ov " + e.toString());
+            }
     }
 
     public void accionSeleccionar4(ActionEvent actionEvent) {
+        try{
         getP4().hide();
         doPartialRefresh((UIComponent) getP4());
 
@@ -436,67 +505,78 @@ public class PPRItemFrg extends BasePPR {
         getIt180().setValue(descripcion);
         doPartialRefresh((UIComponent) getIt18());
         doPartialRefresh((UIComponent) getIt180());
+        }catch(Exception e){
+                Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).log(Level.WARNING, "accionSeleccionar4() ov " + e.toString());
+            }
     }
 
 
     public String actionGuardar() {
-        boolean estado = true;
 
-        if (getIt19() == null || getIt19().getValue() == null || String.valueOf(getIt19().getValue())
-                                                                       .trim()
-                                                                       .length() == 0) {
-            estado = false;
-            ADFUtils.setMensajeError("No ha sido Seleccionado el Aeropuerto Origen");
-        }
+        try {
 
-        if (getIt20() == null || getIt20().getValue() == null || String.valueOf(getIt20().getValue())
-                                                                       .trim()
-                                                                       .length() == 0) {
-            estado = false;
-            ADFUtils.setMensajeError("No ha sido Seleccionado el Aeropuerto Destino");
-        }
+            boolean estado = true;
 
-        if (getIt21() == null || getIt21().getValue() == null || String.valueOf(getIt21().getValue())
-                                                                       .trim()
-                                                                       .length() == 0) {
-            estado = false;
-            ADFUtils.setMensajeError("No ha sido Seleccionado la Matricula de la Aeronave");
-        }
-
-        ADFUtils.setEL("#{bindings.PasajerosExentosTasas.inputValue}", Integer.valueOf(getIt6Int()));
-        ADFUtils.setEL("#{bindings.PasajerosPaganDolares.inputValue}", Integer.valueOf(getIt8Int()));
-        ADFUtils.setEL("#{bindings.PasajerosExentosTimbres.inputValue}", Integer.valueOf(getIt10Int()));
-
-
-        valueRespuesta(getIt3(), "it3");
-        valueRespuesta(getIt4(), "it4");
-        valueRespuesta(getIt5(), "it5");
-        valueRespuesta(getIt6(), "it6");
-        valueRespuesta(getIt7(), "it7");
-        valueRespuesta(getIt8(), "it8");
-        valueRespuesta(getIt9(), "it9");
-        valueRespuesta(getIt10(), "it10");
-        valueRespuesta(getIt11(), "it11");
-        valueRespuesta(getIt12(), "it12");
-        valueRespuesta(getIt13(), "it13");
-
-
-        if (estado) {
-            if (ADFUtils.commitRollback(getBindings(), "Commit", "Rollback", getBundle("msg_guardar_ko", new Object[0]),
-                                        getBundle("msg_guardar_ok", new Object[0]))) {
-                setAccionEstadoTaskFlow(2);
-                getR1().setRendered(true);
-                getR2().setRendered(true);
-                doPartialRefresh(getR1().getParent());
-                doPartialRefresh(getR2().getParent());
-                Logger.getLogger("global").log(Level.WARNING, "actualizao region=yes");
-
-                getIt6().setValue(Integer.valueOf(getIt6Int()));
-                getIt8().setValue(Integer.valueOf(getIt8Int()));
-                getIt10().setValue(Integer.valueOf(getIt10Int()));
-                return Flow.FLOW_NULL;
+            if (getIt19() == null || getIt19().getValue() == null || String.valueOf(getIt19().getValue())
+                                                                           .trim()
+                                                                           .length() == 0) {
+                estado = false;
+                ADFUtils.setMensajeError("No ha sido Seleccionado el Aeropuerto Origen");
             }
-            return "Inicio";
+
+            if (getIt20() == null || getIt20().getValue() == null || String.valueOf(getIt20().getValue())
+                                                                           .trim()
+                                                                           .length() == 0) {
+                estado = false;
+                ADFUtils.setMensajeError("No ha sido Seleccionado el Aeropuerto Destino");
+            }
+
+            if (getIt21() == null || getIt21().getValue() == null || String.valueOf(getIt21().getValue())
+                                                                           .trim()
+                                                                           .length() == 0) {
+                estado = false;
+                ADFUtils.setMensajeError("No ha sido Seleccionado la Matricula de la Aeronave");
+            }
+
+            ADFUtils.setEL("#{bindings.PasajerosExentosTasas.inputValue}", Integer.valueOf(getIt6Int()));
+            ADFUtils.setEL("#{bindings.PasajerosPaganDolares.inputValue}", Integer.valueOf(getIt8Int()));
+            ADFUtils.setEL("#{bindings.PasajerosExentosTimbres.inputValue}", Integer.valueOf(getIt10Int()));
+
+
+            valueRespuesta(getIt3(), "it3");
+            valueRespuesta(getIt4(), "it4");
+            valueRespuesta(getIt5(), "it5");
+            valueRespuesta(getIt6(), "it6");
+            valueRespuesta(getIt7(), "it7");
+            valueRespuesta(getIt8(), "it8");
+            valueRespuesta(getIt9(), "it9");
+            valueRespuesta(getIt10(), "it10");
+            valueRespuesta(getIt11(), "it11");
+            valueRespuesta(getIt12(), "it12");
+            valueRespuesta(getIt13(), "it13");
+
+
+            if (estado) {
+                if (ADFUtils.commitRollback(getBindings(), "Commit", "Rollback",
+                                            getBundle("msg_guardar_ko", new Object[0]),
+                                            getBundle("msg_guardar_ok", new Object[0]))) {
+                    setAccionEstadoTaskFlow(2);
+                    getR1().setRendered(true);
+                    getR2().setRendered(true);
+                    doPartialRefresh(getR1().getParent());
+                    doPartialRefresh(getR2().getParent());
+                    Logger.getLogger("global").log(Level.WARNING, "actualizao region=yes");
+
+                    getIt6().setValue(Integer.valueOf(getIt6Int()));
+                    getIt8().setValue(Integer.valueOf(getIt8Int()));
+                    getIt10().setValue(Integer.valueOf(getIt10Int()));
+                    return Flow.FLOW_NULL;
+                }
+                return "Inicio";
+            }
+        } catch (Exception e) {
+
+            Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).log(Level.WARNING, "actionGuardar() ov " + e.toString());
         }
         return Flow.FLOW_NULL;
     }
@@ -506,7 +586,7 @@ public class PPRItemFrg extends BasePPR {
         try {
             Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).log(Level.INFO, tex + "=" + arg1.getValue());
         } catch (Exception e) {
-            Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).log(Level.WARNING, e.toString());
+            Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).log(Level.WARNING,"valueRespuesta() ov " + e.toString());
         }
     }
 
