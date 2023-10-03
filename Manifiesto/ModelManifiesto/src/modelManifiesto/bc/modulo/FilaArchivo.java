@@ -192,10 +192,10 @@ public class FilaArchivo {
                                               .getCell(5)
                                               .getStringCellValue());
 
-            mensajeCreacion = "No Vuelo es texto";
-            this.numeroVuelo = String.valueOf((int)pagina.getRow(row)
-                                                    .getCell(8)
-                                                    .getNumericCellValue());
+            mensajeCreacion = "No. Vuelo es valor entero";
+            this.numeroVuelo = String.valueOf((int) pagina.getRow(row)
+                                                          .getCell(8)
+                                                          .getNumericCellValue());
 
             mensajeCreacion = "Pasajeros es valor entero";
             this.pasajeros = String.valueOf((int) pagina.getRow(row)
@@ -241,12 +241,21 @@ public class FilaArchivo {
         return indiceAerolinea;
     }
 
-    private boolean isLibroDirecciones(ManifiestoModuloImpl manifiestoModulo, String indice, String tipo) {
+    private int getEstadoLibroDirecciones(ManifiestoModuloImpl manifiestoModulo, String indice, String tipo) {
         Object data = manifiestoModulo.getBaseDML().ejecutaConsultaUnicoDato(SQL_LIBRO_DIRECCIONES, indice, tipo);
         if (data != null && String.valueOf(data).compareTo("1") == 0) {
-            return true;
+            return 0;
         }
-        return false;
+
+        try {
+            if (data != null && Integer.parseInt(String.valueOf(data)) > 1) {
+                return 1;
+            }
+        } catch (Exception e) {
+            return 1;
+        }
+
+        return -1;
     }
 
     /**
@@ -266,10 +275,20 @@ public class FilaArchivo {
 
 
     public boolean isAerolinea(ManifiestoModuloImpl manifiestoModulo) {
-        if (isLibroDirecciones(manifiestoModulo, this.indiceAerolinea, "C")) {
+        int estado= getEstadoLibroDirecciones(manifiestoModulo, this.indiceAerolinea, "C");
+        
+        if (estado==0) {
             return true;
         }
-        mensaje = "No se ha localizado la aerolinea";
+        
+        if (estado<0) {
+            mensaje = "No se ha localizado la aerolinea";
+        }
+        
+        if (estado>0) {
+            mensaje = "Aerolinea duplicada";
+        }
+        
         return false;
     }
 
@@ -285,10 +304,20 @@ public class FilaArchivo {
     }
 
     public boolean isAeropuertoOrigen(ManifiestoModuloImpl manifiestoModulo) {
-        if (isLibroDirecciones(manifiestoModulo, this.indiceAeropuertoOrigen, "AR")) {
+        int estado= getEstadoLibroDirecciones(manifiestoModulo, this.indiceAeropuertoOrigen, "AR");
+        
+        if (estado==0) {
             return true;
         }
-        mensaje = "No se ha localizado el aeropuerto origen " + this.indiceAeropuertoOrigen;
+        
+        if (estado<0) {
+            mensaje = "No se ha localizado el aeropuerto origen " + this.indiceAeropuertoOrigen;
+        }
+        
+        if (estado>0) {
+            mensaje = "Aeropuerto origen " + this.indiceAeropuertoOrigen + " esta duplicado";
+        }
+        
         return false;
     }
 
@@ -304,10 +333,22 @@ public class FilaArchivo {
     }
 
     public boolean isAeropuertoDestino(ManifiestoModuloImpl manifiestoModulo) {
-        if (isLibroDirecciones(manifiestoModulo, this.indiceAeropuertoDestino, "AR")) {
+        int estado= getEstadoLibroDirecciones(manifiestoModulo, this.indiceAeropuertoDestino, "AR");
+        
+        if (estado==0) {
             return true;
         }
-        mensaje = "No se ha localizado el aeropuerto destino " + this.indiceAeropuertoDestino;
+        
+        if (estado<0) {
+            mensaje = "No se ha localizado el aeropuerto destino " + this.indiceAeropuertoDestino;
+            
+        }
+        
+        if (estado>0) {
+            mensaje = "El aeropuerto destino " + this.indiceAeropuertoDestino + " esta duplicado";
+            
+        }
+        
         return false;
     }
 
@@ -324,10 +365,20 @@ public class FilaArchivo {
     }
 
     public boolean isAeronave(ManifiestoModuloImpl manifiestoModulo) {
-        if (isLibroDirecciones(manifiestoModulo, this.indiceAeronave, "CA")) {
+        int estado= getEstadoLibroDirecciones(manifiestoModulo, this.indiceAeronave, "CA");
+        
+        if (estado==0) {
             return true;
         }
-        mensaje = "No se ha localizado la aeronave " + this.indiceAeronave;
+        
+        if (estado<0) {
+            mensaje = "No se ha localizado la aeronave " + this.indiceAeronave;
+        }
+        
+        if (estado>0) {
+            mensaje = "La aeronave " + this.indiceAeronave +" esta duplicada";
+        }
+        
         return false;
     }
 

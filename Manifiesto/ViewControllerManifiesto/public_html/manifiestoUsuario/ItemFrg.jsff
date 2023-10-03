@@ -86,6 +86,7 @@
                                       maximumLength="#{bindings.NoVuelo.hints.precision}"
                                       shortDesc="#{bindings.NoVuelo.hints.tooltip}" id="it2">
                             <f:validator binding="#{bindings.NoVuelo.validator}"/>
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.NoVuelo.format}"/>
                         </af:inputText>
                     </af:panelFormLayout>
                     <af:panelFormLayout id="pfl7" labelWidth="200">
