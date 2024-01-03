@@ -8,11 +8,15 @@ import java.util.Map;
 import javax.faces.event.ActionEvent;
 import javax.faces.event.ValueChangeEvent;
 
+import modelManifiesto.utilidades.GenerarSqlManifiesto;
+
 import oracle.adf.view.rich.component.rich.RichPopup;
 import oracle.adf.view.rich.component.rich.data.RichTable;
 import oracle.adf.view.rich.component.rich.input.RichInputDate;
 import oracle.adf.view.rich.component.rich.input.RichInputText;
 import oracle.adf.view.rich.component.rich.nav.RichButton;
+import oracle.adf.view.rich.component.rich.input.RichSelectOneChoice;
+
 
 import oracle.jbo.uicli.binding.JUCtrlHierNodeBinding;
 
@@ -34,6 +38,8 @@ public class PPRListaFrg extends BasePPR {
     private RichInputText it40; //indiceAeronaveDescripcion
     private RichInputText it5; //noVuelo
 
+    private RichInputText it6; //idManifiesto
+
     private RichInputDate id1; //fechaInicio
     private RichInputDate id2; //fechaFin
 
@@ -51,6 +57,10 @@ public class PPRListaFrg extends BasePPR {
 
     private RichButton b1;
     private RichButton b2;
+
+    private RichSelectOneChoice soc10;
+    private RichSelectOneChoice soc20;
+    private RichSelectOneChoice soc30;
 
 
     /**
@@ -76,6 +86,7 @@ public class PPRListaFrg extends BasePPR {
         setIt4(new RichInputText());
         setIt40(new RichInputText());
         setIt5(new RichInputText());
+        setIt6(new RichInputText());
 
         setId1(new RichInputDate());
         setId2(new RichInputDate());
@@ -92,6 +103,10 @@ public class PPRListaFrg extends BasePPR {
         setP4(new RichPopup());
         setP5(new RichPopup());
 
+        setSoc10(new RichSelectOneChoice());
+        setSoc20(new RichSelectOneChoice());
+        setSoc30(new RichSelectOneChoice());
+
         setB1(new RichButton());
         setB2(new RichButton());
     }
@@ -106,7 +121,8 @@ public class PPRListaFrg extends BasePPR {
 
     public String actionLimpiar() {
         iniciarDatosFormularios();
-        return "Inicio";
+        ejecutarBusqueda();
+        return null;
     }
 
     /**
@@ -115,6 +131,8 @@ public class PPRListaFrg extends BasePPR {
      * @param actionEvent
      */
     public void accionLimpiar(ActionEvent actionEvent) {
+        ADFUtils.setEL("#{sessionScope.ingresoMenu}", "0");
+
         iniciarDatosFormularios();
 
         doPartialRefresh(getIt1());
@@ -130,9 +148,14 @@ public class PPRListaFrg extends BasePPR {
         doPartialRefresh(getIt40());
 
         doPartialRefresh(getIt5());
+        doPartialRefresh(getIt6());
 
         doPartialRefresh(getId1());
         doPartialRefresh(getId2());
+
+        doPartialRefresh(getSoc10());
+        doPartialRefresh(getSoc20());
+        doPartialRefresh(getSoc30());
 
         ejecutarBusqueda();
     }
@@ -160,7 +183,40 @@ public class PPRListaFrg extends BasePPR {
         map.put("fechaInicio", convertirString(getId1().getValue()));
         map.put("fechaFin", convertirString(getId2().getValue()));
 
-        ADFUtils.ejecutaAction(getBindings(), "ejecutarConsulta", null, null, map);
+        map.put("idManifiesto", convertirString(getIt6().getValue()));
+        map.put("estado", convertirString(getSoc10().getValue()));
+        map.put("tipoVuelo", convertirString(getSoc20().getValue()));
+        map.put("tipoObservacion", convertirString(getSoc30().getValue()));
+
+        ADFUtils.ejecutaAction(getBindings(), "ejecutarConsultaExtendida", null, null, map);
+        ADFUtils.ejecutaAction(getBindings(), "ejecutarConsultaExtendidaSumatoria", null, null, map);
+
+
+        ADFUtils.setEL("#{sessionScope.idAerolineaFiltro}", String.valueOf(getIt1().getValue()));
+        ADFUtils.setEL("#{sessionScope.aerolineaDescripcionFiltro}", String.valueOf(getIt10().getValue()));
+
+        ADFUtils.setEL("#{sessionScope.idAeropuertoFiltro}", String.valueOf(getIt2().getValue()));
+        ADFUtils.setEL("#{sessionScope.aeropuertoDescripcionFiltro}", String.valueOf(getIt20().getValue()));
+
+        ADFUtils.setEL("#{sessionScope.idAeropuertoDestinoFiltro}", String.valueOf(getIt3().getValue()));
+        ADFUtils.setEL("#{sessionScope.aeropuertoDestinoDescripcionFiltro}", String.valueOf(getIt30().getValue()));
+
+        ADFUtils.setEL("#{sessionScope.idAeronaveFiltro}", String.valueOf(getIt4().getValue()));
+        ADFUtils.setEL("#{sessionScope.aeronaveDescripcionFiltro}", String.valueOf(getIt40().getValue()));
+
+        ADFUtils.setEL("#{sessionScope.noVueloFiltro}", String.valueOf(getIt5().getValue()));
+        ADFUtils.setEL("#{sessionScope.idManifiestoFiltro}", String.valueOf(getIt6().getValue()));
+
+        ADFUtils.setEL("#{sessionScope.fechaInicioFiltro}", GenerarSqlManifiesto.convertirDateString(String.valueOf(getId1().getValue())));
+        ADFUtils.setEL("#{sessionScope.fechaFinFiltro}", GenerarSqlManifiesto.convertirDateString(String.valueOf(getId2().getValue())));
+
+        ADFUtils.setEL("#{sessionScope.estadoFiltro}", String.valueOf(getSoc10().getValue()));
+        ADFUtils.setEL("#{sessionScope.tipoVueloFiltro}", String.valueOf(getSoc20().getValue()));
+        ADFUtils.setEL("#{sessionScope.observacionFiltro}", String.valueOf(getSoc30().getValue()));
+
+        ADFUtils.setEL("#{sessionScope.ingresoMenu}", "1");
+
+
         doPartialRefresh(getResId5());
     }
 
@@ -169,64 +225,86 @@ public class PPRListaFrg extends BasePPR {
      *
      */
     public void iniciarDatosFormularios() {
-        getIt1().setValue("");
-        getIt10().setValue("<No Definido>");
+        String ingresoMenu = String.valueOf(ADFUtils.evaluateEL("#{sessionScope.ingresoMenu}"));
 
-        getIt2().setValue("");
-        getIt20().setValue("<No Definido>");
+        if (ingresoMenu.compareTo("0") == 0) {
+            getIt1().setValue("");
+            getIt10().setValue("<No Definido>");
 
-        getIt3().setValue("");
-        getIt30().setValue("<No Definido>");
+            getIt2().setValue("");
+            getIt20().setValue("<No Definido>");
 
-        getIt4().setValue("");
-        getIt40().setValue("<No Definido>");
+            getIt3().setValue("");
+            getIt30().setValue("<No Definido>");
 
-        getIt5().setValue("%");
-        getId1().setValue(getFecha15DiasCorto());
-        getId2().setValue(getFechaHoyCorto());
+            getIt4().setValue("");
+            getIt40().setValue("<No Definido>");
 
-        Object cli03 = ADFUtils.evaluateEL("#{sessionScope.isCLI03}");
-        if (cli03 != null && String.valueOf(cli03).compareToIgnoreCase("TRUE") == 0) {
-            try {
-                String idAerolinea = String.valueOf(ADFUtils.evaluateEL("#{sessionScope.idAerolinea}")).trim();
-                String aerolineaDescripcion =
-                    String.valueOf(ADFUtils.evaluateEL("#{sessionScope.aerolineaDescripcion}")).trim();
+            getIt5().setValue("");
+            getIt6().setValue("");
 
-                String idAeropuerto = String.valueOf(ADFUtils.evaluateEL("#{sessionScope.idAeropuerto}")).trim();
-                String aeropuertoDescripcion =
-                    String.valueOf(ADFUtils.evaluateEL("#{sessionScope.aeropuertoDescripcion}")).trim();
+            getId1().setValue(getFecha15DiasCorto());
+            getId2().setValue(getFechaHoyCorto());
 
-                getIt1().setValue(idAerolinea);
-                getIt10().setValue(aerolineaDescripcion);
-                getB1().setDisabled(true);
+            getSoc10().setValue(" ");
+            getSoc20().setValue(" ");
+            getSoc30().setValue(" ");
 
-                getIt2().setValue(idAeropuerto);
-                getIt20().setValue(aeropuertoDescripcion);
-                getB2().setDisabled(true);
-            } catch (Exception e) {
-                Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).log(Level.WARNING, e.toString());                
+            Object cli03 = ADFUtils.evaluateEL("#{sessionScope.isCLI03}");
+            if (cli03 != null && String.valueOf(cli03).compareToIgnoreCase("TRUE") == 0) {
+                try {
+                    String idAerolinea = String.valueOf(ADFUtils.evaluateEL("#{sessionScope.idAerolinea}")).trim();
+                    String aerolineaDescripcion =
+                        String.valueOf(ADFUtils.evaluateEL("#{sessionScope.aerolineaDescripcion}")).trim();
+
+                    String idAeropuerto = String.valueOf(ADFUtils.evaluateEL("#{sessionScope.idAeropuerto}")).trim();
+                    String aeropuertoDescripcion =
+                        String.valueOf(ADFUtils.evaluateEL("#{sessionScope.aeropuertoDescripcion}")).trim();
+
+                    getIt1().setValue(idAerolinea);
+                    getIt10().setValue(aerolineaDescripcion);
+                    getB1().setDisabled(true);
+
+                    getIt2().setValue("");
+                    getIt20().setValue("<No Definido>");
+                    getB2().setDisabled(false);
+                } catch (Exception e) {
+                    Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).log(Level.WARNING, e.toString());
+                }
             }
+        }
+        
+        if (ingresoMenu.compareTo("1") == 0) {
+            getIt1().setValue(ADFUtils.evaluateEL("#{sessionScope.idAerolineaFiltro}"));
+            getIt10().setValue(ADFUtils.evaluateEL("#{sessionScope.aerolineaDescripcionFiltro}"));
+
+            getIt2().setValue(ADFUtils.evaluateEL("#{sessionScope.idAeropuertoFiltro}"));
+            getIt20().setValue(ADFUtils.evaluateEL("#{sessionScope.aeropuertoDescripcionFiltro}"));
+
+            getIt3().setValue(ADFUtils.evaluateEL("#{sessionScope.idAeropuertoDestinoFiltro}"));
+            getIt30().setValue(ADFUtils.evaluateEL("#{sessionScope.aeropuertoDestinoDescripcionFiltro}"));
+                                                                   
+            getIt4().setValue(ADFUtils.evaluateEL("#{sessionScope.idAeronaveFiltro}"));
+            getIt40().setValue(ADFUtils.evaluateEL("#{sessionScope.aeronaveDescripcionFiltro}"));
+
+            getIt5().setValue(ADFUtils.evaluateEL("#{sessionScope.noVueloFiltro}"));
+            getIt6().setValue(ADFUtils.evaluateEL("#{sessionScope.idManifiestoFiltro}"));
+
+            getId1().setValue(ADFUtils.evaluateEL("#{sessionScope.fechaInicioFiltro}"));
+            getId2().setValue(ADFUtils.evaluateEL("#{sessionScope.fechaFinFiltro}"));
+
+            getSoc10().setValue(ADFUtils.evaluateEL("#{sessionScope.estadoFiltro}"));
+            getSoc20().setValue(ADFUtils.evaluateEL("#{sessionScope.tipoVueloFiltro}"));
+            getSoc30().setValue(ADFUtils.evaluateEL("#{sessionScope.observacionFiltro}"));
         }
     }
 
-    /*    public String getEjecutarControlRol() {
-
-        Object idUsuario = ADFUtils.evaluateEL("#{sessionScope.idUsuario}");
-
-        Object cli02 = ADFUtils.evaluateEL("#{sessionScope.isCLI02}");
-        Object cli03 = ADFUtils.evaluateEL("#{sessionScope.isCLI03}");
-
-        Object idAerolinea = String.valueOf(ADFUtils.evaluateEL("#{sessionScope.idAerolinea}"));
-        Object aerolineaDescripcion = String.valueOf(ADFUtils.evaluateEL("#{sessionScope.aerolineaDescripcion}"));
-
-        Object idAeropuerto = String.valueOf(ADFUtils.evaluateEL("#{sessionScope.idAeropuerto}"));
-        Object aeropuertoDescripcion = String.valueOf(ADFUtils.evaluateEL("#{sessionScope.aeropuertoDescripcion}"));
-
-        return String.format("idUsuario=%s 02=%s 03=%s A=%s AD=%s p=%s pD=%s", idUsuario, cli02, cli03, idAerolinea,
-                             aerolineaDescripcion, idAeropuerto, aeropuertoDescripcion);
-    }*/
 
     public void valueChangeListenerIt5(ValueChangeEvent valueChangeEvent) {
+        // Add event code here...
+    }
+
+    public void valueChangeListenerIt6(ValueChangeEvent valueChangeEvent) {
         // Add event code here...
     }
 
@@ -235,6 +313,18 @@ public class PPRListaFrg extends BasePPR {
     }
 
     public void valueChangeListenerId2(ValueChangeEvent valueChangeEvent) {
+        // Add event code here...
+    }
+
+    public void valueChangeListenerSoc10(ValueChangeEvent valueChangeEvent) {
+        // Add event code here...
+    }
+
+    public void valueChangeListenerSoc20(ValueChangeEvent valueChangeEvent) {
+        // Add event code here...
+    }
+
+    public void valueChangeListenerSoc30(ValueChangeEvent valueChangeEvent) {
         // Add event code here...
     }
 
@@ -398,6 +488,15 @@ public class PPRListaFrg extends BasePPR {
         this.it5 = it5;
     }
 
+    public RichInputText getIt6() {
+        return it6;
+    }
+
+    public void setIt6(RichInputText it6) {
+        this.it6 = it6;
+    }
+
+
     public void setIt30(RichInputText it30) {
         this.it30 = it30;
     }
@@ -504,11 +603,17 @@ public class PPRListaFrg extends BasePPR {
         map.put("noVuelo", convertirString(getIt5().getValue()));
         map.put("fechaInicio", convertirString(getId1().getValue()));
         map.put("fechaFin", convertirString(getId2().getValue()));
+
+        map.put("idManifiesto", convertirString(getIt6().getValue()));
+        map.put("estado", convertirString(getSoc10().getValue()));
+        map.put("tipoVuelo", convertirString(getSoc20().getValue()));
+        map.put("tipoObservacion", convertirString(getSoc30().getValue()));
+
         map.put("tabla", "Manifiesto");
         map.put("usuario", convertirString(ADFUtils.evaluateEL("#{BaseBean.nameUser}")));
         map.put("usuarioPrograma", convertirString(ADFUtils.evaluateEL("#{session.servletContext.contextPath}")));
 
-        Object respuesta = ADFUtils.ejecutaActionConReturn(getBindings(), "excelManifiesto", true, map);
+        Object respuesta = ADFUtils.ejecutaActionConReturn(getBindings(), "excelManifiestoExtendida", true, map);
         ADFUtils.setEL("#{sessionScope.idArchivo}", respuesta);
 
         RichPopup.PopupHints hints = new RichPopup.PopupHints();
@@ -540,5 +645,29 @@ public class PPRListaFrg extends BasePPR {
 
     public void setB2(RichButton b2) {
         this.b2 = b2;
+    }
+
+    public RichSelectOneChoice getSoc10() {
+        return soc10;
+    }
+
+    public void setSoc10(RichSelectOneChoice soc10) {
+        this.soc10 = soc10;
+    }
+
+    public RichSelectOneChoice getSoc20() {
+        return soc20;
+    }
+
+    public void setSoc20(RichSelectOneChoice soc20) {
+        this.soc20 = soc20;
+    }
+
+    public RichSelectOneChoice getSoc30() {
+        return soc30;
+    }
+
+    public void setSoc30(RichSelectOneChoice soc30) {
+        this.soc30 = soc30;
     }
 }

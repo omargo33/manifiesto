@@ -1,6 +1,6 @@
 package modelManifiesto.bc.modulo;
 
-import modelManifiesto.bc.ManifiestoModuloImpl;
+import modelManifiesto.bc.common.ManifiestoModuloImpl;
 import modelManifiesto.bc.vista.AerolineaUsuarioViewRowImpl;
 import modelManifiesto.bc.vistaNoDML.UsuarioViewNoDMLRowImpl;
 

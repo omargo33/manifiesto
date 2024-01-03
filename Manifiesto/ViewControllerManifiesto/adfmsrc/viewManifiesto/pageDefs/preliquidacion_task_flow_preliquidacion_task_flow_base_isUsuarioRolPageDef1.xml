@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48"
+                id="preliquidacion_task_flow_preliquidacion_task_flow_base_isUsuarioRolPageDef1"
+                Package="viewManifiesto.pageDefs" SkipValidation="true">
+  <parameters/>
+  <executables/>
+  <bindings>
+    <methodAction id="base_isUsuarioRol" RequiresUpdateModel="true" Action="invokeMethod" MethodName="base_isUsuarioRol"
+                  IsViewObjectMethod="false" DataControl="ManifiestoModuloDataControl"
+                  InstanceName="ManifiestoModuloDataControl.dataProvider"
+                  ReturnName="data.ManifiestoModuloDataControl.methodResults.base_isUsuarioRol_base_isUsuarioRol_dataControl_dataProvider_base_isUsuarioRol_result">
+      <NamedData NDName="nick" NDValue="#{BaseBean.nameUser}" NDType="java.lang.String"/>
+      <NamedData NDName="rol" NDValue="CLI-01" NDType="java.lang.String"/>
+    </methodAction>
+  </bindings>
+</pageDefinition>

@@ -131,6 +131,7 @@ public class PPRItemFrg extends BasePPR {
         try {
             setIt6Int(ADFUtils.evaluateEL("#{bindings.PasajerosExentosTasas.inputValue}"));
             setIt8Int(ADFUtils.evaluateEL("#{bindings.PasajerosPaganDolares.inputValue}"));
+
             setIt10Int(ADFUtils.evaluateEL("#{bindings.PasajerosExentosTimbres.inputValue}"));
 
             Object tipoVuelo = ADFUtils.evaluateEL("#{bindings.Tipo.inputValue}");
@@ -288,226 +289,227 @@ public class PPRItemFrg extends BasePPR {
 
 
     public void valueChangeIt3(ValueChangeEvent valueChangeEvent) {
-        try{
-        doPartialRefresh((UIComponent) getIt5());
+        try {
+            doPartialRefresh((UIComponent) getIt5());
 
-        doPartialRefresh((UIComponent) getIt7());
+            doPartialRefresh((UIComponent) getIt7());
 
-        doPartialRefresh((UIComponent) getIt9());
+            doPartialRefresh((UIComponent) getIt9());
 
-        doPartialRefresh((UIComponent) getIt11());
-        doPartialRefresh((UIComponent) getIt12());
-        doPartialRefresh((UIComponent) getIt13());
-        }catch(Exception e){
-                Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).log(Level.WARNING, "valueChangeIt3() ov " + e.toString());
+            doPartialRefresh((UIComponent) getIt11());
+            doPartialRefresh((UIComponent) getIt12());
+            doPartialRefresh((UIComponent) getIt13());
+        } catch (Exception e) {
+            Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).log(Level.WARNING, "valueChangeIt3() ov " + e.toString());
 
-            }
+        }
     }
 
 
     public void valueChangeIt4(ValueChangeEvent valueChangeEvent) {
-        try{
-        doPartialRefresh((UIComponent) getIt5());
+        try {
+            doPartialRefresh((UIComponent) getIt5());
 
-        doPartialRefresh((UIComponent) getIt7());
+            doPartialRefresh((UIComponent) getIt7());
 
-        doPartialRefresh((UIComponent) getIt9());
+            doPartialRefresh((UIComponent) getIt9());
 
-        doPartialRefresh((UIComponent) getIt11());
-        doPartialRefresh((UIComponent) getIt12());
-        doPartialRefresh((UIComponent) getIt13());
-        }catch(Exception e){
+            doPartialRefresh((UIComponent) getIt11());
+            doPartialRefresh((UIComponent) getIt12());
+            doPartialRefresh((UIComponent) getIt13());
+        } catch (Exception e) {
 
-                Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).log(Level.WARNING, "valueChangeIt4() ov " + e.toString());
-            }
+            Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).log(Level.WARNING, "valueChangeIt4() ov " + e.toString());
+        }
     }
 
 
     public void valueChangeIt6(ValueChangeEvent valueChangeEvent) {
-        try{
-        setIt6Int(valueChangeEvent.getNewValue());
-        doPartialRefresh((UIComponent) getIt7());
+        try {
+            setIt6Int(valueChangeEvent.getNewValue());
+            doPartialRefresh((UIComponent) getIt7());
 
-        doPartialRefresh((UIComponent) getIt9());
+            doPartialRefresh((UIComponent) getIt9());
 
-        doPartialRefresh((UIComponent) getIt11());
-        doPartialRefresh((UIComponent) getIt12());
-        doPartialRefresh((UIComponent) getIt13());
-        }catch(Exception e){
+            doPartialRefresh((UIComponent) getIt11());
+            doPartialRefresh((UIComponent) getIt12());
+            doPartialRefresh((UIComponent) getIt13());
+        } catch (Exception e) {
 
-                Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).log(Level.WARNING, "valueChangeIt6() ov " + e.toString());
-            }
+            Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).log(Level.WARNING, "valueChangeIt6() ov " + e.toString());
+        }
     }
 
 
     public void valueChangeIt8(ValueChangeEvent valueChangeEvent) {
-        try{
-        setIt8Int(valueChangeEvent.getNewValue());
+        try {
+            setIt8Int(valueChangeEvent.getNewValue());
 
-        doPartialRefresh((UIComponent) getIt9());
+            doPartialRefresh((UIComponent) getIt9());
 
-        doPartialRefresh((UIComponent) getIt11());
-        doPartialRefresh((UIComponent) getIt12());
-        doPartialRefresh((UIComponent) getIt13());
-        }catch(Exception e){Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).log(Level.WARNING, "valueChangeIt8() ov " + e.toString());
-            }
+            doPartialRefresh((UIComponent) getIt11());
+            doPartialRefresh((UIComponent) getIt12());
+            doPartialRefresh((UIComponent) getIt13());
+        } catch (Exception e) {
+            Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).log(Level.WARNING, "valueChangeIt8() ov " + e.toString());
+        }
     }
 
 
     public void valueChangeIt10(ValueChangeEvent valueChangeEvent) {
-        try{
-        setIt10Int(valueChangeEvent.getNewValue());
+        try {
+            setIt10Int(valueChangeEvent.getNewValue());
 
-        getIt12().setValue("0");
-        doPartialRefresh((UIComponent) getIt11());
-        doPartialRefresh((UIComponent) getIt12());
-        doPartialRefresh((UIComponent) getIt13());
-        }catch(Exception e){
-                Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).log(Level.WARNING, "valueChangeIt10() ov " + e.toString());
-            
-            }
+            getIt12().setValue("0");
+            doPartialRefresh((UIComponent) getIt11());
+            doPartialRefresh((UIComponent) getIt12());
+            doPartialRefresh((UIComponent) getIt13());
+        } catch (Exception e) {
+            Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).log(Level.WARNING, "valueChangeIt10() ov " + e.toString());
+
+        }
     }
 
 
     private String valueResta(RichInputText arg1, RichInputText arg2) {
-        int argRespuesta=0;
-        
-        try{
-        
-        if (arg1 == null) {
-            arg1 = new RichInputText();
-            arg1.setValue("0");
-        }
+        int argRespuesta = 0;
 
-        if (arg2 == null) {
-            arg2 = new RichInputText();
-            arg2.setValue("0");
-        }
-
-        if (arg1.getValue() == null) {
-            arg1 = new RichInputText();
-            arg1.setValue("0");
-        }
-
-        if (arg2.getValue() == null) {
-            arg2 = new RichInputText();
-            arg2.setValue("0");
-        }
-
-        int arg1Int = 0;
-        int arg2Int = 0;
         try {
-            arg1Int = Integer.valueOf((String) arg1.getValue()).intValue();
-        } catch (Exception e) {
-            arg1Int = 0;
-        }
-        try {
-            arg2Int = Integer.valueOf((String) arg2.getValue()).intValue();
-        } catch (Exception e) {
-            arg2Int = 0;
-        }
 
-        argRespuesta = arg1Int - arg2Int;
-        }catch(Exception e){
-                Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).log(Level.WARNING, "valueResta() ov " + e.toString());
+            if (arg1 == null) {
+                arg1 = new RichInputText();
+                arg1.setValue("0");
             }
+
+            if (arg2 == null) {
+                arg2 = new RichInputText();
+                arg2.setValue("0");
+            }
+
+            if (arg1.getValue() == null) {
+                arg1 = new RichInputText();
+                arg1.setValue("0");
+            }
+
+            if (arg2.getValue() == null) {
+                arg2 = new RichInputText();
+                arg2.setValue("0");
+            }
+
+            int arg1Int = 0;
+            int arg2Int = 0;
+            try {
+                arg1Int = Integer.valueOf((String) arg1.getValue()).intValue();
+            } catch (Exception e) {
+                arg1Int = 0;
+            }
+            try {
+                arg2Int = Integer.valueOf((String) arg2.getValue()).intValue();
+            } catch (Exception e) {
+                arg2Int = 0;
+            }
+
+            argRespuesta = arg1Int - arg2Int;
+        } catch (Exception e) {
+            Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).log(Level.WARNING, "valueResta() ov " + e.toString());
+        }
         return String.valueOf(argRespuesta);
     }
 
     public void accionSeleccionar1(ActionEvent actionEvent) {
-        try{
-        getP1().hide();
-        doPartialRefresh((UIComponent) getP1());
+        try {
+            getP1().hide();
+            doPartialRefresh((UIComponent) getP1());
 
-        JUCtrlHierNodeBinding nodeBinding = (JUCtrlHierNodeBinding) getResId1().getSelectedRowData();
+            JUCtrlHierNodeBinding nodeBinding = (JUCtrlHierNodeBinding) getResId1().getSelectedRowData();
 
-        String descripcion =
-            String.valueOf(nodeBinding.getAttribute("IndiceSecundario")) + " " +
-            String.valueOf(nodeBinding.getAttribute("Nombre"));
-        String indice = String.valueOf(nodeBinding.getAttribute("Indice"));
+            String descripcion =
+                String.valueOf(nodeBinding.getAttribute("IndiceSecundario")) + " " +
+                String.valueOf(nodeBinding.getAttribute("Nombre"));
+            String indice = String.valueOf(nodeBinding.getAttribute("Indice"));
 
-        getIt20().setValue(indice);
-        getIt200().setValue(descripcion);
+            getIt20().setValue(indice);
+            getIt200().setValue(descripcion);
 
-        ADFUtils.setEL("#{bindings.IdLibroDireccionAeropuertoDes.inputValue}", indice);
+            ADFUtils.setEL("#{bindings.IdLibroDireccionAeropuertoDes.inputValue}", indice);
 
-        doPartialRefresh((UIComponent) getIt20());
-        doPartialRefresh((UIComponent) getIt200());
-        }catch(Exception e){
-                Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).log(Level.WARNING, "accionSeleccionar1() ov " + e.toString());
-            }
+            doPartialRefresh((UIComponent) getIt20());
+            doPartialRefresh((UIComponent) getIt200());
+        } catch (Exception e) {
+            Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).log(Level.WARNING, "accionSeleccionar1() ov " + e.toString());
+        }
     }
 
     public void accionSeleccionar2(ActionEvent actionEvent) {
-        try{
-        getP2().hide();
-        doPartialRefresh((UIComponent) getP2());
+        try {
+            getP2().hide();
+            doPartialRefresh((UIComponent) getP2());
 
-        JUCtrlHierNodeBinding nodeBinding = (JUCtrlHierNodeBinding) getResId2().getSelectedRowData();
+            JUCtrlHierNodeBinding nodeBinding = (JUCtrlHierNodeBinding) getResId2().getSelectedRowData();
 
 
-        String descripcion =
-            String.valueOf(nodeBinding.getAttribute("IndiceSecundario")) + " " +
-            String.valueOf(nodeBinding.getAttribute("Nombre"));
-        String indice = String.valueOf(nodeBinding.getAttribute("Indice"));
+            String descripcion =
+                String.valueOf(nodeBinding.getAttribute("IndiceSecundario")) + " " +
+                String.valueOf(nodeBinding.getAttribute("Nombre"));
+            String indice = String.valueOf(nodeBinding.getAttribute("Indice"));
 
-        ADFUtils.setEL("#{bindings.IdLibroDireccionAeronave.inputValue}", indice);
+            ADFUtils.setEL("#{bindings.IdLibroDireccionAeronave.inputValue}", indice);
 
-        getIt21().setValue(indice);
-        getIt210().setValue(descripcion);
-        doPartialRefresh((UIComponent) getIt21());
-        doPartialRefresh((UIComponent) getIt210());
-        }catch(Exception e){
-                Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).log(Level.WARNING, "accionSeleccionar2() ov " + e.toString());
-            }
+            getIt21().setValue(indice);
+            getIt210().setValue(descripcion);
+            doPartialRefresh((UIComponent) getIt21());
+            doPartialRefresh((UIComponent) getIt210());
+        } catch (Exception e) {
+            Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).log(Level.WARNING, "accionSeleccionar2() ov " + e.toString());
+        }
     }
 
     public void accionSeleccionar3(ActionEvent actionEvent) {
-        try{
-        getP3().hide();
-        doPartialRefresh((UIComponent) getP3());
+        try {
+            getP3().hide();
+            doPartialRefresh((UIComponent) getP3());
 
-        JUCtrlHierNodeBinding nodeBinding = (JUCtrlHierNodeBinding) getResId3().getSelectedRowData();
+            JUCtrlHierNodeBinding nodeBinding = (JUCtrlHierNodeBinding) getResId3().getSelectedRowData();
 
 
-        String descripcion =
-            String.valueOf(nodeBinding.getAttribute("IndiceSecundario")) + " " +
-            String.valueOf(nodeBinding.getAttribute("Nombre"));
-        String indice = String.valueOf(nodeBinding.getAttribute("Indice"));
+            String descripcion =
+                String.valueOf(nodeBinding.getAttribute("IndiceSecundario")) + " " +
+                String.valueOf(nodeBinding.getAttribute("Nombre"));
+            String indice = String.valueOf(nodeBinding.getAttribute("Indice"));
 
-        ADFUtils.setEL("#{bindings.IdLibroDireccionAeropuerto.inputValue}", indice);
+            ADFUtils.setEL("#{bindings.IdLibroDireccionAeropuerto.inputValue}", indice);
 
-        getIt19().setValue(indice);
-        getIt190().setValue(descripcion);
-        doPartialRefresh((UIComponent) getIt19());
-        doPartialRefresh((UIComponent) getIt190());
-        }catch(Exception e){
-                Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).log(Level.WARNING, "accionSeleccionar3() ov " + e.toString());
-            }
+            getIt19().setValue(indice);
+            getIt190().setValue(descripcion);
+            doPartialRefresh((UIComponent) getIt19());
+            doPartialRefresh((UIComponent) getIt190());
+        } catch (Exception e) {
+            Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).log(Level.WARNING, "accionSeleccionar3() ov " + e.toString());
+        }
     }
 
     public void accionSeleccionar4(ActionEvent actionEvent) {
-        try{
-        getP4().hide();
-        doPartialRefresh((UIComponent) getP4());
+        try {
+            getP4().hide();
+            doPartialRefresh((UIComponent) getP4());
 
-        JUCtrlHierNodeBinding nodeBinding = (JUCtrlHierNodeBinding) getResId4().getSelectedRowData();
+            JUCtrlHierNodeBinding nodeBinding = (JUCtrlHierNodeBinding) getResId4().getSelectedRowData();
 
 
-        String descripcion =
-            String.valueOf(nodeBinding.getAttribute("IndiceSecundario")) + " " +
-            String.valueOf(nodeBinding.getAttribute("Nombre"));
-        String indice = String.valueOf(nodeBinding.getAttribute("Indice"));
+            String descripcion =
+                String.valueOf(nodeBinding.getAttribute("IndiceSecundario")) + " " +
+                String.valueOf(nodeBinding.getAttribute("Nombre"));
+            String indice = String.valueOf(nodeBinding.getAttribute("Indice"));
 
-        ADFUtils.setEL("#{bindings.IdLibroDireccionAerolinea.inputValue}", indice);
+            ADFUtils.setEL("#{bindings.IdLibroDireccionAerolinea.inputValue}", indice);
 
-        getIt18().setValue(indice);
-        getIt180().setValue(descripcion);
-        doPartialRefresh((UIComponent) getIt18());
-        doPartialRefresh((UIComponent) getIt180());
-        }catch(Exception e){
-                Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).log(Level.WARNING, "accionSeleccionar4() ov " + e.toString());
-            }
+            getIt18().setValue(indice);
+            getIt180().setValue(descripcion);
+            doPartialRefresh((UIComponent) getIt18());
+            doPartialRefresh((UIComponent) getIt180());
+        } catch (Exception e) {
+            Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).log(Level.WARNING, "accionSeleccionar4() ov " + e.toString());
+        }
     }
 
 
@@ -516,6 +518,16 @@ public class PPRItemFrg extends BasePPR {
         try {
 
             boolean estado = true;
+
+            if (getIt18() == null || getIt18().getValue() == null || String.valueOf(getIt18().getValue())
+                                                                           .trim()
+                                                                           .length() == 0
+            || String.valueOf(getIt18().getValue()).compareTo("0") == 0
+            ) {
+                estado = false;
+                ADFUtils.setMensajeError("No ha sido Seleccionado la Aerolinea");
+            }
+
 
             if (getIt19() == null || getIt19().getValue() == null || String.valueOf(getIt19().getValue())
                                                                            .trim()
@@ -538,6 +550,7 @@ public class PPRItemFrg extends BasePPR {
                 ADFUtils.setMensajeError("No ha sido Seleccionado la Matricula de la Aeronave");
             }
 
+
             ADFUtils.setEL("#{bindings.PasajerosExentosTasas.inputValue}", Integer.valueOf(getIt6Int()));
             ADFUtils.setEL("#{bindings.PasajerosPaganDolares.inputValue}", Integer.valueOf(getIt8Int()));
             ADFUtils.setEL("#{bindings.PasajerosExentosTimbres.inputValue}", Integer.valueOf(getIt10Int()));
@@ -555,6 +568,24 @@ public class PPRItemFrg extends BasePPR {
             valueRespuesta(getIt12(), "it12");
             valueRespuesta(getIt13(), "it13");
 
+
+            int pasajerosLocales = evaluarValue(getIt5().getValue());
+            int pasajerosExcentos = evaluarValue(getIt10().getValue());
+
+            if (pasajerosLocales < pasajerosExcentos) {
+                estado = false;
+                ADFUtils.setMensajeError("Pasajeros Exentos de Timbres: " + pasajerosExcentos + ", no puede ser mayor al valor de los Pasajeros Locales: " + pasajerosLocales);
+            }
+            
+            
+            int pasajerosPaganDolares = evaluarValue(getIt8().getValue());             
+            int pasajerosPaganTasas = evaluarValue(getIt7().getValue()); 
+            
+            if (pasajerosPaganTasas  < pasajerosPaganDolares ) {
+                estado = false;
+                ADFUtils.setMensajeError("Pasajeros Pagan tasas en Dólares: " + pasajerosPaganDolares  + ", no puede ser mayor al valor de los Pasajeros Pagan tasas: " + pasajerosPaganTasas);
+            }
+            
 
             if (estado) {
                 if (ADFUtils.commitRollback(getBindings(), "Commit", "Rollback",
@@ -586,7 +617,7 @@ public class PPRItemFrg extends BasePPR {
         try {
             Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).log(Level.INFO, tex + "=" + arg1.getValue());
         } catch (Exception e) {
-            Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).log(Level.WARNING,"valueRespuesta() ov " + e.toString());
+            Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).log(Level.WARNING, "valueRespuesta() ov " + e.toString());
         }
     }
 

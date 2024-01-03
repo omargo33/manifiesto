@@ -9,7 +9,7 @@ import java.util.Date;
 
 import model.utilidades.Atributos;
 
-import modelManifiesto.bc.ManifiestoModuloImpl;
+import modelManifiesto.bc.common.ManifiestoModuloImpl;
 import modelManifiesto.bc.entidad.ManifiestoImpl;
 import modelManifiesto.bc.vista.ManifiestoInsertViewImpl;
 
@@ -28,7 +28,7 @@ import org.apache.poi.ss.usermodel.Sheet;
 public class FilaArchivo {
 
     final static String SQL_LIBRO_DIRECCIONES =
-        "select count(*) existe from MV_001_00.libro_direccion ld where UPPER(indice_secundario) = UPPER(?) and UPPER(tipo) = UPPER(?)";
+        "select count(*) existe from MV_001_00.libro_direccion ld where UPPER(indice_secundario) = UPPER(?) and UPPER(tipo) = UPPER(?) and estado = 'A'";
 
     final static String SQL_LIBRO_DIRECCIONES_ID =
         "select indice from MV_001_00.libro_direccion where UPPER(indice_secundario) = UPPER(?) and UPPER(tipo) = UPPER(?)";
@@ -192,37 +192,37 @@ public class FilaArchivo {
                                               .getCell(5)
                                               .getStringCellValue());
 
-            mensajeCreacion = "No. Vuelo es valor entero";
+            mensajeCreacion = "No. Vuelo debe ser un campo numérico";
             this.numeroVuelo = String.valueOf((int) pagina.getRow(row)
                                                           .getCell(8)
                                                           .getNumericCellValue());
 
-            mensajeCreacion = "Pasajeros es valor entero";
+            mensajeCreacion = "Pasajeros debe ser un campo numérico";
             this.pasajeros = String.valueOf((int) pagina.getRow(row)
                                                         .getCell(9)
                                                         .getNumericCellValue());
 
-            mensajeCreacion = "Pasajeros Transito es valor entero";
+            mensajeCreacion = "Pasajeros Transito debe ser un campo numérico";
             this.pasajerosTransito = String.valueOf((int) pagina.getRow(row)
                                                                 .getCell(10)
                                                                 .getNumericCellValue());
 
-            mensajeCreacion = "Pasajeros Exentos Tasas es valor entero";
+            mensajeCreacion = "Pasajeros Exentos Tasas debe ser un campo numérico";
             this.pasajerosExentosTasas = String.valueOf((int) pagina.getRow(row)
                                                                     .getCell(12)
                                                                     .getNumericCellValue());
 
-            mensajeCreacion = "Pasajeros Pagan Dolares es valor entero";
+            mensajeCreacion = "Pasajeros Pagan Dolares debe ser un campo numérico";
             this.pasajerosPaganDolares = String.valueOf((int) pagina.getRow(row)
                                                                     .getCell(14)
                                                                     .getNumericCellValue());
 
-            mensajeCreacion = "Pasajeros Exentos Timbres es valor entero";
+            mensajeCreacion = "Pasajeros Exentos Timbres debe ser un campo numérico";
             this.pasajerosExcentosTimbres = String.valueOf((int) pagina.getRow(row)
                                                                        .getCell(17)
                                                                        .getNumericCellValue());
 
-            mensajeCreacion = "Pasajeros Pagan Timbres Dolares es valor entero";
+            mensajeCreacion = "Pasajeros Pagan Timbres Dolares debe ser un campo numérico";
             this.pasajerosPaganTimbresDolares = String.valueOf((int) pagina.getRow(row)
                                                                            .getCell(19)
                                                                            .getNumericCellValue());

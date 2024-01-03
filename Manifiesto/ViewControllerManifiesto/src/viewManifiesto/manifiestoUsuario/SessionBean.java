@@ -24,6 +24,11 @@ public class SessionBean implements Serializable{
         ADFUtils.setEL("#{sessionScope.aeropuertoDestinoDescripcion}", null);
         ADFUtils.setEL("#{sessionScope.aeronaveDescripcion}", null);
     }
+    
+    public void ingresoMenu(){
+        ADFUtils.setEL("#{sessionScope.ingresoMenu}", "0");
+            
+        }
 
     /**
      * Metodo para validar un data ingreso al ejecutar la pantalla de edit varias veces.

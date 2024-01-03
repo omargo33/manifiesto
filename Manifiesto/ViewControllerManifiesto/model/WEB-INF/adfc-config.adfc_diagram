@@ -30,6 +30,6 @@
       <property
          name="page">/SalidaError.jspx</property>
       <property
-         name="exceptionHandler">true</property>
+         name="exceptionHandler">false</property>
    </View>
 </SDM>

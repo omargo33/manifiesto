@@ -86,21 +86,18 @@
             <param-value>true</param-value>
         </init-param>
     </filter>
-    <!-- filtro de session -->
     <filter>
-        <filter-name>SessionExpiryFilter</filter-name>
-        <filter-class>view.plantilla.BaseSessionExpiryFilter</filter-class>
+        <filter-name>ApplicationSessionExpiryFilter</filter-name>
+        <filter-class>view.plantilla.ApplicationSessionExpiryFilter</filter-class>
         <init-param>
-            <description>Url a ser direccionado el sistema</description>
-            <param-name>urlRedirect</param-name>
-            <param-value>pageError?codigoError=Cierre%20de%20Sesion</param-value>
-        </init-param>
-        <init-param>
-            <description>Tiempo de cierre de session personalizado</description>
-            <param-name>timeOut</param-name>
-            <param-value>5</param-value>
+            <param-name>SessionTimeoutRedirect</param-name>
+            <param-value>/</param-value>
         </init-param>
     </filter>
+<filter-mapping>
+        <filter-name>ApplicationSessionExpiryFilter</filter-name>
+        <servlet-name>Faces Servlet</servlet-name>
+    </filter-mapping>
     <filter-mapping>
         <filter-name>JpsFilter</filter-name>
         <url-pattern>/*</url-pattern>
@@ -132,11 +129,6 @@
         <servlet-name>adfAuthentication</servlet-name>
         <dispatcher>FORWARD</dispatcher>
         <dispatcher>REQUEST</dispatcher>
-    </filter-mapping>
-    <!-- filtro de mapeo -->
-    <filter-mapping>
-        <filter-name>SessionExpiryFilter</filter-name>
-        <servlet-name>Faces Servlet</servlet-name>
     </filter-mapping>
     <context-param>
         <param-name>javax.faces.STATE_SAVING_METHOD</param-name>
@@ -214,8 +206,11 @@
     <listener>
         <listener-class>oracle.adf.mbean.share.config.ADFConfigLifeCycleCallBack</listener-class>
     </listener>
+    <listener>
+        <listener-class>oracle.bc4j.mbean.BC4JConfigLifeCycleCallBack</listener-class>
+    </listener>
     <welcome-file-list>
-        <welcome-file>/faces/Home.jspx</welcome-file>
+        <welcome-file>/index.html</welcome-file>
     </welcome-file-list>
     <error-page>
         <error-code>400</error-code>
@@ -262,7 +257,7 @@
             <url-pattern>/faces/Download</url-pattern>
             <url-pattern>/faces/pageError</url-pattern>
             <url-pattern>/faces/upLoadFile</url-pattern>
-            <url-pattern>/resources/js/timeSession.js</url-pattern>
+            <url-pattern>/index.html</url-pattern>
         </web-resource-collection>
     </security-constraint>
     <security-constraint>
@@ -279,11 +274,11 @@
             <url-pattern>/LOG003</url-pattern>
             <url-pattern>/faces/pageError.jspx</url-pattern>
             <url-pattern>/faces/upLoadFile.jspx</url-pattern>
-            <url-pattern>/faces/Upload</url-pattern>            
+            <url-pattern>/faces/Upload</url-pattern>
             <url-pattern>/faces/Download</url-pattern>
             <url-pattern>/faces/pageError</url-pattern>
             <url-pattern>/faces/upLoadFile</url-pattern>
-            <url-pattern>/resources/js/timeSession.js</url-pattern>
+            <url-pattern>/index.html</url-pattern>
         </web-resource-collection>
         <auth-constraint>
             <role-name>CLI-01</role-name>
