@@ -4,6 +4,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Locale;
 import java.util.Map;
 import java.util.logging.Level;
@@ -33,8 +34,14 @@ public class PPRListaFrg extends BasePPR {
     @SuppressWarnings("compatibility:5936010330712211772")
     private static final long serialVersionUID = 1L;
 
+    private RichInputText it1; //indiceAerolinea
+    private RichInputText it10; //indiceAerolineaDescripcion
+
+
     private RichInputText it2; //indiceAeropuertoOrigen
     private RichInputText it20; //indiceAeropuertoOrigenDescripcion
+
+
     private RichInputText it3; //indiceAeropuertoDestino
     private RichInputText it30; //indiceAeropuertoDestinoDescripcion
     private RichInputText it4; //indiceAeronave
@@ -51,6 +58,7 @@ public class PPRListaFrg extends BasePPR {
     private RichTable resId4; //Tabla aerolinea
     private RichTable resId5; //Tabla aeropuerto origen
 
+    private RichPopup p1; //indiceAerolinea
     private RichPopup p2; //indiceAeropuertoOrigen
     private RichPopup p3; //indiceAeropuertoDestino
     private RichPopup p4; //indiceAeronave
@@ -74,6 +82,8 @@ public class PPRListaFrg extends BasePPR {
      * Inicializa datos.
      */
     private void init() {
+        setIt1(new RichInputText());
+        setIt10(new RichInputText());
         setIt2(new RichInputText());
         setIt20(new RichInputText());
         setIt3(new RichInputText());
@@ -91,6 +101,7 @@ public class PPRListaFrg extends BasePPR {
         setResId4(new RichTable());
         setResId5(new RichTable());
 
+        setP1(new RichPopup());
         setP2(new RichPopup());
         setP3(new RichPopup());
         setP4(new RichPopup());
@@ -140,6 +151,9 @@ public class PPRListaFrg extends BasePPR {
     public void accionLimpiar(ActionEvent actionEvent) {
         iniciarDatosFormularios();
 
+        doPartialRefresh(getIt1());
+        doPartialRefresh(getIt10());
+
         doPartialRefresh(getIt2());
         doPartialRefresh(getIt20());
 
@@ -165,7 +179,7 @@ public class PPRListaFrg extends BasePPR {
 
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("idUsuario", 0);
-        map.put("indiceAerolinea", convertirInt(aerolienaIdString));
+        map.put("indiceAerolinea", convertirInt(getIt1().getValue()));
         map.put("indiceAeropuertoOrigen", convertirInt(getIt2().getValue()));
         map.put("indiceAeropuertoDestino", convertirInt(getIt3().getValue()));
         map.put("indiceAeronave", convertirInt(getIt4().getValue()));
@@ -183,8 +197,7 @@ public class PPRListaFrg extends BasePPR {
             if (value != null) {
                 value = value.trim();
             }
-            ADFUtils.setEL("#{sessionScope." + entry.getKey() + "}", value);            
-            System.out.println("#{sessionScope." + entry.getKey() + "}" + " " + value);
+            ADFUtils.setEL("#{sessionScope." + entry.getKey() + "}", value);
         }
         ADFUtils.setEL("#{sessionScope.indiceAerolinea}", convertirInt(aerolienaIdString));
     }
@@ -194,6 +207,9 @@ public class PPRListaFrg extends BasePPR {
      *
      */
     public void iniciarDatosFormularios() {
+        getIt1().setValue("");
+        getIt10().setValue("<No Definido>");
+
         getIt2().setValue("");
         getIt20().setValue("<No Definido>");
 
@@ -206,6 +222,70 @@ public class PPRListaFrg extends BasePPR {
         getIt5().setValue("%");
         getId1().setValue(getFecha15DiasCorto());
         getId2().setValue(getFechaHoyCorto());
+
+        String idUsuario = String.valueOf(ADFUtils.evaluateEL("#{sessionScope.idUsuario}"));
+        String isCli01 = String.valueOf(ADFUtils.evaluateEL("#{sessionScope.isCLI01}"));
+        String isCli02 = String.valueOf(ADFUtils.evaluateEL("#{sessionScope.isCLI02}"));
+        String isCli03 = String.valueOf(ADFUtils.evaluateEL("#{sessionScope.isCLI03}"));
+        String idAerolinea = String.valueOf(ADFUtils.evaluateEL("#{sessionScope.idAerolinea}")).trim();
+        String aerolineaDescripcion =
+            String.valueOf(ADFUtils.evaluateEL("#{sessionScope.aerolineaDescripcion}")).trim();
+
+        Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).log(Level.WARNING, "idUsuario " + idUsuario);
+        Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).log(Level.WARNING, "isCli01 " + isCli01);
+        Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).log(Level.WARNING, "isCli02 " + isCli02);
+        Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).log(Level.WARNING, "isCli03 " + isCli03);
+        Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).log(Level.WARNING, "idAerolinea " + idAerolinea);
+        Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).log(Level.WARNING, "aerolineaDescripcion " + aerolineaDescripcion);
+
+        try {
+            if (isCli01.compareToIgnoreCase("TRUE") == 0) {
+                getIt1().setValue("0");
+                getIt10().setValue("<No Definido>");
+                getB1().setDisabled(false);
+            }
+
+            if (isCli02.compareToIgnoreCase("TRUE") == 0) {
+                getIt1().setValue(idAerolinea);
+                getIt10().setValue(aerolineaDescripcion);
+                getB1().setDisabled(true);
+            }
+
+            if (isCli03.compareToIgnoreCase("TRUE") == 0) {
+                getIt1().setValue(idAerolinea);
+                getIt10().setValue(aerolineaDescripcion);
+                getB1().setDisabled(true);
+            }
+
+            getIt2().setValue("");
+            getIt20().setValue("<No Definido>");
+            getB2().setDisabled(false);
+
+        } catch (Exception e) {
+            Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).log(Level.WARNING, e.toString());
+        }
+    }
+
+
+    /**
+     * Seleccionar Aerolienea
+     *
+     * @param actionEvent
+     */
+    public void accionSeleccionar1(ActionEvent actionEvent) {
+        getP1().hide();
+        doPartialRefresh(getP1());
+
+        JUCtrlHierNodeBinding nodeBinding = (JUCtrlHierNodeBinding) getResId1().getSelectedRowData();
+        String descripcion =
+            String.valueOf(nodeBinding.getAttribute("IndiceSecundario")) + " " +
+            String.valueOf(nodeBinding.getAttribute("Nombre"));
+        String indice = String.valueOf(nodeBinding.getAttribute("Indice"));
+
+        getIt1().setValue(indice);
+        getIt10().setValue(descripcion);
+        doPartialRefresh(getIt1());
+        doPartialRefresh(getIt10());
     }
 
     /**
@@ -281,7 +361,8 @@ public class PPRListaFrg extends BasePPR {
     private boolean isAerolineaSeleccionada() {
         boolean respuesta = true;
 
-        Object aerolienaId = ADFUtils.evaluateEL("#{sessionScope.idAerolinea}");
+        Object aerolienaId = getIt1().getValue();
+
 
         try {
             if (aerolienaId == null || aerolienaId.toString().compareTo("") == 0 ||
@@ -366,6 +447,14 @@ public class PPRListaFrg extends BasePPR {
         return id1;
     }
 
+    public void setIt1(RichInputText it1) {
+        this.it1 = it1;
+    }
+
+    public RichInputText getIt1() {
+        return it1;
+    }
+
     public RichInputText getIt2() {
         return it2;
     }
@@ -414,6 +503,15 @@ public class PPRListaFrg extends BasePPR {
         return resId3;
     }
 
+    public void setP1(RichPopup p1) {
+        this.p1 = p1;
+    }
+
+    public RichPopup getP1() {
+        return p1;
+    }
+
+
     public void setP2(RichPopup p2) {
         this.p2 = p2;
     }
@@ -446,8 +544,16 @@ public class PPRListaFrg extends BasePPR {
         return p4;
     }
 
+    public void setIt10(RichInputText it10) {
+        this.it10 = it10;
+    }
+
     public void setIt20(RichInputText it20) {
         this.it20 = it20;
+    }
+
+    public RichInputText getIt10() {
+        return it10;
     }
 
     public RichInputText getIt20() {

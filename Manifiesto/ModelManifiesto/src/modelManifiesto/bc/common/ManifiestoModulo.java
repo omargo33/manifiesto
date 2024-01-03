@@ -32,5 +32,10 @@ public interface ManifiestoModulo extends Modulo {
 
     Map<String, String> subirLoteArchivos(String id, String esquema, String tabla, String usuario,
                                           String usuarioPrograma);
+
+    int excelManifiestoExtendida(int idUsuario, int indiceAerolinea, int indiceAeropuertoOrigen,
+                                 int indiceAeropuertoDestino, int indiceAeronave, String noVuelo, String fechaInicio,
+                                 String fechaFin, String idManifiesto, String estado, String tipoVuelo,
+                                 String tipoObservacion, String tabla, String usuario, String usuarioPrograma);
 }
 

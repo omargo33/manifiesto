@@ -9,7 +9,7 @@ import java.util.Date;
 
 import model.utilidades.Atributos;
 
-import modelManifiesto.bc.ManifiestoModuloImpl;
+import modelManifiesto.bc.common.ManifiestoModuloImpl;
 import modelManifiesto.bc.entidad.ManifiestoImpl;
 import modelManifiesto.bc.vista.ManifiestoInsertViewImpl;
 
@@ -28,7 +28,7 @@ import org.apache.poi.ss.usermodel.Sheet;
 public class FilaArchivo {
 
     final static String SQL_LIBRO_DIRECCIONES =
-        "select count(*) existe from MV_001_00.libro_direccion ld where UPPER(indice_secundario) = UPPER(?) and UPPER(tipo) = UPPER(?)";
+        "select count(*) existe from MV_001_00.libro_direccion ld where UPPER(indice_secundario) = UPPER(?) and UPPER(tipo) = UPPER(?) and estado = 'A'";
 
     final static String SQL_LIBRO_DIRECCIONES_ID =
         "select indice from MV_001_00.libro_direccion where UPPER(indice_secundario) = UPPER(?) and UPPER(tipo) = UPPER(?)";
@@ -192,37 +192,37 @@ public class FilaArchivo {
                                               .getCell(5)
                                               .getStringCellValue());
 
-            mensajeCreacion = "No Vuelo es texto";
-            this.numeroVuelo = String.valueOf((int)pagina.getRow(row)
-                                                    .getCell(8)
-                                                    .getNumericCellValue());
+            mensajeCreacion = "No. Vuelo debe ser un campo numérico";
+            this.numeroVuelo = String.valueOf((int) pagina.getRow(row)
+                                                          .getCell(8)
+                                                          .getNumericCellValue());
 
-            mensajeCreacion = "Pasajeros es valor entero";
+            mensajeCreacion = "Pasajeros debe ser un campo numérico";
             this.pasajeros = String.valueOf((int) pagina.getRow(row)
                                                         .getCell(9)
                                                         .getNumericCellValue());
 
-            mensajeCreacion = "Pasajeros Transito es valor entero";
+            mensajeCreacion = "Pasajeros Transito debe ser un campo numérico";
             this.pasajerosTransito = String.valueOf((int) pagina.getRow(row)
                                                                 .getCell(10)
                                                                 .getNumericCellValue());
 
-            mensajeCreacion = "Pasajeros Exentos Tasas es valor entero";
+            mensajeCreacion = "Pasajeros Exentos Tasas debe ser un campo numérico";
             this.pasajerosExentosTasas = String.valueOf((int) pagina.getRow(row)
                                                                     .getCell(12)
                                                                     .getNumericCellValue());
 
-            mensajeCreacion = "Pasajeros Pagan Dolares es valor entero";
+            mensajeCreacion = "Pasajeros Pagan Dolares debe ser un campo numérico";
             this.pasajerosPaganDolares = String.valueOf((int) pagina.getRow(row)
                                                                     .getCell(14)
                                                                     .getNumericCellValue());
 
-            mensajeCreacion = "Pasajeros Exentos Timbres es valor entero";
+            mensajeCreacion = "Pasajeros Exentos Timbres debe ser un campo numérico";
             this.pasajerosExcentosTimbres = String.valueOf((int) pagina.getRow(row)
                                                                        .getCell(17)
                                                                        .getNumericCellValue());
 
-            mensajeCreacion = "Pasajeros Pagan Timbres Dolares es valor entero";
+            mensajeCreacion = "Pasajeros Pagan Timbres Dolares debe ser un campo numérico";
             this.pasajerosPaganTimbresDolares = String.valueOf((int) pagina.getRow(row)
                                                                            .getCell(19)
                                                                            .getNumericCellValue());
@@ -241,12 +241,21 @@ public class FilaArchivo {
         return indiceAerolinea;
     }
 
-    private boolean isLibroDirecciones(ManifiestoModuloImpl manifiestoModulo, String indice, String tipo) {
+    private int getEstadoLibroDirecciones(ManifiestoModuloImpl manifiestoModulo, String indice, String tipo) {
         Object data = manifiestoModulo.getBaseDML().ejecutaConsultaUnicoDato(SQL_LIBRO_DIRECCIONES, indice, tipo);
         if (data != null && String.valueOf(data).compareTo("1") == 0) {
-            return true;
+            return 0;
         }
-        return false;
+
+        try {
+            if (data != null && Integer.parseInt(String.valueOf(data)) > 1) {
+                return 1;
+            }
+        } catch (Exception e) {
+            return 1;
+        }
+
+        return -1;
     }
 
     /**
@@ -266,10 +275,20 @@ public class FilaArchivo {
 
 
     public boolean isAerolinea(ManifiestoModuloImpl manifiestoModulo) {
-        if (isLibroDirecciones(manifiestoModulo, this.indiceAerolinea, "C")) {
+        int estado= getEstadoLibroDirecciones(manifiestoModulo, this.indiceAerolinea, "C");
+        
+        if (estado==0) {
             return true;
         }
-        mensaje = "No se ha localizado la aerolinea";
+        
+        if (estado<0) {
+            mensaje = "No se ha localizado la aerolinea";
+        }
+        
+        if (estado>0) {
+            mensaje = "Aerolinea duplicada";
+        }
+        
         return false;
     }
 
@@ -285,10 +304,20 @@ public class FilaArchivo {
     }
 
     public boolean isAeropuertoOrigen(ManifiestoModuloImpl manifiestoModulo) {
-        if (isLibroDirecciones(manifiestoModulo, this.indiceAeropuertoOrigen, "AR")) {
+        int estado= getEstadoLibroDirecciones(manifiestoModulo, this.indiceAeropuertoOrigen, "AR");
+        
+        if (estado==0) {
             return true;
         }
-        mensaje = "No se ha localizado el aeropuerto origen " + this.indiceAeropuertoOrigen;
+        
+        if (estado<0) {
+            mensaje = "No se ha localizado el aeropuerto origen " + this.indiceAeropuertoOrigen;
+        }
+        
+        if (estado>0) {
+            mensaje = "Aeropuerto origen " + this.indiceAeropuertoOrigen + " esta duplicado";
+        }
+        
         return false;
     }
 
@@ -304,10 +333,22 @@ public class FilaArchivo {
     }
 
     public boolean isAeropuertoDestino(ManifiestoModuloImpl manifiestoModulo) {
-        if (isLibroDirecciones(manifiestoModulo, this.indiceAeropuertoDestino, "AR")) {
+        int estado= getEstadoLibroDirecciones(manifiestoModulo, this.indiceAeropuertoDestino, "AR");
+        
+        if (estado==0) {
             return true;
         }
-        mensaje = "No se ha localizado el aeropuerto destino " + this.indiceAeropuertoDestino;
+        
+        if (estado<0) {
+            mensaje = "No se ha localizado el aeropuerto destino " + this.indiceAeropuertoDestino;
+            
+        }
+        
+        if (estado>0) {
+            mensaje = "El aeropuerto destino " + this.indiceAeropuertoDestino + " esta duplicado";
+            
+        }
+        
         return false;
     }
 
@@ -324,10 +365,20 @@ public class FilaArchivo {
     }
 
     public boolean isAeronave(ManifiestoModuloImpl manifiestoModulo) {
-        if (isLibroDirecciones(manifiestoModulo, this.indiceAeronave, "CA")) {
+        int estado= getEstadoLibroDirecciones(manifiestoModulo, this.indiceAeronave, "CA");
+        
+        if (estado==0) {
             return true;
         }
-        mensaje = "No se ha localizado la aeronave " + this.indiceAeronave;
+        
+        if (estado<0) {
+            mensaje = "No se ha localizado la aeronave " + this.indiceAeronave;
+        }
+        
+        if (estado>0) {
+            mensaje = "La aeronave " + this.indiceAeronave +" esta duplicada";
+        }
+        
         return false;
     }
 

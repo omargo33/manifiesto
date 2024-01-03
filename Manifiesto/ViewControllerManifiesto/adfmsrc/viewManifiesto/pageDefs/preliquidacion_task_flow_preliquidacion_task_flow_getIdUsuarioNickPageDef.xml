@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48"
+                id="preliquidacion_task_flow_preliquidacion_task_flow_getIdUsuarioNickPageDef"
+                Package="viewManifiesto.pageDefs" SkipValidation="true">
+  <parameters/>
+  <executables/>
+  <bindings>
+  <methodAction id="getIdUsuarioNick" RequiresUpdateModel="true" Action="invokeMethod" MethodName="getIdUsuarioNick"
+                  IsViewObjectMethod="false" DataControl="ManifiestoModuloDataControl"
+                    InstanceName="ManifiestoModuloDataControl.dataProvider"
+                ReturnName="data.ManifiestoModuloDataControl.methodResults.getIdUsuarioNick_getIdUsuarioNick_dataControl_dataProvider_getIdUsuarioNick_result">
+      <NamedData NDName="nick" NDValue="#{BaseBean.nameUser}" NDType="java.lang.String"/>
+    </methodAction>
+  </bindings>
+</pageDefinition>

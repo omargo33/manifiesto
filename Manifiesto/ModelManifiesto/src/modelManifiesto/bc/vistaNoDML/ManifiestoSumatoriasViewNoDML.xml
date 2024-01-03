@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+    Name="ManifiestoSumatoriasViewNoDML"
+  Version="12.2.1.22.48"
+  InheritPersonalization="merge"
+  BindingStyle="JDBC"
+  CustomQuery="true"
+    ComponentClass="modelManifiesto.bc.vistaNoDML.ManifiestoSumatoriasViewNoDMLImpl"
+  PageIterMode="Full"
+    ComponentInterface="modelManifiesto.bc.vistaNoDML.common.ManifiestoSumatoriasViewNoDML"
+    AccessMode="DEFAULT">
+    <DesignTime>
+        <Attr Name="_codeGenFlag2" Value="Coll"/>
+        <Attr Name="_isExpertMode" Value="true"/>
+    </DesignTime>
+    <SQLQuery><![CDATA[SELECT
+1000 as codigo,
+FORMAT(ifnull(sum(pasajeros),0), 0, 'de_DE') as pasajeros ,
+FORMAT(ifnull(sum(pasajeros_transito),0), 0, 'de_DE') as pasajeros_transito ,
+FORMAT(ifnull(sum(pasajeros_locales),0), 0, 'de_DE') as pasajeros_locales ,
+FORMAT(ifnull(sum(pasajeros_exentos_tasas),0), 0, 'de_DE') as pasajeros_exentos_tasas ,
+FORMAT(ifnull(sum(pasajeros_pagan_tasas),0), 0, 'de_DE') as pasajeros_pagan_tasas ,
+FORMAT(ifnull(sum(pasajeros_pagan_dolares),0), 0, 'de_DE') as pasajeros_pagan_dolares,
+FORMAT(ifnull(sum(pasajeros_pagan_pesos),0), 0, 'de_DE') as pasajeros_pagan_pesos,
+FORMAT(ifnull(sum(pasajeros_exentos_timbres),0), 0, 'de_DE') as pasajeros_exentos_timbres,
+FORMAT(ifnull(sum(pasajeros_pagan_timbres),0), 0, 'de_DE') as pasajeros_pagan_timbres,
+FORMAT(ifnull(sum(pasajeros_pagan_timbres_dolares),0), 0, 'de_DE') as pasajeros_pagan_timbres_dolares,
+FORMAT(ifnull(sum(pasajeros_pagan_timbres_pesos),0), 0, 'de_DE') as pasajeros_pagan_timbres_pesos,
+FORMAT(ifnull(sum(timbre_total),0), 0, 'de_DE') as timbre_total,
+concat("$", FORMAT(ifnull(sum(timbre_total),0), 2, 'de_DE')) as timbre_total_formato
+FROM v_manifiesto]]></SQLQuery>
+    <ViewAttribute
+        Name="Codigo"
+        IsUpdateable="false"
+        IsPersistent="false"
+        PrecisionRule="true"
+        Type="java.math.BigDecimal"
+        ColumnType="BIGINT"
+        AliasName="codigo"
+        Expression="codigo"
+        SQLType="NUMERIC">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="5"/>
+        </DesignTime>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="Pasajeros"
+        IsUpdateable="false"
+        IsPersistent="false"
+        PrecisionRule="true"
+        Precision="76"
+        Type="java.lang.String"
+        ColumnType="VARCHAR"
+        AliasName="pasajeros"
+        Expression="pasajeros"
+        SQLType="VARCHAR">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="76"/>
+        </DesignTime>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="PasajerosTransito"
+        IsUpdateable="false"
+        IsPersistent="false"
+        PrecisionRule="true"
+        Precision="76"
+        Type="java.lang.String"
+        ColumnType="VARCHAR"
+        AliasName="pasajeros_transito"
+        Expression="pasajeros_transito"
+        SQLType="VARCHAR">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="76"/>
+        </DesignTime>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="PasajerosLocales"
+        IsUpdateable="false"
+        IsPersistent="false"
+        PrecisionRule="true"
+        Precision="76"
+        Type="java.lang.String"
+        ColumnType="VARCHAR"
+        AliasName="pasajeros_locales"
+        Expression="pasajeros_locales"
+        SQLType="VARCHAR">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="76"/>
+        </DesignTime>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="PasajerosExentosTasas"
+        IsUpdateable="false"
+        IsPersistent="false"
+        PrecisionRule="true"
+        Precision="76"
+        Type="java.lang.String"
+        ColumnType="VARCHAR"
+        AliasName="pasajeros_exentos_tasas"
+        Expression="pasajeros_exentos_tasas"
+        SQLType="VARCHAR">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="76"/>
+        </DesignTime>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="PasajerosPaganTasas"
+        IsUpdateable="false"
+        IsPersistent="false"
+        PrecisionRule="true"
+        Precision="76"
+        Type="java.lang.String"
+        ColumnType="VARCHAR"
+        AliasName="pasajeros_pagan_tasas"
+        Expression="pasajeros_pagan_tasas"
+        SQLType="VARCHAR">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="76"/>
+        </DesignTime>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="PasajerosPaganDolares"
+        IsUpdateable="false"
+        IsPersistent="false"
+        PrecisionRule="true"
+        Precision="76"
+        Type="java.lang.String"
+        ColumnType="VARCHAR"
+        AliasName="pasajeros_pagan_dolares"
+        Expression="pasajeros_pagan_dolares"
+        SQLType="VARCHAR">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="76"/>
+        </DesignTime>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="PasajerosPaganPesos"
+        IsUpdateable="false"
+        IsPersistent="false"
+        PrecisionRule="true"
+        Precision="76"
+        Type="java.lang.String"
+        ColumnType="VARCHAR"
+        AliasName="pasajeros_pagan_pesos"
+        Expression="pasajeros_pagan_pesos"
+        SQLType="VARCHAR">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="76"/>
+        </DesignTime>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="PasajerosExentosTimbres"
+        IsUpdateable="false"
+        IsPersistent="false"
+        PrecisionRule="true"
+        Precision="76"
+        Type="java.lang.String"
+        ColumnType="VARCHAR"
+        AliasName="pasajeros_exentos_timbres"
+        Expression="pasajeros_exentos_timbres"
+        SQLType="VARCHAR">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="76"/>
+        </DesignTime>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="PasajerosPaganTimbres"
+        IsUpdateable="false"
+        IsPersistent="false"
+        PrecisionRule="true"
+        Precision="76"
+        Type="java.lang.String"
+        ColumnType="VARCHAR"
+        AliasName="pasajeros_pagan_timbres"
+        Expression="pasajeros_pagan_timbres"
+        SQLType="VARCHAR">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="76"/>
+        </DesignTime>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="PasajerosPaganTimbresDolares"
+        IsUpdateable="false"
+        IsPersistent="false"
+        PrecisionRule="true"
+        Precision="76"
+        Type="java.lang.String"
+        ColumnType="VARCHAR"
+        AliasName="pasajeros_pagan_timbres_dolares"
+        Expression="pasajeros_pagan_timbres_dolares"
+        SQLType="VARCHAR">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="76"/>
+        </DesignTime>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="PasajerosPaganTimbresPesos"
+        IsUpdateable="false"
+        IsPersistent="false"
+        PrecisionRule="true"
+        Precision="76"
+        Type="java.lang.String"
+        ColumnType="VARCHAR"
+        AliasName="pasajeros_pagan_timbres_pesos"
+        Expression="pasajeros_pagan_timbres_pesos"
+        SQLType="VARCHAR">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="76"/>
+        </DesignTime>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="TimbreTotal"
+        IsUpdateable="false"
+        IsPersistent="false"
+        PrecisionRule="true"
+        Precision="76"
+        Type="java.lang.String"
+        ColumnType="VARCHAR"
+        AliasName="timbre_total"
+        Expression="timbre_total"
+        SQLType="VARCHAR">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="76"/>
+        </DesignTime>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="TimbreTotalFormato"
+        IsUpdateable="false"
+        IsPersistent="false"
+        PrecisionRule="true"
+        Precision="77"
+        Type="java.lang.String"
+        ColumnType="VARCHAR"
+        AliasName="timbre_total_formato"
+        Expression="timbre_total_formato"
+        SQLType="VARCHAR">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="77"/>
+        </DesignTime>
+    </ViewAttribute>
+    <ClientInterface
+        Name="__clientInterface">
+        <Method
+            Name="ejecutarConsultaExtendida"
+            MethodName="ejecutarConsultaExtendida">
+            <Return
+                Name="_return_type_"
+                Type="void"/>
+            <Parameter
+                Name="idUsuario"
+                Type="int"/>
+            <Parameter
+                Name="indiceAerolinea"
+                Type="int"/>
+            <Parameter
+                Name="indiceAeropuertoOrigen"
+                Type="int"/>
+            <Parameter
+                Name="indiceAeropuertoDestino"
+                Type="int"/>
+            <Parameter
+                Name="indiceAeronave"
+                Type="int"/>
+            <Parameter
+                Name="noVuelo"
+                Type="java.lang.String"/>
+            <Parameter
+                Name="fechaInicio"
+                Type="java.lang.String"/>
+            <Parameter
+                Name="fechaFin"
+                Type="java.lang.String"/>
+            <Parameter
+                Name="idManifiesto"
+                Type="java.lang.String"/>
+            <Parameter
+                Name="estado"
+                Type="java.lang.String"/>
+            <Parameter
+                Name="tipoVuelo"
+                Type="java.lang.String"/>
+            <Parameter
+                Name="tipoObservacion"
+                Type="java.lang.String"/>
+        </Method>
+        <Method
+            Name="inicioVacio"
+            MethodName="inicioVacio">
+            <Return
+                Name="_return_type_"
+                Type="void"/>
+        </Method>
+    </ClientInterface>
+</ViewObject>

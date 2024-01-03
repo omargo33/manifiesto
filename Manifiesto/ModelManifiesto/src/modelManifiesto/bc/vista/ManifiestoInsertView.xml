@@ -79,7 +79,7 @@
     Name="NoVuelo"
     IsNotNull="true"
     PrecisionRule="true"
-    Domain="model.bc.dominio.Texto"
+    Domain="model.bc.dominio.NumeroEntero"
     EntityAttrName="NoVuelo"
     EntityUsage="Manifiesto"
     AliasName="no_vuelo"/>

@@ -24,6 +24,12 @@
                       Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
                       Binds="LibroDireccionesAeropuertoViewNoDML1Iterator"
                       id="LibroDireccionesViewNoDMLCriteriaAeropuertoQuery1"/>
+        <iterator Binds="LibroDireccionesAerolineaViewNoDML1" RangeSize="5" DataControl="ManifiestoModuloDataControl"
+                  id="LibroDireccionesAerolineaViewNoDML1Iterator"/>
+        <searchRegion Criteria="LibroDireccionesViewNoDMLCriteriaAerolinea"
+                      Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                      Binds="LibroDireccionesAerolineaViewNoDML1Iterator"
+                      id="LibroDireccionesViewNoDMLCriteriaAerolineaQuery"/>
         <taskFlow id="infousuarioaeropuertotaskflow1"
                   taskFlowId="/WEB-INF/info-usuario-aeroliena-task-flow.xml#info-usuario-aeropuerto-task-flow"
                   activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
@@ -99,6 +105,21 @@
                 </AttrNames>
             </nodeDefinition>
         </tree>
+      
+        
+        <tree IterBinding="LibroDireccionesAerolineaViewNoDML1Iterator" id="LibroDireccionesAerolineaViewNoDML1">
+      <nodeDefinition DefName="modelManifiesto.bc.vistaNoDML.LibroDireccionesViewNoDML"
+                      Name="LibroDireccionesAerolineaViewNoDML10">
+        <AttrNames>
+          <Item Value="IdLibroDireccion"/>
+          <Item Value="Indice"/>
+          <Item Value="IndiceSecundario"/>
+          <Item Value="IdentificacionFiscal"/>
+          <Item Value="Nombre"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+        
         <tree IterBinding="LibroDireccionesAeropuertoViewNoDML1Iterator" id="LibroDireccionesAeropuertoViewNoDML1">
             <nodeDefinition DefName="modelManifiesto.bc.vistaNoDML.LibroDireccionesViewNoDML"
                             Name="LibroDireccionesAeropuertoViewNoDML10">
@@ -114,7 +135,8 @@
         <action id="Rollback" DataControl="ManifiestoModuloDataControl" RequiresUpdateModel="false"
                 Action="rollbackTransaction"/>
         <methodAction id="ejecutarConsultaPreliquidacion" RequiresUpdateModel="true" Action="invokeMethod"
-                      MethodName="ejecutarConsultaPreliquidacion" IsViewObjectMethod="true" DataControl="ManifiestoModuloDataControl"
+                      MethodName="ejecutarConsultaPreliquidacion" IsViewObjectMethod="true"
+                      DataControl="ManifiestoModuloDataControl"
                       InstanceName="ManifiestoModuloDataControl.ManifiestoViewNoDML1">
             <NamedData NDName="idUsuario" NDType="int"/>
             <NamedData NDName="indiceAerolinea" NDType="int"/>
@@ -127,8 +149,7 @@
         </methodAction>
         <methodAction id="calculosPreCalificacion" RequiresUpdateModel="true" Action="invokeMethod"
                       MethodName="calculosPreCalificacion" IsViewObjectMethod="false"
-                      DataControl="ManifiestoModuloDataControl"
-                      InstanceName="ManifiestoModuloDataControl.dataProvider"
+                      DataControl="ManifiestoModuloDataControl" InstanceName="ManifiestoModuloDataControl.dataProvider"
                       ReturnName="data.ManifiestoModuloDataControl.methodResults.calculosPreCalificacion_calculosPreCalificacion_dataControl_dataProvider_calculosPreCalificacion_result">
             <NamedData NDName="idUsuario" NDType="int"/>
             <NamedData NDName="indiceAerolinea" NDType="int"/>

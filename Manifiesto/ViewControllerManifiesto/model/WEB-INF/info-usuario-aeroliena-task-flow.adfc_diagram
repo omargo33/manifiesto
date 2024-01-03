@@ -61,7 +61,7 @@
       <property
          name="fromsrcid">__2</property>
       <property
-         name="sdm:polyPoints">R50,294.5,96.60156,388.0625,130.86719,L50</property>
+         name="sdm:polyPoints">R50,294.5,95.4653,388.0625,129.73093,L50</property>
    </ControlFlowCase>
    <MethodCall
       id="MethodCall13">
@@ -109,7 +109,7 @@
       <property
          name="fromOutcome">ejecutarByIndiceReturn</property>
       <property
-         name="sdm:polyPoints">R50,470.0625,130.86719,563.625,96.60156,L50</property>
+         name="sdm:polyPoints">R50,470.0625,129.73093,563.625,95.4653,L50</property>
    </ControlFlowCase>
    <View
       id="View10">

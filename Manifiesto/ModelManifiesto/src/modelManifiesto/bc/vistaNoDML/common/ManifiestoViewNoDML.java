@@ -23,4 +23,9 @@ public interface ManifiestoViewNoDML extends ViewObject {
                                         String fechaInicio, String fechaFin);
 
     void inicioVacioPreliquidacion();
+
+    void ejecutarConsultaExtendida(int idUsuario, int indiceAerolinea, int indiceAeropuertoOrigen,
+                                   int indiceAeropuertoDestino, int indiceAeronave, String noVuelo, String fechaInicio,
+                                   String fechaFin, String idManifiesto, String estado, String tipoVuelo,
+                                   String tipoObservacion);
 }
