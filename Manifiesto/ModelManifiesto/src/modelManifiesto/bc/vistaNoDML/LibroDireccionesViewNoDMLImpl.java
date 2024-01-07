@@ -54,9 +54,7 @@ public class LibroDireccionesViewNoDMLImpl extends VistaObjeto implements LibroD
             String nombre = String.valueOf(row.getAttribute("Nombre"));
             respuesta = String.format("%s %s", codigo, nombre).trim();
         } catch (Exception e) {
-            
             Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).log(Level.WARNING, "ejecutarByIndiceReturn() " + e.toString());
-            
             respuesta = "<No Definido>";
         }
         return respuesta;

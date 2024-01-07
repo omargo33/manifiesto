@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="Filial"
+  Version="12.2.1.22.48"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="filial"
+  AliasName="Filial"
+  BindingStyle="JDBC"
+  RowClass="modelManifiesto.bc.entidad.FilialImpl"
+  xmlns:validation="http://xmlns.oracle.com/adfm/validation">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+    <Attr Name="_codeGenFlag2" Value="DML"/>
+  </DesignTime>
+  <Attribute
+    Name="IdFilial"
+    IsNotNull="true"
+    Domain="model.bc.dominio.IdEntidad"
+    ColumnName="id_filial"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="filial"
+    PrimaryKey="true"
+    DefaultValue="0"
+    IsUpdateable="while_insert">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="modelManifiesto.bc.entidad.Filial.IdFilial_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="Nombre"
+    Precision="128"
+    Domain="model.bc.dominio.Texto"
+    ColumnName="nombre"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="filial">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="128"/>
+    </DesignTime>
+    <validation:LengthValidationBean
+      Name="NombreRule0"
+      OnAttribute="Nombre"
+      CompareType="GREATERTHANEQUALTO"
+      DataType="CHARACTER"
+      CompareLength="8"
+      Inverse="false"
+      ResId="modelManifiesto.bc.entidad.Filial.Nombre_Rule_0"/>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="modelManifiesto.bc.entidad.Filial.Nombre_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="IdLibroDireccion"
+    IsNotNull="true"
+    Domain="model.bc.dominio.NumeroEntero"
+    ColumnName="id_libro_direccion"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="filial">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="modelManifiesto.bc.entidad.Filial.IdLibroDireccion_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="Usuario"
+    IsNotNull="true"
+    Precision="128"
+    Domain="model.bc.dominio.Usuario"
+    ColumnName="usuario"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="filial">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="128"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="UsuarioFecha"
+    Domain="model.bc.dominio.UsuarioFecha"
+    ColumnName="usuario_fecha"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="DATETIME"
+    TableName="filial">
+    <TransientExpression
+      trustMode="untrusted"
+      Name="ExpressionScript"><![CDATA[adf.currentDateTime]]></TransientExpression>
+  </Attribute>
+  <Attribute
+    Name="UsuarioPrograma"
+    IsNotNull="true"
+    Precision="256"
+    Domain="model.bc.dominio.UsuarioPrograma"
+    ColumnName="usuario_programa"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="filial">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="256"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="FilialDetalle"
+    Association="modelManifiesto.bc.entidad.asociacion.FilialDetalleAssoc"
+    AssociationEnd="modelManifiesto.bc.entidad.asociacion.FilialDetalleAssoc.FilialDetalle"
+    AssociationOtherEnd="modelManifiesto.bc.entidad.asociacion.FilialDetalleAssoc.Filial"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <Key
+    Name="Primary1"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="PRIMARY"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="modelManifiesto.bc.entidad.Filial.IdFilial"/>
+    </AttrArray>
+  </Key>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="modelManifiesto.ModelManifiestoBundle"/>
+  </ResourceBundle>
+</Entity>

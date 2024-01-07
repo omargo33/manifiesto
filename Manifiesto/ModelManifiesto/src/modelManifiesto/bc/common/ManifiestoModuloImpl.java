@@ -24,9 +24,9 @@ import model.bc.modulo.Reporte;
 
 import modelAuditoria.bc.AuditoriaModuloImpl;
 
-import modelManifiesto.bc.common.ManifiestoModulo;
 import modelManifiesto.bc.modulo.AerolineaUsuario;
 import modelManifiesto.bc.modulo.FilaArchivo;
+import modelManifiesto.bc.modulo.Filial;
 import modelManifiesto.bc.modulo.Manifiesto;
 import modelManifiesto.bc.modulo.Rol;
 import modelManifiesto.bc.reporte.Preliquidacion;
@@ -117,6 +117,16 @@ public class ManifiestoModuloImpl extends AuditoriaModuloImpl implements Manifie
         commitRollback("subirLoteArchivos", "subirLoteArchivos");
 
         return procesarLotes(this, id, esquema, tabla, usuario, usuarioPrograma);
+    }
+    
+    /**
+     * Metodo para buscar el nombre de la filial.
+     * 
+     * @param nick
+     * @return
+     */
+    public int buscarFilial(String nick){        
+        return Filial.buscarIdFilial(this, nick);        
     }
 
     /**
@@ -504,8 +514,8 @@ public class ManifiestoModuloImpl extends AuditoriaModuloImpl implements Manifie
      */
     public int getIdUsuarioNick(String nick) {
         Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).log(Level.WARNING, "getIdUsuarioNick() Revisar omar " + nick);
-        
-        
+
+
         aerolineaUsuarioIndices = AerolineaUsuario.buscarUsuario(this, nick);
         return aerolineaUsuarioIndices.getIdUsuario();
     }
