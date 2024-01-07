@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Association SYSTEM "jbo_03_01.dtd">
+<!---->
+<Association
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="FilialDetalleAssoc"
+  Version="12.2.1.22.48"
+  InheritPersonalization="merge">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <AssociationEnd
+    Name="Filial"
+    Cardinality="1"
+    Source="true"
+    Owner="modelManifiesto.bc.entidad.Filial"
+    LockLevel="NONE">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_minCardinality" Value="1"/>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="Filial"/>
+      <Attr Name="_foreignKey" Value="modelManifiesto.bc.entidad.Filial.Primary1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="modelManifiesto.bc.entidad.Filial.IdFilial"/>
+    </AttrArray>
+  </AssociationEnd>
+  <AssociationEnd
+    Name="FilialDetalle"
+    Cardinality="-1"
+    Owner="modelManifiesto.bc.entidad.FilialDetalle">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="FilialDetalle"/>
+      <Attr Name="_foreignKey" Value="modelManifiesto.bc.entidad.FilialDetalle.fk_FilialDetalle"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="modelManifiesto.bc.entidad.FilialDetalle.IdFilial"/>
+    </AttrArray>
+  </AssociationEnd>
+</Association>
