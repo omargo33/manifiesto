@@ -22,7 +22,6 @@
                       selectionListener="#{bindings.LibroDireccionView1.collectionModel.makeCurrent}"
                       rowSelection="single" fetchSize="#{bindings.LibroDireccionView1.rangeSize}" id="resId1"
                       columnStretching="column:c3" scrollPolicy="page" columnBandingInterval="0">
-                <?audit suppress oracle.adf.faces.compreqsummary?><?audit suppress oracle.adf.faces.compreqsummary?><?audit suppress oracle.adf.faces.compreqsummary?><?audit suppress oracle.adf.faces.compreqsummary?><?audit suppress oracle.adf.faces.compreqsummary?><?audit suppress oracle.adf.faces.compreqsummary?><?audit suppress oracle.adf.faces.compreqsummary?><?audit suppress oracle.adf.faces.compreqsummary?><?audit suppress oracle.adf.faces.compreqsummary?><?audit suppress oracle.adf.faces.compreqsummary?><?audit suppress oracle.adf.faces.compreqsummary?><?audit suppress oracle.adf.faces.compreqsummary?><?audit suppress oracle.adf.faces.compreqsummary?><?audit suppress oracle.adf.faces.compreqsummary?><?audit suppress oracle.adf.faces.compreqsummary?><?audit suppress oracle.adf.faces.tableneedsrowheader?>
                 <af:column headerText="#{bindings.LibroDireccionView1.hints.IdLibroDireccion.label}" id="c1"
                            visible="false">
                     <af:outputText value="#{row.IdLibroDireccion}"
@@ -38,10 +37,6 @@
                                           pattern="#{bindings.LibroDireccionView1.hints.Indice.format}"/>
                     </af:outputText>
                 </af:column>
-                
-                
-                
-                
                 <af:column headerText="#{bindings.LibroDireccionView1.hints.IndiceSecundario.label}" id="c20">
                     <af:outputText value="#{row.IndiceSecundario}"
                                    shortDesc="#{bindings.LibroDireccionView1.hints.IndiceSecundario.tooltip}" id="ot20">
@@ -49,8 +44,6 @@
                                           pattern="#{bindings.LibroDireccionView1.hints.IndiceSecundario.format}"/>
                     </af:outputText>
                 </af:column>
-                
-                
                 <af:column headerText="#{bindings.LibroDireccionView1.hints.Nombre.label}" id="c3">
                     <af:link text="#{row.Nombre}" id="l1" action="Editar" disabled="#{row.Estado eq 'X'}"/>
                 </af:column>

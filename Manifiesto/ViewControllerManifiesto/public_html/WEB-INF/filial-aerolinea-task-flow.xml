@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="filial-aerolinea-task-flow">
+    <template-reference>
+      <document>/WEB-INF/plantilla/detalle-template.xml</document>
+      <id>detalle-template</id>
+    </template-reference>
+    <view id="ListaFrg">
+      <page>/filial/aerolinea/ListaFrg.jsff</page>
+    </view>
+    <view id="ItemFrg">
+      <page>/filial/aerolinea/ItemFrg.jsff</page>
+    </view>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

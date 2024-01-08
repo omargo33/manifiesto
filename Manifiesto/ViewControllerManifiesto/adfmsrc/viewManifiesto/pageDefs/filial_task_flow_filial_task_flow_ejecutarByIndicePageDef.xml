@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48"
+                id="filial_task_flow_filial_task_flow_ejecutarByIndicePageDef" Package="viewManifiesto.pageDefs"
+                SkipValidation="true">
+  <parameters/>
+  <executables/>
+  <bindings>
+    <methodAction id="ejecutarByIndice" RequiresUpdateModel="true" Action="invokeMethod" MethodName="ejecutarByIndice"
+                  IsViewObjectMethod="true" DataControl="ManifiestoModuloDataControl"
+                  InstanceName="ManifiestoModuloDataControl.FilialView1">
+      <NamedData NDName="idManifiesto" NDValue="#{sessionScope.IdFilial}" NDType="int"/>
+    </methodAction>
+  </bindings>
+</pageDefinition>

@@ -39,5 +39,14 @@ public interface ManifiestoModulo extends Modulo {
                                  String tipoObservacion, String tabla, String usuario, String usuarioPrograma);
 
     int buscarFilial(String nick);
+
+    int excelLibroDirecciones(String indice, String nombre, String tipo, String estado, String tabla, String usuario,
+                              String usuarioPrograma);
+
+    int pdfManifiesto(int idUsuario, int indiceAerolinea, int indiceAeropuertoOrigen, int indiceAeropuertoDestino,
+                      int indiceAeronave, String noVuelo, String fechaInicio, String fechaFin, String tabla,
+                      String usuario, String usuarioPrograma);
+
+    int pdfPreCalificacion(String tabla, String usuario, String usuarioPrograma, Map mapa);
 }
 

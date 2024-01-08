@@ -513,6 +513,11 @@ public class PPRItemFrg extends BasePPR {
     }
 
 
+    /**
+     * Se guarda el elemento en pantalla.
+     * 
+     * @return
+     */
     public String actionGuardar() {
 
         try {
@@ -603,7 +608,7 @@ public class PPRItemFrg extends BasePPR {
                     getIt10().setValue(Integer.valueOf(getIt10Int()));
                     return Flow.FLOW_NULL;
                 }
-                return "Inicio";
+                return Flow.FLOW_INICIO;
             }
         } catch (Exception e) {
 

@@ -14,9 +14,9 @@
       <property
          name="activityId">Error</property>
       <property
-         name="inherited">true</property>
-      <property
          name="pageFragment">true</property>
+      <property
+         name="inherited">true</property>
       <property
          name="x">70.5</property>
       <property
@@ -46,9 +46,9 @@
       <property
          name="activityId">ItemFrg</property>
       <property
-         name="inherited">false</property>
-      <property
          name="pageFragment">true</property>
+      <property
+         name="inherited">false</property>
       <property
          name="x">3496.5</property>
       <property
@@ -65,9 +65,9 @@
       <property
          name="activityId">ListaFrg</property>
       <property
-         name="inherited">false</property>
-      <property
          name="pageFragment">true</property>
+      <property
+         name="inherited">false</property>
       <property
          name="x">2086.5</property>
       <property
@@ -265,7 +265,7 @@
       <property
          name="fromsrcid">__11</property>
       <property
-         name="sdm:polyPoints">R54,2128.321,241.6293,2609.5,337.03546,L46</property>
+         name="sdm:polyPoints">R54,2128.3032,241.6293,2609.5,337.03546,L46</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -364,11 +364,11 @@
       <property
          name="activityId">ejecutarByIndice</property>
       <property
-         name="x">2368.5</property>
+         name="x">2376.5</property>
       <property
          name="description">&lt;html>&lt;p>&lt;b>ejecutarByIndice&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
       <property
-         name="y">305.453</property>
+         name="y">304.2855</property>
       <property
          name="exceptionHandler">false</property>
    </MethodCall>
@@ -390,7 +390,7 @@
       <property
          name="fromOutcome">Editar</property>
       <property
-         name="sdm:polyPoints">R62,2127.5,248.6293,2327.5,304.2855,L50</property>
+         name="sdm:polyPoints">R62,2127.5,248.6293,2335.5,304.2855,L50</property>
    </ControlFlowCase>
    <MethodCall
       id="MethodCall33">
@@ -505,7 +505,7 @@
       <property
          name="fromOutcome">ejecutarByIndiceReturn</property>
       <property
-         name="sdm:polyPoints">B50,2975.5002,-19.799469,3077.0,59.20653,T56</property>
+         name="sdm:polyPoints">B50,2975.5002,-19.799469,3077.0,59.206413,T56</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -582,7 +582,7 @@
       <property
          name="fromOutcome">Editar</property>
       <property
-         name="sdm:polyPoints">R50,2409.5,304.2855,2608.812,344.03546,L54</property>
+         name="sdm:polyPoints">R50,2417.5,304.2855,2608.7979,344.03546,L54</property>
    </ControlFlowCase>
    <MethodCall
       id="MethodCall64">
@@ -697,7 +697,7 @@
       <property
          name="fromOutcome">ok</property>
       <property
-         name="sdm:polyPoints">T50,1099.5,236.76987,1209.0,111.76987,B44</property>
+         name="sdm:polyPoints">T50,1099.5,236.76987,1209.0,110.602356,B44</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -753,7 +753,7 @@
       <property
          name="fromOutcome">getIdAerolineaNick</property>
       <property
-         name="sdm:polyPoints">B56,1216.0,111.76987,1381.5,236.7699,T50</property>
+         name="sdm:polyPoints">B56,1216.0,110.602356,1381.5,236.7699,T50</property>
    </ControlFlowCase>
    <MethodCall
       id="MethodCall80">
