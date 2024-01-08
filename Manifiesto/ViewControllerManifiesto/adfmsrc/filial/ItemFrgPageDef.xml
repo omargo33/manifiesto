@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48" id="ItemFrgPageDef"
+                Package="filial">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="FilialView1" RangeSize="25" DataControl="ManifiestoModuloDataControl" id="FilialView1Iterator"/>
+    <iterator Binds="LibroDireccionFilialViewNoDML1" RangeSize="5" DataControl="ManifiestoModuloDataControl"
+              id="LibroDireccionFilialViewNoDML1Iterator"/>
+    <searchRegion Criteria="LibroDireccionFilialViewNoDMLCriteria"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="LibroDireccionFilialViewNoDML1Iterator" id="LibroDireccionFilialViewNoDMLCriteriaQuery"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="FilialView1Iterator" id="IdFilial">
+      <AttrNames>
+        <Item Value="IdFilial"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="FilialView1Iterator" id="IdLibroDireccion">
+      <AttrNames>
+        <Item Value="IdLibroDireccion"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="FilialView1Iterator" id="Nombre">
+      <AttrNames>
+        <Item Value="Nombre"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="FilialView1Iterator" id="Usuario">
+      <AttrNames>
+        <Item Value="Usuario"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="FilialView1Iterator" id="UsuarioFecha">
+      <AttrNames>
+        <Item Value="UsuarioFecha"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="FilialView1Iterator" id="UsuarioPrograma">
+      <AttrNames>
+        <Item Value="UsuarioPrograma"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Commit" DataControl="ManifiestoModuloDataControl" RequiresUpdateModel="true"
+            Action="commitTransaction"/>
+    <action id="Rollback" DataControl="ManifiestoModuloDataControl" RequiresUpdateModel="false"
+            Action="rollbackTransaction"/>
+    <action IterBinding="FilialView1Iterator" id="Delete" InstanceName="ManifiestoModuloDataControl.FilialView1"
+            DataControl="ManifiestoModuloDataControl" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <tree IterBinding="LibroDireccionFilialViewNoDML1Iterator" id="LibroDireccionFilialViewNoDML1">
+      <nodeDefinition DefName="modelManifiesto.bc.vistaNoDML.LibroDireccionFilialViewNoDML"
+                      Name="LibroDireccionFilialViewNoDML10">
+        <AttrNames>
+          <Item Value="IdLibroDireccion"/>
+          <Item Value="Indice"/>
+          <Item Value="IndiceSecundario"/>
+          <Item Value="IdentificacionFiscal"/>
+          <Item Value="Nombre"/>
+          <Item Value="Tipo"/>
+          <Item Value="Correo"/>
+          <Item Value="Estado"/>
+          <Item Value="Usuario"/>
+          <Item Value="UsuarioFecha"/>
+          <Item Value="UsuarioPrograma"/>
+          <Item Value="Nombre01"/>
+          <Item Value="Identificacion01"/>
+          <Item Value="Nombre02"/>
+          <Item Value="Identificacion02"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

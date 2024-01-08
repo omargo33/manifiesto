@@ -153,7 +153,7 @@
       <property
          name="fromsrcid">__1</property>
       <property
-         name="sdm:polyPoints">R50,123.44336,239.53125,204.38672,238.53125,L50</property>
+         name="sdm:polyPoints">R50,123.44336,238.39499,204.38672,237.39499,L50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -169,7 +169,7 @@
       <property
          name="fromsrcid">__21</property>
       <property
-         name="sdm:polyPoints">R50,286.38672,238.53125,366.38672,246.5,L50</property>
+         name="sdm:polyPoints">R50,286.38672,237.39499,366.38672,245.36374,L50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"

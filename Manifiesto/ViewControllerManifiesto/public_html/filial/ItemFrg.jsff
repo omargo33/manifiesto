@@ -1,0 +1,152 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core" xmlns:bl01="/baseLib01">
+    <af:pageTemplate viewId="/plantilla/itemFrg.jspx" id="pt1">
+        <f:facet name="elementoCentro">
+            <af:panelFormLayout id="pfl1" labelWidth="200">
+                <f:facet name="footer">
+                    <bl01:botonesGuardarBorrar id="bgb1" actualizarAccion="#{PPRBackingFilialItemFrg.actionGuardar}"
+                                               actualizarPermiso="#{pageFlowScope.pPermisoActualizar}"
+                                               borrarAccion="#{PPRBackingFilialItemFrg.actionDelete}"
+                                               borrarDisabled="#{bindings.IdFilial.inputValue  eq 0}"
+                                               borrarPermiso="#{pageFlowScope.pPermisoBorrar}"/>
+                </f:facet>
+                <af:panelLabelAndMessage label="#{bindings.IdLibroDireccion.hints.label}" id="plam1"
+                                         inlineStyle="padding-left:20px;">
+                    <af:panelGroupLayout id="pgl10" layout="horizontal">
+                        <af:inputText value="#{bindings.IdLibroDireccion.inputValue}"
+                                      label="#{bindings.IdLibroDireccion.hints.label}"
+                                      required="#{bindings.IdLibroDireccion.hints.mandatory}"
+                                      columns="#{bindings.IdLibroDireccion.hints.displayWidth}"
+                                      maximumLength="#{bindings.IdLibroDireccion.hints.precision}"
+                                      shortDesc="#{bindings.IdLibroDireccion.hints.tooltip}" id="it2"
+                                      binding="#{PPRBackingFilialItemFrg.it2}" visible="false" immediate="true"
+                                      autoSubmit="true">
+                            <f:validator binding="#{bindings.IdLibroDireccion.validator}"/>
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.IdLibroDireccion.format}"/>
+                        </af:inputText>
+                        <af:button id="b2"
+                                   icon="../../Imagen-001/icons/7548857_search_glass_interface_user_magnifier_zoom_find.svg"
+                                   binding="#{PPRBackingFilialItemFrg.b2}">
+                            <af:showPopupBehavior popupId="::p2"/>
+                        </af:button>
+                        <af:inputText id="it20" binding="#{PPRBackingFilialItemFrg.it20}" columns="50" immediate="true"
+                                      disabled="true"/>
+                        <f:facet name="separator">
+                            <af:spacer id="s1" height="2" width="2"/>
+                        </f:facet>
+                    </af:panelGroupLayout>
+                </af:panelLabelAndMessage>
+                <af:inputText value="#{bindings.Nombre.inputValue}" label="#{bindings.Nombre.hints.label}"
+                              required="#{bindings.Nombre.hints.mandatory}"
+                              columns="#{bindings.Nombre.hints.displayWidth}"
+                              maximumLength="#{bindings.Nombre.hints.precision}"
+                              shortDesc="#{bindings.Nombre.hints.tooltip}" id="it3">
+                    <f:validator binding="#{bindings.Nombre.validator}"/>
+                </af:inputText>
+            </af:panelFormLayout>
+        </f:facet>
+        <f:facet name="elementoCancelar">
+            <bl01:botonesCancelar id="bc1" inicioAccion="Inicio">
+                <f:facet name="botonesAcciones"/>
+            </bl01:botonesCancelar>
+        </f:facet>
+        <f:facet name="elementoAuditoria">
+            <af:panelFormLayout id="pfl2" labelWidth="170">
+                <af:inputText value="#{bindings.IdFilial.inputValue}" label="#{bindings.IdFilial.hints.label}"
+                              required="#{bindings.IdFilial.hints.mandatory}"
+                              columns="#{bindings.IdFilial.hints.displayWidth}"
+                              maximumLength="#{bindings.IdFilial.hints.precision}"
+                              shortDesc="#{bindings.IdFilial.hints.tooltip}" id="it1">
+                    <f:validator binding="#{bindings.IdFilial.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.IdFilial.format}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.Usuario.inputValue}" label="#{bindings.Usuario.hints.label}"
+                              required="#{bindings.Usuario.hints.mandatory}"
+                              columns="#{bindings.Usuario.hints.displayWidth}"
+                              maximumLength="#{bindings.Usuario.hints.precision}"
+                              shortDesc="#{bindings.Usuario.hints.tooltip}" id="it4">
+                    <f:validator binding="#{bindings.Usuario.validator}"/>
+                </af:inputText>
+                <af:inputDate value="#{bindings.UsuarioFecha.inputValue}" label="#{bindings.UsuarioFecha.hints.label}"
+                              required="#{bindings.UsuarioFecha.hints.mandatory}"
+                              columns="#{bindings.UsuarioFecha.hints.displayWidth}"
+                              shortDesc="#{bindings.UsuarioFecha.hints.tooltip}" id="id1">
+                    <f:validator binding="#{bindings.UsuarioFecha.validator}"/>
+                    <af:convertDateTime pattern="#{bindings.UsuarioFecha.format}"/>
+                </af:inputDate>
+                <af:inputText value="#{bindings.UsuarioPrograma.inputValue}"
+                              label="#{bindings.UsuarioPrograma.hints.label}"
+                              required="#{bindings.UsuarioPrograma.hints.mandatory}"
+                              columns="#{bindings.UsuarioPrograma.hints.displayWidth}"
+                              maximumLength="#{bindings.UsuarioPrograma.hints.precision}"
+                              shortDesc="#{bindings.UsuarioPrograma.hints.tooltip}" id="it5">
+                    <f:validator binding="#{bindings.UsuarioPrograma.validator}"/>
+                </af:inputText>
+            </af:panelFormLayout>
+        </f:facet>
+        <f:attribute name="permisoVerAuditoria" value="#{pageFlowScope.pPermisoVerAuditoria}"/>
+        <f:attribute name="titulo" value="#{bnd.filial_itemFrg_titulo}"/>
+        <f:attribute name="tituloDescripcion" value="#{bnd.filial_itemFrg_descripcion}"/>
+    </af:pageTemplate>
+    <af:popup childCreation="deferred" autoCancel="disabled" id="p2" binding="#{PPRBackingFilialItemFrg.p2}">
+        <af:dialog id="d1" type="cancel" title="Buscar Aerolinea">
+            <af:panelGroupLayout layout="vertical" id="pgl7">
+                <f:facet name="separator">
+                    <af:spacer id="s5" height="3" width="3"/>
+                </f:facet>
+                <af:query id="qryId3" value="#{bindings.LibroDireccionFilialViewNoDMLCriteriaQuery.queryDescriptor}"
+                          model="#{bindings.LibroDireccionFilialViewNoDMLCriteriaQuery.queryModel}"
+                          queryListener="#{bindings.LibroDireccionFilialViewNoDMLCriteriaQuery.processQuery}"
+                          queryOperationListener="#{bindings.LibroDireccionFilialViewNoDMLCriteriaQuery.processQueryOperation}"
+                          resultComponentId="::resId1" headerText="#{bnd.msg_busquea_titulo}" conjunctionReadOnly="true"
+                          searchButtonText="#{bnd.btn_buscar}" resetButtonText="#{bnd.btn_limpiar}" labelWidth="240"
+                          saveQueryMode="hidden" modeChangeVisible="false" disclosed="true"/>
+                <af:table value="#{bindings.LibroDireccionFilialViewNoDML1.collectionModel}" var="row"
+                          rows="#{bindings.LibroDireccionFilialViewNoDML1.rangeSize}"
+                          emptyText="#{bindings.LibroDireccionFilialViewNoDML1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                          rowBandingInterval="1"
+                          selectedRowKeys="#{bindings.LibroDireccionFilialViewNoDML1.collectionModel.selectedRow}"
+                          selectionListener="#{bindings.LibroDireccionFilialViewNoDML1.collectionModel.makeCurrent}"
+                          rowSelection="single" fetchSize="#{bindings.LibroDireccionFilialViewNoDML1.rangeSize}"
+                          id="resId1" scrollPolicy="page" columnStretching="column:resId1c5"
+                          binding="#{PPRBackingFilialItemFrg.resId2}" inlineStyle="width:60vw;">
+                    <af:column headerText="#{bindings.LibroDireccionFilialViewNoDML1.hints.IdLibroDireccion.label}"
+                               id="c1" rendered="false">
+                        <af:outputText value="#{row.IdLibroDireccion}"
+                                       shortDesc="#{bindings.LibroDireccionFilialViewNoDML1.hints.IdLibroDireccion.tooltip}"
+                                       id="ot8">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.LibroDireccionFilialViewNoDML1.hints.IdLibroDireccion.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column headerText="#{bindings.LibroDireccionFilialViewNoDML1.hints.Indice.label}" id="resId1c2"
+                               rendered="false">
+                        <af:outputText value="#{row.Indice}"
+                                       shortDesc="#{bindings.LibroDireccionFilialViewNoDML1.hints.Indice.tooltip}"
+                                       id="ot14">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.LibroDireccionFilialViewNoDML1.hints.Indice.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column headerText="#{bindings.LibroDireccionFilialViewNoDML1.hints.IndiceSecundario.label}"
+                               id="c2">
+                        <af:outputText value="#{row.IndiceSecundario}"
+                                       shortDesc="#{bindings.LibroDireccionFilialViewNoDML1.hints.IndiceSecundario.tooltip}"
+                                       id="ot18"/>
+                    </af:column>
+                    <af:column headerText="#{bindings.LibroDireccionFilialViewNoDML1.hints.IdentificacionFiscal.label}"
+                               id="c3" rendered="false">
+                        <af:outputText value="#{row.IdentificacionFiscal}"
+                                       shortDesc="#{bindings.LibroDireccionFilialViewNoDML1.hints.IdentificacionFiscal.tooltip}"
+                                       id="ot19"/>
+                    </af:column>
+                    <af:column headerText="#{bindings.LibroDireccionFilialViewNoDML1.hints.Nombre.label}" id="resId1c5">
+                        <af:link text="#{row.Nombre}" id="ot20" styleClass="linkSelected"
+                                 actionListener="#{PPRBackingFilialItemFrg.accionSeleccionar2}"/>
+                    </af:column>
+                </af:table>
+            </af:panelGroupLayout>
+        </af:dialog>
+    </af:popup>
+</jsp:root>

@@ -12,13 +12,23 @@
   BindingStyle="JDBC"
   CustomQuery="false"
   SelectAllAttributes="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  ComponentClass="modelManifiesto.bc.vista.FilialViewImpl"
+  AccessMode="DEFAULT"
+  ComponentInterface="modelManifiesto.bc.vista.common.FilialView">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Coll"/>
+  </DesignTime>
   <Properties>
     <SchemaBasedProperties>
       <LABEL
         ResId="modelManifiesto.bc.vista.FilialView_LABEL"/>
     </SchemaBasedProperties>
   </Properties>
+  <Variable
+    Name="v_IdFilial"
+    Kind="viewcriteria"
+    Type="java.lang.Integer"/>
   <EntityUsage
     Name="Filial"
     Entity="modelManifiesto.bc.entidad.Filial"/>
@@ -69,11 +79,60 @@
     EntityAttrName="UsuarioPrograma"
     EntityUsage="Filial"
     AliasName="usuario_programa"/>
+  <ViewCriteria
+    Name="FilialViewCriteria"
+    ViewObjectName="modelManifiesto.bc.vista.FilialView"
+    Conjunction="AND">
+    <Properties Name="_Props">
+      <CustomProperties>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="FilialViewCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="IdFilial"
+        ViewAttribute="IdFilial"
+        Operator="="
+        Conjunction="AND"
+        Value=":v_IdFilial"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
   <ViewLinkAccessor
     Name="FilialDetalleView"
     ViewLink="modelManifiesto.bc.vista.link.FilialDetalleLink"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <ClientInterface
+    Name="__clientInterface">
+    <Method
+      Name="ejecutarByIndice"
+      MethodName="ejecutarByIndice">
+      <Return
+        Name="_return_type_"
+        Type="void"/>
+      <Parameter
+        Name="idManifiesto"
+        Type="int"/>
+    </Method>
+  </ClientInterface>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="modelManifiesto.ModelManifiestoBundle"/>

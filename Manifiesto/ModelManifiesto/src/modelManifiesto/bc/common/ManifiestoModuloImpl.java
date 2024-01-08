@@ -61,6 +61,8 @@ public class ManifiestoModuloImpl extends AuditoriaModuloImpl implements Manifie
     final String SQL_MANIFIESTO_EXCEL =
         "SELECT id_manifiesto, id_usuario, nick, nombre_usuario, id_libro_direccion_aerolinea, indice_aerolinea, nombre_aerolinea, id_libro_direccion_aeropuerto, indice_aeropuerto, nombre_aeropuerto, id_libro_direccion_aeropuerto_des, indice_destino, nombre_destino, id_libro_direccion_aeronave, indice_aeronave, nombre_aeronave, fecha_local_operacion, fecha_corta_local_operacion, anio_fecha_operacion as 'año_fecha_operacion', mes_fecha_operacion, no_vuelo, pasajeros, pasajeros_transito, pasajeros_locales, pasajeros_exentos_tasas, pasajeros_pagan_tasas, pasajeros_pagan_dolares, pasajeros_pagan_pesos, pasajeros_exentos_timbres, pasajeros_pagan_timbres, pasajeros_pagan_timbres_dolares, pasajeros_pagan_timbres_pesos, tasa, CAST(timbre AS CHAR) timbre, CAST(timbre_total AS CHAR) timbre_total, indicador_comprobable, tipo, estado, cancelado, usuario, usuario_fecha, usuario_programa FROM MV_001_00.v_manifiesto ";
 
+    final String SQL_LIBRO_DIRECCIONES_EXCEL = "SELECT id_libro_direccion, indice, indice_secundario, identificacion_fiscal, nombre, tipo, estado FROM MV_001_00.libro_direccion";
+
     final String SQL_MANIFIESTO_PDF =
         "SELECT id_manifiesto, indice_aerolinea, nombre_aerolinea, indice_destino, nombre_destino, indice_aeronave, nombre_aeronave, fecha_corta_local_operacion, no_vuelo, pasajeros, pasajeros_transito, pasajeros_locales, pasajeros_exentos_tasas, pasajeros_pagan_tasas, pasajeros_exentos_timbres, pasajeros_pagan_timbres, timbre, timbre_total, tipo, estado  FROM MV_001_00.v_manifiesto where";
 
@@ -204,6 +206,53 @@ public class ManifiestoModuloImpl extends AuditoriaModuloImpl implements Manifie
         }
         return idArchivo;
     }
+
+    /**
+     * Metodo para generar el archivo de excel de manifiesto.
+     *
+     * @param indice
+     * @param nombre
+     * @param tipo
+     * @param estado
+     * @param tabla
+     * @param usuario
+     * @param usuarioPrograma
+     * @return
+     */
+    public int excelLibroDirecciones(String indice, String nombre, String tipo, String estado, String tabla, String usuario, String usuarioPrograma) {
+        int idArchivo = 0;
+        String pattern = "yyyy-MM-dd-HH-mm-ss";
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+        String nombrePagina = String.format("%s-%s-%s.xls", tabla, usuario, simpleDateFormat.format(new Date()));
+
+        String sql = SQL_LIBRO_DIRECCIONES_EXCEL + " where ";
+
+        try {
+            if (indice != null && indice.trim().length() > 0) {
+                sql = sql + " (indice = '" + indice + "' )  AND";
+            }
+            if (nombre != null && nombre.trim().length() > 0) {
+                sql = sql + " (upper(nombre) like upper('% || " + nombre + " || %' )  AND";
+            }
+            if (tipo != null && tipo.trim().length() > 0) {
+                sql = sql + " (tipo = '" + tipo + "' ) AND";
+            }
+            if (estado != null && estado.trim().length() > 0) {
+                sql = sql + " (estado = '" + estado + "' )";
+            }
+            ResultSet resultSet = this.getBaseDML().ejecutaConsulta(sql);
+            if (this.getBaseDML().getMensaje() != null) {
+                throw new JboException("No consulta SQL");
+            }
+
+            idArchivo =
+                Reporte.crearReporteExcel(this, resultSet, nombrePagina, "LibroDirecciones", tabla, usuario, usuarioPrograma);
+        } catch (Exception e) {
+            Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).log(Level.WARNING, "excelLibroDirecciones" + e.toString());
+        }
+        return idArchivo;
+    }
+
 
     /**
      * Metodo para generar el archivo de excel de manifiesto.

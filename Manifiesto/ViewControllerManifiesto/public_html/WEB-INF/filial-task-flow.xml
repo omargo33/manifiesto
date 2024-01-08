@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+    <task-flow-definition id="filial-task-flow">
+        <template-reference>
+            <document>/WEB-INF/plantilla/maestro-template.xml</document>
+            <id>maestro-template</id>
+        </template-reference>
+        <data-control-scope>
+            <shared/>
+        </data-control-scope>
+        <managed-bean id="__10">
+            <managed-bean-name>PPRBackingFilialItemFrg</managed-bean-name>
+            <managed-bean-class>viewManifiesto.filial.PPRItemFrg</managed-bean-class>
+            <managed-bean-scope>request</managed-bean-scope>
+        </managed-bean>
+        <view id="ListaFrg">
+            <page>/filial/ListaFrg.jsff</page>
+        </view>
+        <view id="ItemFrg">
+            <page>/filial/ItemFrg.jsff</page>
+        </view>
+        <method-call id="ItemFrg1">
+            <method>#{bindings.ejecutarByIndice.execute}</method>
+            <outcome>
+                <fixed-outcome>ejecutarByIndice</fixed-outcome>
+            </outcome>
+        </method-call>
+        <method-call id="ActionEditar">
+            <method>#{requestScope.PPRBackingFilialItemFrg.accionTaskFlowEditar}</method>
+        </method-call>
+        <control-flow-rule id="__1">
+            <from-activity-id>ItemFrg1</from-activity-id>
+            <control-flow-case id="__2">
+                <from-outcome>ejecutarByIndice</from-outcome>
+                <to-activity-id>ItemFrg</to-activity-id>
+            </control-flow-case>
+        </control-flow-rule>
+        <control-flow-rule id="__3">
+            <from-activity-id>ActionEditar</from-activity-id>
+            <control-flow-case id="__4">
+                <from-outcome>Editar</from-outcome>
+                <to-activity-id>ItemFrg1</to-activity-id>
+            </control-flow-case>
+        </control-flow-rule>
+        <use-page-fragments/>
+    </task-flow-definition>
+</adfc-config>
