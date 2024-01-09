@@ -6,13 +6,14 @@
   Name="FilialDetalleView"
   Version="12.2.1.22.48"
   InheritPersonalization="merge"
+  BindingStyle="JDBC"
+  CustomQuery="false"
+  PageIterMode="Full"
   SelectListFlags="1"
   FromListFlags="1"
   WhereFlags="1"
-  BindingStyle="JDBC"
-  CustomQuery="false"
   SelectAllAttributes="false"
-  PageIterMode="Full">
+  AccessMode="DEFAULT">
   <Properties>
     <SchemaBasedProperties>
       <LABEL
@@ -22,6 +23,25 @@
   <EntityUsage
     Name="FilialDetalle"
     Entity="modelManifiesto.bc.entidad.FilialDetalle"/>
+  <EntityUsage
+    Name="LibroDireccion1"
+    Entity="modelManifiesto.bc.entidad.LibroDireccion"
+    Association="modelManifiesto.bc.entidad.asociacion.FilialDetalleLibroDireccionAssoc"
+    AssociationEnd="modelManifiesto.bc.entidad.asociacion.FilialDetalleLibroDireccionAssoc.LibroDireccion"
+    SourceUsage="modelManifiesto.bc.vista.FilialDetalleView.FilialDetalle"
+    ReadOnly="true"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="INNER JOIN">
+    <DesignTime>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="modelManifiesto.bc.entidad.LibroDireccion.IdLibroDireccion"/>
+      </AttrArray>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="modelManifiesto.bc.entidad.FilialDetalle.IdLibroDireccion"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
   <ViewAttribute
     Name="IdFilial"
     IsUpdateable="while_insert"
@@ -72,6 +92,49 @@
     EntityAttrName="UsuarioPrograma"
     EntityUsage="FilialDetalle"
     AliasName="usuario_programa"/>
+  <ViewAttribute
+    Name="IdentificacionFiscal"
+    PrecisionRule="true"
+    Domain="model.bc.dominio.Texto"
+    EntityAttrName="IdentificacionFiscal"
+    EntityUsage="LibroDireccion1"
+    AliasName="identificacion_fiscal"/>
+  <ViewAttribute
+    Name="IdLibroDireccion1"
+    IsUpdateable="while_insert"
+    IsNotNull="true"
+    PrecisionRule="true"
+    Domain="model.bc.dominio.IdEntidad"
+    EntityAttrName="IdLibroDireccion"
+    EntityUsage="LibroDireccion1"
+    AliasName="Id_Libro_Direccion1"/>
+  <ViewAttribute
+    Name="Indice"
+    IsUpdateable="while_insert"
+    IsNotNull="true"
+    PrecisionRule="true"
+    Domain="model.bc.dominio.NumeroEntero"
+    EntityAttrName="Indice"
+    EntityUsage="LibroDireccion1"
+    AliasName="indice"/>
+  <ViewAttribute
+    Name="IndiceSecundario"
+    PrecisionRule="true"
+    Domain="model.bc.dominio.Texto"
+    EntityAttrName="IndiceSecundario"
+    EntityUsage="LibroDireccion1"
+    AliasName="indice_secundario"/>
+  <ViewAttribute
+    Name="Nombre"
+    IsNotNull="true"
+    PrecisionRule="true"
+    Domain="model.bc.dominio.Descripcion"
+    EntityAttrName="Nombre"
+    EntityUsage="LibroDireccion1"
+    AliasName="nombre"/>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="IdFilialDetalle"/>
+  </AttrArray>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="modelManifiesto.ModelManifiestoBundle"/>

@@ -1,8 +1,4 @@
-package viewManifiesto.filial;
-
-
-import java.util.logging.Level;
-import java.util.logging.Logger;
+package viewManifiesto.filial.aerolinea;
 
 import javax.faces.event.ActionEvent;
 
@@ -10,17 +6,14 @@ import oracle.adf.view.rich.component.rich.RichPopup;
 import oracle.adf.view.rich.component.rich.data.RichTable;
 import oracle.adf.view.rich.component.rich.fragment.RichRegion;
 import oracle.adf.view.rich.component.rich.input.RichInputText;
-
 import oracle.adf.view.rich.component.rich.nav.RichButton;
 
 import oracle.jbo.uicli.binding.JUCtrlHierNodeBinding;
 
 import view.plantilla.BasePPR;
 
-import view.utilidades.Flow;
-
 import view.utilidades.ADFUtils;
-
+import view.utilidades.Flow;
 
 /**
  * Objeto para dar soporte a las busqueda dinamica con paneles extensos.
@@ -30,7 +23,6 @@ import view.utilidades.ADFUtils;
  */
 public class PPRItemFrg extends BasePPR {
     private static final long serialVersionUID = 1L;
-
     private RichInputText it2; //indiceAerolinea
     private RichInputText it20; //indiceAerolineaDescripcion
     private RichButton b2; //Boton aerolina
@@ -41,6 +33,7 @@ public class PPRItemFrg extends BasePPR {
 
     public PPRItemFrg() {
         super();
+        setNombreBundle(Flow.BUNDLE);
         init();
         iniciarDatosFormularios();
     }
@@ -62,8 +55,8 @@ public class PPRItemFrg extends BasePPR {
      *
      */
     public void iniciarDatosFormularios() {
-        if (getAccionEstadoTaskFlow() == TASK_FLOW_EDITAR) {
-            String nombreAerolinea = String.valueOf(ADFUtils.evaluateEL("#{sessionScope.NombreAerolinea}"));
+        if (getAccionEstadoTaskFlowHijo() == TASK_FLOW_EDITAR) {
+            String nombreAerolinea = String.valueOf(ADFUtils.evaluateEL("#{sessionScope.NombreAerolineaHijo}"));
             getIt20().setValue(nombreAerolinea);
         } else {
             getIt20().setValue("<No Definido>");
@@ -87,7 +80,7 @@ public class PPRItemFrg extends BasePPR {
         }
 
         try {
-            if (Integer.valueOf(String.valueOf(getIt2().getValue())).intValue() < 1) {
+            if (convertirInt(getIt2().getValue()) < 1) {
                 ADFUtils.setMensajeError("No ha sido Seleccionado la Aerolinea");
                 return Flow.FLOW_NULL;
             }
@@ -100,12 +93,8 @@ public class PPRItemFrg extends BasePPR {
 
         if (ADFUtils.commitRollback(getBindings(), Flow.ACCION_COMMIT, Flow.ACCION_ROLLBACK,
                                     getBundle("msg_guardar_ko"), getBundle("msg_guardar_ok"))) {
-            setAccionEstadoTaskFlow(TASK_FLOW_EDITAR);
-
-            doPartialRefresh(getR1().getParent());
-            return Flow.FLOW_NULL;
+            setAccionEstadoTaskFlowHijo(TASK_FLOW_EDITAR);
         }
-
         return Flow.FLOW_INICIO;
     }
 
@@ -116,6 +105,7 @@ public class PPRItemFrg extends BasePPR {
     public String actionDelete() {
         ADFUtils.ejecutaFormulario(getBindings(), Flow.ACCION_DELETE, Flow.ACCION_COMMIT, Flow.ACCION_ROLLBACK,
                                    getBundle("msg_borrar_ko"), getBundle("msg_borrar_ok"));
+
         return Flow.FLOW_INICIO;
     }
 

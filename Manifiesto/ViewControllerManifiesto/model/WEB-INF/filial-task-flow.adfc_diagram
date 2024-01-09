@@ -7,21 +7,6 @@
       <property
          name="y">398.17004</property>
    </OverallProperties>
-   <MethodCall
-      id="MethodCall4">
-      <property
-         name="activityId">Create</property>
-      <property
-         name="inherited">true</property>
-      <property
-         name="x">865.86633</property>
-      <property
-         name="description">&lt;html>&lt;p>&lt;b>Create&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
-      <property
-         name="y">212.48065</property>
-      <property
-         name="exceptionHandler">false</property>
-   </MethodCall>
    <View
       id="View6">
       <property
@@ -52,7 +37,7 @@
       <property
          name="description">&lt;html>&lt;p>&lt;b>ActionCrear&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
       <property
-         name="y">212.48065</property>
+         name="y">245.17883</property>
       <property
          name="exceptionHandler">false</property>
    </MethodCall>
@@ -131,7 +116,7 @@
       <property
          name="fromsrcid">__6</property>
       <property
-         name="sdm:polyPoints">R46,455.2041,243.0,678.0883,207.81314,L46</property>
+         name="sdm:polyPoints">R46,455.2041,243.0,678.7343,240.51132,L46</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -163,7 +148,7 @@
       <property
          name="fromsrcid">__6</property>
       <property
-         name="sdm:polyPoints">R54,455.2041,250.0,535.2041,296.29315,L50</property>
+         name="sdm:polyPoints">R54,455.2041,250.0,535.2041,300.64737,L50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -179,13 +164,13 @@
       <property
          name="fromsrcid">__11</property>
       <property
-         name="sdm:polyPoints">R54,617.2041,299.79315,680.0352,385.64816,L50</property>
+         name="sdm:polyPoints">B50,576.2041,354.64737,680.0352,418.34634,L50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
       id="ControlFlowCase18"
       from="MethodCall7"
-      to="MethodCall4">
+      to="MethodCall28">
       <property
          name="tosrcid">__10</property>
       <property
@@ -195,7 +180,7 @@
       <property
          name="fromsrcid">__9</property>
       <property
-         name="sdm:polyPoints">R50,762.0352,211.31314,824.86633,211.31314,L50</property>
+         name="sdm:polyPoints">R50,762.0352,244.01132,871.2727,196.66245,L50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -211,7 +196,7 @@
       <property
          name="fromsrcid">__11</property>
       <property
-         name="sdm:polyPoints">R46,617.2041,292.79315,680.0352,214.81314,L54</property>
+         name="sdm:polyPoints">R50,617.2041,300.64737,680.0352,247.51132,L54</property>
    </ControlFlowCase>
    <View
       id="View20">
@@ -224,7 +209,7 @@
       <property
          name="description">&lt;html>&lt;p>&lt;b>ListaFrg&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
-         name="y">297.46066</property>
+         name="y">301.81488</property>
       <property
          name="page">/filial/ListaFrg.jsff</property>
       <property
@@ -237,11 +222,11 @@
       <property
          name="pageFragment">true</property>
       <property
-         name="x">1006.86633</property>
+         name="x">1124.8663</property>
       <property
          name="description">&lt;html>&lt;p>&lt;b>ItemFrg&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
-         name="y">328.70398</property>
+         name="y">248.06717</property>
       <property
          name="page">/filial/ItemFrg.jsff</property>
       <property
@@ -250,13 +235,13 @@
    <MethodCall
       id="MethodCall22">
       <property
-         name="activityId">ItemFrg1</property>
+         name="activityId">EjecutarByIndice</property>
       <property
          name="x">865.86633</property>
       <property
-         name="description">&lt;html>&lt;p>&lt;b>ItemFrg1&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+         name="description">&lt;html>&lt;p>&lt;b>EjecutarByIndice&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
       <property
-         name="y">421.6494</property>
+         name="y">396.29138</property>
       <property
          name="exceptionHandler">false</property>
    </MethodCall>
@@ -268,23 +253,7 @@
       <property
          name="fromOutcome">ejecutarByIndice</property>
       <property
-         name="sdm:polyPoints">R50,906.86633,420.4819,965.86633,334.53647,L58</property>
-   </ControlFlowCase>
-   <ControlFlowCase
-      islink="true"
-      id="ControlFlowCase30"
-      from="MethodCall4"
-      to="View21">
-      <property
-         name="tosrcid">__18</property>
-      <property
-         name="inherited">true</property>
-      <property
-         name="fromOutcome">Create</property>
-      <property
-         name="fromsrcid">__17</property>
-      <property
-         name="sdm:polyPoints">B50,865.86633,265.31314,965.86633,320.53647,L42</property>
+         name="sdm:polyPoints">R50,906.86633,395.12387,1083.8663,257.39966,L62</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -300,7 +269,7 @@
       <property
          name="fromsrcid">__15</property>
       <property
-         name="sdm:polyPoints">R46,762.0352,382.14816,963.5629,327.53647,L50</property>
+         name="sdm:polyPoints">T50,721.0352,364.34634,1082.0887,246.89966,L50</property>
    </ControlFlowCase>
    <MethodCall
       id="MethodCall33">
@@ -311,7 +280,7 @@
       <property
          name="description">&lt;html>&lt;p>&lt;b>ActionEditar&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
       <property
-         name="y">386.81567</property>
+         name="y">419.51385</property>
       <property
          name="exceptionHandler">false</property>
    </MethodCall>
@@ -323,6 +292,49 @@
       <property
          name="fromOutcome">Editar</property>
       <property
-         name="sdm:polyPoints">R54,762.0352,389.14816,824.86633,420.4819,L50</property>
+         name="sdm:polyPoints">R50,762.0352,418.34634,824.86633,395.12387,L50</property>
+   </ControlFlowCase>
+   <MethodCall
+      id="MethodCall28">
+      <property
+         name="activityId">Create</property>
+      <property
+         name="x">912.2727</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>Create&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="y">197.82996</property>
+      <property
+         name="exceptionHandler">false</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase35"
+      from="MethodCall28"
+      to="View21">
+      <property
+         name="tosrcid">__18</property>
+      <property
+         name="inherited">true</property>
+      <property
+         name="fromOutcome">Create</property>
+      <property
+         name="fromsrcid">__17</property>
+      <property
+         name="sdm:polyPoints">R46,954.406,193.16245,1083.8663,236.39966,L38</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase30"
+      from="MethodCall28"
+      to="View21">
+      <property
+         name="tosrcid">__6</property>
+      <property
+         name="fromOutcome">Create</property>
+      <property
+         name="fromsrcid">__5</property>
+      <property
+         name="sdm:polyPoints">R54,953.2727,200.16245,1082.7377,243.39966,L46</property>
    </ControlFlowCase>
 </SDM>

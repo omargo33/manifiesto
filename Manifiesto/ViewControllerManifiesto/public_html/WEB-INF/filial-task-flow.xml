@@ -19,7 +19,7 @@
         <view id="ItemFrg">
             <page>/filial/ItemFrg.jsff</page>
         </view>
-        <method-call id="ItemFrg1">
+        <method-call id="EjecutarByIndice">
             <method>#{bindings.ejecutarByIndice.execute}</method>
             <outcome>
                 <fixed-outcome>ejecutarByIndice</fixed-outcome>
@@ -28,8 +28,14 @@
         <method-call id="ActionEditar">
             <method>#{requestScope.PPRBackingFilialItemFrg.accionTaskFlowEditar}</method>
         </method-call>
+        <method-call id="Create">
+            <method>#{bindings.CreateWithParams.execute}</method>
+            <outcome>
+                <fixed-outcome>Create</fixed-outcome>
+            </outcome>
+        </method-call>
         <control-flow-rule id="__1">
-            <from-activity-id>ItemFrg1</from-activity-id>
+            <from-activity-id>EjecutarByIndice</from-activity-id>
             <control-flow-case id="__2">
                 <from-outcome>ejecutarByIndice</from-outcome>
                 <to-activity-id>ItemFrg</to-activity-id>
@@ -39,7 +45,14 @@
             <from-activity-id>ActionEditar</from-activity-id>
             <control-flow-case id="__4">
                 <from-outcome>Editar</from-outcome>
-                <to-activity-id>ItemFrg1</to-activity-id>
+                <to-activity-id>EjecutarByIndice</to-activity-id>
+            </control-flow-case>
+        </control-flow-rule>
+        <control-flow-rule id="__5">
+            <from-activity-id>Create</from-activity-id>
+            <control-flow-case id="__6">
+                <from-outcome>Create</from-outcome>
+                <to-activity-id>ItemFrg</to-activity-id>
             </control-flow-case>
         </control-flow-rule>
         <use-page-fragments/>

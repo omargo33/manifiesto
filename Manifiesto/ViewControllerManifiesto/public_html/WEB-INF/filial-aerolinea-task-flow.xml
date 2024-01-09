@@ -5,12 +5,31 @@
       <document>/WEB-INF/plantilla/detalle-template.xml</document>
       <id>detalle-template</id>
     </template-reference>
+    <default-activity>router</default-activity>
+    <managed-bean id="__10">
+            <managed-bean-name>PPRBackingFilialItemFrgHijo</managed-bean-name>
+            <managed-bean-class>viewManifiesto.filial.aerolinea.PPRItemFrg</managed-bean-class>
+            <managed-bean-scope>request</managed-bean-scope>
+        </managed-bean>
+    <exception-handler>Error</exception-handler>
     <view id="ListaFrg">
       <page>/filial/aerolinea/ListaFrg.jsff</page>
     </view>
     <view id="ItemFrg">
       <page>/filial/aerolinea/ItemFrg.jsff</page>
     </view>
+    <method-call id="Recargar">
+      <method>#{bindings.setCurrentRowWithKeyValue.execute}</method>
+      <outcome>
+        <fixed-outcome>Recargar</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="Create">
+      <method>#{bindings.Create.execute}</method>
+      <outcome>
+        <fixed-outcome>Create</fixed-outcome>
+      </outcome>
+    </method-call>
     <use-page-fragments/>
   </task-flow-definition>
 </adfc-config>

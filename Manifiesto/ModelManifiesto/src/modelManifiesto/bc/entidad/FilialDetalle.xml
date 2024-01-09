@@ -26,7 +26,8 @@
     TableName="filial_detalle"
     PrimaryKey="true"
     DefaultValue="0"
-    IsUpdateable="while_insert">
+    IsUpdateable="while_insert"
+    ChangeIndicator="true">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="10"/>
     </DesignTime>
@@ -124,6 +125,13 @@
     AssociationOtherEnd="modelManifiesto.bc.entidad.asociacion.FilialDetalleAssoc.FilialDetalle"
     Type="modelManifiesto.bc.entidad.FilialImpl"
     IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="LibroDireccion"
+    Association="modelManifiesto.bc.entidad.asociacion.FilialDetalleLibroDireccionAssoc"
+    AssociationEnd="modelManifiesto.bc.entidad.asociacion.FilialDetalleLibroDireccionAssoc.LibroDireccion"
+    AssociationOtherEnd="modelManifiesto.bc.entidad.asociacion.FilialDetalleLibroDireccionAssoc.FilialDetalle"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <Key
     Name="Primary1"
     PrimaryKey="true">

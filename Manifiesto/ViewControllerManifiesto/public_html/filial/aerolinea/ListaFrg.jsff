@@ -1,9 +1,90 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
-          xmlns:f="http://java.sun.com/jsf/core">
-  <af:pageTemplate viewId="/plantilla/listaFrg.jspx" id="pt1">
+          xmlns:f="http://java.sun.com/jsf/core" xmlns:bl01="/baseLib01">
+    <af:pageTemplate viewId="/plantilla/listaFrg.jspx" id="pt1">
+        <f:attribute name="titulo" value="#{bnd.filial_aerolinea_listaFrg_titulo}"/>
+        <f:attribute name="tituloDescripcion" value="#{bnd.filial_aerolinea_listaFrg_descripcion}"/>
         <f:facet name="elementoBusqueda"/>
-        <f:facet name="elementoCentro"/>
-        <f:facet name="elementoAcciones"/>
+        <f:facet name="elementoCentro">
+            <af:table value="#{bindings.FilialDetalleView1.collectionModel}" var="row"
+                      rows="#{bindings.FilialDetalleView1.rangeSize}"
+                      emptyText="#{bindings.FilialDetalleView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                      rowBandingInterval="1"
+                      selectedRowKeys="#{bindings.FilialDetalleView1.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.FilialDetalleView1.collectionModel.makeCurrent}"
+                      rowSelection="single" fetchSize="#{bindings.FilialDetalleView1.rangeSize}" id="t1"
+                      columnStretching="column:c11">
+                <af:column headerText="#{bindings.FilialDetalleView1.hints.IdFilial.label}" id="c1" rendered="false">
+                    <af:outputText value="#{row.IdFilial}"
+                                   shortDesc="#{bindings.FilialDetalleView1.hints.IdFilial.tooltip}" id="ot1">
+                        <af:convertNumber groupingUsed="false"
+                                          pattern="#{bindings.FilialDetalleView1.hints.IdFilial.format}"/>
+                    </af:outputText>
+                </af:column>
+                <af:column headerText="#{bindings.FilialDetalleView1.hints.IdFilialDetalle.label}" id="c2">
+                    <af:outputText value="#{row.IdFilialDetalle}"
+                                   shortDesc="#{bindings.FilialDetalleView1.hints.IdFilialDetalle.tooltip}" id="ot2">
+                        <af:convertNumber groupingUsed="false"
+                                          pattern="#{bindings.FilialDetalleView1.hints.IdFilialDetalle.format}"/>
+                    </af:outputText>
+                </af:column>
+                <af:column headerText="#{bindings.FilialDetalleView1.hints.IdLibroDireccion.label}" id="c3"
+                           rendered="false">
+                    <af:outputText value="#{row.IdLibroDireccion}"
+                                   shortDesc="#{bindings.FilialDetalleView1.hints.IdLibroDireccion.tooltip}" id="ot3">
+                        <af:convertNumber groupingUsed="false"
+                                          pattern="#{bindings.FilialDetalleView1.hints.IdLibroDireccion.format}"/>
+                    </af:outputText>
+                </af:column>
+                <af:column headerText="#{bindings.FilialDetalleView1.hints.IdentificacionFiscal.label}" id="c7"
+                           rendered="false">
+                    <af:outputText value="#{row.IdentificacionFiscal}"
+                                   shortDesc="#{bindings.FilialDetalleView1.hints.IdentificacionFiscal.tooltip}"
+                                   id="ot7"/>
+                </af:column>
+                <af:column headerText="#{bindings.FilialDetalleView1.hints.IdLibroDireccion1.label}" id="c8"
+                           rendered="false">
+                    <af:outputText value="#{row.IdLibroDireccion1}"
+                                   shortDesc="#{bindings.FilialDetalleView1.hints.IdLibroDireccion1.tooltip}" id="ot8">
+                        <af:convertNumber groupingUsed="false"
+                                          pattern="#{bindings.FilialDetalleView1.hints.IdLibroDireccion1.format}"/>
+                    </af:outputText>
+                </af:column>
+                <af:column headerText="#{bindings.FilialDetalleView1.hints.Indice.label}" id="c9">
+                    <af:link text="#{row.Indice}" id="l1" action="Editar" inlineStyle="font-weight:bolder;">
+                        <af:setActionListener to="#{sessionScope.NombreAerolineaHijo}" from="#{row.Nombre}"/>
+                    </af:link>
+                </af:column>
+                <af:column headerText="#{bindings.FilialDetalleView1.hints.IndiceSecundario.label}" id="c10">
+                    <af:outputText value="#{row.IndiceSecundario}"
+                                   shortDesc="#{bindings.FilialDetalleView1.hints.IndiceSecundario.tooltip}" id="ot10"/>
+                </af:column>
+                <af:column headerText="#{bindings.FilialDetalleView1.hints.Nombre.label}" id="c11">
+                    <af:outputText value="#{row.Nombre}" shortDesc="#{bindings.FilialDetalleView1.hints.Nombre.tooltip}"
+                                   id="ot11" inlineStyle="font-weight:bolder;"/>
+                </af:column>
+                <af:column headerText="#{bindings.FilialDetalleView1.hints.Usuario.label}" id="c4">
+                    <af:outputText value="#{row.Usuario}"
+                                   shortDesc="#{bindings.FilialDetalleView1.hints.Usuario.tooltip}" id="ot4"/>
+                </af:column>
+                <af:column headerText="#{bindings.FilialDetalleView1.hints.UsuarioFecha.label}" id="c5"
+                           rendered="false">
+                    <af:outputText value="#{row.UsuarioFecha}"
+                                   shortDesc="#{bindings.FilialDetalleView1.hints.UsuarioFecha.tooltip}" id="ot5">
+                        <af:convertDateTime pattern="#{bindings.FilialDetalleView1.hints.UsuarioFecha.format}"/>
+                    </af:outputText>
+                </af:column>
+                <af:column headerText="#{bindings.FilialDetalleView1.hints.UsuarioPrograma.label}" id="c6"
+                           rendered="false">
+                    <af:outputText value="#{row.UsuarioPrograma}"
+                                   shortDesc="#{bindings.FilialDetalleView1.hints.UsuarioPrograma.tooltip}" id="ot6"/>
+                </af:column>
+            </af:table>
+        </f:facet>
+        <f:facet name="elementoAcciones">
+            <bl01:botonesAtrasCrear id="bac1" atrasAccion="Inicio" crearAccion="Create"
+                                    crearTexto="#{bnd.filial_aerolinea_listaFrg_boton_crear}"
+                                    crearPermiso="#{pageFlowScope.hPermisoCrear}"/>
+        </f:facet>
     </af:pageTemplate>
 </jsp:root>

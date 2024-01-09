@@ -27,7 +27,8 @@
     TableName="filial"
     PrimaryKey="true"
     DefaultValue="0"
-    IsUpdateable="while_insert">
+    IsUpdateable="while_insert"
+    ChangeIndicator="true">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="10"/>
     </DesignTime>
@@ -46,7 +47,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR"
-    TableName="filial">
+    TableName="filial"
+    IsNotNull="true">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="128"/>
     </DesignTime>
@@ -67,7 +69,6 @@
   </Attribute>
   <Attribute
     Name="IdLibroDireccion"
-    IsNotNull="true"
     Domain="model.bc.dominio.NumeroEntero"
     ColumnName="id_libro_direccion"
     SQLType="INTEGER"
@@ -131,6 +132,18 @@
     AssociationOtherEnd="modelManifiesto.bc.entidad.asociacion.FilialDetalleAssoc.Filial"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <Key
+    Name="FilialNombreCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_checkCondition" Value='"nombre" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+      <Attr Name="_DBObjectName" Value="Filial_Nombre_Check"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="modelManifiesto.bc.entidad.Filial.Nombre"/>
+    </AttrArray>
+  </Key>
   <Key
     Name="Primary1"
     PrimaryKey="true">
