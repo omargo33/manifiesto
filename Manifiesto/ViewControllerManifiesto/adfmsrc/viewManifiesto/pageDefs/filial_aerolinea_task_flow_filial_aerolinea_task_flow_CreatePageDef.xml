@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48"
+                id="filial_aerolinea_task_flow_filial_aerolinea_task_flow_CreatePageDef"
+                Package="viewManifiesto.pageDefs" SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="FilialDetalleView1" RangeSize="25" DataControl="ManifiestoModuloDataControl"
+              id="FilialDetalleView1Iterator"/>
+  </executables>
+  <bindings>
+    <action IterBinding="FilialDetalleView1Iterator" id="Create" RequiresUpdateModel="true" Action="createWithParams"
+            InstanceName="ManifiestoModuloDataControl.FilialDetalleView1" DataControl="ManifiestoModuloDataControl">
+       <NamedData NDName="Usuario" NDValue="#{BaseBean.nameUser}" NDType="java.lang.String"/>
+      <NamedData NDName="UsuarioPrograma" NDValue="#{session.servletContext.contextPath}" NDType="java.lang.String"/>
+    </action>
+  </bindings>
+</pageDefinition>

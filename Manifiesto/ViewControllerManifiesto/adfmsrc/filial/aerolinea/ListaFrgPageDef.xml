@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48" id="ListaFrgPageDef"
+                Package="filial.aerolinea">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="FilialDetalleView1" RangeSize="25" DataControl="ManifiestoModuloDataControl"
+              id="FilialDetalleView1Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="FilialDetalleView1Iterator" id="FilialDetalleView1">
+      <nodeDefinition DefName="modelManifiesto.bc.vista.FilialDetalleView" Name="FilialDetalleView10">
+        <AttrNames>
+          <Item Value="IdFilial"/>
+          <Item Value="IdFilialDetalle"/>
+          <Item Value="IdLibroDireccion"/>
+          <Item Value="Usuario"/>
+          <Item Value="UsuarioFecha"/>
+          <Item Value="UsuarioPrograma"/>
+          <Item Value="IdentificacionFiscal"/>
+          <Item Value="IdLibroDireccion1"/>
+          <Item Value="Indice"/>
+          <Item Value="IndiceSecundario"/>
+          <Item Value="Nombre"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

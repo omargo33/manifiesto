@@ -22,10 +22,6 @@
                         <f:validator binding="#{bindings.IdLibroDireccionAeropuerto1.validator}"/>
                     </af:selectOneChoice>
                     <f:facet name="footer">
-                    
-                    
-
-                    
                         <bl01:botonesGuardarBorrar id="bgb1" nivel="2"
                                                    actualizarAccion="#{BackingItemFrgHijo.actionGuardar}"
                                                    actualizarPermiso="#{pageFlowScope.hPermisoActualizar}"
@@ -33,10 +29,6 @@
                                                    borrarDisabled="#{bindings.IdAerolineaUsuario.inputValue  eq 0}"
                                                    borrarPermiso="#{pageFlowScope.hPermisoBorrar}"/>
                     </f:facet>
-                    
-                    
-                    
-                    
                 </af:panelFormLayout>
             </f:facet>
             <f:facet name="elementoCancelar">

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48"
+                id="filial_aerolinea_task_flow_filial_aerolinea_task_flow_SetCurrentRowWithKeyValuePageDef"
+                Package="viewManifiesto.pageDefs" SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="FilialView1" RangeSize="25" DataControl="ManifiestoModuloDataControl" id="FilialView1Iterator"/>
+  </executables>
+  <bindings>
+    <action IterBinding="FilialView1Iterator" id="setCurrentRowWithKeyValue" RequiresUpdateModel="false"
+            Action="setCurrentRowWithKeyValue">
+      <NamedData NDName="rowKey" NDValue="#{pageFlowScope.hAccionValueId}" NDType="java.lang.String"/>
+    </action>
+  </bindings>
+</pageDefinition>

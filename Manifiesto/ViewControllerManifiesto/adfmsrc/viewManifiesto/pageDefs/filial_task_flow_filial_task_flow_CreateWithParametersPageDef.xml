@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48"
+                id="filial_task_flow_filial_task_flow_CreateWithParametersPageDef" Package="viewManifiesto.pageDefs"
+                SkipValidation="true">
+    <parameters/>
+    <executables>
+        <iterator Binds="FilialView1" RangeSize="25" DataControl="ManifiestoModuloDataControl"
+                  id="FilialView1Iterator"/>
+    </executables>
+    <bindings>
+        <action IterBinding="FilialView1Iterator" id="CreateWithParams" RequiresUpdateModel="true"
+                Action="createWithParams">
+            <NamedData NDName="Usuario" NDValue="#{BaseBean.nameUser}" NDType="java.lang.String"/>
+            <NamedData NDName="UsuarioPrograma" NDValue="#{session.servletContext.contextPath}"
+                       NDType="java.lang.String"/>
+        </action>
+    </bindings>
+</pageDefinition>

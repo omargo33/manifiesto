@@ -42,7 +42,8 @@ public class FilialDetalleImpl extends Entidad {
         Usuario,
         UsuarioFecha,
         UsuarioPrograma,
-        Filial;
+        Filial,
+        LibroDireccion;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -74,6 +75,7 @@ public class FilialDetalleImpl extends Entidad {
     public static final int USUARIOFECHA = AttributesEnum.UsuarioFecha.index();
     public static final int USUARIOPROGRAMA = AttributesEnum.UsuarioPrograma.index();
     public static final int FILIAL = AttributesEnum.Filial.index();
+    public static final int LIBRODIRECCION = AttributesEnum.LibroDireccion.index();
 
     /**
      * This is the default constructor (do not remove).

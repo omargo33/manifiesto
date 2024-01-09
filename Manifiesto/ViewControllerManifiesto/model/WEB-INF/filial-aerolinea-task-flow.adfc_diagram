@@ -14,11 +14,11 @@
       <property
          name="inherited">true</property>
       <property
-         name="x">1042.0243</property>
+         name="x">1042.0242</property>
       <property
          name="description">&lt;html>&lt;p>&lt;b>ActionEditarHijo&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
       <property
-         name="y">344.79443</property>
+         name="y">344.7944</property>
       <property
          name="exceptionHandler">false</property>
    </MethodCall>
@@ -27,28 +27,13 @@
       <property
          name="activityId">Create</property>
       <property
-         name="inherited">true</property>
+         name="inherited">false</property>
       <property
          name="x">1042.0243</property>
       <property
          name="description">&lt;html>&lt;p>&lt;b>Create&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
       <property
-         name="y">175.4594</property>
-      <property
-         name="exceptionHandler">false</property>
-   </MethodCall>
-   <MethodCall
-      id="MethodCall4">
-      <property
-         name="activityId">Recargar</property>
-      <property
-         name="inherited">true</property>
-      <property
-         name="x">393.2041</property>
-      <property
-         name="description">&lt;html>&lt;p>&lt;b>Recargar&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
-      <property
-         name="y">240.83502</property>
+         name="y">175.45938</property>
       <property
          name="exceptionHandler">false</property>
    </MethodCall>
@@ -59,9 +44,9 @@
       <property
          name="activityId">Error</property>
       <property
-         name="pageFragment">true</property>
-      <property
          name="inherited">true</property>
+      <property
+         name="pageFragment">true</property>
       <property
          name="x">90.85205</property>
       <property
@@ -69,7 +54,7 @@
       <property
          name="page">/error/Error.jsff</property>
       <property
-         name="exceptionHandler">false</property>
+         name="exceptionHandler">true</property>
    </View>
    <MethodCall
       id="MethodCall6">
@@ -114,7 +99,7 @@
       <property
          name="description">&lt;html>&lt;p>&lt;b>ActionCrearHijo&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
       <property
-         name="y">227.79318</property>
+         name="y">227.79315</property>
       <property
          name="exceptionHandler">false</property>
    </MethodCall>
@@ -145,7 +130,7 @@
       <property
          name="fromsrcid">__1</property>
       <property
-         name="sdm:polyPoints">R50,128.31448,240.66751,209.74167,239.66751,L50</property>
+         name="sdm:polyPoints">R50,126.85205,240.66751,211.2041,239.66751,L50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -161,12 +146,12 @@
       <property
          name="fromsrcid">__11</property>
       <property
-         name="sdm:polyPoints">R44,759.6665,291.33075,829.6533,231.5881,L56</property>
+         name="sdm:polyPoints">R46,758.2041,292.79315,831.1157,230.12564,L54</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
       id="ControlFlowCase14"
-      from="MethodCall4"
+      from="MethodCall24"
       to="Router7">
       <property
          name="tosrcid">__28</property>
@@ -177,7 +162,7 @@
       <property
          name="fromsrcid">__27</property>
       <property
-         name="sdm:polyPoints">R50,435.66653,239.66751,512.7417,246.5,L50</property>
+         name="sdm:polyPoints">R50,434.2041,239.66751,514.2041,246.5,L50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -193,7 +178,7 @@
       <property
          name="fromsrcid">__6</property>
       <property
-         name="sdm:polyPoints">B50,555.2041,300.5,640.0,327.49747,T50</property>
+         name="sdm:polyPoints">R54,596.2041,250.0,676.2041,296.29315,L50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -209,7 +194,7 @@
       <property
          name="fromsrcid">__17</property>
       <property
-         name="sdm:polyPoints">R50,1084.4867,174.29189,1155.5588,256.497,L44</property>
+         name="sdm:polyPoints">R50,1083.0243,174.29187,1157.0212,257.95938,L46</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -225,13 +210,13 @@
       <property
          name="fromsrcid">__6</property>
       <property
-         name="sdm:polyPoints">R50,597.6665,246.5,829.6533,226.62567,L50</property>
+         name="sdm:polyPoints">R46,596.2041,243.0,829.6705,223.12564,L46</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
       id="ControlFlowCase18"
       from="MethodCall6"
-      to="MethodCall4">
+      to="MethodCall24">
       <property
          name="tosrcid">__24</property>
       <property
@@ -257,7 +242,7 @@
       <property
          name="fromsrcid">__9</property>
       <property
-         name="sdm:polyPoints">R50,913.1157,226.62567,1001.0243,174.29189,L50</property>
+         name="sdm:polyPoints">R50,913.1157,226.62564,1001.0243,174.29187,L50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -273,7 +258,7 @@
       <property
          name="fromsrcid">__15</property>
       <property
-         name="sdm:polyPoints">R50,1084.4867,343.62692,1155.5588,266.42184,L56</property>
+         name="sdm:polyPoints">R50,1083.0242,343.6269,1157.0212,264.95938,L54</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -289,7 +274,7 @@
       <property
          name="fromsrcid">__11</property>
       <property
-         name="sdm:polyPoints">R56,759.6665,301.2556,999.5619,343.62692,L50</property>
+         name="sdm:polyPoints">R54,758.2041,299.79315,1001.0242,343.6269,L50</property>
    </ControlFlowCase>
    <View
       id="View22">
@@ -298,11 +283,11 @@
       <property
          name="pageFragment">true</property>
       <property
-         name="x">640.0</property>
+         name="x">717.2041</property>
       <property
          name="description">&lt;html>&lt;p>&lt;b>ListaFrg&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
-         name="y">382.66498</property>
+         name="y">297.46066</property>
       <property
          name="page">/filial/aerolinea/ListaFrg.jsff</property>
       <property
@@ -315,14 +300,27 @@
       <property
          name="pageFragment">true</property>
       <property
-         name="x">1235.0</property>
+         name="x">1198.0212</property>
       <property
          name="description">&lt;html>&lt;p>&lt;b>ItemFrg&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
-         name="y">419.66498</property>
+         name="y">262.6269</property>
       <property
          name="page">/filial/aerolinea/ItemFrg.jsff</property>
       <property
          name="exceptionHandler">false</property>
    </View>
+   <MethodCall
+      id="MethodCall24">
+      <property
+         name="activityId">Recargar</property>
+      <property
+         name="x">393.2041</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>Recargar&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="y">240.83502</property>
+      <property
+         name="exceptionHandler">false</property>
+   </MethodCall>
 </SDM>
