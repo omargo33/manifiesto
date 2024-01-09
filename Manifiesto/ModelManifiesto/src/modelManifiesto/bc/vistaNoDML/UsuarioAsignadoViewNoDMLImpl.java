@@ -26,18 +26,8 @@ public class UsuarioAsignadoViewNoDMLImpl extends VistaObjeto implements Usuario
      * @param idUsuario
      */
     public void ejecutarByIndice(int idUsuario) {
-        /*int idUsuarioInteger = 0;
-        if (idUsuario != null) {
-            try {
-                idUsuarioInteger = Integer.parseInt(idUsuario);
-            } catch (Exception e) {
-                Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).log(Level.WARNING, "convert error=" + e.toString());
-                idUsuarioInteger = 0;
-            }
-        }*/
         ViewCriteria vc = this.getViewCriteriaManager().getViewCriteria("UsuarioAsignadoViewNoDMLCriteriaByIdUsuario");
         VariableValueManager vvm = vc.ensureVariableManager();
-        //vvm.setVariableValue("v_IdUsuario", idUsuarioInteger);
         vvm.setVariableValue("v_IdUsuario", idUsuario);
         this.applyViewCriteria(vc, false);
         this.executeQuery();

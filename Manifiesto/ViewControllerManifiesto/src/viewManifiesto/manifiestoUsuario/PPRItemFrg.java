@@ -144,7 +144,6 @@ public class PPRItemFrg extends BasePPR {
             }
         } catch (Exception e) {
             getPfl5().setVisible(false);
-            Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).log(Level.WARNING, "limpiarEjecute() 1 ov " + e.toString());
         }
 
         try {
@@ -601,8 +600,6 @@ public class PPRItemFrg extends BasePPR {
                     getR2().setRendered(true);
                     doPartialRefresh(getR1().getParent());
                     doPartialRefresh(getR2().getParent());
-                    Logger.getLogger("global").log(Level.WARNING, "actualizao region=yes");
-
                     getIt6().setValue(Integer.valueOf(getIt6Int()));
                     getIt8().setValue(Integer.valueOf(getIt8Int()));
                     getIt10().setValue(Integer.valueOf(getIt10Int()));

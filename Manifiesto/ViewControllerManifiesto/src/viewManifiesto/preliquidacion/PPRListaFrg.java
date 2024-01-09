@@ -231,13 +231,6 @@ public class PPRListaFrg extends BasePPR {
         String aerolineaDescripcion =
             String.valueOf(ADFUtils.evaluateEL("#{sessionScope.aerolineaDescripcion}")).trim();
 
-        Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).log(Level.WARNING, "idUsuario " + idUsuario);
-        Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).log(Level.WARNING, "isCli01 " + isCli01);
-        Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).log(Level.WARNING, "isCli02 " + isCli02);
-        Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).log(Level.WARNING, "isCli03 " + isCli03);
-        Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).log(Level.WARNING, "idAerolinea " + idAerolinea);
-        Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).log(Level.WARNING, "aerolineaDescripcion " + aerolineaDescripcion);
-
         try {
             if (isCli01.compareToIgnoreCase("TRUE") == 0) {
                 getIt1().setValue("0");

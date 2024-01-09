@@ -61,8 +61,6 @@ public class GenerarSqlManifiesto {
             
             if (idManifiesto != null && idManifiesto.trim().length() > 0) {
                 sql = sql + " (id_manifiesto = '" + idManifiesto + "' )";
-
-                Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).log(Level.SEVERE, "SQL " + sql);
                 return sql;    
             }     
             
@@ -88,7 +86,6 @@ public class GenerarSqlManifiesto {
                 sql + " (fecha_corta_local_operacion BETWEEN  '" + convertirDateString(fechaInicio) + "'  AND  '" +
                 convertirDateString(fechaFin) + "')";
 
-        Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).log(Level.SEVERE, "SQL " + sql);
         return sql;
     }
 
@@ -122,8 +119,6 @@ public class GenerarSqlManifiesto {
      * @return
      */
     public static String convertirDateString(String fechaStr) {
-        Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).log(Level.SEVERE, "fechaStr " +fechaStr);
-        
         DateFormat dateFormat = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy", Locale.US);
         DateFormat dateFormatSimple = new SimpleDateFormat("yyyy-MM-dd");
         String respuesta = fechaStr;
