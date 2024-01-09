@@ -562,9 +562,6 @@ public class ManifiestoModuloImpl extends AuditoriaModuloImpl implements Manifie
      * @return
      */
     public int getIdUsuarioNick(String nick) {
-        Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).log(Level.WARNING, "getIdUsuarioNick() Revisar omar " + nick);
-
-
         aerolineaUsuarioIndices = AerolineaUsuario.buscarUsuario(this, nick);
         return aerolineaUsuarioIndices.getIdUsuario();
     }
