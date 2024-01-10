@@ -10,14 +10,18 @@ import javax.faces.event.ValueChangeEvent;
 
 import modelManifiesto.utilidades.GenerarSqlManifiesto;
 
+import oracle.adf.model.binding.DCIteratorBinding;
 import oracle.adf.view.rich.component.rich.RichPopup;
+import oracle.adf.view.rich.component.rich.data.RichColumn;
 import oracle.adf.view.rich.component.rich.data.RichTable;
 import oracle.adf.view.rich.component.rich.input.RichInputDate;
 import oracle.adf.view.rich.component.rich.input.RichInputText;
+import oracle.adf.view.rich.component.rich.layout.RichPanelLabelAndMessage;
 import oracle.adf.view.rich.component.rich.nav.RichButton;
 import oracle.adf.view.rich.component.rich.input.RichSelectOneChoice;
 
 
+import oracle.jbo.Row;
 import oracle.jbo.uicli.binding.JUCtrlHierNodeBinding;
 
 import view.plantilla.BasePPR;
@@ -61,6 +65,10 @@ public class PPRListaFrg extends BasePPR {
     private RichSelectOneChoice soc10;
     private RichSelectOneChoice soc20;
     private RichSelectOneChoice soc30;
+    private RichSelectOneChoice soc40;
+    private RichPanelLabelAndMessage plam1;
+    private RichColumn resId1c6;
+    private RichColumn resId1c7;
 
 
     /**
@@ -106,9 +114,14 @@ public class PPRListaFrg extends BasePPR {
         setSoc10(new RichSelectOneChoice());
         setSoc20(new RichSelectOneChoice());
         setSoc30(new RichSelectOneChoice());
+        setSoc40(new RichSelectOneChoice());
 
         setB1(new RichButton());
         setB2(new RichButton());
+
+        setPlam1(new RichPanelLabelAndMessage());
+        setResId1c6(new RichColumn());
+        setResId1c7(new RichColumn());
     }
 
     /**
@@ -156,6 +169,7 @@ public class PPRListaFrg extends BasePPR {
         doPartialRefresh(getSoc10());
         doPartialRefresh(getSoc20());
         doPartialRefresh(getSoc30());
+        doPartialRefresh(getSoc40());
 
         ejecutarBusqueda();
     }
@@ -174,6 +188,8 @@ public class PPRListaFrg extends BasePPR {
         } else {
             map.put("idUsuario", 0);
         }
+        
+        buscarIdLibroDireccion();
 
         map.put("indiceAerolinea", convertirInt(getIt1().getValue()));
         map.put("indiceAeropuertoOrigen", convertirInt(getIt2().getValue()));
@@ -191,7 +207,6 @@ public class PPRListaFrg extends BasePPR {
         ADFUtils.ejecutaAction(getBindings(), "ejecutarConsultaExtendida", null, null, map);
         ADFUtils.ejecutaAction(getBindings(), "ejecutarConsultaExtendidaSumatoria", null, null, map);
 
-
         ADFUtils.setEL("#{sessionScope.idAerolineaFiltro}", String.valueOf(getIt1().getValue()));
         ADFUtils.setEL("#{sessionScope.aerolineaDescripcionFiltro}", String.valueOf(getIt10().getValue()));
 
@@ -207,8 +222,10 @@ public class PPRListaFrg extends BasePPR {
         ADFUtils.setEL("#{sessionScope.noVueloFiltro}", String.valueOf(getIt5().getValue()));
         ADFUtils.setEL("#{sessionScope.idManifiestoFiltro}", String.valueOf(getIt6().getValue()));
 
-        ADFUtils.setEL("#{sessionScope.fechaInicioFiltro}", GenerarSqlManifiesto.convertirDateString(String.valueOf(getId1().getValue())));
-        ADFUtils.setEL("#{sessionScope.fechaFinFiltro}", GenerarSqlManifiesto.convertirDateString(String.valueOf(getId2().getValue())));
+        ADFUtils.setEL("#{sessionScope.fechaInicioFiltro}",
+                       GenerarSqlManifiesto.convertirDateString(String.valueOf(getId1().getValue())));
+        ADFUtils.setEL("#{sessionScope.fechaFinFiltro}",
+                       GenerarSqlManifiesto.convertirDateString(String.valueOf(getId2().getValue())));
 
         ADFUtils.setEL("#{sessionScope.estadoFiltro}", String.valueOf(getSoc10().getValue()));
         ADFUtils.setEL("#{sessionScope.tipoVueloFiltro}", String.valueOf(getSoc20().getValue()));
@@ -264,16 +281,19 @@ public class PPRListaFrg extends BasePPR {
                     getIt1().setValue(idAerolinea);
                     getIt10().setValue(aerolineaDescripcion);
                     getB1().setDisabled(true);
-
                     getIt2().setValue("");
                     getIt20().setValue("<No Definido>");
                     getB2().setDisabled(false);
+
+                    
                 } catch (Exception e) {
                     Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).log(Level.WARNING, e.toString());
                 }
             }
         }
         
+        presentacionFilial();
+
         if (ingresoMenu.compareTo("1") == 0) {
             getIt1().setValue(ADFUtils.evaluateEL("#{sessionScope.idAerolineaFiltro}"));
             getIt10().setValue(ADFUtils.evaluateEL("#{sessionScope.aerolineaDescripcionFiltro}"));
@@ -283,7 +303,7 @@ public class PPRListaFrg extends BasePPR {
 
             getIt3().setValue(ADFUtils.evaluateEL("#{sessionScope.idAeropuertoDestinoFiltro}"));
             getIt30().setValue(ADFUtils.evaluateEL("#{sessionScope.aeropuertoDestinoDescripcionFiltro}"));
-                                                                   
+
             getIt4().setValue(ADFUtils.evaluateEL("#{sessionScope.idAeronaveFiltro}"));
             getIt40().setValue(ADFUtils.evaluateEL("#{sessionScope.aeronaveDescripcionFiltro}"));
 
@@ -299,6 +319,29 @@ public class PPRListaFrg extends BasePPR {
         }
     }
 
+    /**
+     * Metodo para presentar la busqueda por aerolineas filial
+     */
+    private void presentacionFilial() {
+        Object cli03 = ADFUtils.evaluateEL("#{sessionScope.isCLI03}");
+        Object idFilial = ADFUtils.evaluateEL("#{sessionScope.idFilial}");
+        Integer idFiliarInt = (Integer) idFilial;
+        
+        if (idFiliarInt > 0 && cli03 != null && String.valueOf(cli03).compareToIgnoreCase("TRUE") == 0) {
+            getSoc40().setVisible(true);
+            getPlam1().setVisible(false);
+            getResId1c6().setVisible(true);
+            getResId1c7().setVisible(true);
+        } else {
+            getSoc40().setVisible(false);
+            getPlam1().setVisible(true);
+            getResId1c6().setVisible(false);
+            getResId1c7().setVisible(false);
+        }
+        doPartialRefresh(getSoc40());
+        doPartialRefresh(getPlam1());
+        doPartialRefresh(getResId5());
+    }
 
     public void valueChangeListenerIt5(ValueChangeEvent valueChangeEvent) {
         // Add event code here...
@@ -412,6 +455,33 @@ public class PPRListaFrg extends BasePPR {
         getIt40().setValue(descripcion);
         doPartialRefresh(getIt4());
         doPartialRefresh(getIt40());
+    }
+    
+    /**
+     * Metodo para buscarIdLibroDireccion desde la filial
+     */
+    private void buscarIdLibroDireccion() {
+        Object cli03 = ADFUtils.evaluateEL("#{sessionScope.isCLI03}");
+        Object idFilial = ADFUtils.evaluateEL("#{sessionScope.idFilial}");
+        Integer idFiliarInt = (Integer) idFilial;
+        
+        if (idFiliarInt > 0 && cli03 != null && String.valueOf(cli03).compareToIgnoreCase("TRUE") == 0) {
+            String nombreSeleccionado = String.valueOf(getSoc40().getValue());
+            DCIteratorBinding binding = ADFUtils.findIterator("CatalogoFilialesViewNoDML1Iterator");
+            Row[] rows = binding.getAllRowsInRange();
+
+            for (Row r : rows) {
+                Integer idLibroDireccion = (Integer) r.getAttribute("IdLibroDireccion");
+                String nombre = String.valueOf(r.getAttribute("Nombre"));
+
+                if (nombre.compareTo(nombreSeleccionado) == 0) {
+                    Logger.getLogger(Logger.GLOBAL_LOGGER_NAME)
+                        .log(Level.SEVERE, "Se va a buscar con " + idLibroDireccion);
+                    getIt1().setValue(idLibroDireccion);
+                    Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).log(Level.SEVERE, "Se puso " + getIt1().getValue());
+                }
+            }
+        }
     }
 
     //Propiedades
@@ -669,5 +739,37 @@ public class PPRListaFrg extends BasePPR {
 
     public void setSoc30(RichSelectOneChoice soc30) {
         this.soc30 = soc30;
+    }
+
+    public void setSoc40(RichSelectOneChoice soc40) {
+        this.soc40 = soc40;
+    }
+
+    public RichSelectOneChoice getSoc40() {
+        return soc40;
+    }
+
+    public void setPlam1(RichPanelLabelAndMessage plam1) {
+        this.plam1 = plam1;
+    }
+
+    public RichPanelLabelAndMessage getPlam1() {
+        return plam1;
+    }
+
+    public void setResId1c6(RichColumn resId1c6) {
+        this.resId1c6 = resId1c6;
+    }
+
+    public RichColumn getResId1c6() {
+        return resId1c6;
+    }
+
+    public void setResId1c7(RichColumn resId1c7) {
+        this.resId1c7 = resId1c7;
+    }
+
+    public RichColumn getResId1c7() {
+        return resId1c7;
     }
 }

@@ -35,7 +35,8 @@
                                 <af:panelGroupLayout id="pgl11">
                                     <af:panelFormLayout id="pfl1" labelWidth="200">
                                         <af:panelLabelAndMessage label="Aerolinea" id="plam1"
-                                                                 inlineStyle="padding-left:20px;">
+                                                                 inlineStyle="padding-left:20px;"
+                                                                 binding="#{backingBeanScope.PPRBackingManifiestoUsuarioListaFrg.plam1}">
                                             <af:panelGroupLayout id="pgl10" layout="horizontal">
                                                 <af:inputText id="it1"
                                                               binding="#{backingBeanScope.PPRBackingManifiestoUsuarioListaFrg.it1}"
@@ -54,6 +55,17 @@
                                                 </f:facet>
                                             </af:panelGroupLayout>
                                         </af:panelLabelAndMessage>
+                                        <af:selectOneChoice value="#{bindings.CatalogoFilialesViewNoDML1.inputValue}"
+                                                            label="#{bindings.CatalogoFilialesViewNoDML1.label}"
+                                                            required="#{bindings.CatalogoFilialesViewNoDML1.hints.mandatory}"
+                                                            shortDesc="#{bindings.CatalogoFilialesViewNoDML1.hints.tooltip}"
+                                                            id="soc40" contentStyle="width:400px;"
+                                                            binding="#{backingBeanScope.PPRBackingManifiestoUsuarioListaFrg.soc40}"
+                                                            immediate="true" autoSubmit="true">
+                                            <f:selectItems value="#{bindings.CatalogoFilialesViewNoDML1.items}"
+                                                           id="si21"/>
+                                            <f:validator binding="#{bindings.CatalogoFilialesViewNoDML1.validator}"/>
+                                        </af:selectOneChoice>
                                         <af:panelLabelAndMessage label="Aeropuerto Origen" id="plam2"
                                                                  inlineStyle="padding-left:20px;">
                                             <af:panelGroupLayout id="pgl3" layout="horizontal">
@@ -233,13 +245,15 @@
                                            id="ot4"/>
                         </af:column>
                         <af:column headerText="#{bindings.ManifiestoViewNoDML1.hints.IndiceAerolinea.label}"
-                                   id="resId1c6" rendered="false">
+                                   id="resId1c6"
+                                   binding="#{backingBeanScope.PPRBackingManifiestoUsuarioListaFrg.resId1c6}">
                             <af:outputText value="#{row.IndiceAerolinea}"
                                            shortDesc="#{bindings.ManifiestoViewNoDML1.hints.IndiceAerolinea.tooltip}"
                                            id="ot6"/>
                         </af:column>
                         <af:column headerText="#{bindings.ManifiestoViewNoDML1.hints.NombreAerolinea.label}"
-                                   id="resId1c7" width="120" rendered="false">
+                                   id="resId1c7" width="120"
+                                   binding="#{backingBeanScope.PPRBackingManifiestoUsuarioListaFrg.resId1c7}">
                             <af:outputText value="#{row.NombreAerolinea}"
                                            shortDesc="#{bindings.ManifiestoViewNoDML1.hints.NombreAerolinea.tooltip}"
                                            id="ot7"/>

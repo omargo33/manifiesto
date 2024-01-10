@@ -1,11 +1,17 @@
 package modelManifiesto.utilidades;
 
+import java.sql.ResultSet;
+
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import oracle.jbo.JboException;
 
 /**
  * Clase para generar el operador de consultas de manifiesto.
@@ -15,6 +21,9 @@ import java.util.logging.Logger;
  *
  */
 public class GenerarSqlManifiesto {
+    
+    private static String SQL_INDICES_LIBRO_DIRECCIONES="select id_libro_direccion  from MV_001_00.v_catalolo_filial vcf where titulo <> 'T' and id_filial = ?";
+    
     public GenerarSqlManifiesto() {
         super();
     }
@@ -49,6 +58,12 @@ public class GenerarSqlManifiesto {
             if (indiceAerolinea > 0) {
                 sql = sql + " (id_libro_direccion_aerolinea = " + indiceAerolinea + " )  AND";
             }
+            
+            if (indiceAerolinea < 0) {                
+                indiceAerolinea = indiceAerolinea * -1;                
+                sql = sql + " (id_libro_direccion_aerolinea in (select id_libro_direccion  from MV_001_00.v_catalolo_filial vcf where titulo <> 'T' and id_filial = " + indiceAerolinea + " ))  AND";
+            }
+            
             if (indiceAeropuertoOrigen > 0) {
                 sql = sql + " (id_libro_direccion_aeropuerto = " + indiceAeropuertoOrigen + " ) AND";
             }
@@ -88,7 +103,6 @@ public class GenerarSqlManifiesto {
 
         return sql;
     }
-
 
     /**
      * Metodo para convertir una fecha.

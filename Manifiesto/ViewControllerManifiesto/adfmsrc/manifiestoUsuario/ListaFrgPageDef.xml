@@ -35,6 +35,8 @@
                   activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
         <iterator Binds="ManifiestoSumatoriasViewNoDML1" RangeSize="25" DataControl="ManifiestoModuloDataControl"
                   id="ManifiestoSumatoriasViewNoDML1Iterator"/>
+        <iterator Binds="CatalogoFilialesViewNoDML1" RangeSize="25" DataControl="ManifiestoModuloDataControl"
+                  id="CatalogoFilialesViewNoDML1Iterator"/>
     </executables>
     <bindings>
         <tree IterBinding="ManifiestoViewNoDML1Iterator" id="ManifiestoViewNoDML1">
@@ -86,6 +88,13 @@
                 </AttrNames>
             </nodeDefinition>
         </tree>
+        <list IterBinding="CatalogoFilialesViewNoDML1Iterator" ListOperMode="navigation"
+              ListIter="CatalogoFilialesViewNoDML1Iterator" id="CatalogoFilialesViewNoDML1" DTSupportsMRU="true"
+              SelectItemValueMode="ListObject">
+            <AttrNames>
+                <Item Value="Nombre"/>
+            </AttrNames>
+        </list>
         <tree IterBinding="LibroDireccionesAeropuertoDestinoViewNoDML1Iterator"
               id="LibroDireccionesAeropuertoDestinoViewNoDML1">
             <nodeDefinition DefName="modelManifiesto.bc.vistaNoDML.LibroDireccionesViewNoDML"

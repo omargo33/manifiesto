@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48"
+                id="manifiesto_usuario_task_flow_manifiesto_usuario_task_flow_ejecutarByManifiestoPageDef"
+                Package="viewManifiesto.pageDefs" SkipValidation="true">
+  <parameters/>
+  <executables/>
+  <bindings>
+    <methodAction id="ejecutarByManifiesto" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="ejecutarByManifiesto" IsViewObjectMethod="true" DataControl="ManifiestoModuloDataControl"
+                  InstanceName="ManifiestoModuloDataControl.CatalogoFilialesViewNoDML1">
+      <NamedData NDName="idFilial" NDValue="#{sessionScope.idFilial}" NDType="int"/>
+    </methodAction>
+  </bindings>
+</pageDefinition>

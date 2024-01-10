@@ -41,17 +41,14 @@ public class PPRListaFrg extends BasePPR {
     private RichInputText it1; //indiceAerolinea
     private RichInputText it10; //indiceAerolineaDescripcion
 
-
     private RichInputText it2; //indiceAeropuertoOrigen
     private RichInputText it20; //indiceAeropuertoOrigenDescripcion
-
 
     private RichInputText it3; //indiceAeropuertoDestino
     private RichInputText it30; //indiceAeropuertoDestinoDescripcion
     private RichInputText it4; //indiceAeronave
     private RichInputText it40; //indiceAeronaveDescripcion
     private RichInputText it5; //noVuelo
-
 
     private RichInputDate id1; //fechaInicio
     private RichInputDate id2; //fechaFin
@@ -625,6 +622,10 @@ public class PPRListaFrg extends BasePPR {
         Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).log(Level.SEVERE, "nombreSeleccionado " + nombreSeleccionado);
     }
 
+
+    /**
+     * Metodo para buscarIdLibroDireccion desde la filial
+     */
     private void buscarIdLibroDireccion() {
         Object idFilial = ADFUtils.evaluateEL("#{sessionScope.idFilial}");
         Integer idFiliarInt = (Integer) idFilial;

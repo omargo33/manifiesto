@@ -248,9 +248,9 @@
       <property
          name="activityId">Error</property>
       <property
-         name="pageFragment">true</property>
-      <property
          name="inherited">true</property>
+      <property
+         name="pageFragment">true</property>
       <property
          name="x">90.85205</property>
       <property
@@ -338,7 +338,7 @@
       <property
          name="fromsrcid">__11</property>
       <property
-         name="sdm:polyPoints">R54,2536.2212,278.00128,2745.544,292.72375,L50</property>
+         name="sdm:polyPoints">R54,2536.2212,278.0013,2745.544,292.72375,L50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -523,6 +523,6 @@
       <property
          name="fromOutcome">ejecutarByPreliquidacion</property>
       <property
-         name="sdm:polyPoints">R50,2355.5298,239.66751,2454.2212,274.50128,L50</property>
+         name="sdm:polyPoints">R50,2355.5298,239.66751,2454.2212,274.5013,L50</property>
    </ControlFlowCase>
 </SDM>
