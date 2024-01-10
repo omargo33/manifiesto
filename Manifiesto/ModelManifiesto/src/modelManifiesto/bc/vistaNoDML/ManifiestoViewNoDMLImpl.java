@@ -150,9 +150,8 @@ public class ManifiestoViewNoDMLImpl extends VistaObjeto implements ManifiestoVi
             
         this.setQuery(sql);
         this.executeQuery();
-        this.setQuery(sqlOriginal);
+        this.setQuery(sqlOriginal);        
     }
-
 
     /**
      * Metodo para ejecutar una busqueda de manifiesto para preliquidacion.

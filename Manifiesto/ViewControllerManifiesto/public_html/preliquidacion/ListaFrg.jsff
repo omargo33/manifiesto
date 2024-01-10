@@ -58,7 +58,7 @@
                                                     binding="#{backingBeanScope.PPRBackingPreliquidacionListaFrg.soc3}"
                                                     id="soc3"
                                                     valueChangeListener="#{backingBeanScope.PPRBackingPreliquidacionListaFrg.actionValueChange}"
-                                                    immediate="true" autoSubmit="true">
+                                                    immediate="true" autoSubmit="true" contentStyle="width:400px;">
                                     <f:selectItems value="#{bindings.CatalogoFilialesViewNoDML1.items}" id="si3"/>
                                     <f:validator binding="#{bindings.CatalogoFilialesViewNoDML1.validator}"/>
                                 </af:selectOneChoice>
