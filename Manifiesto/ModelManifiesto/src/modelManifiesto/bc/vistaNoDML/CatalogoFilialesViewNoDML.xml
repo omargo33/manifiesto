@@ -109,6 +109,12 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1024"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="modelManifiesto.bc.vistaNoDML.CatalogoFilialesViewNoDML.Nombre_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
   <ViewCriteria
     Name="CatalogoFilialesManifiestoViewNoDMLCriteria"

@@ -128,7 +128,7 @@ public class ManifiestoModuloImpl extends AuditoriaModuloImpl implements Manifie
      * @return
      */
     public int buscarFilial(String nick){        
-        return Filial.buscarIdFilial(this, nick);        
+        return Filial.buscarNickFilial(this, nick);        
     }
 
     /**

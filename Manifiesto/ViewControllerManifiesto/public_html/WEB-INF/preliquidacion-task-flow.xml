@@ -69,6 +69,19 @@
                 <fixed-outcome>base_isUsuarioRol</fixed-outcome>
             </outcome>
         </method-call>
+        <method-call id="buscarFilial">
+            <method>#{bindings.buscarFilial.execute}</method>
+            <return-value>#{sessionScope.idFilial}</return-value>
+            <outcome>
+                <fixed-outcome>buscarFilial</fixed-outcome>
+            </outcome>
+        </method-call>
+        <method-call id="ejecutarByPreliquidacion">
+            <method>#{bindings.ejecutarByPreliquidacion.execute}</method>
+            <outcome>
+                <fixed-outcome>ejecutarByPreliquidacion</fixed-outcome>
+            </outcome>
+        </method-call>
         <control-flow-rule id="__1">
             <from-activity-id>ActionCrear</from-activity-id>
             <control-flow-case id="__2">
@@ -87,7 +100,7 @@
             <from-activity-id>inicioVacioPreliquidacion</from-activity-id>
             <control-flow-case id="__7">
                 <from-outcome>inicioVacioPreliquidacion</from-outcome>
-                <to-activity-id>ListaFrg</to-activity-id>
+                <to-activity-id>buscarFilial</to-activity-id>
             </control-flow-case>
         </control-flow-rule>
         <control-flow-rule id="__17">
@@ -130,6 +143,20 @@
             <control-flow-case id="__15">
                 <from-outcome>base_isUsuarioRol</from-outcome>
                 <to-activity-id>base_isUsuarioRol-CLI-03</to-activity-id>
+            </control-flow-case>
+        </control-flow-rule>
+        <control-flow-rule id="__8">
+            <from-activity-id>buscarFilial</from-activity-id>
+            <control-flow-case id="__9">
+                <from-outcome>buscarFilial</from-outcome>
+                <to-activity-id>ejecutarByPreliquidacion</to-activity-id>
+            </control-flow-case>
+        </control-flow-rule>
+        <control-flow-rule id="__25">
+            <from-activity-id>ejecutarByPreliquidacion</from-activity-id>
+            <control-flow-case id="__28">
+                <from-outcome>ejecutarByPreliquidacion</from-outcome>
+                <to-activity-id>ListaFrg</to-activity-id>
             </control-flow-case>
         </control-flow-rule>
         <use-page-fragments/>
