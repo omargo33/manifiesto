@@ -4,20 +4,24 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Locale;
-import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.Map;
 
 import javax.faces.event.ActionEvent;
 
+import javax.faces.event.ValueChangeEvent;
+
+import oracle.adf.model.binding.DCIteratorBinding;
 import oracle.adf.view.rich.component.rich.RichPopup;
 import oracle.adf.view.rich.component.rich.data.RichTable;
 import oracle.adf.view.rich.component.rich.input.RichInputDate;
 import oracle.adf.view.rich.component.rich.input.RichInputText;
 import oracle.adf.view.rich.component.rich.nav.RichButton;
+import oracle.adf.view.rich.component.rich.input.RichSelectOneChoice;
 
+import oracle.jbo.Row;
 import oracle.jbo.uicli.binding.JUCtrlHierNodeBinding;
 
 import view.plantilla.BasePPR;
@@ -31,7 +35,7 @@ import view.utilidades.ADFUtils;
  *
  */
 public class PPRListaFrg extends BasePPR {
-    @SuppressWarnings("compatibility:5936010330712211772")
+    @SuppressWarnings({ "compatibility:5936010330712211772", "oracle.jdeveloper.java.serialversionuid-stale" })
     private static final long serialVersionUID = 1L;
 
     private RichInputText it1; //indiceAerolinea
@@ -67,6 +71,8 @@ public class PPRListaFrg extends BasePPR {
     private RichButton b1;
     private RichButton b2;
     private RichInputText it29;
+
+    private RichSelectOneChoice soc3;
 
     /**
      * Metodo para crear el objeto de soporte a la presentacion.
@@ -109,6 +115,8 @@ public class PPRListaFrg extends BasePPR {
 
         setB1(new RichButton());
         setB2(new RichButton());
+
+        setSoc3(new RichSelectOneChoice());
     }
 
     /**
@@ -132,6 +140,8 @@ public class PPRListaFrg extends BasePPR {
      * actionListener="#{bindings.ejecutarConsulta.execute}"
      */
     public String actionBuscar(ActionEvent actionEvent) {
+        buscarIdLibroDireccion();
+
         if (isAerolineaSeleccionada()) {
             ejecutarBusqueda();
         }
@@ -569,7 +579,6 @@ public class PPRListaFrg extends BasePPR {
         return resId5;
     }
 
-
     public void setP5(RichPopup p5) {
         this.p5 = p5;
     }
@@ -600,5 +609,42 @@ public class PPRListaFrg extends BasePPR {
 
     public RichInputText getIt29() {
         return it29;
+    }
+
+    public void setSoc3(RichSelectOneChoice soc3) {
+        this.soc3 = soc3;
+    }
+
+    public RichSelectOneChoice getSoc3() {
+        return soc3;
+    }
+
+    public void actionValueChange(ValueChangeEvent valueChangeEvent) {
+        Object objeto = valueChangeEvent.getNewValue();
+        String nombreSeleccionado = String.valueOf(objeto);
+        Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).log(Level.SEVERE, "nombreSeleccionado " + nombreSeleccionado);
+    }
+
+    private void buscarIdLibroDireccion() {
+        Object idFilial = ADFUtils.evaluateEL("#{sessionScope.idFilial}");
+        Integer idFiliarInt = (Integer) idFilial;
+
+        if (idFiliarInt > 0) {
+            String nombreSeleccionado = String.valueOf(getSoc3().getValue());
+            DCIteratorBinding binding = ADFUtils.findIterator("CatalogoFilialesViewNoDML1Iterator");
+            Row[] rows = binding.getAllRowsInRange();
+
+            for (Row r : rows) {
+                Integer idLibroDireccion = (Integer) r.getAttribute("IdLibroDireccion");
+                String nombre = String.valueOf(r.getAttribute("Nombre"));
+
+                if (nombre.compareTo(nombreSeleccionado) == 0) {
+                    Logger.getLogger(Logger.GLOBAL_LOGGER_NAME)
+                        .log(Level.SEVERE, "Se va a buscar con " + idLibroDireccion);
+                    getIt1().setValue(idLibroDireccion);
+                    Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).log(Level.SEVERE, "Se puso " + getIt1().getValue());
+                }
+            }
+        }
     }
 }

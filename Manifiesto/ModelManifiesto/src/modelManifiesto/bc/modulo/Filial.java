@@ -19,9 +19,8 @@ import oracle.jbo.JboException;
  */
 public class Filial {
     private static String SQL_ID_AEROLINEA =
-        "select ifnull(sum(f.id_filial), 0) from MV_001_00.filial f where f.id_libro_direccion = ?";
+        "select ifnull(sum(f.id_filial), 0) from MV_001_00.filial f where f.id_libro_direccion = (select id_libro_direccion from MV_001_00.libro_direccion where indice = ?)";
 
-    
     /**
      * Metodo para buscar la Id de Filiar a partir del nick de usuario.
      *
@@ -29,11 +28,12 @@ public class Filial {
      * @param nick
      * @return
      */
-    public static int buscarIdFilial(ManifiestoModuloImpl moduloAplicacion, String nick) {
-        AerolineaUsuarioIndices a = AerolineaUsuario.buscarUsuario(moduloAplicacion, nick);
-
+    public static int buscarNickFilial(ManifiestoModuloImpl moduloAplicacion, String nick) {
+        AerolineaUsuarioIndices aerolineaUsuarioIndices = AerolineaUsuario.buscarUsuario(moduloAplicacion, nick);
+        
         List<Integer> listaRespuestas = new ArrayList<Integer>();
-        ResultSet resultSet = moduloAplicacion.getBaseDML().ejecutaConsulta(SQL_ID_AEROLINEA, a.getIdAerolinea());
+        ResultSet resultSet = moduloAplicacion.getBaseDML().ejecutaConsulta(SQL_ID_AEROLINEA, aerolineaUsuarioIndices.getIdAerolinea());
+        
         if (moduloAplicacion.getBaseDML().getMensaje() != null) {
             throw new JboException("no consulta SQL");
         }
@@ -46,7 +46,7 @@ public class Filial {
             throw new JboException("no legible");
         }
 
-        if (listaRespuestas.size() == 1) {
+        if (listaRespuestas.size() > 0) {
             return listaRespuestas.get(0);
         }
 

@@ -14,11 +14,11 @@
       <property
          name="pageFragment">true</property>
       <property
-         name="x">2131.537</property>
+         name="x">2495.2212</property>
       <property
          name="description">&lt;html>&lt;p>&lt;b>ListaFrg&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
-         name="y">276.4744</property>
+         name="y">275.66882</property>
       <property
          name="page">/preliquidacion/ListaFrg.jsff</property>
       <property
@@ -31,11 +31,11 @@
       <property
          name="pageFragment">true</property>
       <property
-         name="x">2567.6912</property>
+         name="x">2931.3752</property>
       <property
          name="description">&lt;html>&lt;p>&lt;b>ItemFrg&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
-         name="y">261.15472</property>
+         name="y">229.22379</property>
       <property
          name="page">/preliquidacion/ItemFrg.jsff</property>
       <property
@@ -49,7 +49,7 @@
       <property
          name="fromOutcome">Create</property>
       <property
-         name="sdm:polyPoints">R54,2316.2827,240.26468,2525.0803,259.9872,L50</property>
+         name="sdm:polyPoints">R54,2679.9668,208.33374,2888.7644,228.05627,L50</property>
    </ControlFlowCase>
    <MethodCall
       id="MethodCall26">
@@ -60,7 +60,7 @@
       <property
          name="description">&lt;html>&lt;p>&lt;b>inicioVacioPreliquidacion&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
       <property
-         name="y">293.8913</property>
+         name="y">240.83502</property>
       <property
          name="exceptionHandler">false</property>
    </MethodCall>
@@ -72,17 +72,17 @@
       <property
          name="fromOutcome">Listar</property>
       <property
-         name="sdm:polyPoints">R50,455.2041,246.5,553.8231,292.7238,L50</property>
+         name="sdm:polyPoints">R50,455.2041,246.5,553.8231,239.66751,L50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
       id="ControlFlowCase28"
       from="MethodCall26"
-      to="View20">
+      to="MethodCall40">
       <property
          name="fromOutcome">inicioVacioPreliquidacion</property>
       <property
-         name="sdm:polyPoints">R50,1991.8337,292.7238,2090.537,275.3069,L50</property>
+         name="sdm:polyPoints">R50,1991.8337,239.66751,2091.6877,239.66751,L50</property>
    </ControlFlowCase>
    <MethodCall
       id="MethodCall28">
@@ -93,7 +93,7 @@
       <property
          name="description">&lt;html>&lt;p>&lt;b>getIdUsuarioNick&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
       <property
-         name="y">293.8913</property>
+         name="y">240.83502</property>
       <property
          name="exceptionHandler">false</property>
    </MethodCall>
@@ -106,7 +106,7 @@
       <property
          name="description">&lt;html>&lt;p>&lt;b>base_isUsuarioRol-CLI-02&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
       <property
-         name="y">293.8913</property>
+         name="y">240.83502</property>
       <property
          name="exceptionHandler">false</property>
    </MethodCall>
@@ -119,7 +119,7 @@
       <property
          name="description">&lt;html>&lt;p>&lt;b>getIdAerolineaNick&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
       <property
-         name="y">293.8913</property>
+         name="y">240.83502</property>
       <property
          name="exceptionHandler">false</property>
    </MethodCall>
@@ -131,7 +131,7 @@
       <property
          name="fromOutcome">getIdAerolineaNick</property>
       <property
-         name="sdm:polyPoints">R50,1484.7024,292.7238,1648.1694,292.7238,L50</property>
+         name="sdm:polyPoints">R50,1484.7024,239.66751,1648.1694,239.66751,L50</property>
    </ControlFlowCase>
    <MethodCall
       id="MethodCall42">
@@ -142,7 +142,7 @@
       <property
          name="description">&lt;html>&lt;p>&lt;b>ejecutarByIndiceReturn_Aerolinea-Cli03&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
       <property
-         name="y">293.8913</property>
+         name="y">240.83502</property>
       <property
          name="exceptionHandler">false</property>
    </MethodCall>
@@ -154,7 +154,7 @@
       <property
          name="fromOutcome">ejecutarByIndiceReturn</property>
       <property
-         name="sdm:polyPoints">R50,1730.1694,292.7238,1909.8337,292.7238,L50</property>
+         name="sdm:polyPoints">R50,1730.1694,239.66751,1909.8337,239.66751,L50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -164,7 +164,7 @@
       <property
          name="fromOutcome">getIdUsuarioNick</property>
       <property
-         name="sdm:polyPoints">R50,635.8231,292.7238,753.9011,292.7238,L50</property>
+         name="sdm:polyPoints">R50,635.8231,239.66751,753.9011,239.66751,L50</property>
    </ControlFlowCase>
    <MethodCall
       id="MethodCall55">
@@ -173,11 +173,11 @@
       <property
          name="inherited">true</property>
       <property
-         name="x">2422.8599</property>
+         name="x">2786.544</property>
       <property
          name="description">&lt;html>&lt;p>&lt;b>Create&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
       <property
-         name="y">191.4872</property>
+         name="y">159.55626</property>
       <property
          name="exceptionHandler">false</property>
    </MethodCall>
@@ -188,11 +188,11 @@
       <property
          name="inherited">true</property>
       <property
-         name="x">2422.8599</property>
+         name="x">2786.544</property>
       <property
          name="description">&lt;html>&lt;p>&lt;b>ActionEditar&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
       <property
-         name="y">325.8222</property>
+         name="y">293.89127</property>
       <property
          name="exceptionHandler">false</property>
    </MethodCall>
@@ -233,11 +233,11 @@
       <property
          name="inherited">true</property>
       <property
-         name="x">2275.2827</property>
+         name="x">2638.9668</property>
       <property
          name="description">&lt;html>&lt;p>&lt;b>ActionCrear&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
       <property
-         name="y">237.93219</property>
+         name="y">206.00125</property>
       <property
          name="exceptionHandler">false</property>
    </MethodCall>
@@ -248,9 +248,9 @@
       <property
          name="activityId">Error</property>
       <property
-         name="inherited">true</property>
-      <property
          name="pageFragment">true</property>
+      <property
+         name="inherited">true</property>
       <property
          name="x">90.85205</property>
       <property
@@ -274,7 +274,7 @@
       <property
          name="fromsrcid">__11</property>
       <property
-         name="sdm:polyPoints">R46,2172.537,271.8069,2234.2827,236.76468,L50</property>
+         name="sdm:polyPoints">R46,2536.2212,271.00128,2597.9668,204.83374,L50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -290,7 +290,7 @@
       <property
          name="fromsrcid">__6</property>
       <property
-         name="sdm:polyPoints">T44,410.7041,185.45891,2275.2827,182.76468,T50</property>
+         name="sdm:polyPoints">T50,414.2041,192.5,2638.9668,150.83374,T50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -306,7 +306,7 @@
       <property
          name="fromsrcid">__17</property>
       <property
-         name="sdm:polyPoints">R50,2463.8599,190.31969,2526.6912,252.98721,L42</property>
+         name="sdm:polyPoints">R50,2827.544,158.38875,2890.3752,221.05627,L42</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -322,7 +322,7 @@
       <property
          name="fromsrcid">__15</property>
       <property
-         name="sdm:polyPoints">R50,2463.8599,324.6547,2526.6912,266.9872,L58</property>
+         name="sdm:polyPoints">R50,2827.544,292.72375,2890.3752,235.05627,L58</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -338,7 +338,7 @@
       <property
          name="fromsrcid">__11</property>
       <property
-         name="sdm:polyPoints">R54,2172.537,278.8069,2381.8599,324.6547,L50</property>
+         name="sdm:polyPoints">R54,2536.2212,278.00128,2745.544,292.72375,L50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -354,7 +354,7 @@
       <property
          name="fromsrcid">__9</property>
       <property
-         name="sdm:polyPoints">R46,2316.2827,233.26468,2381.8599,190.31969,L50</property>
+         name="sdm:polyPoints">R46,2679.9668,201.33374,2745.544,158.38875,L50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -370,7 +370,7 @@
       <property
          name="fromsrcid">__6</property>
       <property
-         name="sdm:polyPoints">T56,417.7041,192.5,2131.537,221.30688,T50</property>
+         name="sdm:polyPoints">B50,414.2041,300.5,2495.2212,328.50128,B50</property>
    </ControlFlowCase>
    <MethodCall
       id="MethodCall52">
@@ -428,7 +428,7 @@
       <property
          name="description">&lt;html>&lt;p>&lt;b>base_isUsuarioRol-CLI-01&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
       <property
-         name="y">293.8913</property>
+         name="y">240.83502</property>
       <property
          name="exceptionHandler">false</property>
    </MethodCall>
@@ -441,7 +441,7 @@
       <property
          name="description">&lt;html>&lt;p>&lt;b>base_isUsuarioRol-CLI-03&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
       <property
-         name="y">289.22137</property>
+         name="y">240.83502</property>
       <property
          name="exceptionHandler">false</property>
    </MethodCall>
@@ -453,7 +453,7 @@
       <property
          name="fromOutcome">base_isUsuarioRol</property>
       <property
-         name="sdm:polyPoints">R50,835.9011,292.7238,975.8191,292.7238,L50</property>
+         name="sdm:polyPoints">R50,835.9011,239.66751,975.8191,239.66751,L50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -467,7 +467,7 @@
       <property
          name="fromsrcid">__12</property>
       <property
-         name="sdm:polyPoints">R50,1279.737,288.0539,1402.7024,292.7238,L50</property>
+         name="sdm:polyPoints">R50,1279.737,239.66751,1402.7024,239.66751,L50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -477,6 +477,52 @@
       <property
          name="fromOutcome">base_isUsuarioRol</property>
       <property
-         name="sdm:polyPoints">R50,1057.8191,292.7238,1197.737,288.0539,L50</property>
+         name="sdm:polyPoints">R50,1057.8191,239.66751,1197.737,239.66751,L50</property>
+   </ControlFlowCase>
+   <MethodCall
+      id="MethodCall40">
+      <property
+         name="activityId">buscarFilial</property>
+      <property
+         name="x">2132.6877</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>buscarFilial&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="y">240.83502</property>
+      <property
+         name="exceptionHandler">false</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase42"
+      from="MethodCall40"
+      to="MethodCall44">
+      <property
+         name="fromOutcome">buscarFilial</property>
+      <property
+         name="sdm:polyPoints">R50,2173.6877,239.66751,2273.5298,239.66751,L50</property>
+   </ControlFlowCase>
+   <MethodCall
+      id="MethodCall44">
+      <property
+         name="activityId">ejecutarByPreliquidacion</property>
+      <property
+         name="x">2314.5298</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>ejecutarByPreliquidacion&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="y">240.83502</property>
+      <property
+         name="exceptionHandler">false</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase46"
+      from="MethodCall44"
+      to="View20">
+      <property
+         name="fromOutcome">ejecutarByPreliquidacion</property>
+      <property
+         name="sdm:polyPoints">R50,2355.5298,239.66751,2454.2212,274.50128,L50</property>
    </ControlFlowCase>
 </SDM>
