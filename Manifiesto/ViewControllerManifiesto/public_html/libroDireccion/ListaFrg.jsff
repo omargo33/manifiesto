@@ -1,76 +1,112 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
           xmlns:f="http://java.sun.com/jsf/core" xmlns:bl01="/baseLib01">
-    <af:pageTemplate viewId="/plantilla/listaFrg.jspx" id="pt1">
-        <f:attribute name="titulo" value="#{bnd.libro_direccion_listaFrg_titulo}"/>
-        <f:attribute name="tituloDescripcion" value="#{bnd.libro_direccion_listaFrg_descripcion}"/>
-        <f:facet name="elementoBusqueda">
-            <af:query id="qryId1" value="#{bindings.LibroDireccionViewCriteriaQuery.queryDescriptor}"
-                      model="#{bindings.LibroDireccionViewCriteriaQuery.queryModel}"
-                      queryListener="#{bindings.LibroDireccionViewCriteriaQuery.processQuery}"
-                      queryOperationListener="#{bindings.LibroDireccionViewCriteriaQuery.processQueryOperation}"
-                      headerText="#{bnd.msg_busquea_titulo}" conjunctionReadOnly="true"
-                      searchButtonText="#{bnd.btn_buscar}" resetButtonText="#{bnd.btn_limpiar}" labelWidth="240"
-                      saveQueryMode="hidden" modeChangeVisible="false" disclosed="true" resultComponentId="::resId1"/>
-        </f:facet>
-        <f:facet name="elementoCentro">
-            <af:table value="#{bindings.LibroDireccionView1.collectionModel}" var="row"
-                      rows="#{bindings.LibroDireccionView1.rangeSize}"
-                      emptyText="#{bindings.LibroDireccionView1.viewable ? 'No data to display.' : 'Access Denied.'}"
-                      rowBandingInterval="1"
-                      selectedRowKeys="#{bindings.LibroDireccionView1.collectionModel.selectedRow}"
-                      selectionListener="#{bindings.LibroDireccionView1.collectionModel.makeCurrent}"
-                      rowSelection="single" fetchSize="#{bindings.LibroDireccionView1.rangeSize}" id="resId1"
-                      columnStretching="column:c3" scrollPolicy="page" columnBandingInterval="0">
-                <af:column headerText="#{bindings.LibroDireccionView1.hints.IdLibroDireccion.label}" id="c1"
-                           visible="false">
-                    <af:outputText value="#{row.IdLibroDireccion}"
-                                   shortDesc="#{bindings.LibroDireccionView1.hints.IdLibroDireccion.tooltip}" id="ot1">
-                        <af:convertNumber groupingUsed="false"
-                                          pattern="#{bindings.LibroDireccionView1.hints.IdLibroDireccion.format}"/>
-                    </af:outputText>
-                </af:column>
-                <af:column headerText="#{bindings.LibroDireccionView1.hints.Indice.label}" id="c2" visible="false">
-                    <af:outputText value="#{row.Indice}"
-                                   shortDesc="#{bindings.LibroDireccionView1.hints.Indice.tooltip}" id="ot2">
-                        <af:convertNumber groupingUsed="false"
-                                          pattern="#{bindings.LibroDireccionView1.hints.Indice.format}"/>
-                    </af:outputText>
-                </af:column>
-                <af:column headerText="#{bindings.LibroDireccionView1.hints.IndiceSecundario.label}" id="c20">
-                    <af:outputText value="#{row.IndiceSecundario}"
-                                   shortDesc="#{bindings.LibroDireccionView1.hints.IndiceSecundario.tooltip}" id="ot20">
-                        <af:convertNumber groupingUsed="false"
-                                          pattern="#{bindings.LibroDireccionView1.hints.IndiceSecundario.format}"/>
-                    </af:outputText>
-                </af:column>
-                <af:column headerText="#{bindings.LibroDireccionView1.hints.Nombre.label}" id="c3">
-                    <af:link text="#{row.Nombre}" id="l1" action="Editar" disabled="#{row.Estado eq 'X'}"/>
-                </af:column>
-                <af:column headerText="#{bindings.LibroDireccionView1.hints.Tipo.label}" id="c4">
-                    <af:selectOneChoice value="#{row.bindings.Tipo.inputValue}" label="#{row.bindings.Tipo.label}"
-                                        required="#{bindings.LibroDireccionView1.hints.Tipo.mandatory}"
-                                        shortDesc="#{bindings.LibroDireccionView1.hints.Tipo.tooltip}" readOnly="true"
-                                        id="soc1">
-                        <f:selectItems value="#{row.bindings.Tipo.items}" id="si1"/>
-                        <f:validator binding="#{row.bindings.Tipo.validator}"/>
-                    </af:selectOneChoice>
-                </af:column>
-                <af:column headerText="#{bindings.LibroDireccionView1.hints.Estado.label}" id="c5">
-                    <af:selectOneChoice value="#{row.bindings.Estado.inputValue}" label="#{row.bindings.Estado.label}"
-                                        required="#{bindings.LibroDireccionView1.hints.Estado.mandatory}"
-                                        shortDesc="#{bindings.LibroDireccionView1.hints.Estado.tooltip}" readOnly="true"
-                                        id="soc2">
-                        <f:selectItems value="#{row.bindings.Estado.items}" id="si2"/>
-                        <f:validator binding="#{row.bindings.Estado.validator}"/>
-                    </af:selectOneChoice>
-                </af:column>
-            </af:table>
-        </f:facet>
-        <f:facet name="elementoAcciones">
-            <bl01:botonesAtrasCrear id="bac1" atrasAccion="Inicio" crearAccion="Create"
-                                    crearTexto="#{bnd.libro_direccion_listaFrg_boton_crear}"
-                                    crearPermiso="#{pageFlowScope.pPermisoCrear}"/>
-        </f:facet>
-    </af:pageTemplate>
+    <af:panelGroupLayout id="pgl1">
+        <af:pageTemplate viewId="/plantilla/listaFrg.jspx" id="pt1">
+            <f:attribute name="titulo" value="#{bnd.libro_direccion_listaFrg_titulo}"/>
+            <f:attribute name="tituloDescripcion" value="#{bnd.libro_direccion_listaFrg_descripcion}"/>
+            <f:facet name="elementoBusqueda">
+                <af:query id="qryId1" value="#{bindings.LibroDireccionViewCriteriaQuery.queryDescriptor}"
+                          model="#{bindings.LibroDireccionViewCriteriaQuery.queryModel}"
+                          queryListener="#{bindings.LibroDireccionViewCriteriaQuery.processQuery}"
+                          queryOperationListener="#{bindings.LibroDireccionViewCriteriaQuery.processQueryOperation}"
+                          headerText="#{bnd.msg_busquea_titulo}" conjunctionReadOnly="true"
+                          searchButtonText="#{bnd.btn_buscar}" resetButtonText="#{bnd.btn_limpiar}" labelWidth="240"
+                          saveQueryMode="hidden" modeChangeVisible="false" disclosed="true"
+                          resultComponentId="::pc1:resId1" />
+            </f:facet>
+            <f:facet name="elementoCentro">
+                <af:panelCollection id="pc1">
+                    <f:facet name="menus"/>
+                    <f:facet name="toolbar">
+                        <af:toolbar id="t2">
+                            <af:button text="Descargar" id="b7"
+                                       action="#{PPRBackingLibroDireccionListFrg.actionDescargar}"/>
+                        </af:toolbar>
+                    </f:facet>
+                    <f:facet name="statusbar"/>
+                    <af:table value="#{bindings.LibroDireccionView1.collectionModel}" var="row"
+                              rows="#{bindings.LibroDireccionView1.rangeSize}"
+                              emptyText="#{bindings.LibroDireccionView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                              rowBandingInterval="1"
+                              inlineStyle="width:85vw;"
+                              selectedRowKeys="#{bindings.LibroDireccionView1.collectionModel.selectedRow}"
+                              selectionListener="#{bindings.LibroDireccionView1.collectionModel.makeCurrent}"
+                              rowSelection="single" fetchSize="#{bindings.LibroDireccionView1.rangeSize}" id="resId1"
+                              columnStretching="column:c3" scrollPolicy="page" columnBandingInterval="0">
+                        <af:column headerText="#{bindings.LibroDireccionView1.hints.IdLibroDireccion.label}" id="c1"
+                                   visible="false">
+                            <af:outputText value="#{row.IdLibroDireccion}"
+                                           shortDesc="#{bindings.LibroDireccionView1.hints.IdLibroDireccion.tooltip}"
+                                           id="ot1">
+                                <af:convertNumber groupingUsed="false"
+                                                  pattern="#{bindings.LibroDireccionView1.hints.IdLibroDireccion.format}"/>
+                            </af:outputText>
+                        </af:column>
+                        <af:column headerText="#{bindings.LibroDireccionView1.hints.Indice.label}" id="c2">
+                            <af:outputText value="#{row.Indice}"
+                                           shortDesc="#{bindings.LibroDireccionView1.hints.Indice.tooltip}" id="ot2"
+                                           inlineStyle="font-weight:bolder;">
+                                <af:convertNumber groupingUsed="false"
+                                                  pattern="#{bindings.LibroDireccionView1.hints.Indice.format}"/>
+                            </af:outputText>
+                        </af:column>
+                        <af:column headerText="#{bindings.LibroDireccionView1.hints.IndiceSecundario.label}" id="c20">
+                            <af:outputText value="#{row.IndiceSecundario}"
+                                           shortDesc="#{bindings.LibroDireccionView1.hints.IndiceSecundario.tooltip}"
+                                           id="ot20">
+                                <af:convertNumber groupingUsed="false"
+                                                  pattern="#{bindings.LibroDireccionView1.hints.IndiceSecundario.format}"/>
+                            </af:outputText>
+                        </af:column>
+                        <af:column headerText="#{bindings.LibroDireccionView1.hints.Nombre.label}" id="c3">
+                            <af:link text="#{row.Nombre}" id="l1" action="Editar" disabled="#{row.Estado eq 'X'}"
+                                     inlineStyle="font-weight:bolder;"/>
+                        </af:column>
+                        <af:column headerText="#{bindings.LibroDireccionView1.hints.Tipo.label}" id="c4">
+                            <af:selectOneChoice value="#{row.bindings.Tipo.inputValue}"
+                                                label="#{row.bindings.Tipo.label}"
+                                                required="#{bindings.LibroDireccionView1.hints.Tipo.mandatory}"
+                                                shortDesc="#{bindings.LibroDireccionView1.hints.Tipo.tooltip}"
+                                                readOnly="true" id="soc1">
+                                <f:selectItems value="#{row.bindings.Tipo.items}" id="si1"/>
+                                <f:validator binding="#{row.bindings.Tipo.validator}"/>
+                            </af:selectOneChoice>
+                        </af:column>
+                        <af:column headerText="#{bindings.LibroDireccionView1.hints.Estado.label}" id="c5">
+                            <af:selectOneChoice value="#{row.bindings.Estado.inputValue}"
+                                                label="#{row.bindings.Estado.label}"
+                                                required="#{bindings.LibroDireccionView1.hints.Estado.mandatory}"
+                                                shortDesc="#{bindings.LibroDireccionView1.hints.Estado.tooltip}"
+                                                readOnly="true" id="soc2">
+                                <f:selectItems value="#{row.bindings.Estado.items}" id="si2"/>
+                                <f:validator binding="#{row.bindings.Estado.validator}"/>
+                            </af:selectOneChoice>
+                        </af:column>
+                    </af:table>
+                </af:panelCollection>
+            </f:facet>
+            <f:facet name="elementoAcciones">
+                <bl01:botonesAtrasCrear id="bac1" atrasAccion="Inicio" crearAccion="Create"
+                                        crearTexto="#{bnd.libro_direccion_listaFrg_boton_crear}"
+                                        crearPermiso="#{pageFlowScope.pPermisoCrear}"/>
+            </f:facet>
+        </af:pageTemplate>
+        <af:popup childCreation="deferred" autoCancel="disabled" id="p5"
+                  binding="#{PPRBackingLibroDireccionListFrg.p5}">
+            <af:dialog id="d5" type="cancel" title="Descargar">
+                <f:facet name="buttonBar">
+                    <af:button id="cb5" text="Descargar"
+                               destination="Download?idArchivo=#{sessionScope.idArchivo}&amp;nameUser=#{sessionScope.BaseBean.nameUser}"
+                               targetFrame="_blank" useWindow="true"/>
+                </f:facet>
+                <af:panelBorderLayout id="pbl5">
+                    <af:panelHeader id="ph1" text="Descargar reporte" messageType="confirmation">
+                        <af:outputText value="Usted puede descargar el reporte en formato XLS/XLSX" id="ot43"/>
+                    </af:panelHeader>
+                </af:panelBorderLayout>
+            </af:dialog>
+        </af:popup>
+    </af:panelGroupLayout>
+    
 </jsp:root>

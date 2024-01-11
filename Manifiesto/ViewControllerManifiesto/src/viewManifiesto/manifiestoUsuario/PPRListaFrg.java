@@ -658,7 +658,6 @@ public class PPRListaFrg extends BasePPR {
     public String actionDescargar() {
         Map map = new HashMap<String, Object>();
 
-
         Object rolUsuario = ADFUtils.evaluateEL("#{sessionScope.isCLI02}");
         boolean isUsuario = (Boolean) rolUsuario;
         if (isUsuario) {

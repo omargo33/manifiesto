@@ -1,8 +1,5 @@
 package modelManifiesto.bc.vista;
 
-import modelManifiesto.bc.vista.common.LibroDireccionView;
-
-import oracle.jbo.server.ViewObjectImpl;
 
 import model.bc.VistaObjeto;
 // ---------------------------------------------------------------------
@@ -11,7 +8,7 @@ import model.bc.VistaObjeto;
 // ---    Custom code may be added to this class.
 // ---    Warning: Do not modify method signatures of generated methods.
 // ---------------------------------------------------------------------
-public class LibroDireccionViewImpl extends VistaObjeto implements LibroDireccionView {
+public class LibroDireccionViewImpl extends VistaObjeto {
     /**
      * This is the default constructor (do not remove).
      */
